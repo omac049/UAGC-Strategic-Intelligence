@@ -100,6 +100,84 @@
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        /* Password Protection Styles */
+        .password-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 51, 102, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+        .password-form {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        .password-form h2 {
+            color: var(--arizona-red);
+            margin-bottom: 10px;
+        }
+        .password-form p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .password-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .password-input:focus {
+            outline: none;
+            border-color: var(--arizona-red);
+        }
+        .password-submit {
+            background: linear-gradient(135deg, var(--arizona-red) 0%, var(--arizona-blue) 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        .password-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(171, 5, 32, 0.3);
+        }
+        .error-message {
+            color: var(--arizona-red);
+            margin-top: 15px;
+            font-weight: 500;
+        }
+        .security-note {
+            background: rgba(171, 5, 32, 0.1);
+            border-left: 4px solid var(--arizona-red);
+            padding: 15px;
+            margin-top: 30px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .hidden {
+            display: none;
+        }
+
         /* Customer Journey Flow Styles */
         .customer-journey-flow {
             position: relative;
@@ -1184,6 +1262,27 @@
     </style>
 </head>
 <body>
+    <!-- Password Protection Overlay -->
+    <div id="passwordOverlay" class="password-overlay">
+        <div class="password-form">
+            <h2>🔒 Secure Access</h2>
+            <p>This strategy document contains confidential UAGC business information. Please enter the access code to continue.</p>
+            <form id="passwordForm">
+                <input 
+                    type="password" 
+                    id="passwordInput" 
+                    class="password-input" 
+                    placeholder="Enter access code"
+                    autocomplete="current-password"
+                >
+                <button type="submit" class="password-submit">Access Strategy</button>
+                <div id="errorMessage" class="error-message hidden"></div>
+            </form>
+            <div class="security-note">
+                <strong>🛡️ Security Notice:</strong> This document is intended for authorized UAGC personnel and stakeholders only. Unauthorized access is prohibited.
+            </div>
+        </div>
+    </div>
     <!-- Enhanced Sticky Audio Player Control Panel -->
     <div id="audioControlPanel" class="audio-control-panel">
         <div class="audio-header" id="audioToggleHeader">
@@ -6682,6 +6781,108 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script>
+        // Password Protection System
+        const CORRECT_PASSWORD = 'UAGC2025Recovery'; // Change this to your desired password
+        const SESSION_KEY = 'uagc_strategy_authenticated';
+        
+        // Check if user is already authenticated
+        function checkAuthentication() {
+            const isAuthenticated = sessionStorage.getItem(SESSION_KEY) === 'true';
+            if (isAuthenticated) {
+                hidePasswordOverlay();
+            } else {
+                showPasswordOverlay();
+            }
+        }
+        
+        // Show password overlay
+        function showPasswordOverlay() {
+            document.getElementById('passwordOverlay').style.display = 'flex';
+        }
+        
+        // Hide password overlay
+        function hidePasswordOverlay() {
+            document.getElementById('passwordOverlay').style.display = 'none';
+        }
+        
+        // Handle password form submission
+        function initializePasswordProtection() {
+            document.getElementById('passwordForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const password = document.getElementById('passwordInput').value;
+                const errorDiv = document.getElementById('errorMessage');
+                
+                if (password === CORRECT_PASSWORD) {
+                    // Correct password
+                    sessionStorage.setItem(SESSION_KEY, 'true');
+                    hidePasswordOverlay();
+                    errorDiv.classList.add('hidden');
+                    
+                    // Optional: Show success message
+                    setTimeout(() => {
+                        const notification = document.createElement('div');
+                        notification.innerHTML = '✅ Access granted! Welcome to the UAGC Digital Strategy.';
+                        notification.style.cssText = `
+                            position: fixed; top: 20px; right: 20px; 
+                            background: #28a745; color: white; 
+                            padding: 15px 20px; border-radius: 10px; 
+                            z-index: 1000; font-weight: 500;
+                            box-shadow: 0 10px 30px rgba(40, 167, 69, 0.3);
+                        `;
+                        document.body.appendChild(notification);
+                        setTimeout(() => notification.remove(), 3000);
+                    }, 500);
+                } else {
+                    // Incorrect password
+                    errorDiv.textContent = '❌ Incorrect access code. Please try again.';
+                    errorDiv.classList.remove('hidden');
+                    document.getElementById('passwordInput').value = '';
+                    document.getElementById('passwordInput').focus();
+                    
+                    // Add shake animation
+                    const form = document.querySelector('.password-form');
+                    form.style.animation = 'shake 0.5s ease-in-out';
+                    setTimeout(() => {
+                        form.style.animation = '';
+                    }, 500);
+                }
+            });
+        }
+        
+        // Add shake animation CSS
+        function addShakeAnimation() {
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes shake {
+                    0%, 100% { transform: translateX(0); }
+                    25% { transform: translateX(-10px); }
+                    75% { transform: translateX(10px); }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+        
+        // Initialize password protection on page load
+        window.addEventListener('load', function() {
+            addShakeAnimation();
+            initializePasswordProtection();
+            checkAuthentication();
+            // Focus on password input when overlay is shown
+            setTimeout(() => {
+                if (document.getElementById('passwordOverlay').style.display !== 'none') {
+                    document.getElementById('passwordInput').focus();
+                }
+            }, 100);
+        });
+        
+        // Keyboard shortcuts for password protection
+        document.addEventListener('keydown', function(e) {
+            // ESC key to show password form (for debugging/admin)
+            if (e.key === 'Escape' && e.shiftKey && e.ctrlKey) {
+                showPasswordOverlay();
+            }
+        });
+
         // Global variables
         let bookmarkedSections = [];
         let currentSection = 'hero';

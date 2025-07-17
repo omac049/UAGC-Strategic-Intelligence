@@ -20,33 +20,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* UAGC Primary Colors */
-            --arizona-red: #AB0520;
-            --arizona-blue: #0C234B;
+            /* 🎨 SIMPLIFIED 4-COLOR PALETTE */
+            /* Primary Brand Colors */
+            --arizona-red: #AB0520;    /* Primary: buttons, accents, highlights */
+            --arizona-blue: #0C234B;   /* Secondary: headings, navigation, text */
+            --neutral-gray: #53565A;   /* Body text, secondary elements */
+            --light-background: #f8f9fa; /* Backgrounds, cards, subtle areas */
             
-            /* UAGC Highlight Colors */
-            --highlight-orange: #EF9600;
-            --highlight-sky: #81D3EB;
-            --highlight-blue: #0076A8;
-            --highlight-purple: #621244;
-            
-            /* UAGC Neutral Colors */
-            --light-gray: #D0D0CE;
-            --dark-gray: #53565A;
-            --tan: #0076A8;
-            
-            /* UAGC Secondary Colors */
-            --river: #007D8A;
-            --silver: #98A4AE;
-            --yellow: #F9E17D;
-            
-            /* Background Colors */
+            /* Core System Colors */
+            --text-primary: var(--arizona-blue);
+            --text-secondary: var(--neutral-gray);
+            --text-light: #ffffff;
+            --text-muted: var(--neutral-gray);
             --bg-primary: #ffffff;
-            --bg-secondary: #f8f9fa;
+            --bg-secondary: var(--light-background);
             --bg-light: #ffffff;
-            --bg-dark: #2c3e50;
             
-            /* Enhanced Design System */
+            /* Unified Color Mappings */
+            --primary-color: var(--arizona-blue);
+            --secondary-color: var(--arizona-red);
+            --accent-color: var(--arizona-red);
+            --success-color: var(--arizona-blue);
+            --warning-color: var(--arizona-red);
+            
+            /* Design System */
             --space-xs: 0.25rem;
             --space-sm: 0.5rem;
             --space-md: 1rem;
@@ -68,31 +65,18 @@
             --text-5xl: 3rem;
             --text-6xl: 3.75rem;
             
-            /* Enhanced Shadow System */
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            /* Simplified Shadow System */
+            --shadow-sm: 0 1px 2px 0 rgba(12, 35, 75, 0.05);
+            --shadow-base: 0 1px 3px 0 rgba(12, 35, 75, 0.1), 0 1px 2px 0 rgba(12, 35, 75, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(12, 35, 75, 0.1), 0 2px 4px -1px rgba(12, 35, 75, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(12, 35, 75, 0.1), 0 4px 6px -2px rgba(12, 35, 75, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(12, 35, 75, 0.1), 0 10px 10px -5px rgba(12, 35, 75, 0.04);
+            --shadow-2xl: 0 25px 50px -12px rgba(12, 35, 75, 0.25);
             
-            /* Glassmorphism Effects */
+            /* Simplified Glassmorphism */
             --glass-bg: rgba(255, 255, 255, 0.15);
             --glass-border: rgba(255, 255, 255, 0.2);
             --glass-backdrop: blur(16px);
-            
-            /* Legacy color mappings for compatibility */
-            --primary-color: var(--arizona-blue);
-            --secondary-color: var(--highlight-blue);
-            --accent-color: var(--arizona-red);
-            --success-color: var(--river);
-            --warning-color: var(--highlight-orange);
-            
-            /* Text color system */
-            --text-primary: var(--arizona-blue);
-            --text-secondary: var(--dark-gray);
-            --text-light: #ffffff;
-            --text-muted: #6c757d;
             --border-radius: 12px;
             --border-radius-lg: 16px;
             --border-radius-xl: 20px;
@@ -196,7 +180,7 @@
 
         .journey-line {
             height: 4px;
-            background: linear-gradient(90deg, var(--arizona-blue) 0%, var(--highlight-blue) 50%, var(--highlight-orange) 100%);
+            background: linear-gradient(90deg, var(--arizona-blue) 0%, var(--arizona-blue) 50%, var(--arizona-red) 100%);
             border-radius: 2px;
             top: 50%;
             left: 10%;
@@ -378,7 +362,7 @@
             font-family: 'Proxima Nova', 'Inter', 'Source Sans Pro', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.7;
             font-size: var(--text-base);
-            color: var(--dark-gray);
+            color: var(--neutral-gray);
             letter-spacing: -0.01em;
         }
         
@@ -425,7 +409,7 @@
         p {
             margin-bottom: var(--space-lg);
             font-size: var(--text-lg);
-            color: var(--dark-gray);
+            color: var(--neutral-gray);
             line-height: 1.8;
         }
         
@@ -471,7 +455,7 @@
         .hero-subtitle {
             font-size: clamp(var(--text-2xl), 3vw, var(--text-3xl));
             font-weight: 600;
-            color: var(--yellow);
+            color: var(--arizona-red);
             margin-bottom: var(--space-xl);
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
         }
@@ -532,16 +516,16 @@
             transform: translateY(-2px);
         }
         
-        .stat-card.primary { border-left: 4px solid var(--highlight-blue); }
-        .stat-card.success { border-left: 4px solid var(--river); }
-        .stat-card.warning { border-left: 4px solid var(--highlight-orange); }
+        .stat-card.primary { border-left: 4px solid var(--arizona-blue); }
+        .stat-card.success { border-left: 4px solid var(--arizona-blue); }
+        .stat-card.warning { border-left: 4px solid var(--arizona-red); }
         .stat-card.danger { border-left: 4px solid var(--arizona-red); }
-        .stat-card.info { border-left: 4px solid var(--highlight-sky); }
+        .stat-card.info { border-left: 4px solid var(--arizona-blue); }
         
         .stat-icon {
             font-size: var(--text-3xl);
             margin-bottom: var(--space-sm);
-            color: var(--yellow);
+            color: var(--arizona-red);
         }
         
         .stat-number {
@@ -596,11 +580,11 @@
             padding: var(--space-xl);
             box-shadow: var(--shadow-lg);
             height: 100%;
-            border: 1px solid var(--light-gray);
+            border: 1px solid var(--light-background);
         }
         
         .before-card {
-            border-left: 4px solid var(--river);
+            border-left: 4px solid var(--arizona-blue);
         }
         
         .after-card {
@@ -698,8 +682,8 @@
         }
         
         .alert-warning {
-            background: rgba(239, 150, 0, 0.1);
-            border-left: 4px solid var(--highlight-orange);
+            background: rgba(171, 5, 32, 0.1);
+            border-left: 4px solid var(--arizona-red);
         }
         
         .alert-danger {
@@ -708,13 +692,13 @@
         }
         
         .alert-info {
-            background: rgba(0, 118, 168, 0.1);
-            border-left: 4px solid var(--highlight-blue);
+            background: rgba(12, 35, 75, 0.1);
+            border-left: 4px solid var(--arizona-blue);
         }
         
         .alert-success {
-            background: rgba(0, 125, 138, 0.1);
-            border-left: 4px solid var(--river);
+            background: rgba(12, 35, 75, 0.1);
+            border-left: 4px solid var(--arizona-blue);
         }
         
         /* Enhanced Keywords Section Styling */
@@ -800,15 +784,15 @@
         }
         
         .keyword-chip.secondary {
-            background: var(--highlight-blue);
+            background: var(--arizona-blue);
         }
         
         .keyword-chip.secondary:hover {
-            background: var(--highlight-orange);
+            background: var(--arizona-red);
         }
         
         .search-volume {
-            background: var(--highlight-orange);
+            background: var(--arizona-red);
             color: white;
             font-weight: 700;
             margin-left: 0.25rem;
@@ -824,7 +808,7 @@
         
         .keywords-summary .summary-text {
             font-size: var(--text-xs);
-            color: var(--dark-gray);
+            color: var(--neutral-gray);
             margin: 0;
             font-weight: 500;
         }
@@ -883,7 +867,7 @@
             bottom: 0;
             left: 0;
             height: 3px;
-            background: linear-gradient(90deg, var(--arizona-red), var(--highlight-orange));
+            background: linear-gradient(90deg, var(--arizona-red), var(--arizona-blue));
             transition: width 0.3s ease;
             border-radius: 0 0 20px 20px;
             width: var(--progress-width, 0%);
@@ -1078,7 +1062,7 @@
             width: 18px;
             height: 18px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--arizona-red), var(--highlight-orange));
+            background: linear-gradient(135deg, var(--arizona-red), var(--arizona-blue));
             cursor: pointer;
             border: 3px solid white;
             box-shadow: 0 4px 12px rgba(171, 5, 32, 0.4);
@@ -1094,7 +1078,7 @@
             width: 18px;
             height: 18px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--arizona-red), var(--highlight-orange));
+            background: linear-gradient(135deg, var(--arizona-red), var(--arizona-blue));
             cursor: pointer;
             border: 3px solid white;
             box-shadow: 0 4px 12px rgba(171, 5, 32, 0.4);
@@ -8136,7 +8120,7 @@
             align-items: center;
             gap: 12px;
             padding: 12px 16px;
-            color: var(--dark-gray);
+            color: var(--neutral-gray);
             text-decoration: none;
             border-radius: 10px;
             font-size: 14px;

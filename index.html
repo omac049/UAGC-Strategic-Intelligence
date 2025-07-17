@@ -49,6 +49,8 @@
             margin: 20px;
             transition: all 0.3s ease;
             box-shadow: 0 10px 30px rgba(153, 0, 0, 0.3);
+            cursor: pointer;
+            border: none;
         }
         .main-button:hover {
             transform: translateY(-5px);
@@ -93,6 +95,85 @@
             font-size: 0.9rem;
             margin: 5px;
         }
+        
+        /* Password Protection Styles */
+        .password-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 51, 102, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .password-form {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        .password-form h2 {
+            color: #990000;
+            margin-bottom: 10px;
+        }
+        .password-form p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .password-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .password-input:focus {
+            outline: none;
+            border-color: #990000;
+        }
+        .password-submit {
+            background: linear-gradient(135deg, #990000 0%, #003366 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        .password-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(153, 0, 0, 0.3);
+        }
+        .error-message {
+            color: #990000;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+        .security-note {
+            background: rgba(153, 0, 0, 0.1);
+            border-left: 4px solid #990000;
+            padding: 15px;
+            margin-top: 30px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .hidden {
+            display: none;
+        }
+        
         @media (max-width: 768px) {
             .container {
                 padding: 40px 30px;
@@ -107,17 +188,43 @@
                 padding: 15px 30px;
                 font-size: 1.1rem;
             }
+            .password-form {
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Password Protection Overlay -->
+    <div id="passwordOverlay" class="password-overlay">
+        <div class="password-form">
+            <h2>🔒 Secure Access</h2>
+            <p>This strategy document contains confidential UAGC business information. Please enter the access code to continue.</p>
+            <form id="passwordForm">
+                <input 
+                    type="password" 
+                    id="passwordInput" 
+                    class="password-input" 
+                    placeholder="Enter access code"
+                    autocomplete="current-password"
+                >
+                <button type="submit" class="password-submit">Access Strategy</button>
+                <div id="errorMessage" class="error-message hidden"></div>
+            </form>
+            <div class="security-note">
+                <strong>🛡️ Security Notice:</strong> This document is intended for authorized UAGC personnel and stakeholders only. Unauthorized access is prohibited.
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
     <div class="container">
         <h1>🎯 UAGC Digital Strategy</h1>
         <p class="subtitle">Crisis Recovery Plan with Interactive Audio Experience</p>
         
-        <a href="seo-cro-audit-uagc.html" class="main-button">
+        <button onclick="launchStrategy()" class="main-button">
             🎧 Launch Interactive Strategy
-        </a>
+        </button>
         
         <div class="features">
             <div class="feature">
@@ -155,5 +262,112 @@
             </p>
         </div>
     </div>
+
+    <script>
+        // Password Protection System
+        const CORRECT_PASSWORD = 'UAGC2025Recovery'; // Change this to your desired password
+        const SESSION_KEY = 'uagc_strategy_authenticated';
+        
+        // Check if user is already authenticated
+        function checkAuthentication() {
+            const isAuthenticated = sessionStorage.getItem(SESSION_KEY) === 'true';
+            if (isAuthenticated) {
+                hidePasswordOverlay();
+            } else {
+                showPasswordOverlay();
+            }
+        }
+        
+        // Show password overlay
+        function showPasswordOverlay() {
+            document.getElementById('passwordOverlay').style.display = 'flex';
+        }
+        
+        // Hide password overlay
+        function hidePasswordOverlay() {
+            document.getElementById('passwordOverlay').style.display = 'none';
+        }
+        
+        // Handle password form submission
+        document.getElementById('passwordForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const password = document.getElementById('passwordInput').value;
+            const errorDiv = document.getElementById('errorMessage');
+            
+            if (password === CORRECT_PASSWORD) {
+                // Correct password
+                sessionStorage.setItem(SESSION_KEY, 'true');
+                hidePasswordOverlay();
+                errorDiv.classList.add('hidden');
+                
+                // Optional: Show success message
+                setTimeout(() => {
+                    alert('✅ Access granted! Welcome to the UAGC Digital Strategy.');
+                }, 500);
+            } else {
+                // Incorrect password
+                errorDiv.textContent = '❌ Incorrect access code. Please try again.';
+                errorDiv.classList.remove('hidden');
+                document.getElementById('passwordInput').value = '';
+                document.getElementById('passwordInput').focus();
+                
+                // Add shake animation
+                const form = document.querySelector('.password-form');
+                form.style.animation = 'shake 0.5s ease-in-out';
+                setTimeout(() => {
+                    form.style.animation = '';
+                }, 500);
+            }
+        });
+        
+        // Launch strategy document
+        function launchStrategy() {
+            // Check authentication before allowing access
+            const isAuthenticated = sessionStorage.getItem(SESSION_KEY) === 'true';
+            if (isAuthenticated) {
+                window.open('seo-cro-audit-uagc.html', '_blank');
+            } else {
+                alert('🔒 Please authenticate first to access the strategy document.');
+                showPasswordOverlay();
+                document.getElementById('passwordInput').focus();
+            }
+        }
+        
+        // Add shake animation for incorrect password
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-10px); }
+                75% { transform: translateX(10px); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Initialize password protection on page load
+        window.addEventListener('load', function() {
+            checkAuthentication();
+            // Focus on password input when overlay is shown
+            setTimeout(() => {
+                if (document.getElementById('passwordOverlay').style.display !== 'none') {
+                    document.getElementById('passwordInput').focus();
+                }
+            }, 100);
+        });
+        
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // ESC key to show password form (for debugging/admin)
+            if (e.key === 'Escape' && e.shiftKey && e.ctrlKey) {
+                showPasswordOverlay();
+            }
+        });
+        
+        // Security: Clear authentication on browser close
+        window.addEventListener('beforeunload', function() {
+            // Optional: Clear session on browser close for extra security
+            // sessionStorage.removeItem(SESSION_KEY);
+        });
+    </script>
 </body>
 </html> 

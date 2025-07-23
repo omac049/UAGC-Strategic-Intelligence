@@ -6964,45 +6964,17 @@
                                     <div class="row g-4">
                                         <div class="col-md-6">
                                             <h6 class="text-danger fw-bold mb-3">🎯 Speculation Rules API Implementation</h6>
-                                            <pre class="bg-dark text-light p-3 rounded small"><code>&lt;script type="speculationrules"&gt;
-{
-  "prerender": [{
-    "where": { "href_matches": "/programs/*" },
-    "eagerness": "moderate"
-  }],
-  "prefetch": [{
-    "where": { "href_matches": "/degrees/*" },
-    "eagerness": "conservative"
-  }]
-}
-&lt;/script&gt;</code></pre>
+
                                             <small class="text-muted">Prerender critical program pages for instant navigation</small>
                                         </div>
                                         <div class="col-md-6">
                                             <h6 class="text-danger fw-bold mb-3">🏎️ fetchpriority Implementation</h6>
-                                            <pre class="bg-dark text-light p-3 rounded small"><code>&lt;img src="hero-image.jpg" 
-     alt="UAGC Programs" 
-     width="1200" 
-     height="600"
-     fetchpriority="high"
-     loading="eager"&gt;
 
-&lt;link rel="preload" 
-      as="image" 
-      href="hero-image.jpg"
-      fetchpriority="high"&gt;</code></pre>
                                             <small class="text-muted">Boost LCP image loading priority</small>
                                         </div>
                                         <div class="col-md-6">
                                             <h6 class="text-danger fw-bold mb-3">⚡ Early Hints (103) Server Config</h6>
-                                            <pre class="bg-dark text-light p-3 rounded small"><code># Apache .htaccess
-&lt;If "%{HTTP_HOST} == 'www.uagc.edu'"&gt;
-  Header set Link "&lt;/css/critical.css&gt;; rel=preload; as=style"
-  Header set Link "&lt;/images/hero.jpg&gt;; rel=preload; as=image"
-&lt;/If&gt;
 
-# Nginx config
-add_header Link "&lt;/css/critical.css&gt;; rel=preload; as=style";</code></pre>
                                             <small class="text-muted">Send resource hints during server think-time</small>
                                         </div>
                                         <div class="col-md-6">
@@ -7034,79 +7006,22 @@ add_header Link "&lt;/css/critical.css&gt;; rel=preload; as=style";</code></pre>
                                     <div class="row g-4">
                                         <div class="col-md-6">
                                             <h6 class="text-warning fw-bold mb-3">⏱️ scheduler.yield() Implementation</h6>
-                                            <pre class="bg-dark text-light p-3 rounded small"><code>async function processLargeDataset(data) {
-  for (let i = 0; i < data.length; i++) {
-    processItem(data[i]);
-    
-    // Yield every 50 items
-    if (i % 50 === 0) {
-      await scheduler.yield();
-    }
-  }
-}
 
-// Fallback for older browsers
-const yieldToMain = () => {
-  return new Promise(resolve => {
-    setTimeout(resolve, 0);
-  });
-};</code></pre>
                                             <small class="text-muted">Break up long tasks for better responsiveness</small>
                                         </div>
                                         <div class="col-md-6">
                                             <h6 class="text-warning fw-bold mb-3">🗜️ DOM Optimization with content-visibility</h6>
-                                            <pre class="bg-dark text-light p-3 rounded small"><code>/* CSS for off-screen content */
-.program-card {
-  content-visibility: auto;
-  contain-intrinsic-size: 300px;
-}
 
-.testimonial-section {
-  content-visibility: auto;
-  contain-intrinsic-size: 0 500px;
-}
-
-/* Reduce DOM complexity */
-.container {
-  contain: layout style paint;
-}</code></pre>
                                             <small class="text-muted">Defer rendering of off-screen elements</small>
                                         </div>
                                         <div class="col-md-6">
                                             <h6 class="text-warning fw-bold mb-3">📱 LoAF API for INP Debugging</h6>
-                                            <pre class="bg-dark text-light p-3 rounded small"><code>// Monitor Long Animation Frames
-const observer = new PerformanceObserver((list) => {
-  for (const entry of list.getEntries()) {
-    console.log('Long task detected:', {
-      duration: entry.duration,
-      startTime: entry.startTime,
-      scripts: entry.scripts
-    });
-  }
-});
 
-observer.observe({
-  type: 'long-animation-frame',
-  buffered: true
-});</code></pre>
                                             <small class="text-muted">Debug slow interactions in production</small>
                                         </div>
                                         <div class="col-md-6">
                                             <h6 class="text-warning fw-bold mb-3">🎛️ Web Workers for Heavy Operations</h6>
-                                            <pre class="bg-dark text-light p-3 rounded small"><code>// main.js
-const worker = new Worker('analytics-worker.js');
-worker.postMessage({
-  type: 'PROCESS_ANALYTICS',
-  data: performanceData
-});
 
-// analytics-worker.js
-self.onmessage = function(e) {
-  if (e.data.type === 'PROCESS_ANALYTICS') {
-    const processed = heavyAnalyticsProcessing(e.data.data);
-    self.postMessage(processed);
-  }
-};</code></pre>
                                             <small class="text-muted">Move intensive operations off main thread</small>
                                         </div>
                                     </div>
@@ -7126,37 +7041,12 @@ self.onmessage = function(e) {
                                     <div class="row g-4">
                                         <div class="col-md-6">
                                             <h6 class="text-success fw-bold mb-3">📐 aspect-ratio Property Implementation</h6>
-                                            <pre class="bg-dark text-light p-3 rounded small"><code>/* Reserve space for dynamic content */
-.video-container {
-  aspect-ratio: 16 / 9;
-  width: 100%;
-}
 
-.testimonial-image {
-  aspect-ratio: 1;
-  width: 200px;
-}
-
-.banner-ad {
-  aspect-ratio: 728 / 90;
-  width: 100%;
-  min-height: 90px;
-}</code></pre>
                                             <small class="text-muted">Set dimensions for dynamic content</small>
                                         </div>
                                         <div class="col-md-6">
                                             <h6 class="text-success fw-bold mb-3">🔤 Font Optimization Strategy</h6>
-                                            <pre class="bg-dark text-light p-3 rounded small"><code>/* Font loading optimization */
-@font-face {
-  font-family: 'CustomFont';
-  font-display: swap;
-  font-style: normal;
-  font-weight: 400;
-  src: url('font.woff2') format('woff2');
-  size-adjust: 95%;
-  ascent-override: 90%;
-  descent-override: 20%;
-}</code></pre>
+
                                             <small class="text-muted">Minimize font-related layout shifts</small>
                                         </div>
                                     </div>

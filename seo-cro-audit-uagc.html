@@ -5798,52 +5798,22 @@
                 </div>
             </div>
 
-            <!-- Historical Data & Root Cause Analysis -->
-            <div class="row g-4 mb-4">
-                <div class="col-md-6">
-                    <div class="card border-info h-100">
-                        <div class="card-header bg-info text-white">
-                            <h6 class="mb-0">📊 Performance Trend Analysis</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-sm">
-                                    <thead>
-                                        <tr><th>Month</th><th>Poor URLs</th><th>Success Rate</th></tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr><td><strong>May 2025</strong></td><td class="text-danger">713</td><td class="text-danger">4.1%</td></tr>
-                                        <tr><td><strong>June 2025</strong></td><td class="text-success">106</td><td class="text-success">3.3%</td></tr>
-                                        <tr><td><strong>July 2025</strong></td><td class="text-danger">490</td><td class="text-danger">3.1%</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="alert alert-warning border-0 mt-2 mb-0">
-                                <small><strong>Key Insight:</strong> June's 83% improvement regressed in July, indicating temporary fixes failed</small>
-                            </div>
-                        </div>
+            <!-- Root Cause Analysis & Performance Insights -->
+            <div class="alert alert-info border-0 mb-4">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <h6 class="text-danger fw-bold mb-2">🔬 Primary Performance Bottlenecks:</h6>
+                        <ul class="list-unstyled small">
+                            <li>🖼️ <strong>Unoptimized Images (67% of LCP issues)</strong> - WebP/AVIF conversion needed</li>
+                            <li>📱 <strong>JavaScript Bloat (54% of INP issues)</strong> - Code splitting & cleanup required</li>
+                            <li>🌐 <strong>CDN Misconfigurations (43% of TTFB)</strong> - Geographic optimization pending</li>
+                        </ul>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card border-warning h-100">
-                        <div class="card-header bg-warning text-dark">
-                            <h6 class="mb-0">🔬 Root Cause Analysis</h6>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="small text-uppercase text-danger mb-2">Primary Bottlenecks:</h6>
-                            <ul class="list-unstyled small mb-3">
-                                <li class="mb-1">🖼️ <strong>Unoptimized Images (67% of LCP issues)</strong></li>
-                                <li class="mb-1">📱 <strong>JavaScript Bloat (54% of INP issues)</strong></li>
-                                <li class="mb-1">🌐 <strong>CDN Misconfigurations (43% of TTFB)</strong></li>
-                                <li class="mb-1">⚡ <strong>Render-Blocking Resources (38% of LCP)</strong></li>
-                                <li class="mb-0">🔄 <strong>Database Query Inefficiency (29%)</strong></li>
-                            </ul>
-                            <h6 class="small text-uppercase text-success mb-2">Proven Solutions:</h6>
-                            <ul class="list-unstyled small mb-0">
-                                <li class="mb-1">✅ <strong>WebP conversion:</strong> Reduced LCP by 2.1s</li>
-                                <li class="mb-1">✅ <strong>JS audit:</strong> Removed 847KB unused code</li>
-                                <li class="mb-0">✅ <strong>CDN upgrade:</strong> Geographic optimization</li>
-                            </ul>
+                    <div class="col-md-6">
+                        <h6 class="text-success fw-bold mb-2">📊 Performance Trend (May-July 2025):</h6>
+                        <small class="text-muted">May: 713 poor URLs (4.1%) → June: 106 poor URLs (3.3%) → July: 490 poor URLs (3.1%)</small>
+                        <div class="alert alert-warning border-0 mt-2 mb-0 py-2">
+                            <small><strong>Key Insight:</strong> June's 83% improvement regressed in July, indicating temporary fixes failed</small>
                         </div>
                     </div>
                 </div>
@@ -5853,23 +5823,24 @@
             <div class="row g-4 mb-4">
                 <div class="col-md-4">
                     <div class="card border-danger h-100">
-                        <div class="card-header bg-danger text-white">
+                        <div class="card-header bg-danger text-white text-center">
                             <h6 class="mb-0">🐌 Largest Contentful Paint (LCP)</h6>
                             <small>1,022 URLs failing • 78% of site</small>
                         </div>
-                        <div class="card-body">
-                            <div class="alert alert-light border-0 mb-2">
+                        <div class="card-body text-center">
+                            <div class="alert alert-light border-0 mb-2 py-2">
                                 <small><strong>Crisis:</strong> 499 URLs >4s • 523 URLs 2.5-4s</small>
                             </div>
-                            <h6 class="small text-uppercase mb-2">🚀 2025 Optimization Strategy:</h6>
-                            <ul class="list-unstyled small">
-                                <li>• <strong>Speculation Rules API:</strong> Prerender critical pages</li>
-                                <li>• <strong>fetchpriority="high":</strong> Boost LCP images</li>
-                                <li>• <strong>Early Hints (103):</strong> Server resource hints</li>
-                                <li>• <strong>CDN optimization:</strong> Geographic distribution</li>
-                                <li>• <strong>WebP/AVIF formats:</strong> Next-gen image formats</li>
-                            </ul>
-                            <div class="mt-2">
+                            <h6 class="small fw-bold mb-2">Key Solutions:</h6>
+                            <div class="text-start">
+                                <small class="text-muted">
+                                    • fetchpriority="high" for LCP images<br>
+                                    • WebP/AVIF format conversion<br>
+                                    • CDN optimization & Early Hints<br>
+                                    • Speculation Rules API prerendering
+                                </small>
+                            </div>
+                            <div class="mt-3">
                                 <span class="badge bg-danger">Current: >4s</span>
                                 <span class="badge bg-success">Target: <2.5s</span>
                             </div>
@@ -5879,23 +5850,24 @@
                 
                 <div class="col-md-4">
                     <div class="card border-warning h-100">
-                        <div class="card-header bg-warning text-dark">
+                        <div class="card-header bg-warning text-dark text-center">
                             <h6 class="mb-0">⚡ Interaction to Next Paint (INP)</h6>
                             <small>858 URLs failing • 66% of site</small>
                         </div>
-                        <div class="card-body">
-                            <div class="alert alert-light border-0 mb-2">
+                        <div class="card-body text-center">
+                            <div class="alert alert-light border-0 mb-2 py-2">
                                 <small><strong>Crisis:</strong> 8 URLs >500ms • 850 URLs 200-500ms</small>
                             </div>
-                            <h6 class="small text-uppercase mb-2">🧠 2025 Optimization Strategy:</h6>
-                            <ul class="list-unstyled small">
-                                <li>• <strong>scheduler.yield():</strong> Break up long tasks</li>
-                                <li>• <strong>content-visibility:</strong> Defer off-screen rendering</li>
-                                <li>• <strong>LoAF API:</strong> Debug slow interactions</li>
-                                <li>• <strong>Web Workers:</strong> Move operations off main thread</li>
-                                <li>• <strong>Code splitting:</strong> Remove unused JavaScript</li>
-                            </ul>
-                            <div class="mt-2">
+                            <h6 class="small fw-bold mb-2">Key Solutions:</h6>
+                            <div class="text-start">
+                                <small class="text-muted">
+                                    • scheduler.yield() for long tasks<br>
+                                    • Web Workers for heavy operations<br>
+                                    • Code splitting & unused JS removal<br>
+                                    • content-visibility CSS optimization
+                                </small>
+                            </div>
+                            <div class="mt-3">
                                 <span class="badge bg-warning text-dark">Current: >200ms</span>
                                 <span class="badge bg-success">Target: <200ms</span>
                             </div>
@@ -5905,23 +5877,24 @@
                 
                 <div class="col-md-4">
                     <div class="card border-success h-100">
-                        <div class="card-header bg-success text-white">
+                        <div class="card-header bg-success text-white text-center">
                             <h6 class="mb-0">📐 Cumulative Layout Shift (CLS)</h6>
                             <small>15 URLs failing • 1% of site</small>
                         </div>
-                        <div class="card-body">
-                            <div class="alert alert-light border-0 mb-2">
+                        <div class="card-body text-center">
+                            <div class="alert alert-light border-0 mb-2 py-2">
                                 <small><strong>Status:</strong> Good • 8 URLs >0.25 • 7 URLs 0.1-0.25</small>
                             </div>
-                            <h6 class="small text-uppercase mb-2">🎨 2025 Optimization Strategy:</h6>
-                            <ul class="list-unstyled small">
-                                <li>• <strong>aspect-ratio property:</strong> Reserve dynamic content space</li>
-                                <li>• <strong>Explicit image sizes:</strong> Width/height attributes</li>
-                                <li>• <strong>Font optimization:</strong> font-display: swap</li>
-                                <li>• <strong>bfcache eligibility:</strong> Back/forward cache</li>
-                                <li>• <strong>Transform animations:</strong> Avoid layout triggers</li>
-                            </ul>
-                            <div class="mt-2">
+                            <h6 class="small fw-bold mb-2">Key Solutions:</h6>
+                            <div class="text-start">
+                                <small class="text-muted">
+                                    • Explicit image dimensions (width/height)<br>
+                                    • font-display: swap optimization<br>
+                                    • aspect-ratio property for dynamic content<br>
+                                    • Transform animations vs layout triggers
+                                </small>
+                            </div>
+                            <div class="mt-3">
                                 <span class="badge bg-warning text-dark">Current: >0.1</span>
                                 <span class="badge bg-success">Target: <0.1</span>
                             </div>
@@ -5930,207 +5903,59 @@
                 </div>
             </div>
 
-            <!-- Competitive Benchmark & Implementation Timeline -->
+            <!-- Implementation Strategy & Competitive Benchmark -->
             <div class="row g-4 mb-4">
                 <div class="col-md-8">
                     <div class="card border-primary h-100">
                         <div class="card-header bg-primary text-white">
-                            <h6 class="mb-0">🗓️ 12-Month Implementation Roadmap</h6>
-                            <small class="text-light">Comprehensive Core Web Vitals transformation timeline</small>
+                            <h6 class="mb-0">🗓️ Strategic Implementation Phases</h6>
+                            <small class="text-light">12-month transformation roadmap</small>
                         </div>
                         <div class="card-body">
-                            <!-- Q1: Foundation & Quick Wins -->
-                            <div class="mb-4">
-                                <h6 class="text-primary fw-bold mb-3">🚀 Q1: Foundation & Quick Wins (Months 1-3)</h6>
-                                <div class="row g-3">
-                                    <div class="col-md-4">
-                                        <div class="border rounded p-3 h-100">
-                                            <h6 class="text-danger small fw-bold">Month 1: LCP Crisis</h6>
-                                            <ul class="list-unstyled small mb-0">
-                                                <li>🖼️ Image optimization (WebP/AVIF)</li>
-                                                <li>⚡ fetchpriority="high" deployment</li>
-                                                <li>🌐 CDN configuration upgrade</li>
-                                                <li>📄 Preload critical resources</li>
-                                                <li>🔍 Performance audit baseline</li>
-                                            </ul>
-                                        </div>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="border-start border-3 border-danger ps-3 mb-3">
+                                        <h6 class="text-danger fw-bold small">🚀 Q1: Foundation (Months 1-3)</h6>
+                                        <ul class="list-unstyled small text-muted">
+                                            <li>• Image optimization & CDN upgrade</li>
+                                            <li>• JavaScript cleanup & code splitting</li>
+                                            <li>• Layout shift prevention & monitoring setup</li>
+                                        </ul>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="border rounded p-3 h-100">
-                                            <h6 class="text-warning small fw-bold">Month 2: INP Foundation</h6>
-                                            <ul class="list-unstyled small mb-0">
-                                                <li>🧹 JavaScript audit & cleanup</li>
-                                                <li>⚙️ scheduler.yield() implementation</li>
-                                                <li>📱 Third-party script optimization</li>
-                                                <li>🔄 Code splitting strategy</li>
-                                                <li>📊 LoAF API monitoring setup</li>
-                                            </ul>
-                                        </div>
+                                    <div class="border-start border-3 border-info ps-3 mb-3">
+                                        <h6 class="text-info fw-bold small">🔧 Q2: Advanced Tech (Months 4-6)</h6>
+                                        <ul class="list-unstyled small text-muted">
+                                            <li>• Speculation Rules API & Early Hints</li>
+                                            <li>• Web Workers & content-visibility CSS</li>
+                                            <li>• Edge computing & database optimization</li>
+                                        </ul>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="border rounded p-3 h-100">
-                                            <h6 class="text-success small fw-bold">Month 3: CLS & Monitoring</h6>
-                                            <ul class="list-unstyled small mb-0">
-                                                <li>📐 Layout shift prevention</li>
-                                                <li>🎨 Font optimization (font-display)</li>
-                                                <li>📊 Real User Monitoring (RUM)</li>
-                                                <li>🤖 Lighthouse CI integration</li>
-                                                <li>📈 Performance dashboard setup</li>
-                                            </ul>
-                                        </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="border-start border-3 border-success ps-3 mb-3">
+                                        <h6 class="text-success fw-bold small">⚡ Q3: Excellence (Months 7-9)</h6>
+                                        <ul class="list-unstyled small text-muted">
+                                            <li>• Mobile-first optimization strategies</li>
+                                            <li>• Network-aware & battery-conscious performance</li>
+                                            <li>• Competitive benchmarking & A/B testing</li>
+                                        </ul>
+                                    </div>
+                                    <div class="border-start border-3 border-secondary ps-3 mb-3">
+                                        <h6 class="text-dark fw-bold small">🚀 Q4: Innovation (Months 10-12)</h6>
+                                        <ul class="list-unstyled small text-muted">
+                                            <li>• AI-powered optimization & HTTP/3</li>
+                                            <li>• Automated pipelines & ML insights</li>
+                                            <li>• Team training & 2026 strategy planning</li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- Q2: Advanced Optimization -->
-                            <div class="mb-4">
-                                <h6 class="text-info fw-bold mb-3">🔧 Q2: Advanced Optimization (Months 4-6)</h6>
-                                <div class="row g-3">
-                                    <div class="col-md-4">
-                                        <div class="border rounded p-3 h-100">
-                                            <h6 class="text-primary small fw-bold">Month 4: Advanced LCP</h6>
-                                            <ul class="list-unstyled small mb-0">
-                                                <li>🚀 Speculation Rules API</li>
-                                                <li>💡 Early Hints (HTTP 103)</li>
-                                                <li>🎭 Critical CSS inlining</li>
-                                                <li>🗜️ Resource compression optimization</li>
-                                                <li>📱 Mobile-specific optimizations</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="border rounded p-3 h-100">
-                                            <h6 class="text-secondary small fw-bold">Month 5: INP Excellence</h6>
-                                            <ul class="list-unstyled small mb-0">
-                                                <li>👷 Web Workers implementation</li>
-                                                <li>👀 content-visibility CSS</li>
-                                                <li>⚡ Interaction optimization</li>
-                                                <li>🎯 Event delegation improvements</li>
-                                                <li>🔄 Lazy loading enhancements</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="border rounded p-3 h-100">
-                                            <h6 class="text-warning small fw-bold">Month 6: Infrastructure</h6>
-                                            <ul class="list-unstyled small mb-0">
-                                                <li>🌍 Edge computing setup</li>
-                                                <li>🗄️ Database query optimization</li>
-                                                <li>🔧 Server-side performance tuning</li>
-                                                <li>📊 Advanced analytics integration</li>
-                                                <li>🎯 Foundation milestone checkpoint</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Q3: Performance Excellence -->
-                            <div class="mb-4">
-                                <h6 class="text-success fw-bold mb-3">⚡ Q3: Performance Excellence (Months 7-9)</h6>
-                                <div class="row g-3">
-                                    <div class="col-md-4">
-                                        <div class="border rounded p-3 h-100">
-                                            <h6 class="text-info small fw-bold">Month 7: User Experience</h6>
-                                            <ul class="list-unstyled small mb-0">
-                                                <li>🎨 Perceived performance optimization</li>
-                                                <li>🔄 Progressive loading strategies</li>
-                                                <li>📱 Responsive design optimization</li>
-                                                <li>🎭 Animation performance tuning</li>
-                                                <li>🧪 A/B testing performance impact</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="border rounded p-3 h-100">
-                                            <h6 class="text-danger small fw-bold">Month 8: Mobile Excellence</h6>
-                                            <ul class="list-unstyled small mb-0">
-                                                <li>📱 Mobile-first optimization</li>
-                                                <li>🔋 Battery-conscious performance</li>
-                                                <li>📶 Network-aware loading</li>
-                                                <li>🎯 Touch interaction optimization</li>
-                                                <li>📊 Mobile-specific monitoring</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="border rounded p-3 h-100">
-                                            <h6 class="text-success small fw-bold">Month 9: Competitive Edge</h6>
-                                            <ul class="list-unstyled small mb-0">
-                                                <li>🏆 Industry benchmark analysis</li>
-                                                <li>🔍 Competitor performance audit</li>
-                                                <li>🎯 Second milestone: 47% target</li>
-                                                <li>📈 ROI measurement & reporting</li>
-                                                <li>🔄 Strategy refinement</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Q4: Innovation & Future-Proofing -->
-                            <div class="mb-3">
-                                <h6 class="text-dark fw-bold mb-3">🚀 Q4: Innovation & Future-Proofing (Months 10-12)</h6>
-                                <div class="row g-3">
-                                    <div class="col-md-4">
-                                        <div class="border rounded p-3 h-100">
-                                            <h6 class="text-primary small fw-bold">Month 10: Next-Gen Tech</h6>
-                                            <ul class="list-unstyled small mb-0">
-                                                <li>🔮 Emerging web standards adoption</li>
-                                                <li>🤖 AI-powered optimization</li>
-                                                <li>⚡ HTTP/3 implementation</li>
-                                                <li>🎭 Advanced browser features</li>
-                                                <li>🔬 Experimental optimizations</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="border rounded p-3 h-100">
-                                            <h6 class="text-secondary small fw-bold">Month 11: Scale & Automation</h6>
-                                            <ul class="list-unstyled small mb-0">
-                                                <li>🤖 Automated optimization pipelines</li>
-                                                <li>📊 ML-powered performance insights</li>
-                                                <li>🔄 Self-healing performance systems</li>
-                                                <li>🎯 Predictive performance analytics</li>
-                                                <li>🛡️ Performance regression prevention</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="border rounded p-3 h-100">
-                                            <h6 class="text-success small fw-bold">Month 12: Excellence & Leadership</h6>
-                                            <ul class="list-unstyled small mb-0">
-                                                <li>🏆 Performance optimization excellence</li>
-                                                <li>📚 Performance knowledge base</li>
-                                                <li>👥 Team training & certification</li>
-                                                <li>🔄 2026 strategy planning</li>
-                                                <li>🎉 Performance excellence celebration</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Key Milestones -->
-                            <div class="alert alert-light border border-primary">
-                                <h6 class="text-primary fw-bold mb-2">🎯 Implementation Milestones</h6>
-                                <div class="row g-2 small">
-                                    <div class="col-md-3">
-                                        <strong class="text-danger">Month 3:</strong><br>
-                                        <small>Foundation & monitoring in place</small>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <strong class="text-warning">Month 6:</strong><br>
-                                        <small>Advanced optimizations deployed</small>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <strong class="text-success">Month 9:</strong><br>
-                                        <small>Performance excellence established</small>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <strong class="text-primary">Month 12:</strong><br>
-                                        <small>Continuous optimization achieved</small>
-                                    </div>
+                            <div class="alert alert-light border-0 mt-3 mb-0">
+                                <div class="row g-2 small text-center">
+                                    <div class="col-3"><strong class="text-danger">Month 3:</strong><br><small>Foundation ready</small></div>
+                                    <div class="col-3"><strong class="text-warning">Month 6:</strong><br><small>Advanced features</small></div>
+                                    <div class="col-3"><strong class="text-success">Month 9:</strong><br><small>Performance excellence</small></div>
+                                    <div class="col-3"><strong class="text-primary">Month 12:</strong><br><small>Continuous optimization</small></div>
                                 </div>
                             </div>
                         </div>
@@ -6169,57 +5994,51 @@
                 </div>
             </div>
 
-            <!-- Diagnostic Tools & Expected Impact -->
+            <!-- Implementation Tools & Current Status -->
             <div class="row g-4 mb-4">
                 <div class="col-md-6">
                     <div class="card border-info h-100">
                         <div class="card-header bg-info text-white">
-                            <h6 class="mb-0">🛠️ Core Web Vitals Diagnostic Tools</h6>
-                            <small class="text-light">Comprehensive testing and monitoring toolkit</small>
+                            <h6 class="mb-0">🛠️ Diagnostic & Monitoring Tools</h6>
                         </div>
                         <div class="card-body">
                             <div class="row g-3">
                                 <div class="col-md-6">
-                                    <h6 class="small text-uppercase text-info mb-2">Primary Assessment Tools:</h6>
+                                    <h6 class="small fw-bold text-info mb-2">Primary Tools:</h6>
                                     <ul class="list-unstyled small">
-                                        <li>• <strong>PageSpeed Insights (Mobile):</strong> <a href="https://pagespeed.web.dev/analysis/https-www-uagc-edu/oayz4i567b?form_factor=mobile" target="_blank" class="text-info">UAGC Performance Report</a></li>
-                                        <li>• <strong>Search Console CWV:</strong> <a href="https://support.google.com/webmasters/answer/9205520" target="_blank" class="text-info">Real user data (CrUX)</a></li>
-                                        <li>• <strong>Chrome DevTools:</strong> Performance tab + CWV overlay</li>
-                                        <li>• <strong>Lighthouse:</strong> Automated auditing</li>
+                                        <li>• <a href="https://pagespeed.web.dev/analysis/https-www-uagc-edu/oayz4i567b?form_factor=mobile" target="_blank" class="text-info"><strong>UAGC Performance Report</strong></a></li>
+                                        <li>• <a href="https://support.google.com/webmasters/answer/9205520" target="_blank" class="text-info">Search Console CWV</a></li>
+                                        <li>• Chrome DevTools Performance</li>
+                                        <li>• Lighthouse Automated Auditing</li>
                                     </ul>
                                 </div>
                                 <div class="col-md-6">
-                                    <h6 class="small text-uppercase text-info mb-2">Advanced Monitoring:</h6>
+                                    <h6 class="small fw-bold text-info mb-2">Advanced Monitoring:</h6>
                                     <ul class="list-unstyled small">
-                                        <li>• <strong>Web Vitals Extension:</strong> Real-time CWV monitoring</li>
-                                        <li>• <strong>WebPageTest:</strong> Detailed waterfall analysis</li>
-                                        <li>• <strong>LoAF API:</strong> Long Animation Frames debugging</li>
-                                        <li>• <strong>RUM Solutions:</strong> Continuous field data collection</li>
+                                        <li>• Web Vitals Extension</li>
+                                        <li>• WebPageTest Analysis</li>
+                                        <li>• LoAF API Debugging</li>
+                                        <li>• RUM Field Data Collection</li>
                                     </ul>
                                 </div>
                             </div>
                             
-                            <!-- Current UAGC Performance Status -->
-                            <div class="alert alert-warning border-0 mt-3 mb-0">
-                                <h6 class="small text-uppercase mb-2">📊 Current UAGC Performance Status:</h6>
-                                <div class="row g-2 small">
+                            <!-- Current Status Summary -->
+                            <div class="alert alert-warning border-0 mt-3 mb-0 py-2">
+                                <div class="row g-2 small text-center">
                                     <div class="col-md-4">
-                                        <strong class="text-danger">LCP (Mobile):</strong><br>
-                                        <small>Needs Improvement - Focus on image optimization</small>
+                                        <strong class="text-danger">LCP:</strong> Needs Improvement
                                     </div>
                                     <div class="col-md-4">
-                                        <strong class="text-warning">INP (Mobile):</strong><br>
-                                        <small>Requires attention - JavaScript optimization needed</small>
+                                        <strong class="text-warning">INP:</strong> Requires Attention
                                     </div>
                                     <div class="col-md-4">
-                                        <strong class="text-success">CLS (Mobile):</strong><br>
-                                        <small>Generally performing well - minimal layout shifts</small>
+                                        <strong class="text-success">CLS:</strong> Generally Good
                                     </div>
                                 </div>
                                 <hr class="my-2">
-                                <small class="text-muted">
-                                    <i class="fas fa-link me-1"></i>
-                                    Based on real PageSpeed Insights data. <strong>Validation Period:</strong> 28-day tracking required per <a href="https://support.google.com/webmasters/answer/9205520" target="_blank" class="text-warning">Google Search Console guidelines</a>.
+                                <small class="text-muted text-center d-block">
+                                    Based on PageSpeed Insights data • 28-day validation required per <a href="https://support.google.com/webmasters/answer/9205520" target="_blank" class="text-warning">Google guidelines</a>
                                 </small>
                             </div>
                         </div>

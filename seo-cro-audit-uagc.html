@@ -5967,33 +5967,44 @@
 
     <!-- Main Content -->
     <div class="container mt-5 pt-5">
-        <!-- Part 5: Technical SEO Analysis -->
+        <!-- Part 5: Website Speed & Performance -->
         <section id="technical-seo" class="mb-5">
             <div class="section-header">
-                <h2 class="display-5">⚡ Part 5: Technical SEO Analysis</h2>
-                <p class="text-muted">Performance issues affecting search rankings and user experience</p>
+                <h2 class="display-5">⚡ Part 5: Website Speed & Performance</h2>
+                <p class="text-muted">Why our slow website is hurting enrollment and losing students</p>
             </div>
 
-            <!-- Crisis Overview -->
-            <div class="alert alert-danger border-3 border-danger mb-4">
+            <!-- The Problem in Plain English -->
+            <div class="alert alert-enhanced alert-enhanced-danger border-0 mb-4">
                 <div class="row align-items-center">
-                    <div class="col-md-8">
-                        <h5 class="alert-heading mb-2">🚨 CRITICAL: 91.5% Core Web Vitals Failure Rate</h5>
-                        <p class="mb-2"><strong>1,895 URLs failing</strong> vs <strong>119 performing "Good"</strong> • Industry average: 47% success rate</p>
-                        <small class="text-danger">Data: Google Search Console Core Web Vitals Report (July 2025) • Real user data (CrUX)</small>
+                    <div class="col-md-2 text-center">
+                        <i class="fas fa-stopwatch fa-4x mb-3" style="color: #721c24;"></i>
                     </div>
-                    <div class="col-md-4">
-                        <div class="row g-2">
-                            <div class="col-6">
-                                <div class="bg-white p-2 rounded text-center">
-                                    <div class="h5 text-danger fw-bold mb-0">91.5%</div>
-                                    <small class="text-danger">Failure Rate</small>
+                    <div class="col-md-10">
+                        <h4 class="fw-bold mb-3" style="color: #721c24;">🚨 Our Website is Too Slow</h4>
+                        <p class="mb-3 fs-5"><strong>91% of our web pages load too slowly.</strong> This means most students leave before seeing our programs.</p>
+                        
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="bg-white p-3 rounded border">
+                                    <h6 class="text-danger fw-bold">❌ What's Happening Now:</h6>
+                                    <ul class="mb-0 small">
+                                        <li>Pages take 4+ seconds to load</li>
+                                        <li>Students get frustrated and leave</li>
+                                        <li>Mobile experience is especially bad</li>
+                                        <li>Google ranks us lower in search</li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="col-6">
-                                <div class="bg-white p-2 rounded text-center">
-                                    <div class="h5 text-warning fw-bold mb-0">8.5%</div>
-                                    <small class="text-warning">Success Rate</small>
+                            <div class="col-md-6">
+                                <div class="bg-white p-3 rounded border">
+                                    <h6 class="text-success fw-bold">✅ What Should Happen:</h6>
+                                    <ul class="mb-0 small">
+                                        <li>Pages load in under 2.5 seconds</li>
+                                        <li>Students stay and explore programs</li>
+                                        <li>Great experience on all devices</li>
+                                        <li>Higher search rankings</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -6001,295 +6012,364 @@
                 </div>
             </div>
 
-            <!-- Root Cause Analysis & Performance Insights -->
-            <div class="alert alert-info border-0 mb-4">
-                <div class="row g-3">
-                    <div class="col-md-6">
-                        <h6 class="text-danger fw-bold mb-2">🔬 Primary Performance Bottlenecks:</h6>
-                        <ul class="list-unstyled small">
-                            <li>🖼️ <strong>Unoptimized Images (67% of LCP issues)</strong> - WebP/AVIF conversion needed</li>
-                            <li>📱 <strong>JavaScript Bloat (54% of INP issues)</strong> - Code splitting & cleanup required</li>
-                            <li>🌐 <strong>CDN Misconfigurations (43% of TTFB)</strong> - Geographic optimization pending</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <h6 class="text-success fw-bold mb-2">📊 Performance Trend (May-July 2025):</h6>
-                        <small class="text-muted">May: 713 poor URLs (4.1%) → June: 106 poor URLs (3.3%) → July: 490 poor URLs (3.1%)</small>
-                        <div class="alert alert-warning border-0 mt-2 mb-0 py-2">
-                            <small><strong>Key Insight:</strong> June's 83% improvement regressed in July, indicating temporary fixes failed</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Core Web Vitals Breakdown -->
-            <div class="row gap-enhanced-sm gap-md-enhanced mb-5">
-                <div class="col-md-4">
-                    <div class="card card-enhanced card-enhanced-danger h-100">
-                        <div class="card-header bg-danger text-white text-center py-4">
-                            <h5 class="mb-2 fw-bold">🐌 Largest Contentful Paint (LCP)</h5>
-                            <p class="mb-0 small opacity-75">1,022 URLs failing • 78% of site</p>
-                        </div>
-                        <div class="card-body text-center">
-                            <div class="alert alert-light border-0 mb-2 py-2">
-                                <small><strong>Crisis:</strong> 499 URLs >4s • 523 URLs 2.5-4s</small>
-                            </div>
-                            <h6 class="small fw-bold mb-2">Key Solutions:</h6>
-                            <div class="text-start">
-                                <small class="text-muted">
-                                    • fetchpriority="high" for LCP images<br>
-                                    • WebP/AVIF format conversion<br>
-                                    • CDN optimization & Early Hints<br>
-                                    • Speculation Rules API prerendering
-                                </small>
-                            </div>
-                            <div class="mt-3">
-                                <span class="badge bg-danger">Current: >4s</span>
-                                <span class="badge bg-success">Target: <2.5s</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="card card-enhanced card-enhanced-warning h-100">
-                        <div class="card-header bg-warning text-dark text-center py-4">
-                            <h5 class="mb-2 fw-bold">⚡ Interaction to Next Paint (INP)</h5>
-                            <p class="mb-0 small opacity-75">858 URLs failing • 66% of site</p>
-                        </div>
-                        <div class="card-body text-center">
-                            <div class="alert alert-light border-0 mb-2 py-2">
-                                <small><strong>Crisis:</strong> 8 URLs >500ms • 850 URLs 200-500ms</small>
-                            </div>
-                            <h6 class="small fw-bold mb-2">Key Solutions:</h6>
-                            <div class="text-start">
-                                <small class="text-muted">
-                                    • scheduler.yield() for long tasks<br>
-                                    • Web Workers for heavy operations<br>
-                                    • Code splitting & unused JS removal<br>
-                                    • content-visibility CSS optimization
-                                </small>
-                            </div>
-                            <div class="mt-3">
-                                <span class="badge bg-warning text-dark">Current: >200ms</span>
-                                <span class="badge bg-success">Target: <200ms</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="card card-enhanced card-enhanced-success h-100">
-                        <div class="card-header bg-success text-white text-center py-4">
-                            <h5 class="mb-2 fw-bold">📐 Cumulative Layout Shift (CLS)</h5>
-                            <p class="mb-0 small opacity-75">15 URLs failing • 1% of site</p>
-                        </div>
-                        <div class="card-body text-center">
-                            <div class="alert alert-light border-0 mb-2 py-2">
-                                <small><strong>Status:</strong> Good • 8 URLs >0.25 • 7 URLs 0.1-0.25</small>
-                            </div>
-                            <h6 class="small fw-bold mb-2">Key Solutions:</h6>
-                            <div class="text-start">
-                                <small class="text-muted">
-                                    • Explicit image dimensions (width/height)<br>
-                                    • font-display: swap optimization<br>
-                                    • aspect-ratio property for dynamic content<br>
-                                    • Transform animations vs layout triggers
-                                </small>
-                            </div>
-                            <div class="mt-3">
-                                <span class="badge bg-warning text-dark">Current: >0.1</span>
-                                <span class="badge bg-success">Target: <0.1</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Implementation Strategy & Competitive Benchmark -->
-            <div class="row g-4 mb-4">
-                <div class="col-md-8">
-                    <div class="card border-primary h-100">
-                        <div class="card-header bg-primary text-white">
-                            <h6 class="mb-0">🗓️ Strategic Implementation Phases</h6>
-                            <small class="text-light">12-month transformation roadmap</small>
-                        </div>
-                        <div class="card-body">
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="border-start border-3 border-danger ps-3 mb-3">
-                                        <h6 class="text-danger fw-bold small">🚀 Q1: Foundation (Months 1-3)</h6>
-                                        <ul class="list-unstyled small text-muted">
-                                            <li>• Image optimization & CDN upgrade</li>
-                                            <li>• JavaScript cleanup & code splitting</li>
-                                            <li>• Layout shift prevention & monitoring setup</li>
-                                        </ul>
-                                    </div>
-                                    <div class="border-start border-3 border-info ps-3 mb-3">
-                                        <h6 class="text-info fw-bold small">🔧 Q2: Advanced Tech (Months 4-6)</h6>
-                                        <ul class="list-unstyled small text-muted">
-                                            <li>• Speculation Rules API & Early Hints</li>
-                                            <li>• Web Workers & content-visibility CSS</li>
-                                            <li>• Edge computing & database optimization</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="border-start border-3 border-success ps-3 mb-3">
-                                        <h6 class="text-success fw-bold small">⚡ Q3: Excellence (Months 7-9)</h6>
-                                        <ul class="list-unstyled small text-muted">
-                                            <li>• Mobile-first optimization strategies</li>
-                                            <li>• Network-aware & battery-conscious performance</li>
-                                            <li>• Competitive benchmarking & A/B testing</li>
-                                        </ul>
-                                    </div>
-                                    <div class="border-start border-3 border-secondary ps-3 mb-3">
-                                        <h6 class="text-dark fw-bold small">🚀 Q4: Innovation (Months 10-12)</h6>
-                                        <ul class="list-unstyled small text-muted">
-                                            <li>• AI-powered optimization & HTTP/3</li>
-                                            <li>• Automated pipelines & ML insights</li>
-                                            <li>• Team training & 2026 strategy planning</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="alert alert-light border-0 mt-3 mb-0">
-                                <div class="row g-2 small text-center">
-                                    <div class="col-3"><strong class="text-danger">Month 3:</strong><br><small>Foundation ready</small></div>
-                                    <div class="col-3"><strong class="text-warning">Month 6:</strong><br><small>Advanced features</small></div>
-                                    <div class="col-3"><strong class="text-success">Month 9:</strong><br><small>Performance excellence</small></div>
-                                    <div class="col-3"><strong class="text-primary">Month 12:</strong><br><small>Continuous optimization</small></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border-secondary h-100">
-                        <div class="card-header bg-secondary text-white">
-                            <h6 class="mb-0">🏆 Competitive Benchmark</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="row g-2 text-center">
-                                <div class="col-6">
-                                    <h6 class="text-success small">SNHU</h6>
-                                    <div class="h5 text-success">67%</div>
-                                </div>
-                                <div class="col-6">
-                                    <h6 class="text-info small">WGU</h6>
-                                    <div class="h5 text-info">54%</div>
-                                </div>
-                                <div class="col-6">
-                                    <h6 class="text-warning small">Walden</h6>
-                                    <div class="h5 text-warning">41%</div>
-                                </div>
-                                <div class="col-6">
-                                    <h6 class="text-danger small">UAGC</h6>
-                                    <div class="h5 text-danger">8.5%</div>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="alert alert-info border-0 mb-0">
-                                <small><strong>Goal:</strong> Gradual improvement toward industry benchmarks through systematic optimization over 12-month timeline</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Implementation Tools & Current Status -->
-            <div class="row g-4 mb-4">
+            <!-- Simple Comparison -->
+            <div class="row g-4 mb-5">
                 <div class="col-md-6">
-                    <div class="card border-info h-100">
-                        <div class="card-header bg-info text-white">
-                            <h6 class="mb-0">🛠️ Diagnostic & Monitoring Tools</h6>
+                    <div class="card border-danger h-100">
+                        <div class="card-header bg-white text-center py-4">
+                            <h5 class="text-danger fw-bold mb-2">😟 UAGC Today</h5>
+                            <div class="display-4 text-danger fw-bold">8.5%</div>
+                            <p class="text-muted mb-0">of pages load fast enough</p>
                         </div>
                         <div class="card-body">
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <h6 class="small fw-bold text-info mb-2">Primary Tools:</h6>
-                                    <ul class="list-unstyled small">
-                                        <li>• <a href="https://pagespeed.web.dev/analysis/https-www-uagc-edu/oayz4i567b?form_factor=mobile" target="_blank" class="text-info"><strong>UAGC Performance Report</strong></a></li>
-                                        <li>• <a href="https://support.google.com/webmasters/answer/9205520" target="_blank" class="text-info">Search Console CWV</a></li>
-                                        <li>• Chrome DevTools Performance</li>
-                                        <li>• Lighthouse Automated Auditing</li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-6">
-                                    <h6 class="small fw-bold text-info mb-2">Advanced Monitoring:</h6>
-                                    <ul class="list-unstyled small">
-                                        <li>• Web Vitals Extension</li>
-                                        <li>• WebPageTest Analysis</li>
-                                        <li>• LoAF API Debugging</li>
-                                        <li>• RUM Field Data Collection</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <!-- Current Status Summary -->
-                            <div class="alert alert-warning border-0 mt-3 mb-0 py-2">
-                                <div class="row g-2 small text-center">
-                                    <div class="col-md-4">
-                                        <strong class="text-danger">LCP:</strong> Needs Improvement
-                                    </div>
-                                    <div class="col-md-4">
-                                        <strong class="text-warning">INP:</strong> Requires Attention
-                                    </div>
-                                    <div class="col-md-4">
-                                        <strong class="text-success">CLS:</strong> Generally Good
-                                    </div>
-                                </div>
-                                <hr class="my-2">
-                                <small class="text-muted text-center d-block">
-                                    Based on PageSpeed Insights data • 28-day validation required per <a href="https://support.google.com/webmasters/answer/9205520" target="_blank" class="text-warning">Google guidelines</a>
-                                </small>
-                            </div>
+                            <h6 class="fw-bold mb-3">What this means:</h6>
+                            <ul class="list-unstyled">
+                                <li class="mb-2">👥 <strong>Students leave quickly</strong> - can't find info fast</li>
+                                <li class="mb-2">📱 <strong>Mobile users struggle</strong> - especially bad on phones</li>
+                                <li class="mb-2">🔍 <strong>Google ranks us lower</strong> - fewer people find us</li>
+                                <li class="mb-0">💔 <strong>Lost enrollments</strong> - slow = less trust</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="card border-success h-100">
-                        <div class="card-header bg-success text-white">
-                            <h6 class="mb-0">🎯 Expected Impact</h6>
+                        <div class="card-header bg-white text-center py-4">
+                            <h5 class="text-success fw-bold mb-2">🎯 Our Goal</h5>
+                            <div class="display-4 text-success fw-bold">50%+</div>
+                            <p class="text-muted mb-0">of pages loading fast</p>
                         </div>
                         <div class="card-body">
-                            <div class="row g-3 text-center">
-                                <div class="col-6">
-                                    <div class="h4 text-success">↑</div>
-                                    <h6 class="text-success small">Core Web Vitals Score</h6>
-                                    <small class="text-muted">Performance metrics improvement</small>
-                                </div>
-                                <div class="col-6">
-                                    <div class="h4 text-primary">↓</div>
-                                    <h6 class="text-primary small">Page Load Times</h6>
-                                    <small class="text-muted">Faster content delivery</small>
-                                </div>
-                                <div class="col-6">
-                                    <div class="h4 text-warning">↑</div>
-                                    <h6 class="text-warning small">User Experience</h6>
-                                    <small class="text-muted">Better site responsiveness</small>
-                                </div>
-                                <div class="col-6">
-                                    <div class="h4 text-info">↑</div>
-                                    <h6 class="text-info small">Mobile Performance</h6>
-                                    <small class="text-muted">Device optimization</small>
-                                </div>
+                            <h6 class="fw-bold mb-3">What this will bring:</h6>
+                            <ul class="list-unstyled">
+                                <li class="mb-2">✅ <strong>Students stay longer</strong> - easy to explore programs</li>
+                                <li class="mb-2">📱 <strong>Great mobile experience</strong> - fast on all devices</li>
+                                <li class="mb-2">🔍 <strong>Higher Google rankings</strong> - more visibility</li>
+                                <li class="mb-0">💚 <strong>More enrollments</strong> - fast = professional</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- What's Actually Wrong (In Simple Terms) -->
+            <div class="row g-4 mb-5">
+                <div class="col-md-4">
+                    <div class="card border-danger h-100">
+                        <div class="card-header bg-white text-center py-4">
+                            <i class="fas fa-image fa-3x text-danger mb-3"></i>
+                            <h5 class="text-danger fw-bold mb-2">🐌 Images Load Too Slowly</h5>
+                            <p class="text-muted mb-0 small">78% of our pages have this problem</p>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="fw-bold mb-3">The Problem:</h6>
+                            <p class="small text-muted mb-3">When students visit our pages, they have to wait 4+ seconds just to see the main content and images.</p>
+                            
+                            <h6 class="fw-bold mb-3">Simple Fix:</h6>
+                            <ul class="list-unstyled small">
+                                <li class="mb-2">✅ <strong>Compress images</strong> - make file sizes smaller</li>
+                                <li class="mb-2">✅ <strong>Use modern formats</strong> - better image technology</li>
+                                <li class="mb-2">✅ <strong>Load important images first</strong> - prioritize what students see</li>
+                                <li class="mb-0">✅ <strong>Use faster servers</strong> - deliver content quicker</li>
+                            </ul>
+                            
+                            <div class="mt-3 text-center">
+                                <div class="text-danger small">Now: 4+ seconds</div>
+                                <i class="fas fa-arrow-down text-muted"></i>
+                                <div class="text-success small fw-bold">Goal: Under 2.5 seconds</div>
                             </div>
-                            <div class="alert alert-light border-0 mt-3 mb-0">
-                                <small class="text-muted">
-                                    <i class="fas fa-info-circle me-1"></i>
-                                    <strong>Conservative Projections:</strong> Expected improvements based on technical optimizations. Actual results may vary depending on implementation timeline and site-specific factors.
-                                </small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card border-warning h-100">
+                        <div class="card-header bg-white text-center py-4">
+                            <i class="fas fa-hand-pointer fa-3x text-warning mb-3"></i>
+                            <h5 class="text-warning fw-bold mb-2">⚡ Buttons & Forms Are Slow</h5>
+                            <p class="text-muted mb-0 small">66% of our pages are sluggish to use</p>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="fw-bold mb-3">The Problem:</h6>
+                            <p class="small text-muted mb-3">When students click buttons or fill out forms, there's a frustrating delay before anything happens.</p>
+                            
+                            <h6 class="fw-bold mb-3">Simple Fix:</h6>
+                            <ul class="list-unstyled small">
+                                <li class="mb-2">✅ <strong>Clean up code</strong> - remove unnecessary scripts</li>
+                                <li class="mb-2">✅ <strong>Split large files</strong> - load only what's needed</li>
+                                <li class="mb-2">✅ <strong>Optimize interactions</strong> - make clicks instant</li>
+                                <li class="mb-0">✅ <strong>Improve mobile</strong> - especially for phone users</li>
+                            </ul>
+                            
+                            <div class="mt-3 text-center">
+                                <div class="text-warning small">Now: 200-500ms delay</div>
+                                <i class="fas fa-arrow-down text-muted"></i>
+                                <div class="text-success small fw-bold">Goal: Under 200ms</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card border-success h-100">
+                        <div class="card-header bg-white text-center py-4">
+                            <i class="fas fa-arrows-alt fa-3x text-success mb-3"></i>
+                            <h5 class="text-success fw-bold mb-2">📐 Page Layout is Stable</h5>
+                            <p class="text-muted mb-0 small">Only 1% of pages have this issue</p>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="fw-bold mb-3">The Good News:</h6>
+                            <p class="small text-muted mb-3">Our pages don't jump around while loading. Students can click without elements moving unexpectedly.</p>
+                            
+                            <h6 class="fw-bold mb-3">Keep Doing:</h6>
+                            <ul class="list-unstyled small">
+                                <li class="mb-2">✅ <strong>Fixed image sizes</strong> - prevents content jumping</li>
+                                <li class="mb-2">✅ <strong>Stable fonts</strong> - text doesn't shift</li>
+                                <li class="mb-2">✅ <strong>Reserved space</strong> - room for content to load</li>
+                                <li class="mb-0">✅ <strong>Smooth animations</strong> - no jarring movements</li>
+                            </ul>
+                            
+                            <div class="mt-3 text-center">
+                                <div class="text-success small fw-bold">✅ Already Good!</div>
+                                <div class="text-muted small">Keep maintaining this standard</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Bottom Line Impact -->
-            <div class="alert alert-success border-0">
-                <h6 class="alert-heading">🏆 Strategic Impact Summary</h6>
-                <p class="mb-0">Implementing these Core Web Vitals optimizations will directly support technical performance improvements, user experience enhancement, and site optimization - key components for the enrollment recovery strategy outlined in Parts 1-6.</p>
+            <!-- Simple Action Plan -->
+            <div class="row g-4 mb-5">
+                <div class="col-md-8">
+                    <div class="card border-primary h-100">
+                        <div class="card-header bg-white border-bottom border-primary border-3 py-4">
+                            <h5 class="text-primary fw-bold mb-2">🗓️ Our 12-Month Action Plan</h5>
+                            <p class="text-muted mb-0">Step-by-step improvements to make our website faster</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="border-start border-4 border-danger ps-4 mb-4">
+                                        <h6 class="text-danger fw-bold mb-2">🚀 Months 1-3: Fix the Basics</h6>
+                                        <ul class="list-unstyled small">
+                                            <li class="mb-2">✅ <strong>Make images smaller and faster</strong></li>
+                                            <li class="mb-2">✅ <strong>Clean up unnecessary code</strong></li>
+                                            <li class="mb-2">✅ <strong>Set up monitoring tools</strong></li>
+                                            <li class="mb-0">✅ <strong>Fix mobile performance</strong></li>
+                                        </ul>
+                                        <div class="mt-2">
+                                            <span class="badge bg-danger">Goal: 20% improvement</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="border-start border-4 border-warning ps-4 mb-4">
+                                        <h6 class="text-warning fw-bold mb-2">🔧 Months 4-6: Upgrade Technology</h6>
+                                        <ul class="list-unstyled small">
+                                            <li class="mb-2">✅ <strong>Install better servers</strong></li>
+                                            <li class="mb-2">✅ <strong>Implement smart loading</strong></li>
+                                            <li class="mb-2">✅ <strong>Optimize databases</strong></li>
+                                            <li class="mb-0">✅ <strong>Speed up interactions</strong></li>
+                                        </ul>
+                                        <div class="mt-2">
+                                            <span class="badge bg-warning text-dark">Goal: 35% improvement</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="border-start border-4 border-success ps-4 mb-4">
+                                        <h6 class="text-success fw-bold mb-2">⚡ Months 7-9: Reach Excellence</h6>
+                                        <ul class="list-unstyled small">
+                                            <li class="mb-2">✅ <strong>Perfect mobile experience</strong></li>
+                                            <li class="mb-2">✅ <strong>Beat competitor speeds</strong></li>
+                                            <li class="mb-2">✅ <strong>Test and optimize</strong></li>
+                                            <li class="mb-0">✅ <strong>Advanced features</strong></li>
+                                        </ul>
+                                        <div class="mt-2">
+                                            <span class="badge bg-success">Goal: 50% improvement</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="border-start border-4 border-info ps-4 mb-4">
+                                        <h6 class="text-info fw-bold mb-2">🚀 Months 10-12: Stay Ahead</h6>
+                                        <ul class="list-unstyled small">
+                                            <li class="mb-2">✅ <strong>Automatic optimizations</strong></li>
+                                            <li class="mb-2">✅ <strong>Train our team</strong></li>
+                                            <li class="mb-2">✅ <strong>Plan for 2026</strong></li>
+                                            <li class="mb-0">✅ <strong>Industry leadership</strong></li>
+                                        </ul>
+                                        <div class="mt-2">
+                                            <span class="badge bg-info">Goal: 60%+ improvement</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="alert alert-light border-0 mt-4 mb-0">
+                                <div class="row g-3 text-center">
+                                    <div class="col-3">
+                                        <div class="text-danger fw-bold">Month 3</div>
+                                        <small class="text-muted">Basics Fixed</small>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="text-warning fw-bold">Month 6</div>
+                                        <small class="text-muted">Tech Upgraded</small>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="text-success fw-bold">Month 9</div>
+                                        <small class="text-muted">Excellence Reached</small>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="text-info fw-bold">Month 12</div>
+                                        <small class="text-muted">Leading Industry</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card border-secondary h-100">
+                        <div class="card-header bg-white border-bottom border-secondary border-3 py-4">
+                            <h5 class="text-secondary fw-bold mb-2">🏆 How We Compare</h5>
+                            <p class="text-muted mb-0 small">Website speed vs competitors</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3 text-center mb-4">
+                                <div class="col-6">
+                                    <div class="p-3 bg-light rounded">
+                                        <h6 class="text-success small fw-bold">SNHU</h6>
+                                        <div class="h4 text-success">67%</div>
+                                        <small class="text-muted">Fast pages</small>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="p-3 bg-light rounded">
+                                        <h6 class="text-info small fw-bold">WGU</h6>
+                                        <div class="h4 text-info">54%</div>
+                                        <small class="text-muted">Fast pages</small>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="p-3 bg-light rounded">
+                                        <h6 class="text-warning small fw-bold">Walden</h6>
+                                        <div class="h4 text-warning">41%</div>
+                                        <small class="text-muted">Fast pages</small>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="p-3 bg-danger text-white rounded">
+                                        <h6 class="small fw-bold">UAGC</h6>
+                                        <div class="h4">8.5%</div>
+                                        <small>Fast pages</small>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="alert alert-info border-0 mb-0">
+                                <h6 class="fw-bold small mb-2">🎯 Our Goal:</h6>
+                                <p class="small mb-2">Reach 50%+ fast pages within 12 months</p>
+                                <p class="small mb-0 text-muted">This will put us ahead of Walden and competitive with major players</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why This Matters for UAGC -->
+            <div class="alert alert-enhanced alert-enhanced-success border-0 mb-5">
+                <div class="row align-items-center">
+                    <div class="col-md-2 text-center">
+                        <i class="fas fa-rocket fa-4x mb-3" style="color: #0f5132;"></i>
+                    </div>
+                    <div class="col-md-10">
+                        <h4 class="fw-bold mb-3" style="color: #0f5132;">🏆 What Faster Website Speed Means for UAGC</h4>
+                        
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <h6 class="fw-bold mb-3">📈 Business Benefits:</h6>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2">✅ <strong>More students stay and apply</strong> - no more leaving due to slow pages</li>
+                                    <li class="mb-2">✅ <strong>Higher Google rankings</strong> - faster sites appear higher in search</li>
+                                    <li class="mb-2">✅ <strong>Better mobile experience</strong> - students can browse easily on phones</li>
+                                    <li class="mb-0">✅ <strong>Professional image</strong> - fast = modern and trustworthy</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="fw-bold mb-3">🎯 Enrollment Impact:</h6>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2">📊 <strong>Increased CTR</strong> - faster pages = higher click rates</li>
+                                    <li class="mb-2">💰 <strong>Better conversion</strong> - students complete applications</li>
+                                    <li class="mb-2">📱 <strong>Mobile students</strong> - capture the mobile-first generation</li>
+                                    <li class="mb-0">🏆 <strong>Beat competitors</strong> - faster than Walden and others</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Simple Progress Tracking -->
+            <div class="card border-info mb-5">
+                <div class="card-header bg-white border-bottom border-info border-3 py-4">
+                    <h5 class="text-info fw-bold mb-2">📊 How We'll Track Progress</h5>
+                    <p class="text-muted mb-0">Simple metrics anyone can understand</p>
+                </div>
+                <div class="card-body">
+                    <div class="row g-4">
+                        <div class="col-md-3">
+                            <div class="text-center p-3 bg-light rounded">
+                                <i class="fas fa-tachometer-alt fa-2x text-info mb-2"></i>
+                                <h6 class="fw-bold small">Speed Score</h6>
+                                <div class="text-danger">Current: 8.5%</div>
+                                <div class="text-success small">Goal: 50%+</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="text-center p-3 bg-light rounded">
+                                <i class="fas fa-clock fa-2x text-warning mb-2"></i>
+                                <h6 class="fw-bold small">Load Time</h6>
+                                <div class="text-danger">Current: 4+ sec</div>
+                                <div class="text-success small">Goal: Under 2.5s</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="text-center p-3 bg-light rounded">
+                                <i class="fas fa-mobile-alt fa-2x text-success mb-2"></i>
+                                <h6 class="fw-bold small">Mobile Speed</h6>
+                                <div class="text-danger">Current: Poor</div>
+                                <div class="text-success small">Goal: Excellent</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="text-center p-3 bg-light rounded">
+                                <i class="fas fa-trophy fa-2x text-primary mb-2"></i>
+                                <h6 class="fw-bold small">Vs Competitors</h6>
+                                <div class="text-danger">Current: Last</div>
+                                <div class="text-success small">Goal: Top 3</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-info border-0 mt-4 mb-0">
+                        <h6 class="fw-bold mb-2"><i class="fas fa-chart-line me-2"></i>Monthly Reports Will Show:</h6>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled small mb-0">
+                                    <li>📈 Speed improvement percentages</li>
+                                    <li>📱 Mobile performance gains</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled small mb-0">
+                                    <li>🏆 How we rank vs competitors</li>
+                                    <li>💚 Student experience improvements</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -7128,7 +7208,7 @@
                                         <li><a href="#program-analysis" data-section="program"><i class="fas fa-exclamation-triangle"></i> 🚨 Part 2: Program Analysis & Recovery</a></li>
                 <li><a href="#seo-insights" data-section="seo"><i class="fas fa-search"></i> 🔍 Part 3: SEO Insights & Technical Analysis</a></li>
                         <li><a href="#content-strategy" data-section="content"><i class="fas fa-pen-fancy"></i> 📝 Part 4: Content Strategy</a></li>
-                        <li><a href="#technical-seo" data-section="technical"><i class="fas fa-bolt"></i> ⚡ Part 5: Technical SEO Analysis</a></li>
+                        <li><a href="#technical-seo" data-section="technical"><i class="fas fa-bolt"></i> ⚡ Part 5: Website Speed & Performance</a></li>
                         <li><a href="#success-metrics" data-section="metrics"><i class="fas fa-bullseye"></i> 📊 Part 6: Success Metrics & KPIs</a></li>
                         <li><a href="#data-sources" data-section="data"><i class="fas fa-database"></i> 📊 Part 7: Data Sources & Methodology</a></li>
                     </ul>

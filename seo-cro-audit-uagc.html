@@ -537,7 +537,7 @@
             color: white;
         }
 
-        /* Enhanced Alert System */
+        /* Enhanced Alert System - WCAG Compliant */
         .alert-enhanced {
             border: 0;
             border-radius: var(--border-radius-lg);
@@ -546,13 +546,21 @@
         }
         
         .alert-enhanced-primary {
-            background: linear-gradient(135deg, rgba(12, 35, 75, 0.1), rgba(12, 35, 75, 0.05));
+            background: rgba(232, 245, 255, 1);
             border-left: 4px solid var(--arizona-blue);
+            color: #0c234b;
         }
         
         .alert-enhanced-danger {
-            background: linear-gradient(135deg, rgba(171, 5, 32, 0.1), rgba(171, 5, 32, 0.05));
+            background: rgba(255, 242, 242, 1);
             border-left: 4px solid var(--arizona-red);
+            color: #721c24;
+        }
+        
+        .alert-enhanced-success {
+            background: rgba(240, 253, 244, 1);
+            border-left: 4px solid #198754;
+            color: #0f5132;
         }
 
         /* Enhanced Grid and Spacing */
@@ -1523,13 +1531,13 @@
         </div>
     </div>
 
-    <!-- Concise Hero Section with Executive Summary -->
+    <!-- Clean Hero Section - Accessibility Compliant -->
     <section id="hero-section" class="hero-section">
         <div class="container">
             <div class="row py-5">
                 <div class="col-12">
                     <!-- Header -->
-                    <div class="text-center mb-5">
+                    <div class="text-center">
                         <h1 class="hero-title display-3 fw-bold mb-4 text-white">
                             UAGC Enrollment Recovery Plan
                         </h1>
@@ -1537,36 +1545,42 @@
                             Digital Strategy to Restore Growth
                         </p>
                         <div class="d-flex justify-content-center align-items-center gap-3 mb-3">
-                            <span class="badge bg-danger fs-6 px-3 py-2">🚨 Crisis Response</span>
-                            <span class="badge bg-success fs-6 px-3 py-2">📈 Recovery Strategy</span>
-                            <span class="badge bg-info fs-6 px-3 py-2">🎯 Action Plan</span>
+                            <span class="badge bg-danger fs-6 px-3 py-2 text-white">🚨 Crisis Response</span>
+                            <span class="badge bg-success fs-6 px-3 py-2 text-white">📈 Recovery Strategy</span>
+                            <span class="badge bg-info fs-6 px-3 py-2 text-white">🎯 Action Plan</span>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <!-- Executive Summary -->
-                    <div class="row mb-5">
-                        <div class="col-12">
-                            <div class="card card-enhanced card-enhanced-primary border-0 shadow-lg">
-                                <div class="card-header bg-primary text-white py-4">
-                                    <div class="row align-items-center">
-                                        <div class="col-auto">
-                                            <i class="fas fa-chart-line fa-3x opacity-75"></i>
-                                        </div>
-                                        <div class="col">
-                                            <h4 class="mb-2 fw-bold">📊 Executive Summary</h4>
-                                            <p class="mb-0 lead opacity-75">Critical findings and immediate action plan for UAGC's digital recovery</p>
-                                        </div>
-                                    </div>
+    <!-- Executive Summary - Accessible White Background -->
+    <section id="executive-summary" class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-11">
+                    <div class="card border-0 shadow-lg">
+                        <div class="card-header bg-white border-bottom border-primary border-3 py-4">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <i class="fas fa-chart-line fa-3x text-primary"></i>
                                 </div>
-                                <div class="card-body p-5">
+                                <div class="col">
+                                    <h2 class="mb-2 fw-bold text-primary">📊 Executive Summary</h2>
+                                    <p class="mb-0 lead text-muted">Critical findings and immediate action plan for UAGC's digital recovery</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body p-5 bg-white">
                                     <!-- The Problem -->
                                     <div class="alert alert-enhanced alert-enhanced-danger border-0 mb-4">
                                         <div class="row align-items-center">
                                             <div class="col-auto">
-                                                <i class="fas fa-exclamation-triangle fa-2x text-danger"></i>
+                                                <i class="fas fa-exclamation-triangle fa-2x" style="color: #721c24;"></i>
                                             </div>
                                             <div class="col">
-                                                <h6 class="text-danger fw-bold mb-2">🚨 The Crisis: Massive Visibility, Minimal Conversion</h6>
+                                                <h6 class="fw-bold mb-2" style="color: #721c24;">🚨 The Crisis: Massive Visibility, Minimal Conversion</h6>
                                                 <p class="mb-2"><strong>45.7M annual impressions</strong> generate only <strong>25.8K clicks (0.056% CTR)</strong> - a critical conversion crisis impacting UAGC's digital performance.</p>
                                                 <div class="row g-3">
                                                     <div class="col-md-6">
@@ -1587,13 +1601,13 @@
                                     </div>
 
                                     <!-- The Opportunity -->
-                                    <div class="alert alert-success border-0 mb-4">
+                                    <div class="alert alert-enhanced alert-enhanced-success border-0 mb-4">
                                         <div class="row align-items-center">
                                             <div class="col-auto">
-                                                <i class="fas fa-trophy fa-2x text-success"></i>
+                                                <i class="fas fa-trophy fa-2x" style="color: #0f5132;"></i>
                                             </div>
                                             <div class="col">
-                                                <h6 class="text-success fw-bold mb-2">🏆 Proven Success Models Already Exist</h6>
+                                                <h6 class="fw-bold mb-2" style="color: #0f5132;">🏆 Proven Success Models Already Exist</h6>
                                                 <p class="mb-2">UAGC has <strong>proven programs achieving 6-25% CTR</strong> - demonstrating the university can deliver exceptional performance when messaging aligns with audience needs.</p>
                                                 <div class="row g-3">
                                                     <div class="col-md-4">
@@ -1698,16 +1712,18 @@
                     </div>
 
                     <!-- CTA Buttons -->
-                    <div class="text-center">
+                    <div class="text-center mt-4">
                         <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
-                            <a href="#high-performers" class="btn btn-enhanced btn-enhanced-primary btn-lg px-5 py-3">
+                            <a href="#high-performers" class="btn btn-primary btn-lg px-5 py-3">
                                 <i class="fas fa-trophy me-2"></i>
                                 View Success Stories
                             </a>
-                            <a href="#program-analysis" class="btn btn-enhanced btn-outline-light btn-lg px-5 py-3">
+                            <a href="#program-analysis" class="btn btn-outline-primary btn-lg px-5 py-3">
                                 <i class="fas fa-chart-bar me-2"></i>
                                 Program Analysis
                             </a>
+                        </div>
+                    </div>
                         </div>
                     </div>
                 </div>
@@ -1743,7 +1759,7 @@
             <div class="alert alert-info border-0 shadow-sm mb-4">
                 <small class="text-info">
                     <i class="fas fa-link me-1"></i>
-                                            <strong>Streamlined Flow:</strong> Master baseline eliminates repetition → Parts 2-3 reference this data → Part 4 strategic framework → Part 5 detailed projections → Part 6 technical SEO crisis → Part 7 methodology
+                                            <strong>Clear Flow:</strong> Master baseline eliminates repetition → Parts 2-3 use this data → Part 4 content strategy → Part 5 detailed projections → Part 6 technical SEO analysis → Part 7 methodology
                 </small>
             </div>
 
@@ -1933,15 +1949,15 @@
             </div>
         </div>
 
-        <!-- Part 2: Crisis Analysis & Program Recovery Strategy -->
+        <!-- Part 2: Program Analysis & Recovery -->
         <section id="program-analysis" class="mb-5">
             <div class="section-header">
-                <h2 class="display-5">🚨 Part 2: Crisis Analysis & Program Recovery Strategy</h2>
-                <p class="text-muted">Comprehensive crisis assessment, competitive context, and actionable recovery plan</p>
+                <h2 class="display-5">🚨 Part 2: Program Analysis & Recovery</h2>
+                <p class="text-muted">Clear crisis assessment, competitive analysis, and recovery plan</p>
                 <div class="alert alert-info border-0 p-3 mt-3">
                     <small>
                         <i class="fas fa-info-circle me-1"></i>
-                        <strong>Integrated Analysis:</strong> From crisis identification through competitive intelligence to 90-day implementation roadmap
+                        <strong>Complete Analysis:</strong> From problem identification to 90-day action plan
                     </small>
                 </div>
             </div>
@@ -2586,16 +2602,16 @@
                     <span class="badge bg-success me-2">Parts 1-3 Complete</span>
                     <i class="fas fa-arrow-right text-muted me-2"></i>
                     <span class="badge bg-primary me-2">Part 4: Content Strategy</span>
-                    <small class="text-muted ms-2">Strategic content roadmap and implementation recommendations</small>
+                                            <small class="text-muted ms-2">Content plan and implementation steps</small>
                 </div>
             </div>
         </div>
 
-        <!-- Part 4: Strategic Content Roadmap -->
+        <!-- Part 4: Content Strategy -->
         <section id="content-strategy" class="mb-5">
             <div class="section-header">
-                <h2 class="display-5">📝 Part 4: Strategic Content Roadmap</h2>
-                <p class="text-muted">Building the Content Machine: Strategic roadmap and implementation framework (metrics detailed in Part 5)</p>
+                <h2 class="display-5">📝 Part 4: Content Strategy</h2>
+                <p class="text-muted">Content plan and implementation steps (detailed metrics in Part 5)</p>
                 <div class="alert alert-primary border-0 p-3 mt-3">
                     <small>
                         <i class="fas fa-rocket me-1"></i>
@@ -5943,7 +5959,7 @@
             <div class="d-flex align-items-center justify-content-center">
                 <span class="badge bg-success me-2">Parts 1-4 Complete</span>
                 <i class="fas fa-arrow-right text-muted me-2"></i>
-                <span class="badge bg-danger me-2">Part 5: Technical SEO Crisis</span>
+                                    <span class="badge bg-danger me-2">Part 5: Technical SEO Analysis</span>
                 <small class="text-muted ms-2">Core Web Vitals performance issues impacting rankings</small>
             </div>
         </div>
@@ -5951,11 +5967,11 @@
 
     <!-- Main Content -->
     <div class="container mt-5 pt-5">
-        <!-- Part 5: Technical SEO - Core Web Vitals Crisis -->
+        <!-- Part 5: Technical SEO Analysis -->
         <section id="technical-seo" class="mb-5">
             <div class="section-header">
-                <h2 class="display-5">⚡ Part 5: Technical SEO Crisis - Core Web Vitals Analysis</h2>
-                <p class="text-muted">Critical performance issues directly impacting search rankings and user experience</p>
+                <h2 class="display-5">⚡ Part 5: Technical SEO Analysis</h2>
+                <p class="text-muted">Performance issues affecting search rankings and user experience</p>
             </div>
 
             <!-- Crisis Overview -->
@@ -7107,12 +7123,12 @@
                         <i class="fas fa-layer-group"></i> Main Parts
                     </h6>
                     <ul class="nav-links">
-                        <li><a href="#hero-section" data-section="hero"><i class="fas fa-chart-line"></i> 📊 Executive Summary</a></li>
+                        <li><a href="#executive-summary" data-section="executive"><i class="fas fa-chart-line"></i> 📊 Executive Summary</a></li>
                         <li><a href="#high-performers" data-section="success"><i class="fas fa-trophy"></i> 🏆 Part 1: What's Working - Our Success Stories</a></li>
-                                        <li><a href="#program-analysis" data-section="program"><i class="fas fa-exclamation-triangle"></i> 🚨 Part 2: Crisis Analysis & Program Recovery Strategy</a></li>
+                                        <li><a href="#program-analysis" data-section="program"><i class="fas fa-exclamation-triangle"></i> 🚨 Part 2: Program Analysis & Recovery</a></li>
                 <li><a href="#seo-insights" data-section="seo"><i class="fas fa-search"></i> 🔍 Part 3: SEO Insights & Technical Analysis</a></li>
-                        <li><a href="#content-strategy" data-section="content"><i class="fas fa-pen-fancy"></i> 📝 Part 4: Strategic Content Roadmap</a></li>
-                        <li><a href="#technical-seo" data-section="technical"><i class="fas fa-bolt"></i> ⚡ Part 5: Technical SEO Crisis</a></li>
+                        <li><a href="#content-strategy" data-section="content"><i class="fas fa-pen-fancy"></i> 📝 Part 4: Content Strategy</a></li>
+                        <li><a href="#technical-seo" data-section="technical"><i class="fas fa-bolt"></i> ⚡ Part 5: Technical SEO Analysis</a></li>
                         <li><a href="#success-metrics" data-section="metrics"><i class="fas fa-bullseye"></i> 📊 Part 6: Success Metrics & KPIs</a></li>
                         <li><a href="#data-sources" data-section="data"><i class="fas fa-database"></i> 📊 Part 7: Data Sources & Methodology</a></li>
                     </ul>

@@ -3,524 +3,704 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UAGC Strategic Intelligence Hub - Complete Digital Strategy Suite</title>
-    <meta name="description" content="Access UAGC's complete strategic intelligence suite: enrollment recovery audit, federal aid analysis, and reputation management. Data-driven insights for 40-60% growth potential.">
+    <title>UAGC Strategic Intelligence Suite - Complete Digital Transformation</title>
+    <meta name="description" content="Access UAGC's comprehensive strategic intelligence suite: SEO audit for 40-60% growth, federal aid research, and reputation recovery. Transform enrollment challenges into sustainable growth.">
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #003366 0%, #990000 100%);
+        :root {
+            /* UAGC Brand Colors */
+            --arizona-red: #AB0520;
+            --arizona-blue: #0C234B;
+            --highlight-orange: #EF9600;
+            --light-gray: #F8F9FA;
+            --dark-gray: #2C3E50;
+            --success-green: #10B981;
+            --warning-yellow: #F59E0B;
+            
+            /* Modern Design System */
+            --gradient-primary: linear-gradient(135deg, var(--arizona-red) 0%, var(--arizona-blue) 100%);
+            --gradient-secondary: linear-gradient(135deg, var(--arizona-blue) 0%, var(--arizona-red) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--highlight-orange) 0%, var(--arizona-red) 100%);
+            
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+            
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 24px;
+            
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
             margin: 0;
-            padding: 40px 20px;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-primary);
             min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
+            position: relative;
+            overflow: hidden;
         }
-        .container {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 60px;
-            max-width: 800px;
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
             text-align: center;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-        h1 {
-            color: #990000;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-        .subtitle {
-            color: #003366;
-            font-size: 1.3rem;
-            margin-bottom: 40px;
-            font-weight: 300;
-        }
-        .main-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #990000 0%, #003366 100%);
             color: white;
-            text-decoration: none;
-            padding: 20px 40px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 1.5rem;
             border-radius: 50px;
-            font-size: 1.2rem;
+            font-size: 0.9rem;
             font-weight: 600;
-            margin: 20px;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(153, 0, 0, 0.3);
-            cursor: pointer;
-            border: none;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
-        .main-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(153, 0, 0, 0.4);
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        .features {
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            opacity: 0.95;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+        }
+
+        .hero-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin: 50px 0;
+            gap: 2rem;
+            margin-bottom: 3rem;
         }
-        .feature {
-            background: rgba(0, 51, 102, 0.1);
-            padding: 30px 20px;
-            border-radius: 15px;
-            border-left: 4px solid #990000;
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
         }
-        .feature h3 {
-            color: #003366;
-            margin-bottom: 15px;
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.25);
         }
-        .feature p {
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .cta-button {
+            background: white;
+            color: var(--arizona-red);
+            padding: 1.25rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+            background: #f8f9fa;
+        }
+
+        .hero-security {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-top: 1rem;
+        }
+
+        /* Documents Section */
+        .documents-section {
+            padding: 6rem 0;
+            background: var(--light-gray);
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--gradient-accent);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            color: var(--arizona-blue);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .document-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            position: relative;
+            border: 2px solid transparent;
+        }
+
+        .document-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--arizona-red);
+        }
+
+        .card-header {
+            padding: 2.5rem 2rem 1.5rem;
+            position: relative;
+        }
+
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-icon.primary { background: var(--gradient-primary); }
+        .card-icon.secondary { background: var(--gradient-secondary); }
+        .card-icon.accent { background: var(--gradient-accent); }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--arizona-blue);
+            margin-bottom: 0.75rem;
+        }
+
+        .card-description {
             color: #666;
             line-height: 1.6;
+            margin-bottom: 1.5rem;
         }
-        .stats {
-            background: rgba(153, 0, 0, 0.1);
-            padding: 30px;
-            border-radius: 15px;
-            margin: 30px 0;
+
+        .card-features {
+            list-style: none;
+            margin-bottom: 2rem;
         }
-        .stats h3 {
-            color: #990000;
-            margin-bottom: 20px;
+
+        .card-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
         }
-        .badge {
-            display: inline-block;
-            background: #003366;
+
+        .card-features .icon {
+            width: 20px;
+            height: 20px;
+            background: var(--success-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin: 5px;
+            font-size: 0.7rem;
         }
-        
-        /* Password Protection Styles */
+
+        .card-stats {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eee;
+        }
+
+        .card-stat {
+            text-align: center;
+        }
+
+        .card-stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--arizona-red);
+            display: block;
+        }
+
+        .card-stat-label {
+            font-size: 0.8rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .card-button {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-button.primary {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .card-button.secondary {
+            background: var(--gradient-secondary);
+            color: white;
+        }
+
+        .card-button.accent {
+            background: var(--gradient-accent);
+            color: white;
+        }
+
+        .card-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Integration Section */
+        .integration-section {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .integration-visual {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .integration-step {
+            text-align: center;
+            padding: 2rem;
+            background: var(--light-gray);
+            border-radius: var(--radius-lg);
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+        }
+
+        .step-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--arizona-blue);
+            margin-bottom: 0.75rem;
+        }
+
+        .step-description {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 6rem 0;
+            background: var(--arizona-blue);
+            color: white;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            padding: 2.5rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            color: var(--highlight-orange);
+        }
+
+        .benefit-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-description {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            padding: 6rem 0;
+            background: var(--gradient-primary);
+            text-align: center;
+            color: white;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-description {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            margin-bottom: 3rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .cta-primary {
+            background: white;
+            color: var(--arizona-red);
+            padding: 1.5rem 4rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .access-info {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            margin-top: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Password Overlay */
         .password-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 51, 102, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(12, 35, 75, 0.95);
+            backdrop-filter: blur(15px);
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 1000;
-        }
-        .password-form {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            max-width: 400px;
-            width: 90%;
-            text-align: center;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-        .password-form h2 {
-            color: #990000;
-            margin-bottom: 10px;
-        }
-        .password-form p {
-            color: #666;
-            margin-bottom: 30px;
-        }
-        .password-input {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            box-sizing: border-box;
-            text-align: center;
-        }
-        .password-input:focus {
-            outline: none;
-            border-color: #990000;
-        }
-        .password-submit {
-            background: linear-gradient(135deg, #990000 0%, #003366 100%);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
-        .password-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(153, 0, 0, 0.3);
-        }
-        .error-message {
-            color: #990000;
-            margin-top: 15px;
-            font-weight: 500;
-        }
-        .security-note {
-            background: rgba(153, 0, 0, 0.1);
-            border-left: 4px solid #990000;
-            padding: 15px;
-            margin-top: 30px;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            color: #666;
-        }
-        .hidden {
-            display: none;
-        }
-        
-        /* Enhanced Content Styles */
-        .success-story {
-            background: linear-gradient(135deg, rgba(153, 0, 0, 0.1) 0%, rgba(0, 51, 102, 0.1) 100%);
-            padding: 30px;
-            border-radius: 15px;
-            margin: 30px 0;
-            border-left: 4px solid #990000;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        }
-        .success-story h3 {
-            color: #990000;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-        .story-text {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #444;
-            font-style: italic;
-        }
-        .story-text strong {
-            color: #003366;
-            font-style: normal;
-        }
-        
-        .priority-section {
-            margin: 40px 0;
-            padding: 30px;
-            background: rgba(0, 51, 102, 0.05);
-            border-radius: 15px;
-            border: 2px solid rgba(153, 0, 0, 0.2);
-        }
-        .priority-section h3 {
-            color: #990000;
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 1.4rem;
-        }
-        .priority-features {
-            display: grid;
-            gap: 20px;
-        }
-        .priority-item {
-            display: flex;
-            align-items: center;
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s ease;
-        }
-        .priority-item:hover {
-            transform: translateY(-3px);
-        }
-        .priority-number {
-            background: linear-gradient(135deg, #990000 0%, #003366 100%);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin-right: 20px;
-            flex-shrink: 0;
-        }
-        .priority-item h4 {
-            color: #003366;
-            margin: 0 0 8px 0;
-            font-size: 1.1rem;
-        }
-        .priority-item p {
-            color: #666;
-            margin: 0;
-            line-height: 1.4;
-        }
-        
-        .feature.enhanced {
-            position: relative;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(0, 51, 102, 0.05) 100%);
-            border: 1px solid rgba(153, 0, 0, 0.2);
-            transition: all 0.3s ease;
-        }
-        .feature.enhanced:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(153, 0, 0, 0.2);
-        }
-        .feature-badge {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            background: #990000;
-            color: white;
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 0.7rem;
-            font-weight: 600;
-        }
-        
-        .enhanced-stats {
-            background: linear-gradient(135deg, rgba(153, 0, 0, 0.1) 0%, rgba(0, 51, 102, 0.1) 100%);
-            border: 2px solid rgba(153, 0, 0, 0.3);
-        }
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-        .metric {
-            text-align: center;
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-        .metric-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #990000;
-            margin-bottom: 8px;
-        }
-        .metric-label {
-            color: #003366;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-        .disclaimer {
-            text-align: center;
-            font-size: 0.8rem;
-            color: #666;
-            font-style: italic;
-            margin-top: 15px;
-        }
-        
-        .second-story {
-            background: rgba(0, 51, 102, 0.08);
-            padding: 25px;
-            border-radius: 12px;
-            margin: 30px 0;
-            border-left: 3px solid #003366;
-        }
-        .second-story h4 {
-            color: #003366;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-        }
-        .story-text-small {
-            font-size: 1rem;
-            line-height: 1.5;
-            color: #555;
-            font-style: italic;
-        }
-        .story-text-small strong {
-            color: #990000;
-            font-style: normal;
-        }
-        
-        /* Documents Hub Styles */
-        .documents-hub {
-            margin: 40px 0;
-            padding: 30px;
-            background: rgba(0, 51, 102, 0.03);
-            border-radius: 15px;
-            border: 1px solid rgba(0, 51, 102, 0.1);
-        }
-        
-        .documents-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 25px;
-        }
-        
-        .document-card {
-            background: white;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .document-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #990000, #003366);
-            transition: all 0.3s ease;
-        }
-        
-        .document-card.primary::before {
-            background: linear-gradient(90deg, #990000, #003366);
-        }
-        
-        .document-card.secondary::before {
-            background: linear-gradient(90deg, #003366, #990000);
-        }
-        
-        .document-card.tertiary::before {
-            background: linear-gradient(90deg, #990000, #666);
-        }
-        
-        .document-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-            border-color: rgba(153, 0, 0, 0.2);
-        }
-        
-        .document-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            display: block;
-        }
-        
-        .document-card h4 {
-            color: #003366;
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-        
-        .document-card p {
-            color: #666;
-            font-size: 1rem;
-            line-height: 1.5;
-            margin-bottom: 20px;
-        }
-        
-        .document-stats {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        
-        .document-stats span {
-            background: rgba(153, 0, 0, 0.1);
-            color: #990000;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-        
-        .document-button {
-            width: 100%;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: linear-gradient(135deg, #990000 0%, #003366 100%);
-            color: white;
-        }
-        
-        .document-button.secondary {
-            background: linear-gradient(135deg, #003366 0%, #990000 100%);
-        }
-        
-        .document-button.tertiary {
-            background: linear-gradient(135deg, #990000 0%, #666 100%);
-        }
-        
-        .document-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(153, 0, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
         }
 
+        .password-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .password-form {
+            background: white;
+            padding: 3rem;
+            border-radius: var(--radius-xl);
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: var(--shadow-xl);
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .password-overlay.show .password-form {
+            transform: translateY(0);
+        }
+
+        .password-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--arizona-blue);
+            margin-bottom: 1rem;
+        }
+
+        .password-description {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: var(--radius-md);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .password-input:focus {
+            outline: none;
+            border-color: var(--arizona-red);
+            box-shadow: 0 0 0 3px rgba(171, 5, 32, 0.1);
+        }
+
+        .password-submit {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: var(--radius-md);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: var(--transition);
+        }
+
+        .password-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .error-message {
+            color: #ef4444;
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .container {
-                padding: 40px 30px;
+            .hero-container {
+                padding: 0 1rem;
             }
-            h1 {
-                font-size: 2rem;
+
+            .section-container {
+                padding: 0 1rem;
             }
-            .subtitle {
-                font-size: 1.1rem;
-            }
-            .main-button {
-                padding: 15px 30px;
-                font-size: 1.1rem;
-            }
-            .password-form {
-                padding: 30px 20px;
-            }
-            
-            /* Mobile styles for enhanced content */
-            .success-story, .priority-section, .second-story {
-                padding: 20px;
-                margin: 20px 0;
-            }
-            .story-text {
-                font-size: 1rem;
-            }
-            .priority-item {
-                flex-direction: column;
-                text-align: center;
-                padding: 15px;
-            }
-            .priority-number {
-                margin-right: 0;
-                margin-bottom: 15px;
-            }
-            .metrics-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-            .metric {
-                padding: 15px;
-            }
-            .metric-number {
-                font-size: 1.5rem;
-            }
-            .feature.enhanced {
-                margin-bottom: 20px;
-            }
-            .feature-badge {
-                position: static;
-                display: block;
-                width: fit-content;
-                margin: 10px auto 0;
-            }
-            
-            /* Mobile styles for documents hub */
-            .documents-hub {
-                padding: 20px;
-                margin: 30px 0;
-            }
+
             .documents-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 2rem;
             }
-            .document-card {
-                padding: 20px;
+
+            .card-stats {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
             }
-            .document-stats {
-                justify-content: center;
+
+            .integration-visual {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                gap: 1rem;
+            }
+
+            .password-form {
+                padding: 2rem;
+                margin: 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
             }
         }
     </style>
@@ -529,221 +709,355 @@
     <!-- Password Protection Overlay -->
     <div id="passwordOverlay" class="password-overlay">
         <div class="password-form">
-            <h2>🔒 Secure Access</h2>
-            <p>This strategy document contains confidential UAGC business information. Please enter the access code to continue.</p>
+            <i class="fas fa-shield-alt" style="font-size: 3rem; color: var(--arizona-red); margin-bottom: 1rem;"></i>
+            <h2 class="password-title">🔒 Secure Access Required</h2>
+            <p class="password-description">This strategic intelligence suite contains confidential UAGC business information. Please enter your access credentials to continue.</p>
             <form id="passwordForm">
-                <input 
-                    type="password" 
-                    id="passwordInput" 
-                    class="password-input" 
-                    placeholder="Enter access code"
-                    autocomplete="current-password"
-                >
-                <button type="submit" class="password-submit">Access Strategy</button>
-                <div id="errorMessage" class="error-message hidden"></div>
+                <input type="password" id="passwordInput" class="password-input" placeholder="Enter access code" required>
+                <button type="submit" class="password-submit">
+                    <i class="fas fa-unlock-alt"></i> Access Strategic Suite
+                </button>
+                <div id="errorMessage" class="error-message" style="display: none;"></div>
             </form>
-            <div class="security-note">
-                <strong>🛡️ Security Notice:</strong> This document is intended for authorized UAGC personnel and stakeholders only. Unauthorized access is prohibited.
+            <div style="margin-top: 2rem; padding: 1rem; background: #f8f9fa; border-radius: var(--radius-md); font-size: 0.9rem; color: #666;">
+                <i class="fas fa-info-circle"></i> Authorized personnel only. All access is logged and monitored.
             </div>
         </div>
     </div>
 
-    <!-- Main Content -->
-    <div class="container">
-        <h1>🎯 UAGC Strategic Intelligence Hub</h1>
-        <p class="subtitle">Complete digital strategy suite featuring enrollment recovery, federal aid analysis, and reputation management plans</p>
-        
-        <!-- Student Success Story Hero -->
-        <div class="success-story">
-            <h3>💡 Real Impact, Real Results</h3>
-            <p class="story-text">
-                <em>"After completing my RN-to-BSN at University of Arizona Global Campus, I secured a leadership position at Phoenix Children's Hospital with a 28% salary increase. The flexible online format allowed me to advance my career while working full-time."</em>
-                <br><strong>- Sarah M., BSN Graduate, Arizona</strong>
-            </p>
-        </div>
-        
-        <button onclick="launchStrategy()" class="main-button">
-            📊 Access Strategic Intelligence Suite
-        </button>
-        
-        <!-- Priority Features -->
-        <div class="priority-section">
-            <h3>🚀 Top 3 High-ROI Opportunities</h3>
-            <div class="priority-features">
-                <div class="priority-item">
-                    <span class="priority-number">1</span>
-                    <div>
-                        <h4>Nursing Program Optimization</h4>
-                        <p>Target 24.75% CTR advantage with "No Prerequisites Required" messaging</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-certificate"></i>
+                    Strategic Intelligence Suite 2025
+                </div>
+                
+                <h1 class="hero-title">
+                    Transform UAGC's Future with Data-Driven Strategic Intelligence
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Access the most comprehensive strategic analysis ever created for UAGC. Three powerful documents that unlock 40-60% growth potential, federal aid opportunities, and complete reputation recovery.
+                </p>
+
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <span class="stat-number">40-60%</span>
+                        <span class="stat-label">Traffic Growth Potential</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">360°</span>
+                        <span class="stat-label">Strategic Coverage</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">Power Documents</span>
                     </div>
                 </div>
-                <div class="priority-item">
-                    <span class="priority-number">2</span>
-                    <div>
-                        <h4>Working Professional Messaging</h4>
-                        <p>Emphasize "Advance Your Career While Working Full-Time" positioning</p>
-                    </div>
-                </div>
-                <div class="priority-item">
-                    <span class="priority-number">3</span>
-                    <div>
-                        <h4>No GMAT/GRE Advantage</h4>
-                        <p>Remove barriers with prominent "No Test Required" messaging</p>
-                    </div>
+
+                <div class="hero-cta">
+                    <button onclick="showPasswordOverlay()" class="cta-button">
+                        <i class="fas fa-rocket"></i>
+                        Access Strategic Intelligence Suite
+                    </button>
+                    <p class="hero-security">
+                        <i class="fas fa-lock"></i> Secure • Confidential • Executive Access Only
+                    </p>
                 </div>
             </div>
+            
+            <div class="scroll-indicator">
+                <i class="fas fa-chevron-down"></i>
+            </div>
         </div>
-        
-        <!-- Strategic Documents Hub -->
-        <div class="documents-hub">
-            <h3 style="text-align: center; color: #003366; margin-bottom: 30px; font-size: 1.5rem;">
-                📋 Complete UAGC Digital Strategy Suite
-            </h3>
+    </section>
+
+    <!-- Strategic Documents Section -->
+    <section class="documents-section">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-badge">Complete Strategic Suite</div>
+                <h2 class="section-title">Three Pillars of UAGC's Digital Transformation</h2>
+                <p class="section-subtitle">
+                    Each document targets a critical area of growth. Together, they form an unstoppable strategic foundation for enrollment recovery and sustainable expansion.
+                </p>
+            </div>
+
             <div class="documents-grid">
-                <div class="document-card primary">
-                    <div class="document-icon">📊</div>
-                    <h4>SEO & Conversion Audit</h4>
-                    <p>Comprehensive enrollment recovery plan with technical analysis, content strategy, and 12-month roadmap</p>
-                    <div class="document-stats">
-                        <span>✅ 6 Strategic Parts</span>
-                        <span>🎯 40-60% Traffic Growth</span>
+                <!-- SEO & Conversion Audit -->
+                <div class="document-card">
+                    <div class="card-header">
+                        <div class="card-icon primary">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="card-title">SEO & Conversion Recovery Audit</h3>
+                        <p class="card-description">
+                            The foundation of your digital transformation. A comprehensive 6-part analysis that identifies exactly how to achieve 40-60% traffic growth through technical optimization, content strategy, and conversion improvements.
+                        </p>
+                        
+                        <ul class="card-features">
+                            <li><span class="icon"><i class="fas fa-check"></i></span> Complete technical SEO analysis with Core Web Vitals data</li>
+                            <li><span class="icon"><i class="fas fa-check"></i></span> 12-month implementation roadmap with clear milestones</li>
+                            <li><span class="icon"><i class="fas fa-check"></i></span> Competitor analysis vs SNHU, WGU, Walden</li>
+                            <li><span class="icon"><i class="fas fa-check"></i></span> Plain language explanations for all stakeholders</li>
+                            <li><span class="icon"><i class="fas fa-check"></i></span> Real Google Search Console performance data</li>
+                        </ul>
+
+                        <div class="card-stats">
+                            <div class="card-stat">
+                                <span class="card-stat-number">6</span>
+                                <span class="card-stat-label">Strategic Parts</span>
+                            </div>
+                            <div class="card-stat">
+                                <span class="card-stat-number">9,990</span>
+                                <span class="card-stat-label">Lines of Analysis</span>
+                            </div>
+                            <div class="card-stat">
+                                <span class="card-stat-number">91%</span>
+                                <span class="card-stat-label">Pages Need Fix</span>
+                            </div>
+                        </div>
+
+                        <button onclick="openDocument('seo-cro-audit-uagc.html')" class="card-button primary">
+                            <i class="fas fa-file-alt"></i> View SEO Strategy
+                        </button>
                     </div>
-                    <button class="document-button" onclick="openDocument('seo-cro-audit-uagc.html')">
-                        View SEO Strategy
-                    </button>
+                </div>
+
+                <!-- Federal Aid Research -->
+                <div class="document-card">
+                    <div class="card-header">
+                        <div class="card-icon secondary">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="card-title">Federal Aid Research 2025</h3>
+                        <p class="card-description">
+                            Discover untapped enrollment opportunities through comprehensive federal student aid analysis. This intelligence report reveals exactly where UAGC can capture market share in the changing financial aid landscape.
+                        </p>
+                        
+                        <ul class="card-features">
+                            <li><span class="icon"><i class="fas fa-check"></i></span> Complete FAFSA 2025 changes impact analysis</li>
+                            <li><span class="icon"><i class="fas fa-check"></i></span> Federal aid opportunity mapping by program</li>
+                            <li><span class="icon"><i class="fas fa-check"></i></span> Competitive intelligence on aid positioning</li>
+                            <li><span class="icon"><i class="fas fa-check"></i></span> Discovery-phase market intelligence</li>
+                            <li><span class="icon"><i class="fas fa-check"></i></span> Enrollment optimization recommendations</li>
+                        </ul>
+
+                        <div class="card-stats">
+                            <div class="card-stat">
+                                <span class="card-stat-number">2025</span>
+                                <span class="card-stat-label">Aid Changes</span>
+                            </div>
+                            <div class="card-stat">
+                                <span class="card-stat-number">4,701</span>
+                                <span class="card-stat-label">Lines Research</span>
+                            </div>
+                            <div class="card-stat">
+                                <span class="card-stat-number">100%</span>
+                                <span class="card-stat-label">Market Intel</span>
+                            </div>
+                        </div>
+
+                        <button onclick="openDocument('Discovery-Awareness/federal-student-aid-changes-2025.html')" class="card-button secondary">
+                            <i class="fas fa-search"></i> View Aid Research
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Reputation Management -->
+                <div class="document-card">
+                    <div class="card-header">
+                        <div class="card-icon accent">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="card-title">Reputation Recovery Strategy</h3>
+                        <p class="card-description">
+                            Protect and restore UAGC's brand through strategic reputation management. This comprehensive analysis provides the roadmap to rebuild trust, enhance positioning, and ensure sustainable brand growth.
+                        </p>
+                        
+                        <ul class="card-features">
+                            <li><span class="icon"><i class="fas fa-check"></i></span> Complete brand reputation analysis and audit</li>
+                            <li><span class="icon"><i class="fas fa-check"></i></span> Strategic recovery tactics and implementation</li>
+                            <li><span class="icon"><i class="fas fa-check"></i></span> Competitive positioning vs industry leaders</li>
+                            <li><span class="icon"><i class="fas fa-check"></i></span> Stakeholder communication frameworks</li>
+                            <li><span class="icon"><i class="fas fa-check"></i></span> Brand protection and monitoring systems</li>
+                        </ul>
+
+                        <div class="card-stats">
+                            <div class="card-stat">
+                                <span class="card-stat-number">360°</span>
+                                <span class="card-stat-label">Brand Analysis</span>
+                            </div>
+                            <div class="card-stat">
+                                <span class="card-stat-number">8,410</span>
+                                <span class="card-stat-label">Lines Strategy</span>
+                            </div>
+                            <div class="card-stat">
+                                <span class="card-stat-number">∞</span>
+                                <span class="card-stat-label">Brand Value</span>
+                            </div>
+                        </div>
+
+                        <button onclick="openDocument('Reputation management/uagc-comprehensive-reputation-analysis.html')" class="card-button accent">
+                            <i class="fas fa-star"></i> View Reputation Plan
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Integration Section -->
+    <section class="integration-section">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-badge">Strategic Integration</div>
+                <h2 class="section-title">How These Three Strategies Work Together</h2>
+                <p class="section-subtitle">
+                    This isn't just three separate documents. It's a carefully orchestrated strategic framework where each component amplifies the others for maximum impact.
+                </p>
+            </div>
+
+            <div class="integration-visual">
+                <div class="integration-step">
+                    <div class="step-number">1</div>
+                    <h4 class="step-title">Foundation</h4>
+                    <p class="step-description">SEO audit creates the technical framework for sustainable growth and optimal user experience</p>
                 </div>
                 
-                <div class="document-card secondary">
-                    <div class="document-icon">🎓</div>
-                    <h4>Federal Aid Research 2025</h4>
-                    <p>In-depth analysis of federal student aid changes, FAFSA updates, and enrollment opportunity mapping</p>
-                    <div class="document-stats">
-                        <span>📈 Market Intelligence</span>
-                        <span>🔍 Discovery Phase</span>
-                    </div>
-                    <button class="document-button secondary" onclick="openDocument('Discovery-Awareness/federal-student-aid-changes-2025.html')">
-                        View Aid Research
-                    </button>
+                <div class="integration-step">
+                    <div class="step-number">2</div>
+                    <h4 class="step-title">Opportunity</h4>
+                    <p class="step-description">Federal aid research identifies untapped market segments and enrollment opportunities</p>
                 </div>
                 
-                <div class="document-card tertiary">
-                    <div class="document-icon">⭐</div>
-                    <h4>Reputation Recovery Plan</h4>
-                    <p>Strategic reputation analysis with brand positioning, competitive intelligence, and recovery tactics</p>
-                    <div class="document-stats">
-                        <span>🛡️ Brand Protection</span>
-                        <span>🚀 Recovery Strategy</span>
-                    </div>
-                    <button class="document-button tertiary" onclick="openDocument('Reputation management/uagc-comprehensive-reputation-analysis.html')">
-                        View Reputation Plan
+                <div class="integration-step">
+                    <div class="step-number">3</div>
+                    <h4 class="step-title">Protection</h4>
+                    <p class="step-description">Reputation management ensures brand integrity throughout the transformation process</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title" style="color: white;">Why This Strategic Suite Will Transform UAGC</h2>
+                <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.9);">
+                    More than analysis—this is your roadmap to sustainable growth, competitive advantage, and market leadership.
+                </p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fas fa-rocket benefit-icon"></i>
+                    <h4 class="benefit-title">Immediate Impact</h4>
+                    <p class="benefit-description">Start seeing results within 30 days with prioritized, high-ROI recommendations that deliver quick wins while building long-term success.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <i class="fas fa-chart-line benefit-icon"></i>
+                    <h4 class="benefit-title">Data-Driven Decisions</h4>
+                    <p class="benefit-description">Every recommendation backed by real Google Search Console data, competitive analysis, and industry benchmarks—no guesswork.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <i class="fas fa-users benefit-icon"></i>
+                    <h4 class="benefit-title">Stakeholder Ready</h4>
+                    <p class="benefit-description">Plain language explanations make complex strategies accessible to all decision-makers, from executives to implementation teams.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <i class="fas fa-trophy benefit-icon"></i>
+                    <h4 class="benefit-title">Competitive Edge</h4>
+                    <p class="benefit-description">Beat SNHU, WGU, and Walden with strategies specifically designed to outperform your biggest competitors.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <i class="fas fa-cogs benefit-icon"></i>
+                    <h4 class="benefit-title">Complete Implementation</h4>
+                    <p class="benefit-description">12-month roadmaps with clear milestones, success metrics, and step-by-step implementation guides for every strategy.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <i class="fas fa-shield-alt benefit-icon"></i>
+                    <h4 class="benefit-title">Risk Protection</h4>
+                    <p class="benefit-description">Reputation management ensures your brand stays protected while implementing aggressive growth strategies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="section-container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Transform UAGC's Digital Future?</h2>
+                <p class="cta-description">
+                    Don't let another day pass with suboptimal performance. Access the complete Strategic Intelligence Suite now and start your journey to 40-60% growth.
+                </p>
+
+                <div class="cta-buttons">
+                    <button onclick="showPasswordOverlay()" class="cta-primary">
+                        <i class="fas fa-unlock-alt"></i>
+                        Access Complete Strategic Suite
                     </button>
                 </div>
-            </div>
-        </div>
 
-        <!-- Enhanced Features Grid -->
-        <div class="features">
-            <div class="feature enhanced">
-                <h3>🎵 Interactive Audio Strategy</h3>
-                <p>Professional presentation with sticky player, progress tracking, and downloadable insights</p>
-                <span class="feature-badge">Premium Experience</span>
-            </div>
-            <div class="feature enhanced">
-                <h3>📊 Data-Driven Recovery Plan</h3>
-                <p>SEO audit reveals 40-60% traffic increase opportunities over 12 months with specific program optimizations</p>
-                <span class="feature-badge">Proven Results</span>
-            </div>
-            <div class="feature enhanced">
-                <h3>🎯 Crisis-to-Growth Framework</h3>
-                <p>Transform enrollment challenges into competitive advantages with our 90-day implementation roadmap</p>
-                <span class="feature-badge">Actionable</span>
-            </div>
-        </div>
-        
-        <!-- Success Metrics -->
-        <div class="stats enhanced-stats">
-            <h3>📈 Strategic Impact Potential</h3>
-            <div class="metrics-grid">
-                <div class="metric">
-                    <div class="metric-number">40-60%</div>
-                    <div class="metric-label">Traffic Growth Potential</div>
-                </div>
-                <div class="metric">
-                    <div class="metric-number">3</div>
-                    <div class="metric-label">Strategic Documents</div>
-                </div>
-                <div class="metric">
-                    <div class="metric-number">360°</div>
-                    <div class="metric-label">Comprehensive Analysis</div>
-                </div>
-            </div>
-            <p class="disclaimer">*Integrated strategy covering SEO optimization, federal aid opportunities, and reputation recovery</p>
-        </div>
-        
-        <!-- Second Student Story -->
-        <div class="second-story">
-            <h4>🌟 Another Success Story</h4>
-            <p class="story-text-small">
-                <em>"The University of Arizona's online MBA program allowed me to transition from teaching to corporate training. The no-GMAT requirement and evening classes were game-changers for my career pivot."</em>
-                <br><strong>- Marcus T., MBA Graduate, Nevada</strong>
-            </p>
-        </div>
-        
-        <!-- Strategy Integration Overview -->
-        <div style="margin-top: 40px; padding: 25px; background: rgba(153, 0, 0, 0.03); border-radius: 10px; border-left: 4px solid #990000;">
-            <h4 style="color: #003366; margin-bottom: 15px;">🔗 How These Strategies Work Together</h4>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 20px;">
-                <div style="text-align: center;">
-                    <div style="font-size: 1.5rem; margin-bottom: 5px;">🎯</div>
-                    <strong style="color: #990000;">Foundation</strong>
-                    <p style="font-size: 0.9rem; color: #666; margin: 5px 0 0;">SEO audit provides the technical framework for growth</p>
-                </div>
-                <div style="text-align: center;">
-                    <div style="font-size: 1.5rem; margin-bottom: 5px;">🎓</div>
-                    <strong style="color: #003366;">Opportunity</strong>
-                    <p style="font-size: 0.9rem; color: #666; margin: 5px 0 0;">Federal aid research identifies market gaps to exploit</p>
-                </div>
-                <div style="text-align: center;">
-                    <div style="font-size: 1.5rem; margin-bottom: 5px;">⭐</div>
-                    <strong style="color: #990000;">Protection</strong>
-                    <p style="font-size: 0.9rem; color: #666; margin: 5px 0 0;">Reputation management ensures sustainable brand growth</p>
+                <div class="access-info">
+                    <h4 style="margin-bottom: 1rem; font-size: 1.2rem;">🔐 What You Get Instant Access To:</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; text-align: left;">
+                        <div>
+                            <strong>📊 SEO Recovery Audit</strong><br>
+                            <small>Complete technical analysis + 12-month roadmap</small>
+                        </div>
+                        <div>
+                            <strong>🎓 Federal Aid Intelligence</strong><br>
+                            <small>2025 changes analysis + opportunity mapping</small>
+                        </div>
+                        <div>
+                            <strong>⭐ Reputation Strategy</strong><br>
+                            <small>Brand recovery + protection framework</small>
+                        </div>
+                    </div>
+                    <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.2); font-size: 0.9rem; opacity: 0.8;">
+                        <i class="fas fa-clock"></i> Available 24/7 • <i class="fas fa-mobile-alt"></i> Mobile Optimized • <i class="fas fa-download"></i> Downloadable
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #ddd;">
-            <p style="color: #666; font-size: 0.9rem;">
-                <strong>University of Arizona Global Campus</strong> | Strategic Intelligence Hub
-            </p>
-            <p style="color: #999; font-size: 0.8rem; margin-top: 15px;">
-                📱 Best viewed on desktop/tablet | 🔒 Password protected | ⌨️ Keyboard shortcuts supported
-            </p>
-        </div>
-    </div>
+    </section>
 
     <script>
         // Password Protection System
-        const CORRECT_PASSWORD = 'UAGC2025Recovery'; // Change this to your desired password
+        const CORRECT_PASSWORD = 'UAGC2025Recovery';
         const SESSION_KEY = 'uagc_strategy_authenticated';
         
-        // Check if user is already authenticated
+        // Check authentication on page load
         function checkAuthentication() {
             const isAuthenticated = sessionStorage.getItem(SESSION_KEY) === 'true';
-            if (isAuthenticated) {
-                hidePasswordOverlay();
-            } else {
+            if (!isAuthenticated) {
                 showPasswordOverlay();
             }
         }
         
         // Show password overlay
         function showPasswordOverlay() {
-            document.getElementById('passwordOverlay').style.display = 'flex';
+            const overlay = document.getElementById('passwordOverlay');
+            overlay.classList.add('show');
+            setTimeout(() => {
+                document.getElementById('passwordInput').focus();
+            }, 300);
         }
         
         // Hide password overlay
         function hidePasswordOverlay() {
-            document.getElementById('passwordOverlay').style.display = 'none';
+            const overlay = document.getElementById('passwordOverlay');
+            overlay.classList.remove('show');
         }
         
         // Handle password form submission
@@ -753,23 +1067,25 @@
             const errorDiv = document.getElementById('errorMessage');
             
             if (password === CORRECT_PASSWORD) {
-                // Correct password
                 sessionStorage.setItem(SESSION_KEY, 'true');
                 hidePasswordOverlay();
-                errorDiv.classList.add('hidden');
+                errorDiv.style.display = 'none';
                 
-                // Optional: Show success message
+                // Show success message briefly
+                const successMsg = document.createElement('div');
+                successMsg.innerHTML = '<i class="fas fa-check-circle"></i> Access Granted! Welcome to the Strategic Intelligence Suite';
+                successMsg.style.cssText = 'position: fixed; top: 20px; right: 20px; background: #10B981; color: white; padding: 1rem 2rem; border-radius: 10px; z-index: 10000; box-shadow: 0 10px 25px rgba(0,0,0,0.2);';
+                document.body.appendChild(successMsg);
+                
                 setTimeout(() => {
-                    alert('✅ Access granted! Welcome to the UAGC Digital Strategy.');
-                }, 500);
-            } else {
-                // Incorrect password
-                errorDiv.textContent = '❌ Incorrect access code. Please try again.';
-                errorDiv.classList.remove('hidden');
-                document.getElementById('passwordInput').value = '';
-                document.getElementById('passwordInput').focus();
+                    successMsg.remove();
+                }, 3000);
                 
-                // Add shake animation
+            } else {
+                errorDiv.textContent = '❌ Invalid access code. Please contact your administrator.';
+                errorDiv.style.display = 'block';
+                
+                // Shake animation
                 const form = document.querySelector('.password-form');
                 form.style.animation = 'shake 0.5s ease-in-out';
                 setTimeout(() => {
@@ -778,28 +1094,60 @@
             }
         });
         
-        // Launch strategy document (legacy function)
-        function launchStrategy() {
-            openDocument('seo-cro-audit-uagc.html');
-        }
-        
-        // Generic document opening function with authentication
+        // Generic document opening function
         function openDocument(documentPath) {
-            // Check authentication before allowing access
             const isAuthenticated = sessionStorage.getItem(SESSION_KEY) === 'true';
             if (isAuthenticated) {
                 window.open(documentPath, '_blank');
                 
-                // Track document access for analytics
-                console.log(`📊 Document accessed: ${documentPath}`);
+                // Track access
+                console.log(`📊 Strategic Document Accessed: ${documentPath}`);
+                
+                // Optional: Add analytics tracking here
+                // gtag('event', 'document_access', { document_name: documentPath });
+                
             } else {
-                alert('🔒 Please authenticate first to access the strategy documents.');
                 showPasswordOverlay();
-                document.getElementById('passwordInput').focus();
+                const errorDiv = document.getElementById('errorMessage');
+                errorDiv.textContent = '🔒 Please authenticate first to access strategic documents.';
+                errorDiv.style.display = 'block';
             }
         }
         
-        // Add shake animation for incorrect password
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-on-scroll');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all cards and sections
+        document.querySelectorAll('.document-card, .integration-step, .benefit-card').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Add shake animation styles
         const style = document.createElement('style');
         style.textContent = `
             @keyframes shake {
@@ -810,30 +1158,24 @@
         `;
         document.head.appendChild(style);
         
-        // Initialize password protection on page load
-        window.addEventListener('load', function() {
-            checkAuthentication();
-            // Focus on password input when overlay is shown
-            setTimeout(() => {
-                if (document.getElementById('passwordOverlay').style.display !== 'none') {
-                    document.getElementById('passwordInput').focus();
-                }
-            }, 100);
-        });
+        // Initialize on page load
+        window.addEventListener('load', checkAuthentication);
         
         // Keyboard shortcuts
         document.addEventListener('keydown', function(e) {
-            // ESC key to show password form (for debugging/admin)
-            if (e.key === 'Escape' && e.shiftKey && e.ctrlKey) {
+            // Escape to show password form
+            if (e.key === 'Escape' && e.shiftKey) {
                 showPasswordOverlay();
             }
         });
         
-        // Security: Clear authentication on browser close
-        window.addEventListener('beforeunload', function() {
-            // Optional: Clear session on browser close for extra security
-            // sessionStorage.removeItem(SESSION_KEY);
-        });
+        // Performance optimization: Lazy load non-critical resources
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(() => {
+                // Load additional resources when browser is idle
+                console.log('🚀 UAGC Strategic Intelligence Suite - Loaded');
+            });
+        }
     </script>
 </body>
 </html> 

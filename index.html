@@ -430,51 +430,7 @@
             font-size: 0.95rem;
         }
 
-        /* Benefits Section */
-        .benefits-section {
-            padding: 6rem 0;
-            background: var(--arizona-blue);
-            color: white;
-        }
 
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .benefit-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            padding: 2.5rem;
-            border-radius: var(--radius-lg);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: var(--transition);
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .benefit-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            display: block;
-            color: var(--highlight-orange);
-        }
-
-        .benefit-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .benefit-description {
-            opacity: 0.9;
-            line-height: 1.6;
-        }
 
         /* CTA Section */
         .final-cta {
@@ -667,10 +623,6 @@
             }
 
             .integration-visual {
-                grid-template-columns: 1fr;
-            }
-
-            .benefits-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -962,55 +914,7 @@
         </div>
     </section>
 
-    <!-- Benefits Section -->
-    <section class="benefits-section">
-        <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title" style="color: white;">Why This Strategic Suite Will Transform UAGC</h2>
-                <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.9);">
-                    More than analysis—this is your roadmap to sustainable growth, competitive advantage, and market leadership.
-                </p>
-            </div>
 
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <i class="fas fa-rocket benefit-icon"></i>
-                    <h4 class="benefit-title">Immediate Impact</h4>
-                    <p class="benefit-description">Start seeing results within 30 days with prioritized, high-ROI recommendations that deliver quick wins while building long-term success.</p>
-                </div>
-
-                <div class="benefit-card">
-                    <i class="fas fa-chart-line benefit-icon"></i>
-                    <h4 class="benefit-title">Data-Driven Decisions</h4>
-                    <p class="benefit-description">Every recommendation backed by real Google Search Console data, competitive analysis, and industry benchmarks—no guesswork.</p>
-                </div>
-
-                <div class="benefit-card">
-                    <i class="fas fa-users benefit-icon"></i>
-                    <h4 class="benefit-title">Stakeholder Ready</h4>
-                    <p class="benefit-description">Plain language explanations make complex strategies accessible to all decision-makers, from executives to implementation teams.</p>
-                </div>
-
-                <div class="benefit-card">
-                    <i class="fas fa-trophy benefit-icon"></i>
-                    <h4 class="benefit-title">Competitive Edge</h4>
-                    <p class="benefit-description">Beat SNHU, WGU, and Walden with strategies specifically designed to outperform your biggest competitors.</p>
-                </div>
-
-                <div class="benefit-card">
-                    <i class="fas fa-cogs benefit-icon"></i>
-                    <h4 class="benefit-title">Complete Implementation</h4>
-                    <p class="benefit-description">12-month roadmaps with clear milestones, success metrics, and step-by-step implementation guides for every strategy.</p>
-                </div>
-
-                <div class="benefit-card">
-                    <i class="fas fa-shield-alt benefit-icon"></i>
-                    <h4 class="benefit-title">Risk Protection</h4>
-                    <p class="benefit-description">Reputation management ensures your brand stays protected while implementing aggressive growth strategies.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Final CTA Section -->
     <section class="final-cta">
@@ -1163,7 +1067,7 @@
         }, observerOptions);
         
         // Observe all cards and sections
-        document.querySelectorAll('.document-card, .integration-step, .benefit-card').forEach(el => {
+        document.querySelectorAll('.document-card, .integration-step').forEach(el => {
             observer.observe(el);
         });
         

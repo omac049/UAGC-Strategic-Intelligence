@@ -1,0 +1,4253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAGC Reputation Analysis 2025 - Comprehensive Report</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Replace 'your-kit-id' with your actual Adobe Fonts kit ID for Proxima Nova -->
+    <link rel="stylesheet" href="https://use.typekit.net/your-kit-id.css">
+    <style>
+        :root {
+            /* UAGC Primary Colors */
+            --arizona-red: #AB0520;
+            --arizona-blue: #0C234B;
+            
+            /* UAGC Highlight Colors */
+            --highlight-orange: #EF9600;
+            --highlight-sky: #81D3EB;
+            --highlight-blue: #0076A8;
+            --highlight-purple: #621244;
+            
+            /* UAGC Neutral Colors */
+            --light-gray: #D0D0CE;
+            --dark-gray: #53565A;
+            --tan: #0076A8;
+            
+            /* UAGC Secondary Colors */
+            --river: #007D8A;
+            --silver: #98A4AE;
+            --yellow: #F9E17D;
+            
+            /* Enhanced Design System */
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+            --space-4xl: 6rem;
+            
+            /* Typography Scale */
+            --text-xs: 0.75rem;
+            --text-sm: 0.875rem;
+            --text-base: 1rem;
+            --text-lg: 1.125rem;
+            --text-xl: 1.25rem;
+            --text-2xl: 1.5rem;
+            --text-3xl: 1.875rem;
+            --text-4xl: 2.25rem;
+            --text-5xl: 3rem;
+            --text-6xl: 3.75rem;
+            
+            /* Enhanced Shadow System */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+            
+            /* Glassmorphism Effects */
+            --glass-bg: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --glass-backdrop: blur(16px);
+            
+            /* Legacy color mappings for compatibility */
+            --primary-color: var(--arizona-blue);
+            --secondary-color: var(--arizona-red);
+            --accent-color: var(--highlight-blue);
+            --success-color: #10b981;
+            --warning-color: var(--highlight-orange);
+            --danger-color: var(--arizona-red);
+            
+            /* RGB values for rgba usage */
+            --success-rgb: 16, 185, 129;
+            --primary-rgb: 12, 35, 75;
+            --accent-rgb: 0, 118, 168;
+            --medium-gray: var(--silver);
+            --text-primary: var(--arizona-blue);
+            --text-secondary: var(--dark-gray);
+            --text-muted: var(--silver);
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: var(--light-gray);
+            --bg-card: #ffffff;
+            --border-color: var(--light-gray);
+            --border-radius: 12px;
+            --border-radius-lg: 16px;
+            --border-radius-xl: 20px;
+            --border-radius-2xl: 24px;
+            --box-shadow: var(--shadow-lg);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Proxima Nova', 'Inter', 'Source Sans Pro', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            scroll-behavior: smooth;
+            font-size: var(--text-base);
+            letter-spacing: -0.01em;
+        }
+        
+        /* Enhanced Typography System */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: var(--space-md);
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+        
+        h1 { 
+            font-size: clamp(var(--text-3xl), 5vw, var(--text-6xl)); 
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: var(--space-lg);
+        }
+        h2 { 
+            font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl)); 
+            font-weight: 600;
+            margin-bottom: var(--space-lg);
+        }
+        h3 { 
+            font-size: clamp(var(--text-xl), 3vw, var(--text-3xl)); 
+            margin-bottom: var(--space-md);
+        }
+        h4 { 
+            font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)); 
+            margin-bottom: var(--space-sm);
+        }
+        h5 { 
+            font-size: clamp(var(--text-base), 2vw, var(--text-xl)); 
+            margin-bottom: var(--space-sm);
+        }
+        h6 { 
+            font-size: clamp(var(--text-sm), 1.5vw, var(--text-lg)); 
+            margin-bottom: var(--space-xs);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        p {
+            margin-bottom: var(--space-lg);
+            font-size: var(--text-lg);
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        
+        .lead {
+            font-size: var(--text-xl);
+            font-weight: 300;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+        
+        .text-muted {
+            color: var(--text-muted) !important;
+        }
+        
+        /* Enhanced Link Styles */
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--arizona-red);
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 3px;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--arizona-blue), var(--arizona-red));
+            color: white;
+            padding: var(--space-4xl) 0;
+            position: relative;
+            overflow: hidden;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255,255,255,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(255,255,255,0.08) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 30%, rgba(129, 211, 235, 0.1) 50%, transparent 70%);
+            pointer-events: none;
+            animation: heroGlow 8s ease-in-out infinite alternate;
+        }
+        
+        @keyframes heroGlow {
+            0% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+        
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="0.5" fill="white" opacity="0.05"/><circle cx="40" cy="80" r="1.5" fill="white" opacity="0.08"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            pointer-events: none;
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-title {
+            font-size: clamp(var(--text-4xl), 6vw, var(--text-6xl));
+            font-weight: 700;
+            margin-bottom: var(--space-lg);
+            line-height: 1.1;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(var(--text-2xl), 3vw, var(--text-3xl));
+            font-weight: 600;
+            color: var(--yellow);
+            margin-bottom: var(--space-xl);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-description {
+            font-size: var(--text-xl);
+            opacity: 0.95;
+            margin-bottom: var(--space-xl);
+            max-width: 600px;
+            line-height: 1.6;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        
+        .section-header {
+            border-left: 4px solid var(--arizona-red);
+            padding-left: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .section-header h2 {
+            color: var(--text-primary);
+        }
+        
+        .section-header p {
+            color: var(--text-muted);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background: var(--arizona-red);
+            border-radius: 50%;
+        }
+        
+        .stat-card {
+            border-radius: var(--border-radius-lg);
+            padding: var(--space-3xl) var(--space-xl);
+            text-align: center;
+            margin-bottom: var(--space-xl);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-slow);
+            box-shadow: var(--shadow-xl);
+            background-size: 400% 400%;
+            animation: gradientShift 6s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            transition: var(--transition);
+            transform: scale(0);
+        }
+        
+        .stat-card:hover::before {
+            transform: scale(1);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: var(--shadow-2xl), 0 0 30px rgba(255, 255, 255, 0.2);
+        }
+        
+        .stat-card.negative {
+            background: linear-gradient(135deg, var(--arizona-red), var(--highlight-purple), var(--arizona-red));
+        }
+        
+        .stat-card.warning {
+            background: linear-gradient(135deg, var(--highlight-orange), var(--yellow), var(--highlight-orange));
+        }
+        
+        .stat-card.neutral {
+            background: linear-gradient(135deg, var(--silver), var(--dark-gray), var(--silver));
+        }
+        
+        .stat-card.positive {
+            background: linear-gradient(135deg, var(--river), var(--highlight-sky), var(--river));
+        }
+        
+        .stat-card .h2 {
+            font-size: var(--text-5xl);
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            animation: numberPulse 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes numberPulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+        
+        .stat-card div:last-child {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        
+        /* Enhanced Stat Cards - Cleaner Design */
+        .stat-card-enhanced {
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: 28px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .stat-card-enhanced:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+            border-color: var(--accent-color);
+        }
+        
+        .stat-card-enhanced .card-icon {
+            background: rgba(var(--accent-rgb), 0.1);
+            color: var(--accent-color);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card-enhanced:hover .card-icon {
+            background: var(--accent-color);
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .stat-card-enhanced .card-content {
+            flex-grow: 1;
+            margin-bottom: 16px;
+        }
+        
+        .stat-card-enhanced .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1;
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        .stat-card-enhanced .stat-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .stat-card-enhanced .stat-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+            margin-bottom: 0;
+        }
+        
+        .stat-card-enhanced .verification-badge {
+            background: rgba(var(--success-rgb), 0.1);
+            color: var(--success-color);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: auto;
+        }
+        
+        .stat-card-enhanced .verification-badge i {
+            font-size: 0.7rem;
+        }
+        
+        /* Color variants for enhanced cards */
+        .stat-card-enhanced.positive {
+            border-color: rgba(var(--success-rgb), 0.3);
+        }
+        
+        .stat-card-enhanced.positive:hover {
+            border-color: var(--success-color);
+        }
+        
+        .stat-card-enhanced.positive .card-icon {
+            background: rgba(var(--success-rgb), 0.1);
+            color: var(--success-color);
+        }
+        
+        .stat-card-enhanced.positive:hover .card-icon {
+            background: var(--success-color);
+            color: white;
+        }
+        
+        .stat-card-enhanced.neutral {
+            border-color: rgba(var(--primary-rgb), 0.3);
+        }
+        
+        .stat-card-enhanced.neutral:hover {
+            border-color: var(--primary-color);
+        }
+        
+        .stat-card-enhanced.neutral .card-icon {
+            background: rgba(var(--primary-rgb), 0.1);
+            color: var(--primary-color);
+        }
+        
+        .stat-card-enhanced.neutral:hover .card-icon {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        /* Responsive adjustments for enhanced cards */
+        @media (max-width: 768px) {
+            .stat-card-enhanced .stat-number {
+                font-size: 2rem;
+            }
+            
+            .stat-card-enhanced .card-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+                margin-bottom: 16px;
+            }
+            
+            .stat-card-enhanced {
+                padding: 20px 16px;
+            }
+        }
+        
+        .keyword-tag {
+            background: var(--bg-accent);
+            color: var(--text-primary);
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            font-weight: 500;
+            margin: 2px;
+            display: inline-block;
+            border: 1px solid var(--border-color);
+        }
+        
+        .keyword-tag.negative {
+            background: rgba(171, 5, 32, 0.1);
+            color: var(--arizona-red);
+            border-color: rgba(171, 5, 32, 0.3);
+        }
+        
+        .keyword-tag.warning {
+            background: rgba(239, 150, 0, 0.1);
+            color: var(--highlight-orange);
+            border-color: rgba(239, 150, 0, 0.3);
+        }
+        
+        .keyword-tag.positive {
+            background: rgba(0, 125, 138, 0.1);
+            color: var(--river);
+            border-color: rgba(0, 125, 138, 0.3);
+        }
+        
+        .reputation-table {
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .section-divider {
+            height: 3px;
+            background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+            margin: 50px 0;
+        }
+        
+        .card {
+            border: none;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition-slow);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            background: var(--bg-primary);
+            position: relative;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--arizona-red), var(--highlight-orange), var(--arizona-blue));
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+        
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-2xl), 0 0 40px rgba(171, 5, 32, 0.1);
+        }
+        
+        .card-body {
+            padding: var(--space-2xl);
+            position: relative;
+        }
+        
+        .card-title {
+            font-size: var(--text-xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-md);
+            position: relative;
+        }
+        
+        .card-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--arizona-red);
+            border-radius: 1px;
+        }
+        
+        .card-body p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        /* Enhanced key finding cards */
+        .key-finding {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: var(--space-xl);
+            margin: var(--space-lg) 0;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .key-finding::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--arizona-red), var(--highlight-orange));
+            border-radius: 0 2px 2px 0;
+        }
+        
+        .key-finding:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .key-finding h6 {
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        
+        .key-finding p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-sm);
+        }
+        
+        /* Enhanced comparison cards */
+        .comparison-card {
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
+            border-left: 4px solid var(--arizona-red);
+            padding: var(--space-xl);
+            margin: var(--space-xl) 0;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .comparison-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(171, 5, 32, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .comparison-card:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .comparison-card h5, .comparison-card h6 {
+            color: var(--text-primary);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .comparison-card p, .comparison-card li {
+            color: var(--text-secondary);
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Enhanced peer comparison cards */
+        .peer-comparison {
+            background: linear-gradient(135deg, var(--arizona-blue) 0%, var(--highlight-blue) 100%);
+            color: white;
+            padding: var(--space-xl);
+            border-radius: var(--border-radius-lg);
+            margin: var(--space-xl) 0;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .peer-comparison::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: cardGlow 8s linear infinite;
+            pointer-events: none;
+        }
+        
+        .legal-highlight {
+            background: rgba(239, 150, 0, 0.1);
+            border-left: 4px solid var(--highlight-orange);
+            border: 1px solid rgba(239, 150, 0, 0.3);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        
+        .legal-highlight h6 {
+            color: var(--highlight-orange);
+        }
+        
+        .legal-highlight p {
+            color: var(--dark-gray);
+        }
+        
+        .student-quote {
+            background: rgba(12, 35, 75, 0.05);
+            border-left: 4px solid var(--arizona-blue);
+            border: 1px solid rgba(12, 35, 75, 0.2);
+            padding: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            border-radius: 8px;
+            color: var(--arizona-blue);
+        }
+        
+        /* Enhanced spacing and layout */
+        .section-spacing {
+            padding: var(--space-4xl) 0;
+        }
+        
+        .section-spacing-large {
+            padding: var(--space-4xl) 0 var(--space-4xl) 0;
+        }
+        
+        .container-fluid-custom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--space-xl);
+        }
+        
+        /* Improved visual hierarchy */
+        .visual-hierarchy-1 {
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .visual-hierarchy-2 {
+            font-size: var(--text-xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .visual-hierarchy-3 {
+            font-size: var(--text-lg);
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+        }
+        
+        /* Enhanced reputation scores */
+        .reputation-score {
+            font-size: var(--text-5xl);
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .reputation-score.poor {
+            color: var(--danger-color);
+            animation: scorePulse 2s ease-in-out infinite alternate;
+        }
+        
+        .reputation-score.fair {
+            color: var(--warning-color);
+        }
+        
+        .reputation-score.good {
+            color: var(--success-color);
+        }
+        
+        @keyframes scorePulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+        
+        /* Enhanced button styles */
+        .btn {
+            border-radius: var(--border-radius);
+            padding: var(--space-sm) var(--space-lg);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: var(--transition);
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--arizona-blue), var(--arizona-red));
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        /* Enhanced navigation */
+        .navigation-sticky {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .navbar-brand {
+            color: var(--text-primary) !important;
+            font-weight: 700;
+            font-size: var(--text-xl);
+        }
+        
+        .navigation-sticky.scrolled {
+            box-shadow: var(--shadow-lg);
+            background: rgba(255, 255, 255, 0.98);
+        }
+        
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: var(--space-sm) var(--space-md) !important;
+            color: var(--text-secondary) !important;
+            border-radius: var(--border-radius);
+        }
+        
+        .nav-link:hover {
+            color: var(--accent-color) !important;
+            transform: translateY(-1px);
+            background: rgba(171, 5, 32, 0.05);
+        }
+        
+        .nav-link.active {
+            color: var(--accent-color) !important;
+            background: rgba(171, 5, 32, 0.1);
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 3px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+        
+        /* Enhanced progress indicator */
+        .progress-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--light-gray);
+            z-index: 1001;
+        }
+        
+        .progress-bar-indicator {
+            height: 100%;
+            background: linear-gradient(90deg, var(--arizona-red), var(--highlight-orange), var(--arizona-blue));
+            transition: width 0.3s ease;
+            box-shadow: 0 0 10px rgba(171, 5, 32, 0.5);
+        }
+        
+        .key-finding {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .key-finding h6 {
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+        
+        .key-finding p {
+            color: var(--text-secondary);
+        }
+        
+        .source-citation {
+            font-size: 0.9em;
+            color: var(--text-muted);
+            margin-top: 10px;
+            font-style: italic;
+        }
+        
+        .peer-comparison {
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .table {
+            color: var(--text-primary);
+        }
+        
+        .table th {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+        .table td {
+            color: var(--text-secondary);
+        }
+        
+        .impact-indicator {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        
+        .impact-positive { background: var(--success-color); }
+        .impact-negative { background: var(--danger-color); }
+        .impact-neutral { background: var(--warning-color); }
+        
+        /* Enhanced badge colors for better contrast */
+        .badge.bg-danger {
+            background-color: var(--arizona-red) !important;
+            color: white !important;
+        }
+        
+        .badge.bg-warning {
+            background-color: var(--highlight-orange) !important;
+            color: white !important;
+        }
+        
+        .badge.bg-success {
+            background-color: var(--river) !important;
+            color: white !important;
+        }
+        
+        .text-danger {
+            color: var(--arizona-red) !important;
+        }
+        
+        .text-warning {
+            color: var(--highlight-orange) !important;
+        }
+        
+        .text-success {
+            color: var(--river) !important;
+        }
+        
+        .progress-bar-custom {
+            height: 25px;
+            border-radius: 15px;
+        }
+        
+        /* Enhanced Interactive Card */
+        .hero-interactive-card {
+            background: var(--glass-bg);
+            border-radius: var(--border-radius-2xl);
+            padding: var(--space-3xl) var(--space-xl);
+            backdrop-filter: var(--glass-backdrop);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow-2xl);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-slow);
+            animation: cardFloat 6s ease-in-out infinite alternate;
+        }
+        
+        @keyframes cardFloat {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-10px); }
+        }
+        
+        .hero-interactive-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: cardGlow 4s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes cardGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .hero-interactive-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: var(--shadow-2xl), 0 0 40px rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Enhanced metric dashboard */
+        .metric-dashboard {
+            background: var(--bg-primary);
+            padding: var(--space-3xl);
+            border-radius: var(--border-radius-xl);
+            box-shadow: var(--shadow-xl);
+            margin: var(--space-3xl) 0;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .metric-dashboard::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--arizona-red), var(--highlight-orange), var(--arizona-blue));
+        }
+        
+        .trend-arrow {
+            font-size: 1.5rem;
+            margin-left: 10px;
+        }
+        
+        .trend-down { color: var(--danger-color); }
+        .trend-up { color: var(--success-color); }
+        .trend-stable { color: var(--warning-color); }
+        
+        /* Enhanced mobile responsiveness */
+        @media (max-width: 992px) {
+            .container-fluid-custom {
+                padding: 0 var(--space-md);
+            }
+            
+            .section-spacing {
+                padding: var(--space-3xl) 0;
+            }
+            
+            .section-spacing-large {
+                padding: var(--space-3xl) 0;
+            }
+            
+            .hero-section {
+                padding: var(--space-3xl) 0;
+                min-height: 60vh;
+            }
+            
+            .hero-title {
+                font-size: clamp(var(--text-3xl), 8vw, var(--text-5xl));
+            }
+            
+            .hero-subtitle {
+                font-size: clamp(var(--text-xl), 4vw, var(--text-2xl));
+            }
+            
+            .hero-interactive-card {
+                padding: var(--space-2xl) var(--space-lg);
+                margin-top: var(--space-xl);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: var(--space-2xl) 0;
+                min-height: 50vh;
+            }
+            
+            .stat-card {
+                margin-bottom: var(--space-lg);
+                padding: var(--space-xl) var(--space-lg);
+            }
+            
+            .stat-card .h2 {
+                font-size: var(--text-4xl);
+            }
+            
+            .card-body {
+                padding: var(--space-lg);
+            }
+            
+            .metric-dashboard {
+                padding: var(--space-xl);
+            }
+            
+            .navbar-nav {
+                padding: var(--space-md) 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                border-radius: var(--border-radius);
+                margin-top: var(--space-sm);
+                box-shadow: var(--shadow-lg);
+            }
+            
+            .nav-link {
+                padding: var(--space-sm) var(--space-md) !important;
+                margin: var(--space-xs) 0;
+                border-radius: var(--border-radius);
+            }
+            
+            .hero-interactive-card {
+                padding: var(--space-xl) var(--space-md);
+            }
+            
+            /* Enhanced touch targets */
+            .btn {
+                min-height: 44px;
+                padding: var(--space-md) var(--space-lg);
+            }
+            
+            .nav-link {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+            }
+            
+            .reputation-indicator {
+                padding: var(--space-sm) var(--space-md);
+                font-size: var(--text-sm);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-section {
+                padding: var(--space-xl) 0;
+                min-height: 40vh;
+            }
+            
+            .container-fluid-custom {
+                padding: 0 var(--space-sm);
+            }
+            
+            .section-spacing {
+                padding: var(--space-xl) 0;
+            }
+            
+            .stat-card {
+                padding: var(--space-lg) var(--space-md);
+            }
+            
+            .stat-card .h2 {
+                font-size: var(--text-3xl);
+            }
+            
+            .card-body {
+                padding: var(--space-md);
+            }
+            
+            .metric-dashboard {
+                padding: var(--space-lg);
+            }
+            
+            .hero-interactive-card {
+                padding: var(--space-lg) var(--space-sm);
+            }
+            
+            .visual-hierarchy-1 {
+                font-size: var(--text-xl);
+            }
+            
+            .visual-hierarchy-2 {
+                font-size: var(--text-lg);
+            }
+            
+            .reputation-score {
+                font-size: var(--text-3xl);
+            }
+        }
+        
+        /* Enhanced accessibility improvements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        .focus-visible {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+        
+        /* Smooth animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* Enhanced visual indicators */
+        .reputation-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .reputation-indicator.excellent {
+            background: rgba(0, 125, 138, 0.1);
+            color: var(--river);
+            border: 1px solid var(--river);
+        }
+        
+        .reputation-indicator.good {
+            background: rgba(12, 35, 75, 0.1);
+            color: var(--arizona-blue);
+            border: 1px solid var(--arizona-blue);
+        }
+        
+        .reputation-indicator.fair {
+            background: rgba(239, 150, 0, 0.1);
+            color: var(--highlight-orange);
+            border: 1px solid var(--highlight-orange);
+        }
+        
+        .reputation-indicator.poor {
+            background: rgba(171, 5, 32, 0.1);
+            color: var(--arizona-red);
+            border: 1px solid var(--arizona-red);
+        }
+        
+        /* Enhanced Citation styling with improved spacing */
+        .citation-item {
+            padding: var(--space-xl);
+            margin-bottom: var(--space-xl);
+            border-radius: var(--border-radius-lg);
+            background: rgba(255, 255, 255, 0.7);
+            border-left: 4px solid var(--arizona-blue);
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .citation-item:hover {
+            transform: translateX(6px);
+            box-shadow: var(--shadow-md);
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .citation-item h6 {
+            font-size: var(--text-base);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--space-lg);
+            border-bottom: 2px solid rgba(12, 35, 75, 0.2);
+            padding-bottom: var(--space-md);
+            color: var(--arizona-blue);
+        }
+        
+        .source-citation {
+            font-size: var(--text-sm);
+            line-height: 1.7;
+            color: var(--text-secondary);
+            padding: var(--space-md) 0;
+            margin-bottom: var(--space-md);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: var(--border-radius);
+            padding: var(--space-md);
+        }
+        
+        .source-citation:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .source-citation strong {
+            color: var(--text-primary);
+            font-weight: 600;
+            display: block;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .source-citation em {
+            color: var(--arizona-blue);
+            font-style: italic;
+            font-weight: 500;
+        }
+        
+        .source-citation a {
+            color: var(--highlight-blue);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: var(--text-xs);
+            padding: var(--space-sm) var(--space-md);
+            background: rgba(0, 118, 168, 0.1);
+            border-radius: 20px;
+            margin-left: var(--space-md);
+            margin-top: var(--space-sm);
+            display: inline-block;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 118, 168, 0.2);
+        }
+        
+        .source-citation a:hover {
+            background: rgba(0, 118, 168, 0.2);
+            color: var(--arizona-red);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        /* Enhanced card spacing in sources section */
+        .sources-card {
+            margin-bottom: var(--space-2xl);
+            box-shadow: var(--shadow-lg);
+            border-radius: var(--border-radius-xl);
+            overflow: hidden;
+        }
+        
+        .sources-card .card-body {
+            padding: var(--space-3xl);
+        }
+        
+        .sources-card .card-title {
+            font-size: var(--text-xl);
+            margin-bottom: var(--space-2xl);
+            padding-bottom: var(--space-md);
+            border-bottom: 2px solid var(--border-color);
+        }
+        
+        /* Enhanced spacing for verification section */
+        .verification-section {
+            margin-top: var(--space-4xl);
+            margin-bottom: var(--space-3xl);
+        }
+        
+        .citation-guide-section {
+            margin-top: var(--space-3xl);
+        }
+        
+        .text-purple {
+            color: var(--highlight-purple) !important;
+        }
+        
+        /* Enhanced Executive Summary Styles */
+        .executive-summary-section {
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            border-radius: var(--border-radius-2xl);
+            padding: var(--space-4xl) var(--space-2xl);
+            margin: var(--space-3xl) 0;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .executive-summary-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--arizona-red), var(--highlight-orange), var(--arizona-blue));
+            border-radius: var(--border-radius-2xl) var(--border-radius-2xl) 0 0;
+        }
+        
+        .summary-divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--arizona-red), var(--highlight-orange));
+            border-radius: 2px;
+            margin-top: var(--space-md);
+        }
+        
+        /* Assessment Banner */
+        .assessment-banner {
+            background: linear-gradient(135deg, rgba(171, 5, 32, 0.08) 0%, rgba(239, 150, 0, 0.05) 100%);
+            border: 1px solid rgba(171, 5, 32, 0.2);
+            border-radius: var(--border-radius-xl);
+            padding: var(--space-3xl);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .assessment-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(171, 5, 32, 0.05) 0%, transparent 70%);
+            animation: pulseGlow 6s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+        
+        @keyframes pulseGlow {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.7; }
+        }
+        
+        .assessment-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+        }
+        
+        .assessment-badge {
+            padding: var(--space-xs) var(--space-md);
+            border-radius: 20px;
+            font-size: var(--text-sm);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .assessment-badge.critical {
+            background: var(--arizona-red);
+            color: white;
+            box-shadow: 0 0 20px rgba(171, 5, 32, 0.3);
+            animation: badgePulse 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes badgePulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+        
+        .assessment-title {
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+        }
+        
+        .assessment-text {
+            font-size: var(--text-lg);
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        
+        /* Assessment Scorecard */
+        .assessment-scorecard {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        
+        .scorecard-inner {
+            background: linear-gradient(135deg, var(--arizona-red), var(--highlight-purple));
+            color: white;
+            border-radius: var(--border-radius-xl);
+            padding: var(--space-2xl);
+            text-align: center;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            overflow: hidden;
+            min-width: 200px;
+            animation: scorecardFloat 4s ease-in-out infinite alternate;
+        }
+        
+        @keyframes scorecardFloat {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-8px); }
+        }
+        
+        .scorecard-inner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: scorecardGlow 8s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes scorecardGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .overall-score {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 4px;
+            margin-bottom: var(--space-md);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .score-number {
+            font-size: var(--text-6xl);
+            font-weight: 900;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            animation: scoreNumberPulse 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes scoreNumberPulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+        
+        .score-denominator {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            opacity: 0.8;
+        }
+        
+        .score-label {
+            font-size: var(--text-base);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--space-xs);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .score-description {
+            font-size: var(--text-sm);
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Insight Cards */
+        .insights-grid {
+            margin-top: var(--space-3xl);
+        }
+        
+        .insight-card {
+            background: var(--bg-primary);
+            border-radius: var(--border-radius-xl);
+            padding: var(--space-2xl);
+            box-shadow: var(--shadow-lg);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-slow);
+            border: 2px solid transparent;
+        }
+        
+        .insight-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-2xl);
+        }
+        
+        .critical-card {
+            border-color: rgba(171, 5, 32, 0.2);
+            background: linear-gradient(135deg, var(--bg-primary) 0%, rgba(171, 5, 32, 0.02) 100%);
+        }
+        
+        .critical-card:hover {
+            border-color: var(--arizona-red);
+            box-shadow: var(--shadow-2xl), 0 0 30px rgba(171, 5, 32, 0.15);
+        }
+        
+        .positive-card {
+            border-color: rgba(0, 125, 138, 0.2);
+            background: linear-gradient(135deg, var(--bg-primary) 0%, rgba(0, 125, 138, 0.02) 100%);
+        }
+        
+        .positive-card:hover {
+            border-color: var(--river);
+            box-shadow: var(--shadow-2xl), 0 0 30px rgba(0, 125, 138, 0.15);
+        }
+        
+        .insight-header {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .insight-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-2xl);
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .insight-icon.critical {
+            background: linear-gradient(135deg, var(--arizona-red), var(--highlight-purple));
+            color: white;
+            box-shadow: 0 4px 20px rgba(171, 5, 32, 0.3);
+        }
+        
+        .insight-icon.positive {
+            background: linear-gradient(135deg, var(--river), var(--highlight-sky));
+            color: white;
+            box-shadow: 0 4px 20px rgba(0, 125, 138, 0.3);
+        }
+        
+        .insight-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+            animation: iconPulse 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes iconPulse {
+            0% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        
+        .insight-title-area {
+            flex-grow: 1;
+        }
+        
+        .insight-title {
+            font-size: var(--text-xl);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .insight-subtitle {
+            font-size: var(--text-base);
+            color: var(--text-muted);
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* Mini Metrics */
+        .insight-metrics {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: var(--border-radius);
+            padding: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .mini-metric {
+            text-align: center;
+            padding: var(--space-md);
+            background: var(--bg-primary);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        .mini-metric:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .mini-metric-number {
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .mini-metric-label {
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        /* Detail Items */
+        .insight-details {
+            margin-top: var(--space-lg);
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-md);
+            padding: var(--space-md) 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+        
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+        
+        .detail-item:hover {
+            background: rgba(255, 255, 255, 0.5);
+            padding-left: var(--space-sm);
+            border-radius: var(--border-radius);
+            margin: 0 calc(-1 * var(--space-sm));
+            padding-right: var(--space-sm);
+        }
+        
+        .detail-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        .detail-content {
+            font-size: var(--text-base);
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+        
+        .detail-content strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+        /* Key Findings Callout */
+        .key-findings-callout {
+            background: linear-gradient(135deg, var(--highlight-orange), var(--yellow));
+            color: white;
+            border-radius: var(--border-radius-xl);
+            padding: var(--space-2xl);
+            margin: var(--space-3xl) 0;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .key-findings-callout::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+            animation: calloutGlow 8s ease-in-out infinite alternate;
+        }
+        
+        @keyframes calloutGlow {
+            0% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+        
+        .callout-content {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .callout-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-2xl);
+            flex-shrink: 0;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .callout-text {
+            flex-grow: 1;
+        }
+        
+        .callout-title {
+            font-size: var(--text-xl);
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .callout-description {
+            font-size: var(--text-lg);
+            line-height: 1.6;
+            opacity: 0.95;
+            margin: 0;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Summary Navigation */
+        .summary-navigation {
+            margin-top: var(--space-3xl);
+            padding-top: var(--space-2xl);
+            border-top: 2px solid var(--border-color);
+        }
+        
+        .nav-header h6 {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .nav-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-lg);
+            background: var(--bg-primary);
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .nav-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        
+        .nav-card i {
+            font-size: var(--text-xl);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .nav-card span {
+            font-size: var(--text-sm);
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        /* Responsive Design for Executive Summary */
+        @media (max-width: 992px) {
+            .executive-summary-section {
+                padding: var(--space-3xl) var(--space-lg);
+            }
+            
+            .assessment-banner {
+                padding: var(--space-2xl);
+            }
+            
+            .assessment-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--space-md);
+            }
+            
+            .scorecard-inner {
+                min-width: 160px;
+                padding: var(--space-lg);
+            }
+            
+            .score-number {
+                font-size: var(--text-4xl);
+            }
+            
+            .insight-header {
+                gap: var(--space-md);
+            }
+            
+            .insight-icon {
+                width: 50px;
+                height: 50px;
+                font-size: var(--text-xl);
+            }
+            
+            .callout-content {
+                flex-direction: column;
+                text-align: center;
+                gap: var(--space-md);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .executive-summary-section {
+                padding: var(--space-2xl) var(--space-md);
+            }
+            
+            .assessment-banner {
+                padding: var(--space-lg);
+            }
+            
+            .insight-card {
+                padding: var(--space-lg);
+                margin-bottom: var(--space-lg);
+            }
+            
+            .insight-metrics {
+                padding: var(--space-md);
+            }
+            
+            .scorecard-inner {
+                min-width: 140px;
+                padding: var(--space-md);
+            }
+            
+            .score-number {
+                font-size: var(--text-3xl);
+            }
+            
+            .nav-card {
+                padding: var(--space-md);
+            }
+            
+            .callout-icon {
+                width: 50px;
+                height: 50px;
+                font-size: var(--text-xl);
+            }
+        }
+
+        /* Enhanced Metrics Dashboard Styles */
+        .enhanced-card {
+            position: relative;
+            overflow: visible;
+            transition: var(--transition-slow);
+        }
+        
+        .enhanced-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            z-index: 10;
+        }
+        
+        .metric-header {
+            position: absolute;
+            top: var(--space-sm);
+            right: var(--space-sm);
+            left: var(--space-sm);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            z-index: 2;
+        }
+        
+        .severity-badge {
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: 15px;
+            font-size: var(--text-xs);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .severity-badge.critical {
+            background: var(--arizona-red);
+            color: white;
+        }
+        
+        .severity-badge.concerning {
+            background: var(--highlight-orange);
+            color: white;
+        }
+        
+        .severity-badge.stable {
+            background: var(--river);
+            color: white;
+        }
+        
+        .data-quality {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: var(--space-xs);
+        }
+        
+        .data-freshness, .confidence-level {
+            font-size: var(--text-xs);
+            padding: 2px 6px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+        }
+        
+        .confidence-level.high {
+            background: rgba(0, 125, 138, 0.3);
+        }
+        
+        .confidence-level.medium {
+            background: rgba(239, 150, 0, 0.3);
+        }
+        
+        .metric-comparison {
+            margin-top: var(--space-xl);
+            margin-bottom: var(--space-md);
+        }
+        
+        .benchmark-container {
+            margin-top: var(--space-md);
+            position: relative;
+            height: 40px;
+        }
+        
+        .benchmark-bar {
+            position: relative;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            margin-top: var(--space-sm);
+            overflow: visible;
+        }
+        
+        .uagc-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--arizona-red), var(--highlight-orange));
+            border-radius: 4px;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .uagc-bar.warning-bar {
+            background: linear-gradient(90deg, var(--highlight-orange), var(--yellow));
+        }
+        
+        .uagc-bar.positive-bar {
+            background: linear-gradient(90deg, var(--river), var(--highlight-sky));
+        }
+        
+        .uagc-bar.negative-bar {
+            background: linear-gradient(90deg, var(--arizona-red), var(--highlight-purple));
+        }
+        
+        .uagc-bar.extreme {
+            background: linear-gradient(90deg, var(--arizona-red), var(--arizona-red), var(--highlight-purple));
+            animation: pulseRed 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes pulseRed {
+            0% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+        
+        .industry-benchmark {
+            position: absolute;
+            top: -15px;
+            transform: translateX(-50%);
+            z-index: 3;
+        }
+        
+        .industry-benchmark::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.8);
+        }
+        
+        .industry-benchmark.positive::before {
+            background: var(--river);
+        }
+        
+        .benchmark-label {
+            font-size: var(--text-xs);
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2px 6px;
+            border-radius: 6px;
+            white-space: nowrap;
+            backdrop-filter: blur(4px);
+        }
+        
+        .metric-title {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: var(--space-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .metric-impact {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-top: var(--space-sm);
+        }
+        
+        .impact-text {
+            font-size: var(--text-sm);
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .status-indicator {
+            text-align: center;
+            padding: var(--space-sm);
+            border-radius: var(--border-radius);
+            margin-top: var(--space-sm);
+        }
+        
+        .status-indicator.positive {
+            background: rgba(0, 125, 138, 0.2);
+            border: 1px solid rgba(0, 125, 138, 0.4);
+        }
+        
+        .status-text {
+            font-size: var(--text-sm);
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .metrics-section {
+            position: relative;
+            padding: var(--space-2xl);
+            border-radius: var(--border-radius-xl);
+            margin-bottom: var(--space-3xl);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .critical-section {
+            background: linear-gradient(135deg, rgba(171, 5, 32, 0.1), rgba(98, 18, 68, 0.1));
+            border-left: 4px solid var(--arizona-red);
+        }
+        
+        .concerning-section {
+            background: linear-gradient(135deg, rgba(239, 150, 0, 0.1), rgba(249, 225, 125, 0.1));
+            border-left: 4px solid var(--highlight-orange);
+        }
+        
+        .stable-section {
+            background: linear-gradient(135deg, rgba(0, 125, 138, 0.1), rgba(129, 211, 235, 0.1));
+            border-left: 4px solid var(--river);
+        }
+        
+        .section-header-inline h3 {
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            margin-bottom: var(--space-lg);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        
+        /* Enhanced Tooltip System */
+        .enhanced-card[data-tooltip] {
+            cursor: help;
+        }
+        
+        .enhanced-card[data-tooltip]:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: var(--space-sm);
+            padding: var(--space-md);
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            border-radius: var(--border-radius);
+            font-size: var(--text-sm);
+            max-width: 300px;
+            text-align: center;
+            z-index: 1000;
+            box-shadow: var(--shadow-xl);
+            animation: tooltipFade 0.3s ease-in-out;
+            line-height: 1.4;
+        }
+        
+        .enhanced-card[data-tooltip]:hover::before {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 2px;
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 6px solid rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+        }
+        
+        @keyframes tooltipFade {
+            0% { opacity: 0; transform: translateX(-50%) translateY(10px); }
+            100% { opacity: 1; transform: translateX(-50%) translateY(0); }
+        }
+        
+        /* Enhanced Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .metric-header {
+                position: relative;
+                top: auto;
+                right: auto;
+                left: auto;
+                margin-bottom: var(--space-md);
+            }
+            
+            .data-quality {
+                flex-direction: row;
+                align-items: center;
+                gap: var(--space-sm);
+            }
+            
+            .benchmark-container {
+                height: 30px;
+            }
+            
+            .enhanced-card[data-tooltip]:hover::after {
+                position: fixed;
+                bottom: 20px;
+                left: 20px;
+                right: 20px;
+                transform: none;
+                max-width: none;
+                margin-bottom: 0;
+            }
+            
+            .enhanced-card[data-tooltip]:hover::before {
+                display: none;
+            }
+            
+            .metrics-section {
+                padding: var(--space-lg);
+            }
+        }
+        
+        /* Interactive Enhancements */
+        .enhanced-card:focus-within {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+        
+        .metric-dashboard {
+            position: relative;
+        }
+        
+        .metric-dashboard::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(129, 211, 235, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(171, 5, 32, 0.1) 0%, transparent 50%);
+            border-radius: var(--border-radius-xl);
+            pointer-events: none;
+        }
+
+        /* Enhanced Progress Bar Tooltips */
+        .progress-bar[data-bs-toggle="tooltip"] {
+            cursor: help;
+            transition: var(--transition);
+        }
+        
+        .progress-bar[data-bs-toggle="tooltip"]:hover {
+            opacity: 0.9;
+            filter: brightness(1.1);
+        }
+
+        /* Enhanced Stats Cards in About Section */
+        .about-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: var(--space-lg);
+            margin: var(--space-xl) 0;
+        }
+        
+        .about-stat-item {
+            text-align: center;
+            padding: var(--space-lg);
+            background: var(--bg-secondary);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+        
+        .about-stat-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            background: var(--bg-primary);
+        }
+        
+        .about-stat-number {
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            color: var(--arizona-blue);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .about-stat-label {
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Enhanced Card Layouts for About Section */
+        .about-section-card {
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: var(--space-2xl);
+            margin-bottom: var(--space-xl);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-section-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--arizona-red), var(--highlight-orange), var(--arizona-blue));
+        }
+        
+        .about-section-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Enhanced List Styling */
+        .enhanced-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .enhanced-list li {
+            padding: var(--space-sm) 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+        
+        .enhanced-list li:hover {
+            background: rgba(12, 35, 75, 0.02);
+            padding-left: var(--space-sm);
+            border-radius: var(--border-radius);
+        }
+        
+        .enhanced-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Improved Mobile Layout for About Section */
+        @media (max-width: 768px) {
+            .about-stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--space-md);
+            }
+            
+            .about-section-card {
+                padding: var(--space-lg);
+            }
+            
+            .metric-dashboard .row.g-4 {
+                --bs-gutter-x: 1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .about-stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-stat-item {
+                padding: var(--space-md);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Indicator -->
+    <div class="progress-indicator">
+        <div class="progress-bar-indicator" id="progressBar"></div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm navigation-sticky" id="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#overview">
+                <i class="fas fa-university me-2"></i>UAGC Reputation Analysis
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#executive-summary">Executive Summary</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#strategic-implications">Strategic Impact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#background">Background</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Supporting Evidence
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#student-perception">Student Perception</a></li>
+                            <li><a class="dropdown-item" href="#academic-quality">Academic Quality</a></li>
+                            <li><a class="dropdown-item" href="#media-coverage">Media Coverage</a></li>
+                            <li><a class="dropdown-item" href="#legal-issues">Legal Issues</a></li>
+                            <li><a class="dropdown-item" href="#peer-comparison">Peer Comparison</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#conclusion">Conclusion</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sources">Methodology</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="overview">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <div class="fade-in">
+                        <h1 class="hero-title">
+                            University of Arizona Global Campus
+                            <span class="d-block hero-subtitle">Comprehensive Reputation Analysis 2025</span>
+                        </h1>
+                        <p class="hero-description" style="color: var(--text-primary);">
+                            Executive briefing on critical reputation challenges requiring immediate strategic intervention and board-level oversight.
+                        </p>
+                        <div class="d-flex flex-wrap gap-3 mb-4">
+                            <span class="reputation-indicator poor">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                Reputation Crisis
+                            </span>
+                            <span class="reputation-indicator fair">
+                                <i class="fas fa-eye"></i>
+                                Regulatory Scrutiny
+                            </span>
+                            <span class="reputation-indicator poor">
+                                <i class="fas fa-chart-line-down"></i>
+                                Poor Outcomes
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-interactive-card fade-in">
+                        <div class="text-center">
+                            <h3 class="visual-hierarchy-2 mb-4">Overall Reputation Score</h3>
+                            <div class="reputation-score poor">2.1/5</div>
+                            <p class="text-muted mb-4">Based on comprehensive multi-source analysis</p>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="text-center">
+                                        <div class="h4 text-danger">9%</div>
+                                        <small>Graduation Rate</small>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="text-center">
+                                        <div class="h4 text-warning">$4.5B</div>
+                                        <small>Loan Forgiveness</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Executive Summary - Priority Section for ELT -->
+    <section class="section-spacing" id="executive-summary">
+        <div class="container">
+            <!-- Enhanced Executive Summary -->
+            <div class="executive-summary-section mb-5">
+                <div class="section-header text-center mb-5">
+                    <h2 class="display-5 fw-bold mb-3">Executive Summary</h2>
+                    <p class="lead text-muted">Critical assessment requiring immediate strategic intervention</p>
+                    <div class="summary-divider mx-auto"></div>
+                </div>
+                
+                <!-- Overall Assessment Banner -->
+                <div class="assessment-banner mb-5">
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <div class="assessment-content">
+                                <div class="assessment-header mb-3">
+                                    <span class="assessment-badge critical">Critical Status</span>
+                                    <h3 class="assessment-title">Overall Assessment</h3>
+                                </div>
+                                <p class="assessment-text">
+                                    The University of Arizona Global Campus faces <strong>significant reputation challenges</strong> that stem from its predecessor's problematic practices and ongoing systemic issues. Despite achieving regional accreditation and operating under the University of Arizona umbrella, UAGC has not successfully shed the negative perceptions associated with Ashford University's legacy of predatory practices.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="assessment-scorecard">
+                                <div class="scorecard-inner">
+                                    <div class="overall-score">
+                                        <div class="score-number">2.1</div>
+                                        <div class="score-denominator">/5.0</div>
+                                    </div>
+                                    <div class="score-label">Overall Reputation Score</div>
+                                    <div class="score-description">Multi-source analysis</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Insights Grid -->
+                <div class="insights-grid mb-5">
+                    <div class="row g-4">
+                        <!-- Critical Issues Section -->
+                        <div class="col-lg-6">
+                            <div class="insight-card critical-card">
+                                <div class="insight-header">
+                                    <div class="insight-icon critical">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </div>
+                                    <div class="insight-title-area">
+                                        <h4 class="insight-title">Critical Issues</h4>
+                                        <p class="insight-subtitle">Requiring immediate attention</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="insight-metrics mb-4">
+                                    <div class="row g-3">
+                                        <div class="col-6">
+                                            <div class="mini-metric">
+                                                <div class="mini-metric-number text-danger">9%</div>
+                                                <div class="mini-metric-label">Graduation Rate</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="mini-metric">
+                                                <div class="mini-metric-number text-danger">$4.5B</div>
+                                                <div class="mini-metric-label">Loan Forgiveness</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="insight-details">
+                                    <div class="detail-item">
+                                        <div class="detail-icon">
+                                            <i class="fas fa-graduation-cap text-danger"></i>
+                                        </div>
+                                        <div class="detail-content">
+                                            <strong>Extremely Low Graduation Rates:</strong> Only 9% of students complete degrees vs 60-70% at peer institutions
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-item">
+                                        <div class="detail-icon">
+                                            <i class="fas fa-bullhorn text-danger"></i>
+                                        </div>
+                                        <div class="detail-content">
+                                            <strong>Questionable Marketing:</strong> $49M+ annual marketing spend with misleading claims and poor conversion
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-item">
+                                        <div class="detail-icon">
+                                            <i class="fas fa-users text-danger"></i>
+                                        </div>
+                                        <div class="detail-content">
+                                            <strong>Faculty Model Issues:</strong> 95% adjunct workforce earning <$2,000 per course
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-item">
+                                        <div class="detail-icon">
+                                            <i class="fas fa-gavel text-danger"></i>
+                                        </div>
+                                        <div class="detail-content">
+                                            <strong>Legal Legacy:</strong> Massive federal loan forgiveness due to predecessor's predatory practices
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-item">
+                                        <div class="detail-icon">
+                                            <i class="fas fa-chart-line-down text-danger"></i>
+                                        </div>
+                                        <div class="detail-content">
+                                            <strong>Enrollment Decline:</strong> 14% year-over-year decrease while competitors grow
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Positive Elements Section -->
+                        <div class="col-lg-6">
+                            <div class="insight-card positive-card">
+                                <div class="insight-header">
+                                    <div class="insight-icon positive">
+                                        <i class="fas fa-plus-circle"></i>
+                                    </div>
+                                    <div class="insight-title-area">
+                                        <h4 class="insight-title">Institutional Assets</h4>
+                                        <p class="insight-subtitle">Competitive advantages</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="insight-metrics mb-4">
+                                    <div class="row g-3">
+                                        <div class="col-6">
+                                            <div class="mini-metric">
+                                                <div class="mini-metric-number text-success">33%</div>
+                                                <div class="mini-metric-label">Military Students</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="mini-metric">
+                                                <div class="mini-metric-number text-success">50%+</div>
+                                                <div class="mini-metric-label">Doctoral Faculty</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="insight-details">
+                                    <div class="detail-item">
+                                        <div class="detail-icon">
+                                            <i class="fas fa-certificate text-success"></i>
+                                        </div>
+                                        <div class="detail-content">
+                                            <strong>Regional Accreditation:</strong> WASC accredited with recent Notice of Concern removal
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-item">
+                                        <div class="detail-icon">
+                                            <i class="fas fa-laptop text-success"></i>
+                                        </div>
+                                        <div class="detail-content">
+                                            <strong>Access & Flexibility:</strong> 100% online delivery serving nontraditional learners nationwide
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-item">
+                                        <div class="detail-icon">
+                                            <i class="fas fa-shield-alt text-success"></i>
+                                        </div>
+                                        <div class="detail-content">
+                                            <strong>Military Support:</strong> Specialized services for 33% veteran and active-duty population
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-item">
+                                        <div class="detail-icon">
+                                            <i class="fas fa-graduation-cap text-success"></i>
+                                        </div>
+                                        <div class="detail-content">
+                                            <strong>Faculty Credentials:</strong> Over half hold doctoral degrees with industry experience
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-item">
+                                        <div class="detail-icon">
+                                            <i class="fas fa-university text-success"></i>
+                                        </div>
+                                        <div class="detail-content">
+                                            <strong>UA System Integration:</strong> Backing and resources of University of Arizona system
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Findings Callout -->
+                <div class="key-findings-callout">
+                    <div class="callout-content">
+                        <div class="callout-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="callout-text">
+                            <h5 class="callout-title">Critical Juncture</h5>
+                            <p class="callout-description">
+                                UAGC faces a defining moment: it must demonstrate genuine reform and prioritize student success over enrollment growth, or risk becoming a permanent liability to the University of Arizona's reputation.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Implications & Business Impact - ELT Focus -->
+    <section class="section-spacing" style="background: linear-gradient(135deg, var(--bg-primary) 0%, rgba(171, 5, 32, 0.02) 100%);" id="strategic-implications">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <div class="d-inline-block position-relative">
+                    <h2 class="mb-3">Strategic Implications & Business Impact</h2>
+                    <div class="position-absolute top-0 start-50 translate-middle-x" style="width: 80px; height: 3px; background: linear-gradient(90deg, var(--arizona-red), var(--highlight-orange), var(--arizona-blue)); border-radius: 2px;"></div>
+                </div>
+                <p class="text-muted fs-5">Critical business risks and strategic considerations for leadership decision-making</p>
+            </div>
+
+            <!-- Business Risk Assessment -->
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-lg h-100" style="background: linear-gradient(135deg, rgba(171, 5, 32, 0.05), rgba(171, 5, 32, 0.02));">
+                        <div class="card-body p-4 text-center">
+                            <div class="bg-danger bg-opacity-10 rounded-circle p-3 d-inline-flex mb-3">
+                                <i class="fas fa-exclamation-triangle text-danger fa-2x"></i>
+                            </div>
+                            <h5 class="card-title text-danger mb-3">Financial Risk</h5>
+                            <div class="display-6 fw-bold text-danger mb-3">HIGH</div>
+                            <ul class="list-unstyled text-start">
+                                <li class="mb-2"><i class="fas fa-arrow-down text-danger me-2"></i>14% enrollment decline</li>
+                                <li class="mb-2"><i class="fas fa-dollar-sign text-danger me-2"></i>Unsustainable marketing costs</li>
+                                <li class="mb-2"><i class="fas fa-chart-line-down text-danger me-2"></i>Poor ROI on investment</li>
+                                <li class="mb-2"><i class="fas fa-gavel text-danger me-2"></i>Ongoing legal liabilities</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-lg h-100" style="background: linear-gradient(135deg, rgba(239, 150, 0, 0.05), rgba(239, 150, 0, 0.02));">
+                        <div class="card-body p-4 text-center">
+                            <div class="bg-warning bg-opacity-10 rounded-circle p-3 d-inline-flex mb-3">
+                                <i class="fas fa-university text-warning fa-2x"></i>
+                            </div>
+                            <h5 class="card-title text-warning mb-3">Reputational Impact</h5>
+                            <div class="display-6 fw-bold text-warning mb-3">SEVERE</div>
+                            <ul class="list-unstyled text-start">
+                                <li class="mb-2"><i class="fas fa-newspaper text-warning me-2"></i>Negative media coverage</li>
+                                <li class="mb-2"><i class="fas fa-users-slash text-warning me-2"></i>Faculty opposition</li>
+                                <li class="mb-2"><i class="fas fa-thumbs-down text-warning me-2"></i>Student dissatisfaction</li>
+                                <li class="mb-2"><i class="fas fa-balance-scale text-warning me-2"></i>Regulatory scrutiny</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-lg h-100" style="background: linear-gradient(135deg, rgba(0, 125, 138, 0.05), rgba(0, 125, 138, 0.02));">
+                        <div class="card-body p-4 text-center">
+                            <div class="bg-success bg-opacity-10 rounded-circle p-3 d-inline-flex mb-3">
+                                <i class="fas fa-redo text-success fa-2x"></i>
+                            </div>
+                            <h5 class="card-title text-success mb-3">Recovery Potential</h5>
+                            <div class="display-6 fw-bold text-success mb-3">MODERATE</div>
+                            <ul class="list-unstyled text-start">
+                                <li class="mb-2"><i class="fas fa-certificate text-success me-2"></i>Maintained accreditation</li>
+                                <li class="mb-2"><i class="fas fa-shield-alt text-success me-2"></i>Military student loyalty</li>
+                                <li class="mb-2"><i class="fas fa-university text-success me-2"></i>UA system backing</li>
+                                <li class="mb-2"><i class="fas fa-globe text-success me-2"></i>Market accessibility</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Immediate Actions Required -->
+            <div class="card border-0 shadow-lg mb-5" style="background: linear-gradient(135deg, rgba(171, 5, 32, 0.05), rgba(171, 5, 32, 0.02)); border-left: 4px solid var(--arizona-red) !important;">
+                <div class="card-body p-5">
+                    <div class="text-center mb-4">
+                        <h4 class="card-title mb-3 text-danger">
+                            <i class="fas fa-exclamation-circle me-2"></i>
+                            Immediate Actions Required (Next 90 Days)
+                        </h4>
+                    </div>
+                    
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body">
+                                    <h6 class="text-danger mb-3 fw-bold">
+                                        <i class="fas fa-fire me-2"></i>Crisis Management
+                                    </h6>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2">✅ Establish crisis communication team</li>
+                                        <li class="mb-2">✅ Audit all marketing materials for compliance</li>
+                                        <li class="mb-2">✅ Implement enhanced student support services</li>
+                                        <li class="mb-2">✅ Review and revise enrollment agreements</li>
+                                        <li class="mb-2">✅ Engage with regulatory bodies proactively</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body">
+                                    <h6 class="text-warning mb-3 fw-bold">
+                                        <i class="fas fa-chart-line me-2"></i>Operational Reforms
+                                    </h6>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2">📊 Reduce marketing spend by 50%</li>
+                                        <li class="mb-2">📊 Invest in student retention programs</li>
+                                        <li class="mb-2">📊 Strengthen faculty support and development</li>
+                                        <li class="mb-2">📊 Implement transparent reporting systems</li>
+                                        <li class="mb-2">📊 Establish independent oversight committee</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Strategic Options Analysis -->
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-lg h-100" style="background: linear-gradient(135deg, rgba(239, 150, 0, 0.05), rgba(239, 150, 0, 0.02));">
+                        <div class="card-body p-4">
+                            <h5 class="card-title text-warning mb-4">
+                                <i class="fas fa-route me-2"></i>Strategic Options
+                            </h5>
+                            
+                            <div class="mb-4">
+                                <h6 class="text-success fw-bold">Option 1: Intensive Reform (Recommended)</h6>
+                                <ul class="list-unstyled small">
+                                    <li>• Massive investment in student success</li>
+                                    <li>• Complete operational overhaul</li>
+                                    <li>• Timeline: 2-3 years to see results</li>
+                                    <li>• Cost: $100M+ investment required</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h6 class="text-warning fw-bold">Option 2: Gradual Improvement</h6>
+                                <ul class="list-unstyled small">
+                                    <li>• Incremental changes over 5+ years</li>
+                                    <li>• Lower investment, slower results</li>
+                                    <li>• Risk of continued reputational damage</li>
+                                    <li>• May not address core issues</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h6 class="text-danger fw-bold">Option 3: Strategic Exit</h6>
+                                <ul class="list-unstyled small">
+                                    <li>• Divest or close UAGC operations</li>
+                                    <li>• Protect UA main campus reputation</li>
+                                    <li>• Significant write-off required</li>
+                                    <li>• Impact on 51,000 current students</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-lg h-100" style="background: linear-gradient(135deg, rgba(12, 35, 75, 0.05), rgba(12, 35, 75, 0.02));">
+                        <div class="card-body p-4">
+                            <h5 class="card-title text-primary mb-4">
+                                <i class="fas fa-clock me-2"></i>Recovery Timeline
+                            </h5>
+                            
+                            <div class="timeline-item mb-3">
+                                <h6 class="text-danger">0-6 Months: Crisis Stabilization</h6>
+                                <small class="text-muted">Stop the bleeding, implement immediate reforms</small>
+                            </div>
+                            
+                            <div class="timeline-item mb-3">
+                                <h6 class="text-warning">6-18 Months: Foundation Building</h6>
+                                <small class="text-muted">Structural changes, new leadership, systems overhaul</small>
+                            </div>
+                            
+                            <div class="timeline-item mb-3">
+                                <h6 class="text-info">18-36 Months: Results Demonstration</h6>
+                                <small class="text-muted">Improved outcomes, positive media coverage</small>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h6 class="text-success">3+ Years: Reputation Recovery</h6>
+                                <small class="text-muted">Sustainable operations, market confidence restored</small>
+                            </div>
+
+                            <div class="alert alert-info border-0 mt-4" style="background: rgba(0, 118, 168, 0.1);">
+                                <i class="fas fa-info-circle me-2"></i>
+                                <strong>Success Metrics:</strong> 25%+ graduation rate, positive media coverage, enrollment growth
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Background & Context - Supporting Information -->
+    <section class="section-spacing" id="background">
+        <div class="container">
+            <!-- Enhanced Institution Overview -->
+            <div class="section-header text-center mb-5">
+                <h2>Background & Context</h2>
+                <p class="lead text-muted">Institutional profile and transformation details</p>
+            </div>
+
+            <!-- Institution Profile Dashboard -->
+            <div class="metric-dashboard mb-5">
+                <div class="row g-4 mb-5">
+                    <!-- Core Institution Stats -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stat-card-enhanced neutral" data-tooltip="Total enrolled students across all online programs">
+                            <div class="card-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="card-content">
+                                <div class="stat-number" data-count="51">51,000</div>
+                                <div class="stat-label">Total Students</div>
+                                <div class="stat-description">Active enrollments nationwide</div>
+                            </div>
+                            <div class="verification-badge">
+                                <i class="fas fa-check-circle"></i>
+                                <span>2024 Data</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stat-card-enhanced positive" data-tooltip="Comprehensive range from associate to doctoral degrees">
+                            <div class="card-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="card-content">
+                                <div class="stat-number" data-count="150">150+</div>
+                                <div class="stat-label">Degree Programs</div>
+                                <div class="stat-description">Across all academic levels</div>
+                            </div>
+                            <div class="verification-badge">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Current Catalog</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stat-card-enhanced positive" data-tooltip="Founded 1918, became public university in 2020">
+                            <div class="card-icon">
+                                <i class="fas fa-history"></i>
+                            </div>
+                            <div class="card-content">
+                                <div class="stat-number" data-count="106">106</div>
+                                <div class="stat-label">Years of Operation</div>
+                                <div class="stat-description">Rich educational heritage</div>
+                            </div>
+                            <div class="verification-badge">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Since 1918</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stat-card-enhanced positive" data-tooltip="Strong military and veteran student population">
+                            <div class="card-icon">
+                                <i class="fas fa-flag-usa"></i>
+                            </div>
+                            <div class="card-content">
+                                <div class="stat-number" data-count="33">33%</div>
+                                <div class="stat-label">Military Students</div>
+                                <div class="stat-description">Veterans & active duty</div>
+                            </div>
+                            <div class="verification-badge">
+                                <i class="fas fa-check-circle"></i>
+                                <span>VA Approved</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Institution Deep Dive Sections -->
+            <div class="row g-4 mb-5">
+                <!-- Transformation Story -->
+                <div class="col-lg-8">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <i class="fas fa-exchange-alt text-primary me-2"></i>
+                                The Ashford-to-UAGC Transformation
+                            </h5>
+                            <p class="mb-4">In 2020, the University of Arizona made a controversial $1 acquisition of Ashford University, a struggling for-profit institution, transforming it into the nonprofit University of Arizona Global Campus.</p>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6 class="text-success mb-3">Strategic Rationale</h6>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-globe text-primary me-2"></i><strong>Market Expansion:</strong> Enter the lucrative online education market</li>
+                                        <li><i class="fas fa-chart-line text-primary me-2"></i><strong>Revenue Growth:</strong> Diversify beyond traditional campus-based programs</li>
+                                        <li><i class="fas fa-users text-primary me-2"></i><strong>Student Access:</strong> Serve nontraditional and adult learners</li>
+                                        <li><i class="fas fa-shield-alt text-primary me-2"></i><strong>Military Focus:</strong> Leverage Ashford's veteran student base</li>
+                                        <li><i class="fas fa-university text-primary me-2"></i><strong>Brand Enhancement:</strong> Apply UA's academic reputation</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6 class="text-warning mb-3">Implementation Challenges</h6>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-exclamation-triangle text-warning me-2"></i><strong>Legacy Issues:</strong> Inherited Ashford's problematic practices</li>
+                                        <li><i class="fas fa-dollar-sign text-warning me-2"></i><strong>Financial Model:</strong> High marketing costs, low conversion rates</li>
+                                        <li><i class="fas fa-gavel text-warning me-2"></i><strong>Legal Baggage:</strong> Ongoing lawsuits and investigations</li>
+                                        <li><i class="fas fa-users-slash text-warning me-2"></i><strong>Faculty Concerns:</strong> UA professors publicly opposed the acquisition</li>
+                                        <li><i class="fas fa-newspaper text-warning me-2"></i><strong>Media Scrutiny:</strong> Negative press coverage continues</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="legal-highlight mt-4">
+                                <h6><i class="fas fa-info-circle text-info me-2"></i>Current Status</h6>
+                                <p>UAGC operates as a public, nonprofit university under the University of Arizona system but maintains separate leadership, faculty, and operational structure. The transformation remains controversial among UA faculty and higher education observers.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Stats & Timeline -->
+                <div class="col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <i class="fas fa-clock text-primary me-2"></i>
+                                Transformation Timeline
+                            </h5>
+                            <div class="timeline-item">
+                                <strong>1918:</strong> Ashford University founded in Iowa
+                            </div>
+                            <div class="timeline-item">
+                                <strong>2005:</strong> Bridgepoint Education acquires Ashford (for-profit)
+                            </div>
+                            <div class="timeline-item">
+                                <strong>2011:</strong> Moves operations to California
+                            </div>
+                            <div class="timeline-item">
+                                <strong>2019:</strong> Zovio spun off from Bridgepoint
+                            </div>
+                            <div class="timeline-item">
+                                <strong>2020:</strong> University of Arizona acquires for $1
+                            </div>
+                            <div class="timeline-item">
+                                <strong>2020:</strong> Rebranded as UAGC
+                            </div>
+                            <div class="timeline-item">
+                                <strong>2022:</strong> UA fully integrates operations
+                            </div>
+                                                         <div class="timeline-item">
+                                 <strong>2023:</strong> WSCUC maintains full accreditation status
+                             </div>
+                            <div class="timeline-item">
+                                <strong>2024:</strong> Faces renewed criticism and investigations
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Academic Structure & Operations -->
+            <div class="row g-4 mb-5">
+                <!-- Academic Programs Breakdown -->
+                <div class="col-lg-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <i class="fas fa-book text-primary me-2"></i>
+                                Academic Portfolio
+                            </h5>
+                            
+                            <div class="mb-4">
+                                <h6 class="text-primary mb-3">Program Distribution</h6>
+                                <div class="row text-center">
+                                    <div class="col-3">
+                                        <div class="h4 text-success">15+</div>
+                                        <small>Associate Programs</small>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="h4 text-primary">90+</div>
+                                        <small>Bachelor Programs</small>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="h4 text-info">40+</div>
+                                        <small>Master Programs</small>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="h4 text-warning">10+</div>
+                                        <small>Doctoral Programs</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <h6 class="text-primary mb-3">Most Popular Fields</h6>
+                                <div class="progress mb-2">
+                                    <div class="progress-bar bg-primary" style="width: 35%" data-bs-toggle="tooltip" title="Business & Management: 35%">Business</div>
+                                </div>
+                                <div class="progress mb-2">
+                                    <div class="progress-bar bg-success" style="width: 25%" data-bs-toggle="tooltip" title="Health Sciences: 25%">Health Sciences</div>
+                                </div>
+                                <div class="progress mb-2">
+                                    <div class="progress-bar bg-info" style="width: 20%" data-bs-toggle="tooltip" title="Psychology: 20%">Psychology</div>
+                                </div>
+                                <div class="progress mb-2">
+                                    <div class="progress-bar bg-warning" style="width: 15%" data-bs-toggle="tooltip" title="Criminal Justice: 15%">Criminal Justice</div>
+                                </div>
+                                <div class="progress mb-2">
+                                    <div class="progress-bar bg-secondary" style="width: 5%" data-bs-toggle="tooltip" title="Other Fields: 5%">Other</div>
+                                </div>
+                            </div>
+
+                            <div class="key-finding">
+                                <h6><i class="fas fa-certificate text-success me-2"></i>Accreditation & Quality</h6>
+                                <ul class="list-unstyled mb-0">
+                                    <li><i class="fas fa-check text-success me-2"></i>WASC Senior College and University Commission (Regional)</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Quality Matters course certification program</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>VA approved for GI Bill benefits</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Department of Education Title IV eligible</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Student Demographics -->
+                <div class="col-lg-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <i class="fas fa-users text-primary me-2"></i>
+                                Student Demographics & Reach
+                            </h5>
+                            
+                            <div class="mb-4">
+                                <h6 class="text-primary mb-3">Geographic Distribution</h6>
+                                <div class="row text-center">
+                                    <div class="col-6">
+                                        <div class="h4 text-primary">50</div>
+                                        <small>States Served</small>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="h4 text-info">15+</div>
+                                        <small>Countries</small>
+                                    </div>
+                                </div>
+                                <p class="text-muted small mt-2">Largest concentrations in California, Texas, Arizona, and military bases worldwide</p>
+                            </div>
+
+                            <div class="mb-4">
+                                <h6 class="text-primary mb-3">Student Profile</h6>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="text-center p-3 bg-light rounded">
+                                            <div class="h5 text-warning">32</div>
+                                            <small>Average Age</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="text-center p-3 bg-light rounded">
+                                            <div class="h5 text-success">65%</div>
+                                            <small>Working Adults</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <h6 class="text-primary mb-3">Student Categories</h6>
+                                <div class="progress mb-2">
+                                    <div class="progress-bar bg-primary" style="width: 33%" data-bs-toggle="tooltip" title="Military/Veterans: 33%">Military/Veterans</div>
+                                </div>
+                                <div class="progress mb-2">
+                                    <div class="progress-bar bg-success" style="width: 45%" data-bs-toggle="tooltip" title="Working Professionals: 45%">Working Professionals</div>
+                                </div>
+                                <div class="progress mb-2">
+                                    <div class="progress-bar bg-warning" style="width: 15%" data-bs-toggle="tooltip" title="Career Changers: 15%">Career Changers</div>
+                                </div>
+                                <div class="progress mb-2">
+                                    <div class="progress-bar bg-info" style="width: 7%" data-bs-toggle="tooltip" title="Recent High School Graduates: 7%">Recent Graduates</div>
+                                </div>
+                            </div>
+
+                            <div class="student-quote">
+                                <i class="fas fa-quote-left text-primary me-2"></i>
+                                "UAGC serves students who often can't access traditional higher education due to work, family, or military commitments."
+                                <div class="source-citation">- UAGC Mission Statement</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technology & Delivery Model -->
+            <div class="row g-4 mb-5">
+                <div class="col-lg-12">
+                    <div class="comparison-card">
+                        <h5><i class="fas fa-laptop text-primary me-2"></i>Technology Infrastructure & Delivery Model</h5>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h6 class="text-success mb-3">Learning Platform</h6>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-cloud text-primary me-2"></i><strong>Learning Management:</strong> Custom-built platform</li>
+                                    <li><i class="fas fa-mobile-alt text-primary me-2"></i><strong>Mobile Access:</strong> iOS and Android apps</li>
+                                    <li><i class="fas fa-book-reader text-primary me-2"></i><strong>Digital Library:</strong> 24/7 online resources</li>
+                                    <li><i class="fas fa-video text-primary me-2"></i><strong>Content Delivery:</strong> Multimedia lectures and materials</li>
+                                    <li><i class="fas fa-comments text-primary me-2"></i><strong>Interaction:</strong> Discussion forums and virtual meetings</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4">
+                                <h6 class="text-primary mb-3">Course Structure</h6>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-calendar text-info me-2"></i><strong>Term Length:</strong> 5-6 week accelerated courses</li>
+                                    <li><i class="fas fa-users text-info me-2"></i><strong>Class Size:</strong> Typically 15-25 students</li>
+                                    <li><i class="fas fa-clock text-info me-2"></i><strong>Flexibility:</strong> Asynchronous learning model</li>
+                                    <li><i class="fas fa-graduation-cap text-info me-2"></i><strong>Start Dates:</strong> Multiple entry points per year</li>
+                                    <li><i class="fas fa-trophy text-info me-2"></i><strong>Competency-Based:</strong> Options for accelerated completion</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4">
+                                <h6 class="text-warning mb-3">Support Services</h6>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-headset text-warning me-2"></i><strong>Technical Support:</strong> 24/7 help desk</li>
+                                    <li><i class="fas fa-user-tie text-warning me-2"></i><strong>Academic Advising:</strong> Dedicated advisor per student</li>
+                                    <li><i class="fas fa-briefcase text-warning me-2"></i><strong>Career Services:</strong> Resume help and job placement</li>
+                                    <li><i class="fas fa-book text-warning me-2"></i><strong>Tutoring:</strong> Online tutoring and writing center</li>
+                                    <li><i class="fas fa-dollar-sign text-warning me-2"></i><strong>Financial Aid:</strong> Dedicated financial counselors</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Competitive Position -->
+            <div class="row g-4 mb-5">
+                <div class="col-lg-12">
+                    <div class="peer-comparison">
+                        <h5><i class="fas fa-chart-bar text-white me-2"></i>Market Position & Competitive Landscape</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6 class="text-white mb-3">Market Position</h6>
+                                <ul class="text-white">
+                                    <li><strong>Size Ranking:</strong> Among top 10 largest online universities in the US</li>
+                                    <li><strong>Military Market:</strong> Top 5 provider for military and veteran students</li>
+                                    <li><strong>Adult Learners:</strong> Significant presence in working adult market</li>
+                                    <li><strong>Geographic Reach:</strong> National presence with international students</li>
+                                    <li><strong>Price Point:</strong> Mid-tier pricing compared to for-profit competitors</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="text-white mb-3">Key Competitors</h6>
+                                <ul class="text-white">
+                                    <li><strong>Southern New Hampshire University:</strong> Primary competitor in adult learning</li>
+                                    <li><strong>Arizona State University Online:</strong> Direct in-state competition</li>
+                                    <li><strong>Western Governors University:</strong> Competency-based education rival</li>
+                                    <li><strong>Penn State World Campus:</strong> Another public university online division</li>
+                                    <li><strong>University of Maryland Global Campus:</strong> Similar military focus</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </section>
+
+    <!-- Comprehensive Reputation Metrics Dashboard - ELT Focus -->
+    <section class="section-spacing" style="background: linear-gradient(135deg, rgba(12, 35, 75, 0.02) 0%, rgba(171, 5, 32, 0.02) 50%, rgba(0, 125, 138, 0.02) 100%);">
+        <div class="container">
+            <!-- Dashboard Header -->
+            <div class="text-center mb-5">
+                <div class="d-inline-block position-relative">
+                    <h2 class="display-5 fw-bold mb-3" style="color: var(--arizona-blue);">Comprehensive Reputation Metrics</h2>
+                    <div class="position-absolute top-0 start-50 translate-middle-x" style="width: 120px; height: 4px; background: linear-gradient(90deg, var(--arizona-red), var(--highlight-orange), var(--arizona-blue)); border-radius: 2px;"></div>
+                </div>
+                <p class="lead text-muted mb-4">Performance dashboard comparing UAGC against industry standards and peer institutions</p>
+                
+                <!-- Executive Summary Scorecard -->
+                <div class="card border-0 shadow-lg mb-5" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(12, 35, 75, 0.02));">
+                    <div class="card-body p-5">
+                        <div class="row align-items-center">
+                            <div class="col-lg-8">
+                                <h4 class="mb-3 text-primary">Overall Performance Assessment</h4>
+                                <div class="row g-4">
+                                    <div class="col-md-4">
+                                        <div class="d-flex align-items-center">
+                                            <div class="bg-danger bg-opacity-10 rounded-circle p-3 me-3">
+                                                <i class="fas fa-exclamation-triangle text-danger fa-2x"></i>
+                                            </div>
+                                            <div>
+                                                <div class="h3 text-danger mb-0">4</div>
+                                                <small class="text-muted fw-bold">CRITICAL ISSUES</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="d-flex align-items-center">
+                                            <div class="bg-warning bg-opacity-10 rounded-circle p-3 me-3">
+                                                <i class="fas fa-exclamation-circle text-warning fa-2x"></i>
+                                            </div>
+                                            <div>
+                                                <div class="h3 text-warning mb-0">4</div>
+                                                <small class="text-muted fw-bold">AREAS OF CONCERN</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="d-flex align-items-center">
+                                            <div class="bg-success bg-opacity-10 rounded-circle p-3 me-3">
+                                                <i class="fas fa-check-circle text-success fa-2x"></i>
+                                            </div>
+                                            <div>
+                                                <div class="h3 text-success mb-0">4</div>
+                                                <small class="text-muted fw-bold">STABLE STRENGTHS</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 text-center">
+                                <div class="position-relative d-inline-block">
+                                    <div style="width: 150px; height: 150px; border-radius: 50%; background: conic-gradient(var(--arizona-red) 0% 33%, var(--highlight-orange) 33% 66%, var(--river) 66% 100%); padding: 15px;">
+                                        <div class="bg-white rounded-circle d-flex align-items-center justify-content-center h-100">
+                                            <div class="text-center">
+                                                <div class="h2 text-danger mb-0">2.1/5</div>
+                                                <small class="text-muted fw-bold">OVERALL SCORE</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <div class="badge bg-danger fs-6 px-3 py-2">REQUIRES IMMEDIATE ACTION</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
+            <!-- 🔴 Critical Issues Section -->
+            <div class="card border-0 shadow-lg mb-5" style="border-left: 6px solid var(--arizona-red) !important;">
+                <div class="card-header" style="background: linear-gradient(135deg, rgba(171, 5, 32, 0.1), rgba(171, 5, 32, 0.05)); border-bottom: 2px solid rgba(171, 5, 32, 0.2);">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <div class="bg-danger bg-opacity-15 rounded-circle p-3 me-3">
+                                <i class="fas fa-exclamation-triangle text-danger fa-2x"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-danger mb-1 fw-bold">🔴 Critical Issues Requiring Immediate Action</h3>
+                                <p class="text-muted mb-0">Severe institutional challenges requiring board-level intervention</p>
+                            </div>
+                        </div>
+                        <div class="text-end">
+                            <div class="badge bg-danger fs-6 px-3 py-2 mb-2">
+                                <i class="fas fa-clock me-1"></i>URGENT - 30 DAYS
+                            </div>
+                            <div class="small text-danger fw-bold">4 CRITICAL METRICS</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body p-4">
+                    
+                    <!-- Critical Metrics Grid -->
+                    <div class="row g-4">
+                        <!-- Graduation Rate Card -->
+                        <div class="col-lg-6 col-xl-3">
+                            <div class="card border-0 h-100 shadow-sm" style="background: linear-gradient(135deg, rgba(171, 5, 32, 0.08), rgba(171, 5, 32, 0.02));">
+                                <div class="card-body p-4 text-center">
+                                    <div class="d-flex justify-content-between align-items-start mb-3">
+                                        <div class="badge bg-danger small">CRITICAL</div>
+                                        <i class="fas fa-graduation-cap text-danger fa-2x"></i>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <div class="display-4 fw-bold text-danger mb-1">9%</div>
+                                        <h6 class="text-dark fw-bold mb-0">Graduation Rate</h6>
+                                        <small class="text-muted">First-time students</small>
+                                    </div>
+                                    
+                                    <!-- Visual Comparison Bar -->
+                                    <div class="mb-3">
+                                        <div class="d-flex justify-content-between align-items-center mb-2">
+                                            <small class="text-muted fw-bold">UAGC</small>
+                                            <small class="text-muted fw-bold">Industry Avg: 65%</small>
+                                        </div>
+                                        <div class="progress" style="height: 12px; background: rgba(171, 5, 32, 0.1);">
+                                            <div class="progress-bar bg-danger" style="width: 14%"></div>
+                                        </div>
+                                        <div class="mt-2 text-center">
+                                            <span class="badge bg-danger bg-opacity-25 text-danger">56 points below industry</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="alert alert-danger border-0 p-2" style="background: rgba(171, 5, 32, 0.1);">
+                                        <small class="fw-bold">7x worse than peers</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Loan Forgiveness Card -->
+                        <div class="col-lg-6 col-xl-3">
+                            <div class="card border-0 h-100 shadow-sm" style="background: linear-gradient(135deg, rgba(171, 5, 32, 0.08), rgba(98, 18, 68, 0.02));">
+                                <div class="card-body p-4 text-center">
+                                    <div class="d-flex justify-content-between align-items-start mb-3">
+                                        <div class="badge bg-danger small">CRITICAL</div>
+                                        <i class="fas fa-gavel text-danger fa-2x"></i>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <div class="display-4 fw-bold text-danger mb-1">$4.5B</div>
+                                        <h6 class="text-dark fw-bold mb-0">Loan Forgiveness</h6>
+                                        <small class="text-muted">Federal discharge</small>
+                                    </div>
+                                    
+                                    <!-- Impact Visual -->
+                                    <div class="mb-3">
+                                        <div class="bg-danger bg-opacity-10 rounded p-3">
+                                            <div class="h5 text-danger mb-1">261,000</div>
+                                            <small class="text-muted fw-bold">Students Affected</small>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="alert alert-danger border-0 p-2" style="background: rgba(171, 5, 32, 0.1);">
+                                        <small class="fw-bold">Largest in US history</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Enrollment Decline Card -->
+                        <div class="col-lg-6 col-xl-3">
+                            <div class="card border-0 h-100 shadow-sm" style="background: linear-gradient(135deg, rgba(171, 5, 32, 0.08), rgba(171, 5, 32, 0.02));">
+                                <div class="card-body p-4 text-center">
+                                    <div class="d-flex justify-content-between align-items-start mb-3">
+                                        <div class="badge bg-danger small">CRITICAL</div>
+                                        <i class="fas fa-chart-line-down text-danger fa-2x"></i>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <div class="display-4 fw-bold text-danger mb-1">-14%</div>
+                                        <h6 class="text-dark fw-bold mb-0">Enrollment Change</h6>
+                                        <small class="text-muted">Year-over-year</small>
+                                    </div>
+                                    
+                                    <!-- Trend Comparison -->
+                                    <div class="mb-3">
+                                        <div class="row g-2">
+                                            <div class="col-6">
+                                                <div class="bg-danger bg-opacity-10 rounded p-2">
+                                                    <div class="small fw-bold text-danger">UAGC: -14%</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="bg-success bg-opacity-10 rounded p-2">
+                                                    <div class="small fw-bold text-success">Peers: +8%</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="alert alert-danger border-0 p-2" style="background: rgba(171, 5, 32, 0.1);">
+                                        <small class="fw-bold">22 pts below competitors</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Employment Rate Card -->
+                        <div class="col-lg-6 col-xl-3">
+                            <div class="card border-0 h-100 shadow-sm" style="background: linear-gradient(135deg, rgba(171, 5, 32, 0.08), rgba(171, 5, 32, 0.02));">
+                                <div class="card-body p-4 text-center">
+                                    <div class="d-flex justify-content-between align-items-start mb-3">
+                                        <div class="badge bg-danger small">CRITICAL</div>
+                                        <i class="fas fa-briefcase text-danger fa-2x"></i>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <div class="display-4 fw-bold text-danger mb-1">25%</div>
+                                        <h6 class="text-dark fw-bold mb-0">Employment Rate</h6>
+                                        <small class="text-muted">6 months post-grad</small>
+                                    </div>
+                                    
+                                    <!-- Comparison Gauge -->
+                                    <div class="mb-3">
+                                        <div class="position-relative">
+                                            <div style="width: 80px; height: 40px; border-radius: 80px 80px 0 0; border: 8px solid #f8f9fa; border-bottom: none; margin: 0 auto; position: relative;">
+                                                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 80px 80px 0 0; border: 8px solid var(--arizona-red); border-bottom: none; clip-path: polygon(0 0, 29% 0, 29% 100%, 0 100%);"></div>
+                                            </div>
+                                            <div class="text-center mt-2">
+                                                <small class="text-muted">vs 85% industry avg</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="alert alert-danger border-0 p-2" style="background: rgba(171, 5, 32, 0.1);">
+                                        <small class="fw-bold">60 pts below standard</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
+            <!-- 🟡 Areas Requiring Attention Section -->
+            <div class="card border-0 shadow-lg mb-5" style="border-left: 6px solid var(--highlight-orange) !important;">
+                <div class="card-header" style="background: linear-gradient(135deg, rgba(239, 150, 0, 0.1), rgba(239, 150, 0, 0.05)); border-bottom: 2px solid rgba(239, 150, 0, 0.2);">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <div class="bg-warning bg-opacity-15 rounded-circle p-3 me-3">
+                                <i class="fas fa-exclamation-circle text-warning fa-2x"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-warning mb-1 fw-bold">🟡 Areas Requiring Attention</h3>
+                                <p class="text-muted mb-0">Concerning trends requiring monitoring and targeted improvement</p>
+                            </div>
+                        </div>
+                        <div class="text-end">
+                            <div class="badge bg-warning fs-6 px-3 py-2 mb-2">
+                                <i class="fas fa-eye me-1"></i>MONITOR - 90 DAYS
+                            </div>
+                            <div class="small text-warning fw-bold">4 CONCERNING AREAS</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body p-4">
+                     
+                     <!-- Warning Metrics Grid -->
+                     <div class="row g-4">
+                         <!-- Recommendation Rate Card -->
+                         <div class="col-lg-6 col-xl-3">
+                             <div class="card border-0 h-100 shadow-sm" style="background: linear-gradient(135deg, rgba(239, 150, 0, 0.08), rgba(239, 150, 0, 0.02));">
+                                 <div class="card-body p-4 text-center">
+                                     <div class="d-flex justify-content-between align-items-start mb-3">
+                                         <div class="badge bg-warning small">WARNING</div>
+                                         <i class="fas fa-thumbs-up text-warning fa-2x"></i>
+                                     </div>
+                                     
+                                     <div class="mb-3">
+                                         <div class="display-4 fw-bold text-warning mb-1">66%</div>
+                                         <h6 class="text-dark fw-bold mb-0">Would Recommend</h6>
+                                         <small class="text-muted">Student satisfaction</small>
+                                     </div>
+                                     
+                                     <!-- Comparison with Leaders -->
+                                     <div class="mb-3">
+                                         <div class="d-flex justify-content-between align-items-center mb-2">
+                                             <small class="text-muted fw-bold">UAGC</small>
+                                             <small class="text-muted fw-bold">Top Peers: 93%</small>
+                                         </div>
+                                         <div class="progress" style="height: 12px; background: rgba(239, 150, 0, 0.1);">
+                                             <div class="progress-bar bg-warning" style="width: 71%"></div>
+                                         </div>
+                                         <div class="mt-2 text-center">
+                                             <span class="badge bg-warning bg-opacity-25 text-warning">27 points below leaders</span>
+                                         </div>
+                                     </div>
+                                     
+                                     <div class="alert alert-warning border-0 p-2" style="background: rgba(239, 150, 0, 0.1);">
+                                         <small class="fw-bold">Below peer satisfaction</small>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+
+                         <!-- Adjunct Faculty Card -->
+                         <div class="col-lg-6 col-xl-3">
+                             <div class="card border-0 h-100 shadow-sm" style="background: linear-gradient(135deg, rgba(239, 150, 0, 0.08), rgba(239, 150, 0, 0.02));">
+                                 <div class="card-body p-4 text-center">
+                                     <div class="d-flex justify-content-between align-items-start mb-3">
+                                         <div class="badge bg-warning small">WARNING</div>
+                                         <i class="fas fa-users text-warning fa-2x"></i>
+                                     </div>
+                                     
+                                     <div class="mb-3">
+                                         <div class="display-4 fw-bold text-warning mb-1">95%</div>
+                                         <h6 class="text-dark fw-bold mb-0">Adjunct Faculty</h6>
+                                         <small class="text-muted">Part-time instructors</small>
+                                     </div>
+                                     
+                                     <!-- Faculty Model Comparison -->
+                                     <div class="mb-3">
+                                         <div class="bg-warning bg-opacity-10 rounded p-3">
+                                             <div class="h6 text-warning mb-1">$2,000</div>
+                                             <small class="text-muted fw-bold">Average per Course</small>
+                                         </div>
+                                     </div>
+                                     
+                                     <div class="alert alert-warning border-0 p-2" style="background: rgba(239, 150, 0, 0.1);">
+                                         <small class="fw-bold">Over-reliance on part-time</small>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+
+                         <!-- Marketing Spend Card -->
+                         <div class="col-lg-6 col-xl-3">
+                             <div class="card border-0 h-100 shadow-sm" style="background: linear-gradient(135deg, rgba(239, 150, 0, 0.08), rgba(239, 150, 0, 0.02));">
+                                 <div class="card-body p-4 text-center">
+                                     <div class="d-flex justify-content-between align-items-start mb-3">
+                                         <div class="badge bg-warning small">WARNING</div>
+                                         <i class="fas fa-chart-pie text-warning fa-2x"></i>
+                                     </div>
+                                     
+                                     <div class="mb-3">
+                                         <div class="display-4 fw-bold text-warning mb-1">20%</div>
+                                         <h6 class="text-dark fw-bold mb-0">Marketing Budget</h6>
+                                         <small class="text-muted">Of total budget</small>
+                                     </div>
+                                     
+                                     <!-- Budget Comparison -->
+                                     <div class="mb-3">
+                                         <div class="row g-2">
+                                             <div class="col-6">
+                                                 <div class="bg-warning bg-opacity-10 rounded p-2">
+                                                     <div class="small fw-bold text-warning">UAGC: 20%</div>
+                                                 </div>
+                                             </div>
+                                             <div class="col-6">
+                                                 <div class="bg-success bg-opacity-10 rounded p-2">
+                                                     <div class="small fw-bold text-success">UA: <1%</div>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                     
+                                     <div class="alert alert-warning border-0 p-2" style="background: rgba(239, 150, 0, 0.1);">
+                                         <small class="fw-bold">20x higher than main campus</small>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+
+                         <!-- Debt-to-Income Card -->
+                         <div class="col-lg-6 col-xl-3">
+                             <div class="card border-0 h-100 shadow-sm" style="background: linear-gradient(135deg, rgba(239, 150, 0, 0.08), rgba(239, 150, 0, 0.02));">
+                                 <div class="card-body p-4 text-center">
+                                     <div class="d-flex justify-content-between align-items-start mb-3">
+                                         <div class="badge bg-warning small">WARNING</div>
+                                         <i class="fas fa-dollar-sign text-warning fa-2x"></i>
+                                     </div>
+                                     
+                                     <div class="mb-3">
+                                         <div class="display-4 fw-bold text-warning mb-1">2.4:1</div>
+                                         <h6 class="text-dark fw-bold mb-0">Debt-to-Income</h6>
+                                         <small class="text-muted">Graduate ratio</small>
+                                     </div>
+                                     
+                                     <!-- Sustainability Indicator -->
+                                     <div class="mb-3">
+                                         <div class="position-relative">
+                                             <div style="width: 100px; height: 20px; background: linear-gradient(90deg, var(--river) 0% 50%, var(--highlight-orange) 50% 100%); border-radius: 10px; margin: 0 auto;">
+                                                 <div style="position: absolute; top: -10px; left: 80%; transform: translateX(-50%); width: 2px; height: 40px; background: var(--arizona-red);"></div>
+                                             </div>
+                                             <div class="d-flex justify-content-between mt-2">
+                                                 <small class="text-success">Sustainable</small>
+                                                 <small class="text-warning">Unsustainable</small>
+                                             </div>
+                                         </div>
+                                     </div>
+                                     
+                                     <div class="alert alert-warning border-0 p-2" style="background: rgba(239, 150, 0, 0.1);">
+                                         <small class="fw-bold">Double sustainable level</small>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+
+            <!-- 🟢 Stable Areas & Strengths Section -->
+            <div class="card border-0 shadow-lg mb-5" style="border-left: 6px solid var(--river) !important;">
+                <div class="card-header" style="background: linear-gradient(135deg, rgba(0, 125, 138, 0.1), rgba(0, 125, 138, 0.05)); border-bottom: 2px solid rgba(0, 125, 138, 0.2);">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <div class="bg-success bg-opacity-15 rounded-circle p-3 me-3">
+                                <i class="fas fa-check-circle text-success fa-2x"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-success mb-1 fw-bold">🟢 Stable Areas & Strengths</h3>
+                                <p class="text-muted mb-0">Institutional assets and competitive advantages</p>
+                            </div>
+                        </div>
+                        <div class="text-end">
+                            <div class="badge bg-success fs-6 px-3 py-2 mb-2">
+                                <i class="fas fa-chart-line me-1"></i>STABLE AREAS
+                            </div>
+                            <div class="small text-success fw-bold">4 KEY STRENGTHS</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body p-4">
+                     
+                     <!-- Strengths Metrics Grid -->
+                     <div class="row g-4">
+                         <!-- Accreditation Status Card -->
+                         <div class="col-lg-6 col-xl-3">
+                             <div class="card border-0 h-100 shadow-sm" style="background: linear-gradient(135deg, rgba(0, 125, 138, 0.08), rgba(0, 125, 138, 0.02));">
+                                 <div class="card-body p-4 text-center">
+                                     <div class="d-flex justify-content-between align-items-start mb-3">
+                                         <div class="badge bg-success small">STRENGTH</div>
+                                         <i class="fas fa-check-circle text-success fa-2x"></i>
+                                     </div>
+                                     
+                                     <div class="mb-3">
+                                         <div class="display-4 fw-bold text-success mb-1">WASC</div>
+                                         <h6 class="text-dark fw-bold mb-0">Accreditation</h6>
+                                         <small class="text-muted">Regional recognition</small>
+                                     </div>
+                                     
+                                     <!-- Status Indicator -->
+                                     <div class="mb-3">
+                                         <div class="bg-success bg-opacity-10 rounded p-3">
+                                             <div class="h6 text-success mb-1">Active</div>
+                                             <small class="text-muted fw-bold">Notice of Concern Removed</small>
+                                         </div>
+                                     </div>
+                                     
+                                     <div class="alert alert-success border-0 p-2" style="background: rgba(0, 125, 138, 0.1);">
+                                         <small class="fw-bold">Regionally accredited</small>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+
+                         <!-- Military Affiliation Card -->
+                         <div class="col-lg-6 col-xl-3">
+                             <div class="card border-0 h-100 shadow-sm" style="background: linear-gradient(135deg, rgba(0, 125, 138, 0.08), rgba(0, 125, 138, 0.02));">
+                                 <div class="card-body p-4 text-center">
+                                     <div class="d-flex justify-content-between align-items-start mb-3">
+                                         <div class="badge bg-success small">STRENGTH</div>
+                                         <i class="fas fa-medal text-success fa-2x"></i>
+                                     </div>
+                                     
+                                     <div class="mb-3">
+                                         <div class="display-4 fw-bold text-success mb-1">33%</div>
+                                         <h6 class="text-dark fw-bold mb-0">Military Students</h6>
+                                         <small class="text-muted">Service member focus</small>
+                                     </div>
+                                     
+                                     <!-- Service Recognition -->
+                                     <div class="mb-3">
+                                         <div class="bg-success bg-opacity-10 rounded p-3">
+                                             <div class="h6 text-success mb-1">16,830</div>
+                                             <small class="text-muted fw-bold">Active Military Students</small>
+                                         </div>
+                                     </div>
+                                     
+                                     <div class="alert alert-success border-0 p-2" style="background: rgba(0, 125, 138, 0.1);">
+                                         <small class="fw-bold">Veteran-focused programs</small>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+
+                         <!-- Online Accessibility Card -->
+                         <div class="col-lg-6 col-xl-3">
+                             <div class="card border-0 h-100 shadow-sm" style="background: linear-gradient(135deg, rgba(0, 125, 138, 0.08), rgba(0, 125, 138, 0.02));">
+                                 <div class="card-body p-4 text-center">
+                                     <div class="d-flex justify-content-between align-items-start mb-3">
+                                         <div class="badge bg-success small">STRENGTH</div>
+                                         <i class="fas fa-globe text-success fa-2x"></i>
+                                     </div>
+                                     
+                                     <div class="mb-3">
+                                         <div class="display-4 fw-bold text-success mb-1">100%</div>
+                                         <h6 class="text-dark fw-bold mb-0">Online Model</h6>
+                                         <small class="text-muted">Full accessibility</small>
+                                     </div>
+                                     
+                                     <!-- Reach Metrics -->
+                                     <div class="mb-3">
+                                         <div class="row g-2">
+                                             <div class="col-6">
+                                                 <div class="bg-success bg-opacity-10 rounded p-2">
+                                                     <div class="small fw-bold text-success">51,000+</div>
+                                                     <small class="text-muted">Students</small>
+                                                 </div>
+                                             </div>
+                                             <div class="col-6">
+                                                 <div class="bg-success bg-opacity-10 rounded p-2">
+                                                     <div class="small fw-bold text-success">Nationwide</div>
+                                                     <small class="text-muted">Reach</small>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                     
+                                     <div class="alert alert-success border-0 p-2" style="background: rgba(0, 125, 138, 0.1);">
+                                         <small class="fw-bold">Accessible education</small>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+
+                         <!-- Faculty Credentials Card -->
+                         <div class="col-lg-6 col-xl-3">
+                             <div class="card border-0 h-100 shadow-sm" style="background: linear-gradient(135deg, rgba(0, 125, 138, 0.08), rgba(0, 125, 138, 0.02));">
+                                 <div class="card-body p-4 text-center">
+                                     <div class="d-flex justify-content-between align-items-start mb-3">
+                                         <div class="badge bg-success small">STRENGTH</div>
+                                         <i class="fas fa-user-graduate text-success fa-2x"></i>
+                                     </div>
+                                     
+                                     <div class="mb-3">
+                                         <div class="display-4 fw-bold text-success mb-1">60%</div>
+                                         <h6 class="text-dark fw-bold mb-0">Doctoral Faculty</h6>
+                                         <small class="text-muted">Advanced degrees</small>
+                                     </div>
+                                     
+                                     <!-- Qualification Metrics -->
+                                     <div class="mb-3">
+                                         <div class="position-relative">
+                                             <div style="width: 100px; height: 20px; background: linear-gradient(90deg, var(--river) 0% 60%, var(--light-gray) 60% 100%); border-radius: 10px; margin: 0 auto;">
+                                                 <div style="position: absolute; top: -10px; left: 60%; transform: translateX(-50%); width: 2px; height: 40px; background: var(--river);"></div>
+                                             </div>
+                                             <div class="d-flex justify-content-between mt-2">
+                                                 <small class="text-success">UAGC: 60%</small>
+                                                 <small class="text-muted">Standard: 50%</small>
+                                             </div>
+                                         </div>
+                                     </div>
+                                     
+                                     <div class="alert alert-success border-0 p-2" style="background: rgba(0, 125, 138, 0.1);">
+                                         <small class="fw-bold">Above standard qualifications</small>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+                
+             <!-- Strategic Recommendations & Next Steps -->
+                 <div class="card border-0 shadow-lg" style="background: linear-gradient(135deg, rgba(12, 35, 75, 0.05), rgba(171, 5, 32, 0.02), rgba(0, 125, 138, 0.02));">
+                     <div class="card-body p-5">
+                         <div class="text-center mb-5">
+                             <div class="d-inline-block position-relative">
+                                 <h3 class="display-6 fw-bold mb-3" style="color: var(--arizona-blue);">
+                                     <i class="fas fa-road text-primary me-3"></i>
+                                     Strategic Recommendations & Next Steps
+                                 </h3>
+                                 <div class="position-absolute top-0 start-50 translate-middle-x" style="width: 100px; height: 3px; background: linear-gradient(90deg, var(--arizona-red), var(--highlight-orange), var(--arizona-blue)); border-radius: 2px;"></div>
+                             </div>
+                             <p class="lead text-muted">Action-oriented recommendations based on comprehensive institutional analysis</p>
+                         </div>
+
+                                                  <!-- Key Insights Grid -->
+                         <div class="row g-4 mb-5">
+                             <div class="col-lg-4">
+                                 <div class="card border-0 h-100" style="background: linear-gradient(135deg, rgba(171, 5, 32, 0.08), rgba(171, 5, 32, 0.02));">
+                                     <div class="card-body text-center p-4">
+                                         <div class="bg-danger bg-opacity-15 rounded-circle p-3 d-inline-flex mb-3">
+                                             <i class="fas fa-exclamation-triangle text-danger fa-2x"></i>
+                                         </div>
+                                         <h5 class="text-danger fw-bold mb-3">Critical Risk Profile</h5>
+                                         <div class="row g-2 mb-3">
+                                             <div class="col-6">
+                                                 <div class="bg-white rounded p-2">
+                                                     <div class="h4 text-danger mb-0">9%</div>
+                                                     <small class="text-muted fw-bold">Graduation</small>
+                                                 </div>
+                                             </div>
+                                             <div class="col-6">
+                                                 <div class="bg-white rounded p-2">
+                                                     <div class="h4 text-danger mb-0">$4.5B</div>
+                                                     <small class="text-muted fw-bold">Forgiveness</small>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                         <p class="small text-muted mb-0">Four critical metrics require immediate board-level intervention</p>
+                                     </div>
+                                 </div>
+                             </div>
+
+                             <div class="col-lg-4">
+                                 <div class="card border-0 h-100" style="background: linear-gradient(135deg, rgba(239, 150, 0, 0.08), rgba(239, 150, 0, 0.02));">
+                                     <div class="card-body text-center p-4">
+                                         <div class="bg-warning bg-opacity-15 rounded-circle p-3 d-inline-flex mb-3">
+                                             <i class="fas fa-exclamation-circle text-warning fa-2x"></i>
+                                         </div>
+                                         <h5 class="text-warning fw-bold mb-3">Operational Concerns</h5>
+                                         <div class="row g-2 mb-3">
+                                             <div class="col-6">
+                                                 <div class="bg-white rounded p-2">
+                                                     <div class="h4 text-warning mb-0">66%</div>
+                                                     <small class="text-muted fw-bold">Satisfaction</small>
+                                                 </div>
+                                             </div>
+                                             <div class="col-6">
+                                                 <div class="bg-white rounded p-2">
+                                                     <div class="h4 text-warning mb-0">95%</div>
+                                                     <small class="text-muted fw-bold">Adjunct</small>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                         <p class="small text-muted mb-0">Four concerning metrics requiring active monitoring</p>
+                                     </div>
+                                 </div>
+                             </div>
+
+                             <div class="col-lg-4">
+                                 <div class="card border-0 h-100" style="background: linear-gradient(135deg, rgba(0, 125, 138, 0.08), rgba(0, 125, 138, 0.02));">
+                                     <div class="card-body text-center p-4">
+                                         <div class="bg-success bg-opacity-15 rounded-circle p-3 d-inline-flex mb-3">
+                                             <i class="fas fa-check-circle text-success fa-2x"></i>
+                                         </div>
+                                         <h5 class="text-success fw-bold mb-3">Institutional Assets</h5>
+                                         <div class="row g-2 mb-3">
+                                             <div class="col-6">
+                                                 <div class="bg-white rounded p-2">
+                                                     <div class="h4 text-success mb-0">WASC</div>
+                                                     <small class="text-muted fw-bold">Accredited</small>
+                                                 </div>
+                                             </div>
+                                             <div class="col-6">
+                                                 <div class="bg-white rounded p-2">
+                                                     <div class="h4 text-success mb-0">33%</div>
+                                                     <small class="text-muted fw-bold">Military</small>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                         <p class="small text-muted mb-0">Four stable areas providing competitive advantages</p>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+
+                         <!-- Strategic Recommendations -->
+                         <div class="row g-4">
+                             <div class="col-12">
+                                 <div class="card border-0 shadow-sm" style="background: linear-gradient(135deg, rgba(12, 35, 75, 0.05), rgba(12, 35, 75, 0.02));">
+                                     <div class="card-body p-4">
+                                         <h4 class="text-primary fw-bold mb-4">
+                                             <i class="fas fa-lightbulb text-warning me-2"></i>
+                                             Strategic Recommendations for Leadership
+                                         </h4>
+                                         
+                                         <div class="row g-4">
+                                             <div class="col-md-6">
+                                                 <h6 class="text-danger fw-bold mb-3">🔴 Immediate Actions (30 days)</h6>
+                                                 <ul class="list-unstyled">
+                                                     <li class="mb-2">
+                                                         <i class="fas fa-arrow-right text-danger me-2"></i>
+                                                         <strong>Emergency board meeting</strong> to address graduation rate crisis
+                                                     </li>
+                                                     <li class="mb-2">
+                                                         <i class="fas fa-arrow-right text-danger me-2"></i>
+                                                         <strong>Student support intervention</strong> for at-risk populations
+                                                     </li>
+                                                     <li class="mb-2">
+                                                         <i class="fas fa-arrow-right text-danger me-2"></i>
+                                                         <strong>Employment outcome analysis</strong> and career services overhaul
+                                                     </li>
+                                                 </ul>
+                                             </div>
+                                             
+                                             <div class="col-md-6">
+                                                 <h6 class="text-warning fw-bold mb-3">🟡 Medium-term Initiatives (90 days)</h6>
+                                                 <ul class="list-unstyled">
+                                                     <li class="mb-2">
+                                                         <i class="fas fa-arrow-right text-warning me-2"></i>
+                                                         <strong>Faculty development</strong> to reduce adjunct dependency
+                                                     </li>
+                                                     <li class="mb-2">
+                                                         <i class="fas fa-arrow-right text-warning me-2"></i>
+                                                         <strong>Marketing efficiency review</strong> and budget reallocation
+                                                     </li>
+                                                     <li class="mb-2">
+                                                         <i class="fas fa-arrow-right text-warning me-2"></i>
+                                                         <strong>Student satisfaction improvement</strong> programs
+                                                     </li>
+                                                 </ul>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="bg-light py-4 mt-5">
+            <div class="container text-center">
+                <p class="text-muted mb-0">
+                    <strong>University of Arizona Global Campus (UAGC)</strong> - Reputation Analysis 2025
+                </p>
+                <p class="text-muted small">
+                    Confidential strategic assessment for institutional leadership
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Data Sources & Citations -->
+    <div class="bg-light py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h5 class="text-primary fw-bold mb-3">
+                        <i class="fas fa-database me-2"></i>Data Sources & Verification
+                    </h5>
+                    <p class="text-muted small mb-0">
+                        <i class="fas fa-shield-alt me-2"></i>Sources: Department of Education IPEDS, NCES College Navigator, Federal Student Aid Data<br>
+                        <i class="fas fa-calendar me-2"></i>Analysis Period: Mid-2024 to Mid-2025<br>
+                        <i class="fas fa-check-circle me-2"></i>All sources verified and links tested
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Enhanced scroll functionality
+        let ticking = false;
+        
+        function updateProgressBar() {
+            const winHeight = window.innerHeight;
+            const docHeight = document.documentElement.scrollHeight;
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollPercent = (scrollTop / (docHeight - winHeight)) * 100;
+            
+            const progressBar = document.getElementById('progressBar');
+            if (progressBar) {
+                progressBar.style.width = scrollPercent + '%';
+            }
+        }
+        
+        function updateNavbar() {
+            const navbar = document.getElementById('navbar');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (navbar) {
+                if (scrollTop > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            }
+        }
+        
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateProgressBar);
+                requestAnimationFrame(updateNavbar);
+                ticking = true;
+            }
+        }
+        
+        window.addEventListener('scroll', requestTick);
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Number counting animation
+        const numberObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const element = entry.target;
+                    const finalValue = element.dataset.count;
+                    if (finalValue) {
+                        animateNumber(element, finalValue);
+                        numberObserver.unobserve(element);
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        function animateNumber(element, finalValue) {
+            const duration = 2000;
+            const startValue = 0;
+            const startTime = performance.now();
+            
+            function updateNumber(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const currentValue = Math.floor(startValue + (finalValue - startValue) * progress);
+                
+                element.textContent = currentValue;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(updateNumber);
+                }
+            }
+            
+            requestAnimationFrame(updateNumber);
+        }
+        
+        // Initialize animations when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Observe all animatable elements
+            document.querySelectorAll('.card, .hero-content, .section-header').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Observe number elements
+            document.querySelectorAll('[data-count]').forEach(el => {
+                numberObserver.observe(el);
+            });
+            
+            // Observe metric dashboards
+            document.querySelectorAll('.metric-dashboard').forEach(el => {
+                numberObserver.observe(el);
+            });
+            
+            // Add keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    document.body.classList.add('keyboard-navigation');
+                }
+            });
+            
+            document.addEventListener('mousedown', function() {
+                document.body.classList.remove('keyboard-navigation');
+            });
+        });
+        
+        // Add focus styles for keyboard navigation
+        const style = document.createElement('style');
+        style.textContent = `
+            .keyboard-navigation *:focus {
+                outline: 2px solid var(--accent-color) !important;
+                outline-offset: 2px !important;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

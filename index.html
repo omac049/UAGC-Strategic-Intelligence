@@ -508,6 +508,77 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
+        .access-title {
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+        }
+
+        .access-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .access-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+        }
+
+        .access-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .access-item-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .access-item-description {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.4;
+        }
+
+        .access-features {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        .access-features-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .access-feature {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .access-feature i {
+            color: var(--highlight-orange);
+        }
+
         /* Password Overlay */
         .password-overlay {
             position: fixed;
@@ -646,6 +717,19 @@
             .password-form {
                 padding: 2rem;
                 margin: 1rem;
+            }
+
+            .access-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .access-features-grid {
+                gap: 1rem;
+            }
+
+            .access-feature {
+                font-size: 0.8rem;
             }
         }
 
@@ -946,23 +1030,59 @@
                 </div>
 
                 <div class="access-info">
-                    <h4 style="margin-bottom: 1rem; font-size: 1.2rem;">🔐 What You Get Instant Access To:</h4>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; text-align: left;">
-                        <div>
-                            <strong>📊 SEO Recovery Audit</strong><br>
-                            <small>Complete technical analysis + 12-month roadmap</small>
+                    <h4 class="access-title">🔐 What You Get Instant Access To:</h4>
+                    
+                    <div class="access-grid">
+                        <div class="access-item">
+                            <div class="access-item-title">
+                                <i class="fas fa-chart-line"></i>
+                                SEO Recovery Audit
+                            </div>
+                            <div class="access-item-description">
+                                Complete technical analysis with 12-month implementation roadmap for 40-60% traffic growth
+                            </div>
                         </div>
-                        <div>
-                            <strong>🎓 Federal Aid Intelligence</strong><br>
-                            <small>2025 changes analysis + opportunity mapping</small>
+                        
+                        <div class="access-item">
+                            <div class="access-item-title">
+                                <i class="fas fa-graduation-cap"></i>
+                                Federal Aid Intelligence
+                            </div>
+                            <div class="access-item-description">
+                                2025 policy changes analysis with enrollment opportunity mapping and competitive insights
+                            </div>
                         </div>
-                        <div>
-                            <strong>⭐ Reputation Strategy</strong><br>
-                            <small>Brand recovery + protection framework</small>
+                        
+                        <div class="access-item">
+                            <div class="access-item-title">
+                                <i class="fas fa-shield-alt"></i>
+                                Reputation Strategy
+                            </div>
+                            <div class="access-item-description">
+                                Brand recovery framework with protection tactics and competitive positioning strategy
+                            </div>
                         </div>
                     </div>
-                    <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.2); font-size: 0.9rem; opacity: 0.8;">
-                        <i class="fas fa-clock"></i> Available 24/7 • <i class="fas fa-mobile-alt"></i> Mobile Optimized • <i class="fas fa-download"></i> Downloadable
+                    
+                    <div class="access-features">
+                        <div class="access-features-grid">
+                            <div class="access-feature">
+                                <i class="fas fa-clock"></i>
+                                Available 24/7
+                            </div>
+                            <div class="access-feature">
+                                <i class="fas fa-mobile-alt"></i>
+                                Mobile Optimized
+                            </div>
+                            <div class="access-feature">
+                                <i class="fas fa-download"></i>
+                                Downloadable
+                            </div>
+                            <div class="access-feature">
+                                <i class="fas fa-shield-check"></i>
+                                Secure Access
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

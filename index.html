@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UAGC Digital Strategy - Transform Enrollment Challenges into Growth</title>
-    <meta name="description" content="Discover how UAGC can achieve 40-60% traffic increases over 12 months through data-driven strategy. Features real student success stories and prioritized high-ROI recommendations.">
+    <title>UAGC Strategic Intelligence Hub - Complete Digital Strategy Suite</title>
+    <meta name="description" content="Access UAGC's complete strategic intelligence suite: enrollment recovery audit, federal aid analysis, and reputation management. Data-driven insights for 40-60% growth potential.">
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -334,6 +334,124 @@
             font-style: normal;
         }
         
+        /* Documents Hub Styles */
+        .documents-hub {
+            margin: 40px 0;
+            padding: 30px;
+            background: rgba(0, 51, 102, 0.03);
+            border-radius: 15px;
+            border: 1px solid rgba(0, 51, 102, 0.1);
+        }
+        
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+        
+        .document-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .document-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #990000, #003366);
+            transition: all 0.3s ease;
+        }
+        
+        .document-card.primary::before {
+            background: linear-gradient(90deg, #990000, #003366);
+        }
+        
+        .document-card.secondary::before {
+            background: linear-gradient(90deg, #003366, #990000);
+        }
+        
+        .document-card.tertiary::before {
+            background: linear-gradient(90deg, #990000, #666);
+        }
+        
+        .document-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            border-color: rgba(153, 0, 0, 0.2);
+        }
+        
+        .document-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .document-card h4 {
+            color: #003366;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .document-card p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        
+        .document-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .document-stats span {
+            background: rgba(153, 0, 0, 0.1);
+            color: #990000;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .document-button {
+            width: 100%;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #990000 0%, #003366 100%);
+            color: white;
+        }
+        
+        .document-button.secondary {
+            background: linear-gradient(135deg, #003366 0%, #990000 100%);
+        }
+        
+        .document-button.tertiary {
+            background: linear-gradient(135deg, #990000 0%, #666 100%);
+        }
+        
+        .document-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(153, 0, 0, 0.3);
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 40px 30px;
@@ -388,6 +506,22 @@
                 width: fit-content;
                 margin: 10px auto 0;
             }
+            
+            /* Mobile styles for documents hub */
+            .documents-hub {
+                padding: 20px;
+                margin: 30px 0;
+            }
+            .documents-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .document-card {
+                padding: 20px;
+            }
+            .document-stats {
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -416,8 +550,8 @@
 
     <!-- Main Content -->
     <div class="container">
-        <h1>🎯 UAGC Digital Strategy</h1>
-        <p class="subtitle">Transform Enrollment Challenges into Growth Opportunities</p>
+        <h1>🎯 UAGC Strategic Intelligence Hub</h1>
+        <p class="subtitle">Complete digital strategy suite featuring enrollment recovery, federal aid analysis, and reputation management plans</p>
         
         <!-- Student Success Story Hero -->
         <div class="success-story">
@@ -429,7 +563,7 @@
         </div>
         
         <button onclick="launchStrategy()" class="main-button">
-            🎧 Access Your Recovery Strategy
+            📊 Access Strategic Intelligence Suite
         </button>
         
         <!-- Priority Features -->
@@ -460,6 +594,53 @@
             </div>
         </div>
         
+        <!-- Strategic Documents Hub -->
+        <div class="documents-hub">
+            <h3 style="text-align: center; color: #003366; margin-bottom: 30px; font-size: 1.5rem;">
+                📋 Complete UAGC Digital Strategy Suite
+            </h3>
+            <div class="documents-grid">
+                <div class="document-card primary">
+                    <div class="document-icon">📊</div>
+                    <h4>SEO & Conversion Audit</h4>
+                    <p>Comprehensive enrollment recovery plan with technical analysis, content strategy, and 12-month roadmap</p>
+                    <div class="document-stats">
+                        <span>✅ 6 Strategic Parts</span>
+                        <span>🎯 40-60% Traffic Growth</span>
+                    </div>
+                    <button class="document-button" onclick="openDocument('seo-cro-audit-uagc.html')">
+                        View SEO Strategy
+                    </button>
+                </div>
+                
+                <div class="document-card secondary">
+                    <div class="document-icon">🎓</div>
+                    <h4>Federal Aid Research 2025</h4>
+                    <p>In-depth analysis of federal student aid changes, FAFSA updates, and enrollment opportunity mapping</p>
+                    <div class="document-stats">
+                        <span>📈 Market Intelligence</span>
+                        <span>🔍 Discovery Phase</span>
+                    </div>
+                    <button class="document-button secondary" onclick="openDocument('Discovery-Awareness/federal-student-aid-changes-2025.html')">
+                        View Aid Research
+                    </button>
+                </div>
+                
+                <div class="document-card tertiary">
+                    <div class="document-icon">⭐</div>
+                    <h4>Reputation Recovery Plan</h4>
+                    <p>Strategic reputation analysis with brand positioning, competitive intelligence, and recovery tactics</p>
+                    <div class="document-stats">
+                        <span>🛡️ Brand Protection</span>
+                        <span>🚀 Recovery Strategy</span>
+                    </div>
+                    <button class="document-button tertiary" onclick="openDocument('Reputation management/uagc-comprehensive-reputation-analysis.html')">
+                        View Reputation Plan
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <!-- Enhanced Features Grid -->
         <div class="features">
             <div class="feature enhanced">
@@ -481,22 +662,22 @@
         
         <!-- Success Metrics -->
         <div class="stats enhanced-stats">
-            <h3>📈 Projected Impact</h3>
+            <h3>📈 Strategic Impact Potential</h3>
             <div class="metrics-grid">
                 <div class="metric">
                     <div class="metric-number">40-60%</div>
-                    <div class="metric-label">Traffic Increase (12 months)</div>
+                    <div class="metric-label">Traffic Growth Potential</div>
                 </div>
                 <div class="metric">
-                    <div class="metric-number">24.75%</div>
-                    <div class="metric-label">Best CTR Achievement</div>
+                    <div class="metric-number">3</div>
+                    <div class="metric-label">Strategic Documents</div>
                 </div>
                 <div class="metric">
-                    <div class="metric-number">90-Day</div>
-                    <div class="metric-label">Implementation Timeline</div>
+                    <div class="metric-number">360°</div>
+                    <div class="metric-label">Comprehensive Analysis</div>
                 </div>
             </div>
-            <p class="disclaimer">*12-month projections based on current top-performing programs, competitor analysis, and industry benchmarks</p>
+            <p class="disclaimer">*Integrated strategy covering SEO optimization, federal aid opportunities, and reputation recovery</p>
         </div>
         
         <!-- Second Student Story -->
@@ -508,12 +689,34 @@
             </p>
         </div>
         
+        <!-- Strategy Integration Overview -->
+        <div style="margin-top: 40px; padding: 25px; background: rgba(153, 0, 0, 0.03); border-radius: 10px; border-left: 4px solid #990000;">
+            <h4 style="color: #003366; margin-bottom: 15px;">🔗 How These Strategies Work Together</h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 20px;">
+                <div style="text-align: center;">
+                    <div style="font-size: 1.5rem; margin-bottom: 5px;">🎯</div>
+                    <strong style="color: #990000;">Foundation</strong>
+                    <p style="font-size: 0.9rem; color: #666; margin: 5px 0 0;">SEO audit provides the technical framework for growth</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 1.5rem; margin-bottom: 5px;">🎓</div>
+                    <strong style="color: #003366;">Opportunity</strong>
+                    <p style="font-size: 0.9rem; color: #666; margin: 5px 0 0;">Federal aid research identifies market gaps to exploit</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 1.5rem; margin-bottom: 5px;">⭐</div>
+                    <strong style="color: #990000;">Protection</strong>
+                    <p style="font-size: 0.9rem; color: #666; margin: 5px 0 0;">Reputation management ensures sustainable brand growth</p>
+                </div>
+            </div>
+        </div>
+
         <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #ddd;">
             <p style="color: #666; font-size: 0.9rem;">
-                <strong>University of Arizona Global Campus</strong> | Digital Strategy Implementation
+                <strong>University of Arizona Global Campus</strong> | Strategic Intelligence Hub
             </p>
             <p style="color: #999; font-size: 0.8rem; margin-top: 15px;">
-                📱 Best viewed on desktop/tablet | 🎧 Audio experience included | ⌨️ Keyboard shortcuts supported
+                📱 Best viewed on desktop/tablet | 🔒 Password protected | ⌨️ Keyboard shortcuts supported
             </p>
         </div>
     </div>
@@ -575,14 +778,22 @@
             }
         });
         
-        // Launch strategy document
+        // Launch strategy document (legacy function)
         function launchStrategy() {
+            openDocument('seo-cro-audit-uagc.html');
+        }
+        
+        // Generic document opening function with authentication
+        function openDocument(documentPath) {
             // Check authentication before allowing access
             const isAuthenticated = sessionStorage.getItem(SESSION_KEY) === 'true';
             if (isAuthenticated) {
-                window.open('seo-cro-audit-uagc.html', '_blank');
+                window.open(documentPath, '_blank');
+                
+                // Track document access for analytics
+                console.log(`📊 Document accessed: ${documentPath}`);
             } else {
-                alert('🔒 Please authenticate first to access the strategy document.');
+                alert('🔒 Please authenticate first to access the strategy documents.');
                 showPasswordOverlay();
                 document.getElementById('passwordInput').focus();
             }

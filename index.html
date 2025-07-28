@@ -10,6 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     
+    <!-- Animate.css for Modern Animations -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    
     <style>
         :root {
             /* UAGC Brand Colors */
@@ -71,6 +74,12 @@
             bottom: 0;
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
             opacity: 0.3;
+            animation: gridFloat 20s linear infinite;
+        }
+
+        @keyframes gridFloat {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
         }
 
         .hero-container {
@@ -573,7 +582,7 @@
             }
         }
 
-        /* Animations */
+        /* Enhanced Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -585,10 +594,51 @@
             }
         }
 
+        @keyframes heroGlow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+            }
+        }
+
+        @keyframes floatAnimation {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(171, 5, 32, 0.3);
+            }
+        }
+
         .animate-on-scroll {
             opacity: 0;
             animation: fadeInUp 0.6s ease forwards;
         }
+
+        /* Hero-specific animations */
+        .hero-badge {
+            animation: heroGlow 3s ease-in-out infinite, floatAnimation 4s ease-in-out infinite;
+        }
+
+        .stat-card {
+            animation: pulseGlow 2s ease-in-out infinite;
+            animation-delay: var(--animation-delay, 0s);
+        }
+
+        .stat-card:nth-child(1) { --animation-delay: 0s; }
+        .stat-card:nth-child(2) { --animation-delay: 0.7s; }
+        .stat-card:nth-child(3) { --animation-delay: 1.4s; }
 
         /* Scroll Indicator */
         .scroll-indicator {
@@ -638,42 +688,42 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <div class="hero-badge">
+                <div class="hero-badge animate__animated animate__fadeInDown animate__delay-1s">
                     <i class="fas fa-certificate"></i>
                     Strategic Intelligence Suite 2025
                 </div>
                 
-                <h1 class="hero-title">
+                <h1 class="hero-title animate__animated animate__fadeInUp animate__delay-2s">
                     Transform UAGC's Future with Data-Driven Strategic Intelligence
                 </h1>
                 
-                <p class="hero-subtitle">
+                <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-3s">
                     Access the most comprehensive strategic analysis ever created for UAGC. Three powerful documents that unlock 40-60% growth potential, federal aid opportunities, and complete reputation recovery.
                 </p>
 
-                <div class="hero-stats">
-                    <div class="stat-card">
+                <div class="hero-stats animate__animated animate__fadeInUp animate__delay-4s">
+                    <div class="stat-card animate__animated animate__zoomIn animate__delay-5s">
                         <span class="stat-number">40-60%</span>
                         <span class="stat-label">Traffic Growth Potential</span>
                     </div>
-                    <div class="stat-card">
+                    <div class="stat-card animate__animated animate__zoomIn animate__delay-5s animate__delay-1s">
                         <span class="stat-number">360°</span>
                         <span class="stat-label">Strategic Coverage</span>
                     </div>
-                    <div class="stat-card">
+                    <div class="stat-card animate__animated animate__zoomIn animate__delay-5s animate__delay-2s">
                         <span class="stat-number">3</span>
                         <span class="stat-label">Power Documents</span>
                     </div>
                 </div>
 
-                <div class="hero-cta">
+                <div class="hero-cta animate__animated animate__fadeInUp animate__delay-6s">
                     <p class="hero-security">
                         <i class="fas fa-lock"></i> Secure • Confidential • Executive Access Only
                     </p>
                 </div>
             </div>
             
-            <div class="scroll-indicator">
+            <div class="scroll-indicator animate__animated animate__bounce animate__infinite">
                 <i class="fas fa-chevron-down"></i>
             </div>
         </div>
@@ -1037,10 +1087,70 @@
             });
         }
 
+        // Animated particles background
+        function initParticleAnimation() {
+            const heroSection = document.querySelector('.hero');
+            if (!heroSection) return;
+
+            // Create particles container
+            const particlesContainer = document.createElement('div');
+            particlesContainer.style.cssText = `
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                overflow: hidden;
+                z-index: 0;
+            `;
+            heroSection.appendChild(particlesContainer);
+
+            // Create floating particles
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.style.cssText = `
+                    position: absolute;
+                    width: ${Math.random() * 4 + 2}px;
+                    height: ${Math.random() * 4 + 2}px;
+                    background: rgba(255, 255, 255, ${Math.random() * 0.5 + 0.1});
+                    border-radius: 50%;
+                    left: ${Math.random() * 100}%;
+                    top: ${Math.random() * 100}%;
+                    animation: floatParticle ${Math.random() * 10 + 15}s linear infinite;
+                    animation-delay: ${Math.random() * 10}s;
+                `;
+                particlesContainer.appendChild(particle);
+            }
+
+            // Add particle animation CSS
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes floatParticle {
+                    0% {
+                        transform: translateY(100vh) translateX(0);
+                        opacity: 0;
+                    }
+                    10% {
+                        opacity: 1;
+                    }
+                    90% {
+                        opacity: 1;
+                    }
+                    100% {
+                        transform: translateY(-100px) translateX(${Math.random() * 200 - 100}px);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
         // Initialize on page load
         window.addEventListener('load', function() {
             checkAuthentication();
             initHeroBadgeAnimation();
+            initParticleAnimation();
         });
         
         // Keyboard shortcuts

@@ -8387,7 +8387,7 @@
             body.innerHTML = `
                 <div class="row">
                     <div class="col-md-6">
-                        <h6 class="text-primary mb-3"><i class="fas fa-chart-bar"></i> Current Performance</h6>
+                        <h6 class="text-primary mb-3"><i class="fas fa-chart-bar"></i> Search Performance</h6>
                         <div class="card border-0 bg-light">
                             <div class="card-body">
                                 <div class="row g-3">
@@ -8413,6 +8413,38 @@
                                         <div class="metric-box text-center">
                                             <div class="h4 text-info">${formatLargeNumber(programData.impressions)}</div>
                                             <small class="text-muted">Impressions</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h6 class="text-success mb-3 mt-4"><i class="fas fa-mouse-pointer"></i> Conversion Performance</h6>
+                        <div class="card border-0 bg-light">
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <div class="col-6">
+                                        <div class="metric-box text-center">
+                                            <div class="h4 text-success">${programData.requestInfoSubmits || 0}</div>
+                                            <small class="text-muted">Request Submits</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="metric-box text-center">
+                                            <div class="h4 text-warning">${programData.conversionRate || 0}%</div>
+                                            <small class="text-muted">Conv Rate</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="metric-box text-center">
+                                            <div class="h4 text-info">${programData.requestsPerMonth || 0}</div>
+                                            <small class="text-muted">Monthly Requests</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="metric-box text-center">
+                                            <div class="h4 ${getConversionBadgeColor(programData.conversionStatus || 'low')}">${getConversionText(programData.conversionStatus || 'low')}</div>
+                                            <small class="text-muted">Performance</small>
                                         </div>
                                     </div>
                                 </div>
@@ -8444,12 +8476,16 @@
 
         function showOpportunityAnalysis(program) {
             const programData = comprehensivePerformanceData.find(p => p.program === program);
-            showNotification(`Opportunity analysis for ${program}: ${programData.opportunity} priority with +${programData.potential.toLocaleString()} click potential`, 'info');
+            const conversionInsight = (programData.conversionRate || 0) > 7 ? 'High-converting program' : 'Conversion optimization needed';
+            const requestInsight = (programData.requestInfoSubmits || 0) > 15 ? 'Strong request generation' : 'Boost request volume';
+            
+            showNotification(`Opportunity analysis for ${program}: ${programData.opportunity} priority with +${programData.potential.toLocaleString()} click potential. ${conversionInsight} (${programData.conversionRate || 0}% rate). ${requestInsight} (${programData.requestInfoSubmits || 0} submits).`, 'info');
         }
 
         function getRecommendations(programData) {
             const recommendations = [];
             
+            // Search Performance Recommendations
             if (programData.ctr < 1) {
                 recommendations.push('Optimize meta descriptions for higher CTR');
                 recommendations.push('Improve title tags with compelling calls-to-action');
@@ -8460,14 +8496,37 @@
                 recommendations.push('Build topic authority through comprehensive content');
             }
             
+            // Conversion Performance Recommendations
+            if ((programData.conversionRate || 0) < 5) {
+                recommendations.push('Improve landing page conversion optimization');
+                recommendations.push('A/B test "Request Information" form placement and design');
+            }
+            
+            if ((programData.requestInfoSubmits || 0) < 10) {
+                recommendations.push('Increase request form visibility and calls-to-action');
+                recommendations.push('Add social proof and testimonials near forms');
+            }
+            
+            if ((programData.conversionRate || 0) > 10) {
+                recommendations.push('Scale successful conversion tactics to other programs');
+                recommendations.push('Increase traffic acquisition for high-converting program');
+            }
+            
+            // Opportunity-based Recommendations
             if (programData.opportunity === 'Massive' || programData.opportunity === 'Very High') {
-                                        recommendations.push('Priority investment for maximum impact');
+                recommendations.push('Priority investment for maximum impact');
                 recommendations.push('Implement accelerated optimization timeline');
             }
             
+            // Category-specific Recommendations
             if (programData.category === 'Business') {
                 recommendations.push('Highlight IACBE accreditation and University of Arizona brand');
                 recommendations.push('Emphasize "No GMAT Required" competitive advantage');
+            }
+            
+            if (programData.category === 'Healthcare') {
+                recommendations.push('Emphasize flexible schedule and clinical placement support');
+                recommendations.push('Highlight career advancement and salary potential');
             }
             
             if (recommendations.length === 0) {

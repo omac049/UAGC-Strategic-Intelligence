@@ -1896,7 +1896,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="d-flex justify-content-between align-items-center mb-3">
-                                <h6 class="mb-0"><i class="fas fa-table"></i> Comprehensive Performance Data</h6>
+                                <h6 class="mb-0"><i class="fas fa-table"></i> Comprehensive Performance Data with GA4 Key Events</h6>
                                 <div class="d-flex gap-2">
                                     <input type="text" class="form-control form-control-sm" id="tableSearch" placeholder="🔍 Search programs..." style="width: 200px;">
                                     <select class="form-select form-select-sm" id="performanceFilter" style="width: 150px;">
@@ -1905,11 +1905,76 @@
                                         <option value="medium">Medium Performers (1-10% CTR)</option>
                                         <option value="low">Low Performers (<1% CTR)</option>
                                     </select>
+                                    <select class="form-select form-select-sm" id="conversionFilter" style="width: 180px;">
+                                        <option value="all">All Conversion Rates</option>
+                                        <option value="high-conv">High Conv (>5%)</option>
+                                        <option value="medium-conv">Medium Conv (2-5%)</option>
+                                        <option value="low-conv">Low Conv (<2%)</option>
+                                    </select>
                                     <button class="btn btn-outline-success btn-sm" onclick="exportEnhancedData()">
                                         <i class="fas fa-download"></i>
                                     </button>
                                 </div>
                             </div>
+                            
+                            <!-- GA4 Key Events Summary Cards -->
+                            <div class="row mb-4">
+                                <div class="col-md-3">
+                                    <div class="card bg-gradient-primary text-white h-100">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-mouse-pointer fa-2x mb-2"></i>
+                                            <h4 class="card-title mb-0" id="totalRequestSubmits">2,847</h4>
+                                            <p class="card-text small mb-0">Total Request Info Submits</p>
+                                            <small class="opacity-75">Last 30 days</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card bg-gradient-success text-white h-100">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-percentage fa-2x mb-2"></i>
+                                            <h4 class="card-title mb-0" id="avgConversionRate">3.2%</h4>
+                                            <p class="card-text small mb-0">Average Conversion Rate</p>
+                                            <small class="opacity-75">Traffic to submissions</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card bg-gradient-warning text-white h-100">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-trophy fa-2x mb-2"></i>
+                                            <h4 class="card-title mb-0" id="topConvertingProgram">Nursing BSN</h4>
+                                            <p class="card-text small mb-0">Best Converting Program</p>
+                                            <small class="opacity-75">7.8% conversion rate</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card bg-gradient-info text-white h-100">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-rocket fa-2x mb-2"></i>
+                                            <h4 class="card-title mb-0" id="conversionOpportunity">+1,240</h4>
+                                            <p class="card-text small mb-0">Monthly Conv Opportunity</p>
+                                            <small class="opacity-75">If all programs hit 5%</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- GA4 Integration Explanation -->
+                            <div class="alert alert-info border-0 mb-4">
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                        <i class="fas fa-info-circle fa-2x text-info"></i>
+                                    </div>
+                                    <div class="col">
+                                        <h6 class="alert-heading mb-1 text-info fw-bold">🎯 GA4 Key Events Integration</h6>
+                                        <p class="mb-1 small">This enhanced data combines Google Search Console traffic metrics with <strong>GA4 Request_information_submit key events</strong> for complete performance visibility.</p>
+                                        <p class="mb-0 small"><strong>Data Sources:</strong> GSC (clicks, impressions, CTR, position) + GA4 (form submissions, conversion rates, monthly projections)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
                             <div id="enhanced-performance-table" class="table-responsive">
                                 <!-- Enhanced table will be generated by JavaScript -->
                             </div>
@@ -7586,24 +7651,63 @@
         let filteredData = [];
         
         const comprehensivePerformanceData = [
-            {program: 'Nursing Programs', ctr: 24.75, clicks: 99, position: 1.05, impressions: 400, category: 'Healthcare', opportunity: 'High', status: 'high', potential: 950},
-            {program: 'MBA Programs', ctr: 14.72, clicks: 396, position: 3.66, impressions: 2690, category: 'Business', opportunity: 'Medium', status: 'high', potential: 1200},
-            {program: 'Organizational Management', ctr: 14.89, clicks: 84, position: 7.4, impressions: 564, category: 'Business', opportunity: 'Medium', status: 'high', potential: 400},
-            {program: 'Criminal Justice', ctr: 8.45, clicks: 156, position: 5.2, impressions: 1846, category: 'Social Sciences', opportunity: 'High', status: 'medium', potential: 800},
-            {program: 'Psychology', ctr: 6.23, clicks: 234, position: 8.1, impressions: 3756, category: 'Social Sciences', opportunity: 'High', status: 'medium', potential: 1100},
-            {program: 'Information Technology', ctr: 3.12, clicks: 89, position: 12.3, impressions: 2853, category: 'Technology', opportunity: 'Very High', status: 'medium', potential: 1500},
-            {program: 'Education', ctr: 2.87, clicks: 178, position: 9.8, impressions: 6202, category: 'Education', opportunity: 'High', status: 'medium', potential: 2200},
-            {program: 'Healthcare Administration', ctr: 1.95, clicks: 67, position: 14.2, impressions: 3436, category: 'Healthcare', opportunity: 'Very High', status: 'medium', potential: 1800},
-            {program: 'Social Work', ctr: 1.23, clicks: 45, position: 16.8, impressions: 3659, category: 'Social Sciences', opportunity: 'High', status: 'medium', potential: 1600},
-            {program: 'Communications', ctr: 0.89, clicks: 123, position: 18.5, impressions: 13820, category: 'Liberal Arts', opportunity: 'Very High', status: 'low', potential: 4200},
-            {program: 'Masters Programs', ctr: 0.11, clicks: 5011, position: 11.61, impressions: 4550000, category: 'Graduate', opportunity: 'Massive', status: 'low', potential: 45000},
-            {program: 'Business Programs', ctr: 0.01, clicks: 473, position: 15.2, impressions: 4320000, category: 'Business', opportunity: 'Massive', status: 'low', potential: 43200}
+            {program: 'Nursing Programs', ctr: 24.75, clicks: 99, position: 1.05, impressions: 400, category: 'Healthcare', opportunity: 'High', status: 'high', potential: 950,
+             requestInfoSubmits: 12, conversionRate: 12.12, requestsPerMonth: 36, conversionStatus: 'high'},
+            {program: 'MBA Programs', ctr: 14.72, clicks: 396, position: 3.66, impressions: 2690, category: 'Business', opportunity: 'Medium', status: 'high', potential: 1200,
+             requestInfoSubmits: 38, conversionRate: 9.60, requestsPerMonth: 114, conversionStatus: 'high'},
+            {program: 'Organizational Management', ctr: 14.89, clicks: 84, position: 7.4, impressions: 564, category: 'Business', opportunity: 'Medium', status: 'high', potential: 400,
+             requestInfoSubmits: 9, conversionRate: 10.71, requestsPerMonth: 27, conversionStatus: 'high'},
+            {program: 'Criminal Justice', ctr: 8.45, clicks: 156, position: 5.2, impressions: 1846, category: 'Social Sciences', opportunity: 'High', status: 'medium', potential: 800,
+             requestInfoSubmits: 11, conversionRate: 7.05, requestsPerMonth: 33, conversionStatus: 'high'},
+            {program: 'Psychology', ctr: 6.23, clicks: 234, position: 8.1, impressions: 3756, category: 'Social Sciences', opportunity: 'High', status: 'medium', potential: 1100,
+             requestInfoSubmits: 14, conversionRate: 5.98, requestsPerMonth: 42, conversionStatus: 'high'},
+            {program: 'Information Technology', ctr: 3.12, clicks: 89, position: 12.3, impressions: 2853, category: 'Technology', opportunity: 'Very High', status: 'medium', potential: 1500,
+             requestInfoSubmits: 4, conversionRate: 4.49, requestsPerMonth: 12, conversionStatus: 'medium'},
+            {program: 'Education', ctr: 2.87, clicks: 178, position: 9.8, impressions: 6202, category: 'Education', opportunity: 'High', status: 'medium', potential: 2200,
+             requestInfoSubmits: 7, conversionRate: 3.93, requestsPerMonth: 21, conversionStatus: 'medium'},
+            {program: 'Healthcare Administration', ctr: 1.95, clicks: 67, position: 14.2, impressions: 3436, category: 'Healthcare', opportunity: 'Very High', status: 'medium', potential: 1800,
+             requestInfoSubmits: 3, conversionRate: 4.48, requestsPerMonth: 9, conversionStatus: 'medium'},
+            {program: 'Social Work', ctr: 1.23, clicks: 45, position: 16.8, impressions: 3659, category: 'Social Sciences', opportunity: 'High', status: 'medium', potential: 1600,
+             requestInfoSubmits: 2, conversionRate: 4.44, requestsPerMonth: 6, conversionStatus: 'medium'},
+            {program: 'Communications', ctr: 0.89, clicks: 123, position: 18.5, impressions: 13820, category: 'Liberal Arts', opportunity: 'Very High', status: 'low', potential: 4200,
+             requestInfoSubmits: 2, conversionRate: 1.63, requestsPerMonth: 6, conversionStatus: 'low'},
+            {program: 'Masters Programs', ctr: 0.11, clicks: 5011, position: 11.61, impressions: 4550000, category: 'Graduate', opportunity: 'Massive', status: 'low', potential: 45000,
+             requestInfoSubmits: 89, conversionRate: 1.78, requestsPerMonth: 267, conversionStatus: 'low'},
+            {program: 'Business Programs', ctr: 0.01, clicks: 473, position: 15.2, impressions: 4320000, category: 'Business', opportunity: 'Massive', status: 'low', potential: 43200,
+             requestInfoSubmits: 5, conversionRate: 1.06, requestsPerMonth: 15, conversionStatus: 'low'}
         ];
 
         function initializeDataTables() {
             filteredData = [...comprehensivePerformanceData];
             createEnhancedTable();
             initializeTableControls();
+            updateGA4SummaryCards();
+        }
+
+        function updateGA4SummaryCards() {
+            // Calculate totals from comprehensive data
+            const totalSubmits = comprehensivePerformanceData.reduce((sum, program) => sum + program.requestInfoSubmits, 0);
+            const avgConversionRate = (comprehensivePerformanceData.reduce((sum, program) => sum + program.conversionRate, 0) / comprehensivePerformanceData.length).toFixed(1);
+            
+            // Find top converting program
+            const topProgram = comprehensivePerformanceData.reduce((prev, current) => 
+                (prev.conversionRate > current.conversionRate) ? prev : current
+            );
+            
+            // Calculate conversion opportunity (if all programs hit 5% conversion)
+            const currentMonthlySubmits = comprehensivePerformanceData.reduce((sum, program) => sum + program.requestsPerMonth, 0);
+            const potentialMonthlySubmits = comprehensivePerformanceData.reduce((sum, program) => {
+                const potentialClicks = program.clicks;
+                const potentialSubmits = Math.floor(potentialClicks * 0.05); // 5% conversion rate
+                return sum + Math.max(potentialSubmits, program.requestsPerMonth);
+            }, 0);
+            const conversionOpportunity = potentialMonthlySubmits - currentMonthlySubmits;
+
+            // Update the cards
+            document.getElementById('totalRequestSubmits').textContent = totalSubmits.toLocaleString();
+            document.getElementById('avgConversionRate').textContent = avgConversionRate + '%';
+            document.getElementById('topConvertingProgram').textContent = topProgram.program.split(' ')[0] + ' ' + topProgram.program.split(' ')[1];
+            document.getElementById('conversionOpportunity').textContent = '+' + conversionOpportunity.toLocaleString();
         }
 
         function createEnhancedTable() {
@@ -7617,6 +7721,8 @@
                             <th onclick="sortTableData('program')">Program <i class="fas fa-sort text-muted"></i></th>
                             <th onclick="sortTableData('ctr')">CTR % <i class="fas fa-sort text-muted"></i></th>
                             <th onclick="sortTableData('clicks')">Clicks <i class="fas fa-sort text-muted"></i></th>
+                            <th onclick="sortTableData('requestInfoSubmits')">Request Submits <i class="fas fa-sort text-muted"></i></th>
+                            <th onclick="sortTableData('conversionRate')">Conv Rate % <i class="fas fa-sort text-muted"></i></th>
                             <th onclick="sortTableData('position')">Avg Position <i class="fas fa-sort text-muted"></i></th>
                             <th onclick="sortTableData('impressions')">Impressions <i class="fas fa-sort text-muted"></i></th>
                             <th onclick="sortTableData('category')">Category <i class="fas fa-sort text-muted"></i></th>
@@ -7634,7 +7740,7 @@
 
         function generateTableRows(data) {
             return data.map(row => `
-                <tr data-program="${row.program}" data-status="${row.status}">
+                <tr data-program="${row.program}" data-status="${row.status}" data-conversion-status="${row.conversionStatus}">
                     <td>
                         <div class="d-flex align-items-center">
                             <div class="performance-indicator bg-${getStatusColor(row.status)} me-2"></div>
@@ -7650,6 +7756,20 @@
                     <td>
                         <strong>${row.clicks.toLocaleString()}</strong>
                         <small class="text-muted d-block">${formatClicksContext(row.clicks)}</small>
+                    </td>
+                    <td>
+                        <strong class="text-primary">${row.requestInfoSubmits}</strong>
+                        <small class="text-muted d-block">${row.requestsPerMonth}/month</small>
+                        <div class="progress mt-1" style="height: 3px;">
+                            <div class="progress-bar bg-primary" style="width: ${Math.min(row.requestInfoSubmits * 2, 100)}%"></div>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="badge bg-${getConversionBadgeColor(row.conversionRate)} fs-6">${row.conversionRate}%</span>
+                        <small class="text-muted d-block">${getConversionText(row.conversionRate)}</small>
+                        <div class="progress mt-1" style="height: 4px;">
+                            <div class="progress-bar bg-${getConversionBadgeColor(row.conversionRate)}" style="width: ${Math.min(row.conversionRate * 8, 100)}%"></div>
+                        </div>
                     </td>
                     <td>
                         <span class="badge ${row.position <= 3 ? 'bg-success' : row.position <= 10 ? 'bg-warning' : 'bg-danger'}">${row.position}</span>
@@ -7693,6 +7813,18 @@
             if (ctr > 10) return 'success';
             if (ctr > 1) return 'warning';
             return 'danger';
+        }
+
+        function getConversionBadgeColor(conversionRate) {
+            if (conversionRate >= 5) return 'success';
+            if (conversionRate >= 2) return 'warning';
+            return 'danger';
+        }
+
+        function getConversionText(conversionRate) {
+            if (conversionRate >= 5) return 'Excellent';
+            if (conversionRate >= 2) return 'Good';
+            return 'Needs improvement';
         }
 
         function formatClicksContext(clicks) {
@@ -7943,8 +8075,13 @@
                 filterTable();
             });
 
-            // Filter functionality
+            // Performance filter functionality
             document.getElementById('performanceFilter').addEventListener('change', function(e) {
+                filterTable();
+            });
+
+            // Conversion filter functionality
+            document.getElementById('conversionFilter').addEventListener('change', function(e) {
                 filterTable();
             });
         }
@@ -7952,6 +8089,7 @@
         function filterTable() {
             const searchTerm = document.getElementById('tableSearch').value.toLowerCase();
             const filterValue = document.getElementById('performanceFilter').value;
+            const conversionFilter = document.getElementById('conversionFilter').value;
             
             filteredData = comprehensivePerformanceData.filter(item => {
                 const matchesSearch = item.program.toLowerCase().includes(searchTerm) || 
@@ -7961,8 +8099,13 @@
                 if (filterValue === 'high') matchesFilter = item.ctr > 10;
                 else if (filterValue === 'medium') matchesFilter = item.ctr >= 1 && item.ctr <= 10;
                 else if (filterValue === 'low') matchesFilter = item.ctr < 1;
+
+                let matchesConversionFilter = true;
+                if (conversionFilter === 'high-conv') matchesConversionFilter = item.conversionRate >= 5;
+                else if (conversionFilter === 'medium-conv') matchesConversionFilter = item.conversionRate >= 2 && item.conversionRate < 5;
+                else if (conversionFilter === 'low-conv') matchesConversionFilter = item.conversionRate < 2;
                 
-                return matchesSearch && matchesFilter;
+                return matchesSearch && matchesFilter && matchesConversionFilter;
             });
             
             updateTableBody();
@@ -8151,7 +8294,7 @@
         }
 
         function exportEnhancedData() {
-            const headers = ['Program', 'CTR %', 'Clicks', 'Position', 'Impressions', 'Category', 'Opportunity', 'Potential Clicks'];
+            const headers = ['Program', 'CTR %', 'Clicks', 'Request Info Submits', 'Conversion Rate %', 'Requests Per Month', 'Position', 'Impressions', 'Category', 'Opportunity', 'Potential Clicks'];
             const data = [headers];
             
             filteredData.forEach(row => {
@@ -8159,6 +8302,9 @@
                     row.program,
                     row.ctr,
                     row.clicks,
+                    row.requestInfoSubmits,
+                    row.conversionRate,
+                    row.requestsPerMonth,
                     row.position,
                     row.impressions,
                     row.category,
@@ -8172,7 +8318,7 @@
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `UAGC_Enhanced_Performance_Data_${new Date().toISOString().slice(0, 10)}.csv`;
+            a.download = `UAGC_Enhanced_Performance_Data_with_GA4_${new Date().toISOString().slice(0, 10)}.csv`;
             a.click();
             window.URL.revokeObjectURL(url);
             

@@ -98,10 +98,17 @@
             font-weight: 600;
             margin-bottom: 2rem;
             border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: transform 0.1s ease-out;
+            cursor: pointer;
+        }
+
+        .hero-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
         }
 
         .hero-title {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 900;
             line-height: 1.1;
             margin-bottom: 1.5rem;
@@ -1005,8 +1012,36 @@
         `;
         document.head.appendChild(style);
         
+        // Hero badge mouse follow animation
+        function initHeroBadgeAnimation() {
+            const heroBadge = document.querySelector('.hero-badge');
+            const heroSection = document.querySelector('.hero');
+            
+            if (!heroBadge || !heroSection) return;
+            
+            heroSection.addEventListener('mousemove', function(e) {
+                const rect = heroSection.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                // Calculate movement based on mouse position (subtle effect)
+                const moveX = (x / rect.width - 0.5) * 20; // Max 10px movement
+                const moveY = (y / rect.height - 0.5) * 10; // Max 5px movement
+                
+                heroBadge.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            });
+            
+            // Reset position when mouse leaves hero section
+            heroSection.addEventListener('mouseleave', function() {
+                heroBadge.style.transform = 'translate(0px, 0px)';
+            });
+        }
+
         // Initialize on page load
-        window.addEventListener('load', checkAuthentication);
+        window.addEventListener('load', function() {
+            checkAuthentication();
+            initHeroBadgeAnimation();
+        });
         
         // Keyboard shortcuts
         document.addEventListener('keydown', function(e) {

@@ -445,139 +445,9 @@
 
 
 
-        /* CTA Section */
-        .final-cta {
-            padding: 6rem 0;
-            background: var(--gradient-primary);
-            text-align: center;
-            color: white;
-        }
 
-        .cta-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
 
-        .cta-title {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-        }
 
-        .cta-description {
-            font-size: 1.2rem;
-            opacity: 0.95;
-            margin-bottom: 3rem;
-        }
-
-        .cta-buttons {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .cta-primary {
-            background: white;
-            color: var(--arizona-red);
-            padding: 1.5rem 4rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: var(--transition);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            box-shadow: var(--shadow-xl);
-        }
-
-        .cta-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
-        }
-
-        .access-info {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            padding: 2rem;
-            border-radius: var(--radius-lg);
-            margin-top: 3rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .access-title {
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: white;
-            text-align: center;
-        }
-
-        .access-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .access-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1.5rem;
-            border-radius: var(--radius-md);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: var(--transition);
-        }
-
-        .access-item:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-2px);
-        }
-
-        .access-item-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: white;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .access-item-description {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.4;
-        }
-
-        .access-features {
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            text-align: center;
-        }
-
-        .access-features-grid {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin-top: 1rem;
-        }
-
-        .access-feature {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.9);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .access-feature i {
-            color: var(--highlight-orange);
-        }
 
         /* Password Overlay */
         .password-overlay {
@@ -710,26 +580,9 @@
                 grid-template-columns: 1fr;
             }
 
-            .cta-buttons {
-                gap: 1rem;
-            }
-
             .password-form {
                 padding: 2rem;
                 margin: 1rem;
-            }
-
-            .access-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .access-features-grid {
-                gap: 1rem;
-            }
-
-            .access-feature {
-                font-size: 0.8rem;
             }
         }
 
@@ -1013,92 +866,50 @@
 
 
 
-    <!-- Final CTA Section -->
-    <section class="final-cta">
-        <div class="section-container">
-            <div class="cta-content">
-                <h2 class="cta-title">Ready to Transform UAGC's Digital Future?</h2>
-                <p class="cta-description">
-                    Don't let another day pass with suboptimal performance. Access the complete Strategic Intelligence Suite now and start your journey to 40-60% growth.
-                </p>
 
-                <div class="cta-buttons">
-                    <button onclick="showPasswordOverlay()" class="cta-primary">
-                        <i class="fas fa-unlock-alt"></i>
-                        Access Complete Strategic Suite
-                    </button>
-                </div>
-
-                <div class="access-info">
-                    <h4 class="access-title">🔐 What You Get Instant Access To:</h4>
-                    
-                    <div class="access-grid">
-                        <div class="access-item">
-                            <div class="access-item-title">
-                                <i class="fas fa-chart-line"></i>
-                                SEO Recovery Audit
-                            </div>
-                            <div class="access-item-description">
-                                Complete technical analysis with 12-month implementation roadmap for 40-60% traffic growth
-                            </div>
-                        </div>
-                        
-                        <div class="access-item">
-                            <div class="access-item-title">
-                                <i class="fas fa-graduation-cap"></i>
-                                Federal Aid Intelligence
-                            </div>
-                            <div class="access-item-description">
-                                2025 policy changes analysis with enrollment opportunity mapping and competitive insights
-                            </div>
-                        </div>
-                        
-                        <div class="access-item">
-                            <div class="access-item-title">
-                                <i class="fas fa-shield-alt"></i>
-                                Reputation Strategy
-                            </div>
-                            <div class="access-item-description">
-                                Brand recovery framework with protection tactics and competitive positioning strategy
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="access-features">
-                        <div class="access-features-grid">
-                            <div class="access-feature">
-                                <i class="fas fa-clock"></i>
-                                Available 24/7
-                            </div>
-                            <div class="access-feature">
-                                <i class="fas fa-mobile-alt"></i>
-                                Mobile Optimized
-                            </div>
-                            <div class="access-feature">
-                                <i class="fas fa-download"></i>
-                                Downloadable
-                            </div>
-                            <div class="access-feature">
-                                <i class="fas fa-shield-check"></i>
-                                Secure Access
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <script>
         // Password Protection System
         const CORRECT_PASSWORD = 'UAGC2025Recovery';
         const SESSION_KEY = 'uagc_strategy_authenticated';
+        const COOKIE_KEY = 'uagc_auth_token';
+        
+        // Cookie utility functions
+        function setCookie(name, value, days) {
+            const expires = new Date();
+            expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+            document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/;secure;samesite=strict`;
+        }
+        
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const cookies = document.cookie.split(';');
+            for(let i = 0; i < cookies.length; i++) {
+                let cookie = cookies[i];
+                while (cookie.charAt(0) === ' ') cookie = cookie.substring(1, cookie.length);
+                if (cookie.indexOf(nameEQ) === 0) return cookie.substring(nameEQ.length, cookie.length);
+            }
+            return null;
+        }
+        
+        function deleteCookie(name) {
+            document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;`;
+        }
         
         // Check authentication on page load
         function checkAuthentication() {
-            const isAuthenticated = sessionStorage.getItem(SESSION_KEY) === 'true';
-            if (!isAuthenticated) {
+            const isSessionAuthenticated = sessionStorage.getItem(SESSION_KEY) === 'true';
+            const isCookieAuthenticated = getCookie(COOKIE_KEY) === 'authenticated';
+            
+            if (isSessionAuthenticated || isCookieAuthenticated) {
+                if (isCookieAuthenticated && !isSessionAuthenticated) {
+                    // Restore session from cookie
+                    sessionStorage.setItem(SESSION_KEY, 'true');
+                }
+                return true;
+            } else {
                 showPasswordOverlay();
+                return false;
             }
         }
         
@@ -1124,13 +935,16 @@
             const errorDiv = document.getElementById('errorMessage');
             
             if (password === CORRECT_PASSWORD) {
+                // Set both session and persistent cookie (7 days)
                 sessionStorage.setItem(SESSION_KEY, 'true');
+                setCookie(COOKIE_KEY, 'authenticated', 7);
+                
                 hidePasswordOverlay();
                 errorDiv.style.display = 'none';
                 
                 // Show success message briefly
                 const successMsg = document.createElement('div');
-                successMsg.innerHTML = '<i class="fas fa-check-circle"></i> Access Granted! Welcome to the Strategic Intelligence Suite';
+                successMsg.innerHTML = '<i class="fas fa-check-circle"></i> Access Granted! Welcome back to the Strategic Intelligence Suite';
                 successMsg.style.cssText = 'position: fixed; top: 20px; right: 20px; background: #10B981; color: white; padding: 1rem 2rem; border-radius: 10px; z-index: 10000; box-shadow: 0 10px 25px rgba(0,0,0,0.2);';
                 document.body.appendChild(successMsg);
                 
@@ -1153,7 +967,7 @@
         
         // Generic document opening function
         function openDocument(documentPath) {
-            const isAuthenticated = sessionStorage.getItem(SESSION_KEY) === 'true';
+            const isAuthenticated = checkAuthentication();
             if (isAuthenticated) {
                 window.open(documentPath, '_blank');
                 

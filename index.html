@@ -85,6 +85,136 @@
             100% { transform: translate(50px, 50px); }
         }
 
+        /* Particle Animation System */
+        .particles-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .particle.small {
+            width: 2px;
+            height: 2px;
+            animation: floatUp 15s linear infinite;
+        }
+
+        .particle.medium {
+            width: 4px;
+            height: 4px;
+            animation: floatUp 20s linear infinite;
+            background: rgba(239, 150, 0, 0.3);
+        }
+
+        .particle.large {
+            width: 6px;
+            height: 6px;
+            animation: floatUp 25s linear infinite;
+            background: rgba(171, 5, 32, 0.2);
+        }
+
+        .particle.glow {
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            animation: floatUp 18s linear infinite, particleGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(50px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes particleGlow {
+            0%, 100% {
+                box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(171, 5, 32, 0.4);
+                transform: scale(1.5);
+            }
+        }
+
+        /* Interactive particles that respond to cursor */
+        .particle.interactive {
+            transition: all 0.3s ease;
+        }
+
+        .particle.diagonal {
+            animation: diagonalFloat 22s linear infinite;
+        }
+
+        .particle.zigzag {
+            animation: zigzagFloat 18s linear infinite;
+        }
+
+        @keyframes diagonalFloat {
+            0% {
+                transform: translateY(100vh) translateX(-50px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(50vh) translateX(25px) rotate(180deg);
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes zigzagFloat {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            25% {
+                transform: translateY(75vh) translateX(30px) rotate(90deg);
+            }
+            50% {
+                transform: translateY(50vh) translateX(-20px) rotate(180deg);
+            }
+            75% {
+                transform: translateY(25vh) translateX(40px) rotate(270deg);
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(-10px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
         .hero-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -909,6 +1039,7 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <div class="particles-container" id="particlesContainer"></div>
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-badge animate__animated animate__bounceInDown animate__delay-1s">
@@ -1171,6 +1302,154 @@
 
 
     <script>
+        // Particle Animation System
+        class ParticleSystem {
+            constructor(containerId) {
+                this.container = document.getElementById(containerId);
+                this.particles = [];
+                this.isRunning = false;
+                this.maxParticles = 50;
+                this.particleTypes = ['small', 'medium', 'large', 'glow'];
+                this.movementTypes = ['normal', 'diagonal', 'zigzag'];
+                
+                this.init();
+            }
+            
+            init() {
+                this.createParticles();
+                this.start();
+                this.setupInteractivity();
+            }
+            
+            createParticles() {
+                for (let i = 0; i < this.maxParticles; i++) {
+                    setTimeout(() => {
+                        this.addParticle();
+                    }, i * 300); // Stagger particle creation
+                }
+            }
+            
+            addParticle() {
+                if (this.particles.length >= this.maxParticles) return;
+                
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random particle type
+                const type = this.particleTypes[Math.floor(Math.random() * this.particleTypes.length)];
+                particle.classList.add(type);
+                
+                // Random movement type
+                const movement = this.movementTypes[Math.floor(Math.random() * this.movementTypes.length)];
+                if (movement !== 'normal') {
+                    particle.classList.add(movement);
+                }
+                
+                // Add interactive class to some particles
+                if (Math.random() < 0.3) {
+                    particle.classList.add('interactive');
+                }
+                
+                // Random starting position
+                const startX = Math.random() * 100;
+                particle.style.left = startX + '%';
+                
+                // Random animation delay
+                const delay = Math.random() * 5;
+                particle.style.animationDelay = delay + 's';
+                
+                this.container.appendChild(particle);
+                this.particles.push(particle);
+                
+                // Remove particle after animation completes
+                const animationDuration = this.getAnimationDuration(particle);
+                setTimeout(() => {
+                    this.removeParticle(particle);
+                }, (animationDuration + delay) * 1000);
+            }
+            
+            removeParticle(particle) {
+                const index = this.particles.indexOf(particle);
+                if (index > -1) {
+                    this.particles.splice(index, 1);
+                    if (particle.parentNode) {
+                        particle.parentNode.removeChild(particle);
+                    }
+                }
+                
+                // Add new particle to maintain count
+                if (this.isRunning && this.particles.length < this.maxParticles) {
+                    setTimeout(() => {
+                        this.addParticle();
+                    }, Math.random() * 2000);
+                }
+            }
+            
+            getAnimationDuration(particle) {
+                if (particle.classList.contains('diagonal')) return 22;
+                if (particle.classList.contains('zigzag')) return 18;
+                if (particle.classList.contains('glow')) return 18;
+                if (particle.classList.contains('large')) return 25;
+                if (particle.classList.contains('medium')) return 20;
+                return 15; // small particles
+            }
+            
+            setupInteractivity() {
+                this.container.addEventListener('mousemove', (e) => {
+                    const rect = this.container.getBoundingClientRect();
+                    const mouseX = ((e.clientX - rect.left) / rect.width) * 100;
+                    const mouseY = ((e.clientY - rect.top) / rect.height) * 100;
+                    
+                    this.particles.forEach(particle => {
+                        if (particle.classList.contains('interactive')) {
+                            const particleX = parseFloat(particle.style.left);
+                            const distance = Math.abs(mouseX - particleX);
+                            
+                            if (distance < 10) {
+                                particle.style.transform = `scale(1.5) translateX(${(mouseX - particleX) * 2}px)`;
+                                particle.style.opacity = '0.8';
+                            } else {
+                                particle.style.transform = '';
+                                particle.style.opacity = '';
+                            }
+                        }
+                    });
+                });
+                
+                this.container.addEventListener('mouseleave', () => {
+                    this.particles.forEach(particle => {
+                        particle.style.transform = '';
+                        particle.style.opacity = '';
+                    });
+                });
+            }
+            
+            start() {
+                this.isRunning = true;
+            }
+            
+            stop() {
+                this.isRunning = false;
+            }
+        }
+        
+        // Initialize particle system when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Only initialize if we're on a page with particles container
+            if (document.getElementById('particlesContainer')) {
+                const particleSystem = new ParticleSystem('particlesContainer');
+                
+                // Optional: Pause particles when page is not visible (performance optimization)
+                document.addEventListener('visibilitychange', function() {
+                    if (document.hidden) {
+                        particleSystem.stop();
+                    } else {
+                        particleSystem.start();
+                    }
+                });
+            }
+        });
+
         // Password Protection System
         const CORRECT_PASSWORD = 'UAGC2025Recovery';
         const SESSION_KEY = 'uagc_strategy_authenticated';

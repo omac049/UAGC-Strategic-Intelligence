@@ -244,9 +244,12 @@
 
         .documents-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
             margin-bottom: 4rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .document-card {
@@ -260,6 +263,7 @@
             height: 100%;
             display: flex;
             flex-direction: column;
+            backdrop-filter: blur(10px);
         }
 
         .document-card:hover {
@@ -395,28 +399,61 @@
         /* Integration Section */
         .integration-section {
             padding: 6rem 0;
-            background: white;
+            background: linear-gradient(135deg, #f8f9fa 0%, white 50%, #f8f9fa 100%);
+            position: relative;
+        }
+
+        .integration-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 60px;
+            background: linear-gradient(180deg, var(--arizona-red), transparent);
         }
 
         .integration-visual {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
             margin: 3rem 0;
+            position: relative;
+        }
+
+        .integration-visual::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--arizona-blue), var(--arizona-red));
+            z-index: 1;
         }
 
         .integration-step {
             text-align: center;
-            padding: 2rem;
-            background: var(--light-gray);
+            padding: 2rem 1.5rem;
+            background: white;
             border-radius: var(--radius-lg);
             position: relative;
+            box-shadow: var(--shadow-md);
+            border: 2px solid var(--light-gray);
+            transition: var(--transition);
+            z-index: 2;
+        }
+
+        .integration-step:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--arizona-red);
         }
 
         .step-number {
             width: 60px;
             height: 60px;
-            background: var(--gradient-primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -425,6 +462,24 @@
             font-size: 1.5rem;
             font-weight: 700;
             margin: 0 auto 1.5rem;
+            position: relative;
+            z-index: 3;
+        }
+
+        .integration-step:nth-child(1) .step-number {
+            background: var(--gradient-primary);
+        }
+
+        .integration-step:nth-child(2) .step-number {
+            background: var(--gradient-secondary);
+        }
+
+        .integration-step:nth-child(3) .step-number {
+            background: var(--gradient-accent);
+        }
+
+        .integration-step:nth-child(4) .step-number {
+            background: linear-gradient(135deg, var(--highlight-orange), var(--arizona-red));
         }
 
         .step-title {
@@ -541,7 +596,16 @@
         /* Responsive Design */
         @media (max-width: 1200px) {
             .documents-grid {
-                gap: 1.5rem;
+                gap: 2rem;
+                max-width: 1200px;
+            }
+            
+            .integration-visual {
+                gap: 1rem;
+            }
+            
+            .integration-step {
+                padding: 1.5rem 1rem;
             }
         }
 
@@ -549,6 +613,15 @@
             .documents-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+            }
+            
+            .integration-visual {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .integration-visual::before {
+                display: none;
             }
         }
 
@@ -574,6 +647,11 @@
 
             .integration-visual {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .integration-visual::before {
+                display: none;
             }
 
             .password-form {
@@ -698,7 +776,7 @@
                 </h1>
                 
                 <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-3s">
-                    Access the most comprehensive strategic analysis ever created for UAGC. Three powerful documents that unlock 40-60% growth potential, federal aid opportunities, and complete reputation recovery.
+                    Access the most comprehensive strategic analysis ever created for UAGC. Four powerful strategic components that unlock 40-60% growth potential, federal aid opportunities, reputation recovery, and intelligent personalization for maximum enrollment impact.
                 </p>
 
                 <div class="hero-stats animate__animated animate__fadeInUp animate__delay-4s">
@@ -711,8 +789,8 @@
                         <span class="stat-label">Strategic Coverage</span>
                     </div>
                     <div class="stat-card animate__animated animate__zoomIn animate__delay-5s animate__delay-2s">
-                        <span class="stat-number">3</span>
-                        <span class="stat-label">Power Documents</span>
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">Strategic Pillars</span>
                     </div>
                 </div>
 
@@ -734,9 +812,9 @@
         <div class="section-container">
             <div class="section-header">
                 <div class="section-badge">Complete Strategic Suite</div>
-                <h2 class="section-title">Three Pillars of UAGC's Digital Transformation</h2>
+                <h2 class="section-title">Four Pillars of UAGC's Digital Transformation</h2>
                 <p class="section-subtitle">
-                    Each document targets a critical area of growth. Together, they form an unstoppable strategic foundation for enrollment recovery and sustainable expansion.
+                    Each strategic component targets a critical area of growth. Together, they form a comprehensive framework for enrollment recovery, brand protection, and sustainable expansion through intelligent user experience optimization.
                 </p>
             </div>
 

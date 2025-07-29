@@ -58,7 +58,7 @@
             overflow-x: hidden;
         }
 
-        /* Hero Section */
+        /* Enhanced Hero Section with Advanced Animations */
         .hero {
             background: var(--gradient-primary);
             min-height: 100vh;
@@ -66,23 +66,69 @@
             align-items: center;
             position: relative;
             overflow: hidden;
+            will-change: transform;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            transform-style: preserve-3d;
+            animation: heroBackgroundShift 12s ease-in-out infinite;
+        }
+
+        /* Enhanced Background Animation */
+        @keyframes heroBackgroundShift {
+            0% { 
+                background: linear-gradient(135deg, var(--arizona-red) 0%, var(--arizona-blue) 100%);
+                transform: scale(1);
+            }
+            25% { 
+                background: linear-gradient(45deg, var(--arizona-red) 0%, var(--highlight-orange) 50%, var(--arizona-blue) 100%);
+                transform: scale(1.02);
+            }
+            50% { 
+                background: linear-gradient(225deg, var(--arizona-blue) 0%, var(--arizona-red) 100%);
+                transform: scale(1.05);
+            }
+            75% { 
+                background: linear-gradient(315deg, var(--highlight-orange) 0%, var(--arizona-blue) 50%, var(--arizona-red) 100%);
+                transform: scale(1.02);
+            }
+            100% { 
+                background: linear-gradient(135deg, var(--arizona-red) 0%, var(--arizona-blue) 100%);
+                transform: scale(1);
+            }
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
-            animation: gridFloat 20s linear infinite;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>'),
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 1px, transparent 1px),
+                radial-gradient(circle at 80% 20%, rgba(239,150,0,0.1) 1px, transparent 1px),
+                radial-gradient(circle at 40% 40%, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 100% 100%, 60px 60px, 80px 80px, 50px 50px;
+            opacity: 0.6;
+            animation: gridFloat 20s linear infinite, heroParticleFloat 18s linear infinite, heroGradientShift 10s ease-in-out infinite;
+            z-index: 1;
         }
 
         @keyframes gridFloat {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(50px, 50px) rotate(360deg); }
+        }
+
+        @keyframes heroParticleFloat {
+            0% { background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%; }
+            100% { background-position: 100% 100%, 100% 100%, -100% 100%, 50% 50%; }
+        }
+
+        @keyframes heroGradientShift {
+            0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            50% { transform: translate(-25px, -25px) rotate(180deg) scale(1.1); }
+            100% { transform: translate(0, 0) rotate(360deg) scale(1); }
         }
 
         .hero-container {
@@ -90,12 +136,21 @@
             margin: 0 auto;
             padding: 0 2rem;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
         .hero-content {
             text-align: center;
             color: white;
+            animation: heroContentFloat 6s ease-in-out infinite;
+            will-change: transform;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        @keyframes heroContentFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
 
         .hero-badge {
@@ -793,25 +848,149 @@
             }
         }
 
-        /* Hero-specific animations */
+        /* Enhanced Hero-specific animations */
         .hero-badge {
             animation: heroGlow 2s ease-in-out infinite, floatAnimation 3s ease-in-out infinite;
             transform-origin: center;
+            will-change: transform;
+            backface-visibility: hidden;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: heroShimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes heroShimmer {
+            0% { left: -100%; }
+            50% { left: 100%; }
+            100% { left: 100%; }
         }
 
         .hero-title {
-            animation: heroTitleWave 4s ease-in-out infinite;
+            animation: heroTitleWave 4s ease-in-out infinite, heroTitleGlow 5s ease-in-out infinite;
             transform-origin: center;
+            will-change: transform;
+            backface-visibility: hidden;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 0 30px rgba(255,255,255,0.1);
+        }
+
+        @keyframes heroTitleGlow {
+            0%, 100% { 
+                text-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 0 30px rgba(255,255,255,0.1);
+                filter: brightness(1);
+            }
+            50% { 
+                text-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 0 40px rgba(239,150,0,0.3);
+                filter: brightness(1.1);
+            }
         }
 
         .hero-subtitle {
-            animation: dramaticEntrance 1.5s ease-out forwards;
+            animation: dramaticEntrance 1.5s ease-out forwards, heroSubtitleSlide 6s ease-in-out infinite 2s;
+            will-change: transform;
+            backface-visibility: hidden;
+        }
+
+        @keyframes heroSubtitleSlide {
+            0%, 100% { transform: translateX(0px); opacity: 1; }
+            25% { transform: translateX(-5px); opacity: 0.95; }
+            75% { transform: translateX(5px); opacity: 0.95; }
         }
 
         .stat-card {
-            animation: pulseGlow 1.5s ease-in-out infinite, statsReveal 1.2s ease-out forwards;
+            animation: pulseGlow 1.5s ease-in-out infinite, statsReveal 1.2s ease-out forwards, statCardFloat 4s ease-in-out infinite;
             animation-delay: var(--animation-delay, 0s);
             transform-origin: center;
+            will-change: transform;
+            backface-visibility: hidden;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(239,150,0,0.1), rgba(255,255,255,0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .stat-card:hover::before {
+            opacity: 1;
+            animation: statCardShine 1s ease-out;
+        }
+
+        @keyframes statCardFloat {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-5px) scale(1.02); }
+        }
+
+        @keyframes statCardShine {
+            0% { transform: translateX(-100%) skewX(-15deg); }
+            100% { transform: translateX(100%) skewX(-15deg); }
+        }
+
+        @keyframes rippleEffect {
+            0% { transform: scale(0); opacity: 1; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+
+        /* Mobile Responsive Animation Optimizations */
+        @media (max-width: 768px) {
+            .hero {
+                animation-duration: 15s; /* Slower animations on mobile */
+            }
+            
+            .hero::before {
+                animation-duration: 25s, 20s, 12s; /* Reduced animation intensity */
+            }
+            
+            .hero-content {
+                animation: heroContentFloat 8s ease-in-out infinite; /* Slower float */
+            }
+            
+            .hero-badge::before {
+                animation-duration: 4s; /* Slower shimmer */
+            }
+            
+            .hero-title {
+                animation-duration: 6s, 7s; /* Slower title animations */
+            }
+            
+            .stat-card {
+                animation-duration: 2s, 1.5s, 5s; /* Adjusted for mobile */
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero,
+            .hero::before,
+            .hero-content,
+            .hero-badge,
+            .hero-title,
+            .hero-subtitle,
+            .stat-card {
+                animation: none !important;
+            }
+            
+            .hero-badge::before,
+            .stat-card::before {
+                animation: none !important;
+            }
         }
 
         .stat-card:nth-child(1) { 
@@ -1331,28 +1510,84 @@
         `;
         document.head.appendChild(style);
         
-        // Hero badge mouse follow animation
+        // Enhanced Hero Interactive Animations
         function initHeroBadgeAnimation() {
             const heroBadge = document.querySelector('.hero-badge');
             const heroSection = document.querySelector('.hero');
+            const heroContent = document.querySelector('.hero-content');
             
             if (!heroBadge || !heroSection) return;
             
+            // Enhanced mouse parallax for entire hero content
             heroSection.addEventListener('mousemove', function(e) {
                 const rect = heroSection.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
                 
                 // Calculate movement based on mouse position (subtle effect)
-                const moveX = (x / rect.width - 0.5) * 20; // Max 10px movement
-                const moveY = (y / rect.height - 0.5) * 10; // Max 5px movement
+                const moveX = (x / rect.width - 0.5) * 30; // Enhanced movement
+                const moveY = (y / rect.height - 0.5) * 15;
                 
+                // Apply parallax to different elements with varying intensity
                 heroBadge.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                
+                // Subtle parallax for the entire content
+                if (heroContent) {
+                    const contentMoveX = (x / rect.width - 0.5) * 10;
+                    const contentMoveY = (y / rect.height - 0.5) * 5;
+                    heroContent.style.transform = `translate(${contentMoveX}px, ${contentMoveY}px)`;
+                }
+                
+                // Add dynamic lighting effect
+                const lightX = (x / rect.width) * 100;
+                const lightY = (y / rect.height) * 100;
+                heroSection.style.background = `
+                    radial-gradient(circle at ${lightX}% ${lightY}%, 
+                        rgba(239, 150, 0, 0.1) 0%, 
+                        transparent 50%),
+                    var(--gradient-primary)
+                `;
             });
             
             // Reset position when mouse leaves hero section
             heroSection.addEventListener('mouseleave', function() {
                 heroBadge.style.transform = 'translate(0px, 0px)';
+                if (heroContent) {
+                    heroContent.style.transform = 'translate(0px, 0px)';
+                }
+                heroSection.style.background = 'var(--gradient-primary)';
+            });
+            
+            // Add click ripple effect to stat cards
+            const statCards = document.querySelectorAll('.stat-card');
+            statCards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    const ripple = document.createElement('span');
+                    const rect = card.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.cssText = `
+                        position: absolute;
+                        width: ${size}px;
+                        height: ${size}px;
+                        left: ${x}px;
+                        top: ${y}px;
+                        background: rgba(239,150,0,0.3);
+                        border-radius: 50%;
+                        transform: scale(0);
+                        animation: rippleEffect 0.8s ease-out;
+                        pointer-events: none;
+                    `;
+                    
+                    card.style.position = 'relative';
+                    card.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 800);
+                });
             });
         }
 

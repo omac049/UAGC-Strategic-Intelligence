@@ -675,28 +675,46 @@
 
         @keyframes heroGlow {
             0%, 100% {
-                box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+                box-shadow: 0 0 30px rgba(255, 255, 255, 0.2), 0 0 60px rgba(171, 5, 32, 0.1);
+                transform: scale(1);
+            }
+            25% {
+                box-shadow: 0 0 50px rgba(255, 255, 255, 0.4), 0 0 80px rgba(171, 5, 32, 0.2);
+                transform: scale(1.02);
             }
             50% {
-                box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+                box-shadow: 0 0 70px rgba(255, 255, 255, 0.5), 0 0 100px rgba(171, 5, 32, 0.3);
+                transform: scale(1.05);
+            }
+            75% {
+                box-shadow: 0 0 50px rgba(255, 255, 255, 0.4), 0 0 80px rgba(171, 5, 32, 0.2);
+                transform: scale(1.02);
             }
         }
 
         @keyframes floatAnimation {
             0%, 100% {
-                transform: translateY(0px);
+                transform: translateY(0px) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-15px) rotate(1deg);
             }
             50% {
-                transform: translateY(-10px);
+                transform: translateY(-25px) rotate(0deg);
+            }
+            75% {
+                transform: translateY(-15px) rotate(-1deg);
             }
         }
 
         @keyframes pulseGlow {
             0%, 100% {
-                box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.4), 0 0 20px rgba(171, 5, 32, 0.2);
+                transform: scale(1);
             }
             50% {
-                box-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(171, 5, 32, 0.3);
+                box-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 0 0 50px rgba(171, 5, 32, 0.4), 0 0 70px rgba(12, 35, 75, 0.3);
+                transform: scale(1.08);
             }
         }
 
@@ -705,19 +723,111 @@
             animation: fadeInUp 0.6s ease forwards;
         }
 
+        /* Intensive Hero Animations */
+        @keyframes dramaticEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(100px) scale(0.5) rotate(-5deg);
+                filter: blur(20px);
+            }
+            50% {
+                opacity: 0.8;
+                transform: translateY(-20px) scale(1.1) rotate(2deg);
+                filter: blur(5px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1) rotate(0deg);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes heroTitleWave {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+                text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            }
+            25% {
+                transform: translateY(-5px) scale(1.02);
+                text-shadow: 0 0 30px rgba(171, 5, 32, 0.4), 0 0 40px rgba(255, 255, 255, 0.5);
+            }
+            50% {
+                transform: translateY(-10px) scale(1.03);
+                text-shadow: 0 0 40px rgba(171, 5, 32, 0.6), 0 0 60px rgba(255, 255, 255, 0.7);
+            }
+            75% {
+                transform: translateY(-5px) scale(1.02);
+                text-shadow: 0 0 30px rgba(171, 5, 32, 0.4), 0 0 40px rgba(255, 255, 255, 0.5);
+            }
+        }
+
+        @keyframes intenseBounce {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            25% {
+                transform: translateY(-20px) scale(1.1);
+            }
+            50% {
+                transform: translateY(-40px) scale(1.15);
+            }
+            75% {
+                transform: translateY(-20px) scale(1.1);
+            }
+        }
+
+        @keyframes statsReveal {
+            0% {
+                opacity: 0;
+                transform: translateY(50px) scale(0.3) rotateX(90deg);
+            }
+            60% {
+                opacity: 0.8;
+                transform: translateY(-10px) scale(1.2) rotateX(-10deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1) rotateX(0deg);
+            }
+        }
+
         /* Hero-specific animations */
         .hero-badge {
-            animation: heroGlow 3s ease-in-out infinite, floatAnimation 4s ease-in-out infinite;
+            animation: heroGlow 2s ease-in-out infinite, floatAnimation 3s ease-in-out infinite;
+            transform-origin: center;
+        }
+
+        .hero-title {
+            animation: heroTitleWave 4s ease-in-out infinite;
+            transform-origin: center;
+        }
+
+        .hero-subtitle {
+            animation: dramaticEntrance 1.5s ease-out forwards;
         }
 
         .stat-card {
-            animation: pulseGlow 2s ease-in-out infinite;
+            animation: pulseGlow 1.5s ease-in-out infinite, statsReveal 1.2s ease-out forwards;
             animation-delay: var(--animation-delay, 0s);
+            transform-origin: center;
         }
 
-        .stat-card:nth-child(1) { --animation-delay: 0s; }
-        .stat-card:nth-child(2) { --animation-delay: 0.7s; }
-        .stat-card:nth-child(3) { --animation-delay: 1.4s; }
+        .stat-card:nth-child(1) { 
+            --animation-delay: 0s; 
+            animation-delay: 0s, 0.5s;
+        }
+        .stat-card:nth-child(2) { 
+            --animation-delay: 0.5s; 
+            animation-delay: 0.5s, 1s;
+        }
+        .stat-card:nth-child(3) { 
+            --animation-delay: 1s; 
+            animation-delay: 1s, 1.5s;
+        }
+
+        .scroll-indicator {
+            animation: intenseBounce 2s infinite;
+        }
 
         /* Scroll Indicator */
         .scroll-indicator {
@@ -727,7 +837,39 @@
             transform: translateX(-50%);
             color: white;
             font-size: 2rem;
-            animation: bounce 2s infinite;
+            animation: intenseBounce 2s infinite;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+        }
+
+        /* Background Particle Effects */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(171, 5, 32, 0.1) 0%, transparent 50%),
+                       radial-gradient(circle at 80% 20%, rgba(12, 35, 75, 0.1) 0%, transparent 50%),
+                       radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            animation: heroBackgroundPulse 8s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        @keyframes heroBackgroundPulse {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.7;
+                transform: scale(1.1);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
 
         @keyframes bounce {
@@ -767,43 +909,43 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <div class="hero-badge animate__animated animate__fadeInDown animate__delay-1s">
+                <div class="hero-badge animate__animated animate__bounceInDown animate__delay-1s">
                     <i class="fas fa-certificate"></i>
                     Strategic Intelligence Suite 2025
                 </div>
                 
-                <h1 class="hero-title animate__animated animate__fadeInUp animate__delay-2s">
+                <h1 class="hero-title animate__animated animate__zoomIn animate__delay-2s">
                     Transform UAGC's Future with Data-Driven Strategic Intelligence
                 </h1>
                 
-                <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-3s">
+                <p class="hero-subtitle animate__animated animate__slideInUp animate__delay-3s">
                     Access the most comprehensive strategic analysis ever created for UAGC. Four powerful strategic components that unlock 40-60% growth potential, federal aid opportunities, reputation recovery, and intelligent personalization for maximum enrollment impact.
                 </p>
 
-                <div class="hero-stats animate__animated animate__fadeInUp animate__delay-4s">
-                    <div class="stat-card animate__animated animate__zoomIn animate__delay-5s">
+                <div class="hero-stats animate__animated animate__bounceInUp animate__delay-4s">
+                    <div class="stat-card animate__animated animate__flipInX animate__delay-5s">
                         <span class="stat-number">40-60%</span>
                         <span class="stat-label">Traffic Growth Potential</span>
                     </div>
-                    <div class="stat-card animate__animated animate__zoomIn animate__delay-5s animate__delay-1s">
+                    <div class="stat-card animate__animated animate__flipInY animate__delay-6s">
                         <span class="stat-number">360°</span>
                         <span class="stat-label">Strategic Coverage</span>
                     </div>
-                    <div class="stat-card animate__animated animate__zoomIn animate__delay-5s animate__delay-2s">
+                    <div class="stat-card animate__animated animate__rotateIn animate__delay-7s">
                         <span class="stat-number">4</span>
                         <span class="stat-label">Strategic Pillars</span>
                     </div>
                 </div>
 
-                <div class="hero-cta animate__animated animate__fadeInUp animate__delay-6s">
+                <div class="hero-cta animate__animated animate__pulse animate__delay-8s animate__infinite">
                     <p class="hero-security">
-                        <i class="fas fa-lock"></i> Secure • Confidential • Executive Access Only
+                        <i class="fas fa-lock animate__animated animate__swing animate__infinite animate__slower"></i> Secure • Confidential • Executive Access Only
                     </p>
                 </div>
             </div>
             
-            <div class="scroll-indicator animate__animated animate__bounce animate__infinite">
-                <i class="fas fa-chevron-down"></i>
+            <div class="scroll-indicator animate__animated animate__tada animate__infinite animate__slower">
+                <i class="fas fa-chevron-down animate__animated animate__heartBeat animate__infinite"></i>
             </div>
         </div>
     </section>

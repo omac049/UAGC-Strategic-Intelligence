@@ -11,7 +11,7 @@
 
 ## 📋 Strategic Intelligence Suite Overview
 
-**🎯 Live Access:** [[https://omac049.github.io/UAGC-SEO/](https://omac049.github.io/UAGC-SEO/)](https://omac049.github.io/UAGC-Strategic-Intelligence/)
+**🎯 Live Access:** [[https://omac049.github.io/UAGC-Strategic-Intelligence/](https://omac049.github.io/UAGC-Strategic-Intelligence/)
 
 This comprehensive strategic intelligence platform provides UAGC with a **complete digital transformation framework** featuring four integrated strategic pillars. The suite combines data-driven analysis, actionable insights, and innovative user experience optimization to drive enrollment recovery and sustainable growth.
 

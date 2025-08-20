@@ -504,10 +504,14 @@
                     22 high-impact content pieces organized by customer journey stage and priority level
                 </p>
                 <div class="hero-link">
-                    <a href="seo-cro-audit-uagc.html" class="btn btn-outline-light btn-lg" target="_blank">
+                    <a href="seo-cro-audit-uagc.html" class="btn btn-outline-light btn-lg me-3" target="_blank">
                         <i class="fas fa-file-alt me-2"></i>
                         View Full SEO & CRO Strategy Document
                     </a>
+                    <button onclick="exportToSpreadsheet()" class="btn btn-light btn-lg">
+                        <i class="fas fa-download me-2"></i>
+                        Export to Spreadsheet
+                    </button>
                 </div>
             </div>
         </div>
@@ -2207,6 +2211,145 @@
                 }
             });
         });
+
+        // Export to Spreadsheet function
+        function exportToSpreadsheet() {
+            const data = [];
+            
+            // CSV Headers
+            data.push([
+                'Stage',
+                'Priority',
+                'Tier',
+                'Content Title',
+                'Search Volume',
+                'Description',
+                'Content Type',
+                'Target Audience',
+                'Primary Implementation',
+                'Secondary Implementation',
+                'Supporting Implementation',
+                'Why it Works',
+                'Primary Keywords',
+                'Secondary Keywords'
+            ]);
+
+            // Extract content items from each stage
+            const stages = [
+                { id: 'discovery', name: 'Discovery & Awareness' },
+                { id: 'research', name: 'Research & Consideration' },
+                { id: 'decision', name: 'Decision & Conversion' }
+            ];
+
+            stages.forEach(stage => {
+                const stageSection = document.getElementById(stage.id);
+                if (stageSection) {
+                    const tiers = stageSection.querySelectorAll('.tier-section');
+                    
+                    tiers.forEach((tier, tierIndex) => {
+                        const tierTitle = tier.querySelector('.tier-title')?.textContent?.trim() || '';
+                        const priority = tierIndex + 1;
+                        
+                        const contentItems = tier.querySelectorAll('.content-item');
+                        
+                        contentItems.forEach(item => {
+                            const title = item.querySelector('.content-item-title')?.textContent?.trim() || '';
+                            const searchVolume = item.querySelector('.search-volume')?.textContent?.trim() || '';
+                            const description = item.querySelector('.content-item-description')?.textContent?.trim() || '';
+                            
+                            // Extract content types
+                            const contentTypeBadges = item.querySelectorAll('.content-format .badge.bg-info');
+                            const contentTypes = Array.from(contentTypeBadges).map(badge => badge.textContent.trim()).join(', ');
+                            
+                            // Extract target audience
+                            const audienceBadges = item.querySelectorAll('.content-format .badge.bg-primary');
+                            const targetAudience = Array.from(audienceBadges).map(badge => badge.textContent.trim()).join(', ');
+                            
+                            // Extract implementation details
+                            const implementationItems = item.querySelectorAll('.implementation-list div');
+                            let primaryImpl = '', secondaryImpl = '', supportingImpl = '';
+                            
+                            implementationItems.forEach(impl => {
+                                const text = impl.textContent.trim();
+                                if (text.includes('Primary:')) {
+                                    primaryImpl = text.replace('Primary:', '').trim();
+                                } else if (text.includes('Secondary:')) {
+                                    secondaryImpl = text.replace('Secondary:', '').trim();
+                                } else if (text.includes('Supporting:')) {
+                                    supportingImpl = text.replace('Supporting:', '').trim();
+                                }
+                            });
+                            
+                            // Extract "Why it Works"
+                            const whyItWorks = item.querySelector('.detail-item .detail-label:contains("Why it Works")');
+                            let whyWorksText = '';
+                            if (whyItWorks) {
+                                const valueElement = whyItWorks.parentElement.querySelector('.detail-value');
+                                whyWorksText = valueElement?.textContent?.trim() || '';
+                            } else {
+                                // Fallback: find by text content
+                                const detailItems = item.querySelectorAll('.detail-item');
+                                detailItems.forEach(detailItem => {
+                                    if (detailItem.textContent.includes('Why it Works:')) {
+                                        const valueSpan = detailItem.querySelector('.detail-value');
+                                        if (valueSpan) {
+                                            whyWorksText = valueSpan.textContent.trim();
+                                        }
+                                    }
+                                });
+                            }
+                            
+                            // Extract keywords
+                            const keywordGroups = item.querySelectorAll('.keyword-group');
+                            let primaryKeywords = '', secondaryKeywords = '';
+                            
+                            keywordGroups.forEach(group => {
+                                const text = group.textContent;
+                                if (text.includes('Primary:')) {
+                                    primaryKeywords = text.replace(/Primary:\s*/, '').trim();
+                                } else if (text.includes('Secondary:')) {
+                                    secondaryKeywords = text.replace(/Secondary:\s*/, '').trim();
+                                }
+                            });
+                            
+                            // Add row to data
+                            data.push([
+                                stage.name,
+                                priority,
+                                tierTitle,
+                                title,
+                                searchVolume,
+                                description,
+                                contentTypes,
+                                targetAudience,
+                                primaryImpl,
+                                secondaryImpl,
+                                supportingImpl,
+                                whyWorksText,
+                                primaryKeywords,
+                                secondaryKeywords
+                            ]);
+                        });
+                    });
+                }
+            });
+
+            // Convert to CSV
+            const csvContent = data.map(row => 
+                row.map(cell => `"${(cell || '').toString().replace(/"/g, '""')}"`).join(',')
+            ).join('\n');
+
+            // Download CSV
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            link.setAttribute('href', url);
+            link.setAttribute('download', 'UAGC_Content_Strategy_Priority_List.csv');
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
     </script>
 </body>
 </html>

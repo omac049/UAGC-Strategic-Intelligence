@@ -2214,141 +2214,155 @@
 
         // Export to Spreadsheet function
         function exportToSpreadsheet() {
-            const data = [];
+            console.log('Export function called');
             
-            // CSV Headers
-            data.push([
-                'Stage',
-                'Priority',
-                'Tier',
-                'Content Title',
-                'Search Volume',
-                'Description',
-                'Content Type',
-                'Target Audience',
-                'Primary Implementation',
-                'Secondary Implementation',
-                'Supporting Implementation',
-                'Why it Works',
-                'Primary Keywords',
-                'Secondary Keywords'
-            ]);
+            try {
+                const data = [];
+                
+                // CSV Headers
+                data.push([
+                    'Stage',
+                    'Priority',
+                    'Tier',
+                    'Content Title',
+                    'Search Volume',
+                    'Description',
+                    'Content Type',
+                    'Target Audience',
+                    'Primary Implementation',
+                    'Secondary Implementation', 
+                    'Supporting Implementation',
+                    'Why it Works',
+                    'Primary Keywords',
+                    'Secondary Keywords'
+                ]);
 
-            // Extract content items from each stage
-            const stages = [
-                { id: 'discovery', name: 'Discovery & Awareness' },
-                { id: 'research', name: 'Research & Consideration' },
-                { id: 'decision', name: 'Decision & Conversion' }
-            ];
+                // Extract content items from each stage
+                const stages = [
+                    { id: 'discovery', name: 'Discovery & Awareness' },
+                    { id: 'research', name: 'Research & Consideration' },
+                    { id: 'decision', name: 'Decision & Conversion' }
+                ];
 
-            stages.forEach(stage => {
-                const stageSection = document.getElementById(stage.id);
-                if (stageSection) {
-                    const tiers = stageSection.querySelectorAll('.tier-section');
+                stages.forEach(stage => {
+                    console.log(`Processing stage: ${stage.name}`);
+                    const stageSection = document.getElementById(stage.id);
                     
-                    tiers.forEach((tier, tierIndex) => {
-                        const tierTitle = tier.querySelector('.tier-title')?.textContent?.trim() || '';
-                        const priority = tierIndex + 1;
+                    if (stageSection) {
+                        const tiers = stageSection.querySelectorAll('.tier-section');
+                        console.log(`Found ${tiers.length} tiers in ${stage.name}`);
                         
-                        const contentItems = tier.querySelectorAll('.content-item');
-                        
-                        contentItems.forEach(item => {
-                            const title = item.querySelector('.content-item-title')?.textContent?.trim() || '';
-                            const searchVolume = item.querySelector('.search-volume')?.textContent?.trim() || '';
-                            const description = item.querySelector('.content-item-description')?.textContent?.trim() || '';
+                        tiers.forEach((tier, tierIndex) => {
+                            const tierTitle = tier.querySelector('.tier-title')?.textContent?.trim() || '';
+                            const priority = tierIndex + 1;
                             
-                            // Extract content types
-                            const contentTypeBadges = item.querySelectorAll('.content-format .badge.bg-info');
-                            const contentTypes = Array.from(contentTypeBadges).map(badge => badge.textContent.trim()).join(', ');
+                            const contentItems = tier.querySelectorAll('.content-item');
+                            console.log(`Found ${contentItems.length} content items in tier ${priority}`);
                             
-                            // Extract target audience
-                            const audienceBadges = item.querySelectorAll('.content-format .badge.bg-primary');
-                            const targetAudience = Array.from(audienceBadges).map(badge => badge.textContent.trim()).join(', ');
-                            
-                            // Extract implementation details
-                            const implementationItems = item.querySelectorAll('.implementation-list div');
-                            let primaryImpl = '', secondaryImpl = '', supportingImpl = '';
-                            
-                            implementationItems.forEach(impl => {
-                                const text = impl.textContent.trim();
-                                if (text.includes('Primary:')) {
-                                    primaryImpl = text.replace('Primary:', '').trim();
-                                } else if (text.includes('Secondary:')) {
-                                    secondaryImpl = text.replace('Secondary:', '').trim();
-                                } else if (text.includes('Supporting:')) {
-                                    supportingImpl = text.replace('Supporting:', '').trim();
-                                }
-                            });
-                            
-                            // Extract "Why it Works"
-                            const whyItWorks = item.querySelector('.detail-item .detail-label:contains("Why it Works")');
-                            let whyWorksText = '';
-                            if (whyItWorks) {
-                                const valueElement = whyItWorks.parentElement.querySelector('.detail-value');
-                                whyWorksText = valueElement?.textContent?.trim() || '';
-                            } else {
-                                // Fallback: find by text content
+                            contentItems.forEach(item => {
+                                const title = item.querySelector('.content-item-title')?.textContent?.trim() || '';
+                                const searchVolume = item.querySelector('.search-volume')?.textContent?.trim() || '';
+                                const description = item.querySelector('.content-item-description')?.textContent?.trim() || '';
+                                
+                                // Extract content types
+                                const contentTypeBadges = item.querySelectorAll('.content-format .badge.bg-info');
+                                const contentTypes = Array.from(contentTypeBadges).map(badge => badge.textContent.trim()).join(', ');
+                                
+                                // Extract target audience
+                                const audienceBadges = item.querySelectorAll('.content-format .badge.bg-primary');
+                                const targetAudience = Array.from(audienceBadges).map(badge => badge.textContent.trim()).join(', ');
+                                
+                                // Extract implementation details
+                                const implementationItems = item.querySelectorAll('.implementation-list div');
+                                let primaryImpl = '', secondaryImpl = '', supportingImpl = '';
+                                
+                                implementationItems.forEach(impl => {
+                                    const text = impl.textContent.trim();
+                                    if (text.includes('Primary:')) {
+                                        primaryImpl = text.replace('Primary:', '').trim();
+                                    } else if (text.includes('Secondary:')) {
+                                        secondaryImpl = text.replace('Secondary:', '').trim();
+                                    } else if (text.includes('Supporting:')) {
+                                        supportingImpl = text.replace('Supporting:', '').trim();
+                                    }
+                                });
+                                
+                                // Extract "Why it Works" - Fixed vanilla JavaScript approach
+                                let whyWorksText = '';
                                 const detailItems = item.querySelectorAll('.detail-item');
                                 detailItems.forEach(detailItem => {
-                                    if (detailItem.textContent.includes('Why it Works:')) {
-                                        const valueSpan = detailItem.querySelector('.detail-value');
-                                        if (valueSpan) {
-                                            whyWorksText = valueSpan.textContent.trim();
+                                    const labelElement = detailItem.querySelector('.detail-label');
+                                    if (labelElement && labelElement.textContent.includes('Why it Works')) {
+                                        const valueElement = detailItem.querySelector('.detail-value');
+                                        if (valueElement) {
+                                            whyWorksText = valueElement.textContent.trim();
                                         }
                                     }
                                 });
-                            }
-                            
-                            // Extract keywords
-                            const keywordGroups = item.querySelectorAll('.keyword-group');
-                            let primaryKeywords = '', secondaryKeywords = '';
-                            
-                            keywordGroups.forEach(group => {
-                                const text = group.textContent;
-                                if (text.includes('Primary:')) {
-                                    primaryKeywords = text.replace(/Primary:\s*/, '').trim();
-                                } else if (text.includes('Secondary:')) {
-                                    secondaryKeywords = text.replace(/Secondary:\s*/, '').trim();
-                                }
+                                
+                                // Extract keywords
+                                const keywordGroups = item.querySelectorAll('.keyword-group');
+                                let primaryKeywords = '', secondaryKeywords = '';
+                                
+                                keywordGroups.forEach(group => {
+                                    const text = group.textContent;
+                                    if (text.includes('Primary:')) {
+                                        primaryKeywords = text.replace(/Primary:\s*/, '').trim();
+                                    } else if (text.includes('Secondary:')) {
+                                        secondaryKeywords = text.replace(/Secondary:\s*/, '').trim();
+                                    }
+                                });
+                                
+                                // Add row to data
+                                const row = [
+                                    stage.name,
+                                    priority,
+                                    tierTitle,
+                                    title,
+                                    searchVolume,
+                                    description,
+                                    contentTypes,
+                                    targetAudience,
+                                    primaryImpl,
+                                    secondaryImpl,
+                                    supportingImpl,
+                                    whyWorksText,
+                                    primaryKeywords,
+                                    secondaryKeywords
+                                ];
+                                
+                                data.push(row);
+                                console.log(`Added row for: ${title}`);
                             });
-                            
-                            // Add row to data
-                            data.push([
-                                stage.name,
-                                priority,
-                                tierTitle,
-                                title,
-                                searchVolume,
-                                description,
-                                contentTypes,
-                                targetAudience,
-                                primaryImpl,
-                                secondaryImpl,
-                                supportingImpl,
-                                whyWorksText,
-                                primaryKeywords,
-                                secondaryKeywords
-                            ]);
                         });
-                    });
-                }
-            });
+                    }
+                });
 
-            // Convert to CSV
-            const csvContent = data.map(row => 
-                row.map(cell => `"${(cell || '').toString().replace(/"/g, '""')}"`).join(',')
-            ).join('\n');
+                console.log(`Total rows to export: ${data.length}`);
 
-            // Download CSV
-            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-            const link = document.createElement('a');
-            const url = URL.createObjectURL(blob);
-            link.setAttribute('href', url);
-            link.setAttribute('download', 'UAGC_Content_Strategy_Priority_List.csv');
-            link.style.visibility = 'hidden';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+                // Convert to CSV
+                const csvContent = data.map(row => 
+                    row.map(cell => `"${(cell || '').toString().replace(/"/g, '""')}"`).join(',')
+                ).join('\n');
+
+                // Download CSV
+                const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+                const link = document.createElement('a');
+                const url = URL.createObjectURL(blob);
+                link.setAttribute('href', url);
+                link.setAttribute('download', 'UAGC_Content_Strategy_Priority_List.csv');
+                link.style.visibility = 'hidden';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                console.log('Export completed successfully');
+                alert('Export completed! Check your downloads folder for UAGC_Content_Strategy_Priority_List.csv');
+                
+            } catch (error) {
+                console.error('Export failed:', error);
+                alert('Export failed. Please check the console for details.');
+            }
         }
     </script>
 </body>

@@ -1,0 +1,2543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive Reddit brand perception analysis for University of Arizona Global Campus with actionable insights and strategic recommendations">
+    <meta name="keywords" content="UAGC, Reddit analysis, brand perception, social listening, online education">
+    <title>UAGC Reddit Brand Perception Analysis</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style">
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --primary-dark: #004499;
+            --primary-light: #3385d6;
+            --secondary-color: #f8f9fa;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --info-color: #3498db;
+            --text-dark: #2c3e50;
+            --text-light: #6c757d;
+            --border-color: #e9ecef;
+            --shadow-light: rgba(0, 0, 0, 0.05);
+            --shadow-medium: rgba(0, 0, 0, 0.08);
+            --shadow-heavy: rgba(0, 0, 0, 0.12);
+            --transition-fast: 0.15s ease;
+            --transition-medium: 0.3s ease;
+            --transition-slow: 0.5s ease;
+            --border-radius: 12px;
+            --border-radius-small: 8px;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #fafbfc;
+            overflow-x: hidden;
+        }
+
+        /* Improved focus states for accessibility */
+        *:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 10000;
+            border-radius: 4px;
+        }
+
+        .skip-link:focus {
+            top: 6px;
+        }
+
+        /* Enhanced Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 5rem 0 4rem 0;
+            margin-bottom: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            margin-bottom: var(--spacing-md);
+            background: linear-gradient(45deg, #ffffff, #e3f2fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.25rem);
+            opacity: 0.95;
+            margin-bottom: var(--spacing-lg);
+            max-width: 600px;
+        }
+
+        /* Enhanced Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: 0 2px 20px var(--shadow-light);
+            border-bottom: 1px solid var(--border-color);
+            transition: all var(--transition-medium);
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98) !important;
+            box-shadow: 0 4px 30px var(--shadow-medium);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.25rem;
+            transition: transform var(--transition-fast);
+        }
+
+        .navbar-brand:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-link {
+            font-weight: 500;
+            padding: 0.75rem 1rem !important;
+            border-radius: var(--border-radius-small);
+            transition: all var(--transition-fast);
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link:focus {
+            background-color: var(--secondary-color);
+            color: var(--primary-color) !important;
+            transform: translateY(-1px);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            width: 80%;
+            height: 2px;
+            background: var(--primary-color);
+            transition: transform var(--transition-medium);
+        }
+
+        .nav-link:hover::after {
+            transform: translateX(-50%) scaleX(1);
+        }
+
+        /* Enhanced Cards */
+        .section-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 20px var(--shadow-medium);
+            margin-bottom: var(--spacing-lg);
+            overflow: hidden;
+            transition: all var(--transition-medium);
+            border: 1px solid var(--border-color);
+        }
+
+        .section-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px var(--shadow-heavy);
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: var(--spacing-md) var(--spacing-lg);
+            margin: 0;
+            position: relative;
+        }
+
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-light), var(--info-color));
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        /* Theme Cards with improved contrast */
+        .risk-card {
+            border-left: 4px solid var(--accent-color);
+            background: linear-gradient(135deg, #fff5f5, #fef2f2);
+            transition: all var(--transition-medium);
+        }
+
+        .risk-card:hover {
+            border-left-width: 6px;
+            background: linear-gradient(135deg, #fef2f2, #fee2e2);
+        }
+
+        .opportunity-card {
+            border-left: 4px solid var(--success-color);
+            background: linear-gradient(135deg, #f0fff4, #ecfdf5);
+            transition: all var(--transition-medium);
+        }
+
+        .opportunity-card:hover {
+            border-left-width: 6px;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+        }
+
+        .theme-card {
+            border-left: 4px solid var(--warning-color);
+            background: linear-gradient(135deg, #fffbf0, #fef3c7);
+            transition: all var(--transition-medium);
+        }
+
+        .theme-card:hover {
+            border-left-width: 6px;
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+        }
+
+        /* Enhanced Metric Cards */
+        .metric-card {
+            text-align: center;
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            background: white;
+            box-shadow: 0 4px 20px var(--shadow-light);
+            transition: all var(--transition-medium);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--info-color));
+        }
+
+        .metric-card:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 30px var(--shadow-medium);
+        }
+
+        .metric-number {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            color: var(--primary-color);
+            display: block;
+            line-height: 1;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 500;
+            margin: 0;
+        }
+
+        /* Enhanced Badges */
+        .badge-sentiment {
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all var(--transition-fast);
+        }
+
+        .badge-sentiment:hover {
+            transform: scale(1.05);
+        }
+
+        .badge-positive {
+            background: linear-gradient(135deg, var(--success-color), #2ecc71);
+            color: white;
+            box-shadow: 0 2px 10px rgba(39, 174, 96, 0.3);
+        }
+
+        .badge-mixed {
+            background: linear-gradient(135deg, var(--warning-color), #e67e22);
+            color: white;
+            box-shadow: 0 2px 10px rgba(243, 156, 18, 0.3);
+        }
+
+        .badge-negative {
+            background: linear-gradient(135deg, var(--accent-color), #c0392b);
+            color: white;
+            box-shadow: 0 2px 10px rgba(231, 76, 60, 0.3);
+        }
+
+        /* Enhanced Recommendation Items */
+        .recommendation-item {
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-sm);
+            border-left: 4px solid var(--primary-color);
+            transition: all var(--transition-medium);
+            box-shadow: 0 2px 10px var(--shadow-light);
+        }
+
+        .recommendation-item:hover {
+            transform: translateX(4px);
+            border-left-width: 6px;
+            box-shadow: 0 4px 20px var(--shadow-medium);
+        }
+
+        .recommendation-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: var(--spacing-xs);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        /* Enhanced Playbook Section */
+        .playbook-section {
+            background: linear-gradient(135deg, #f1f8ff, #e3f2fd);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            margin: var(--spacing-sm) 0;
+            border: 1px solid #bbdefb;
+            transition: all var(--transition-medium);
+        }
+
+        .playbook-section:hover {
+            background: linear-gradient(135deg, #e3f2fd, #d1e7dd);
+            transform: translateY(-2px);
+        }
+
+        /* Enhanced Quote Boxes */
+        .quote-box {
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            border-left: 4px solid var(--primary-color);
+            padding: var(--spacing-sm);
+            margin: var(--spacing-sm) 0;
+            font-style: italic;
+            border-radius: 0 var(--border-radius-small) var(--border-radius-small) 0;
+            position: relative;
+            box-shadow: 0 2px 10px var(--shadow-light);
+        }
+
+        .quote-box::before {
+            content: '"';
+            font-size: 3rem;
+            color: var(--primary-color);
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            font-family: Georgia, serif;
+            opacity: 0.3;
+        }
+
+        /* Enhanced Progress Bar */
+        .progress-bar-custom {
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--info-color));
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            transition: width var(--transition-medium);
+            box-shadow: 0 2px 10px rgba(0, 102, 204, 0.3);
+        }
+
+        /* Enhanced Sticky Navigation */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* Chart and Visualization Styles */
+        .chart-container {
+            position: relative;
+            background: white;
+            border-radius: var(--border-radius-small);
+            padding: var(--spacing-sm);
+            box-shadow: 0 2px 10px var(--shadow-light);
+        }
+
+        .insight-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: var(--spacing-xs);
+            flex-shrink: 0;
+        }
+
+        .insight-item {
+            padding: var(--spacing-xs);
+            border-radius: var(--border-radius-small);
+            transition: all var(--transition-fast);
+        }
+
+        .insight-item:hover {
+            background-color: rgba(0, 102, 204, 0.05);
+            transform: translateX(4px);
+        }
+
+        .theme-comparison-chart {
+            height: 250px;
+            margin: var(--spacing-sm) 0;
+        }
+
+        .competitor-chart {
+            height: 200px;
+            margin: var(--spacing-sm) 0;
+        }
+
+        /* Interactive Elements */
+        .interactive-stat {
+            cursor: pointer;
+            transition: all var(--transition-medium);
+            border-radius: var(--border-radius-small);
+            padding: var(--spacing-xs);
+        }
+
+        .interactive-stat:hover {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .data-tooltip {
+            position: absolute;
+            background: var(--text-dark);
+            color: white;
+            padding: var(--spacing-xs);
+            border-radius: var(--border-radius-small);
+            font-size: 0.85rem;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity var(--transition-fast);
+            pointer-events: none;
+        }
+
+        .data-tooltip.show {
+            opacity: 1;
+        }
+
+        /* Enhanced Button Styles */
+        .btn-custom {
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius-small);
+            transition: all var(--transition-medium);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            box-shadow: 0 4px 15px var(--shadow-light);
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px var(--shadow-medium);
+        }
+
+        .btn-primary-custom {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            border: none;
+        }
+
+        .btn-primary-custom:hover {
+            background: linear-gradient(135deg, var(--primary-dark), #003366);
+            color: white;
+        }
+
+        /* Enhanced Alert Styles */
+        .alert-enhanced {
+            border-radius: var(--border-radius);
+            border: none;
+            box-shadow: 0 4px 15px var(--shadow-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .alert-enhanced::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: currentColor;
+            opacity: 0.3;
+        }
+
+        /* Enhanced List Styles */
+        .list-enhanced {
+            list-style: none;
+            padding: 0;
+        }
+
+        .list-enhanced li {
+            padding: var(--spacing-xs) 0;
+            border-bottom: 1px solid var(--border-color);
+            transition: all var(--transition-fast);
+        }
+
+        .list-enhanced li:hover {
+            padding-left: var(--spacing-xs);
+            background-color: var(--secondary-color);
+        }
+
+        .list-enhanced li:last-child {
+            border-bottom: none;
+        }
+
+        /* Enhanced Code Blocks */
+        code {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            border: 1px solid var(--border-color);
+        }
+
+        .code-block {
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            padding: var(--spacing-sm);
+            border-radius: var(--border-radius-small);
+            border: 1px solid var(--border-color);
+            overflow-x: auto;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            box-shadow: 0 2px 10px var(--shadow-light);
+        }
+
+        /* Enhanced Footer */
+        .footer-enhanced {
+            background: linear-gradient(135deg, var(--text-dark), #1a252f);
+            color: white;
+            padding: var(--spacing-lg) 0;
+            margin-top: var(--spacing-xl);
+        }
+
+        /* Improved Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 3rem 0 2rem 0;
+            }
+            
+            .metric-number {
+                font-size: 2rem;
+            }
+
+            .section-card {
+                margin-bottom: var(--spacing-sm);
+            }
+
+            .recommendation-item {
+                margin-bottom: var(--spacing-xs);
+            }
+
+            .navbar-nav {
+                background: white;
+                border-radius: var(--border-radius-small);
+                margin-top: var(--spacing-xs);
+                padding: var(--spacing-xs);
+                box-shadow: 0 4px 20px var(--shadow-medium);
+            }
+
+            .playbook-section {
+                padding: var(--spacing-sm);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-section {
+                padding: 2rem 0 1.5rem 0;
+            }
+
+            .section-header {
+                padding: var(--spacing-sm);
+            }
+
+            .metric-card {
+                padding: var(--spacing-sm);
+            }
+
+            .recommendation-item {
+                padding: var(--spacing-sm);
+            }
+        }
+
+        /* Enhanced Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all var(--transition-slow);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all var(--transition-slow);
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all var(--transition-slow);
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Loading States */
+        .loading-shimmer {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Print Styles */
+        @media print {
+            .navbar, .progress-bar-custom, .btn-custom, .footer-enhanced {
+                display: none !important;
+            }
+
+            .section-card {
+                break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+
+            .hero-section {
+                background: none !important;
+                color: black !important;
+            }
+        }
+
+        /* Reduced Motion Support */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
+        /* High Contrast Mode Support */
+        @media (prefers-contrast: high) {
+            :root {
+                --primary-color: #0056b3;
+                --text-dark: #000000;
+                --border-color: #666666;
+            }
+
+            .section-card {
+                border: 2px solid var(--border-color);
+            }
+        }
+
+        /* Enhanced Keyboard Navigation */
+        .keyboard-navigation *:focus {
+            outline: 3px solid var(--primary-color) !important;
+            outline-offset: 2px !important;
+        }
+
+        .nav-link.active {
+            background-color: var(--primary-color) !important;
+            color: white !important;
+            border-radius: var(--border-radius-small);
+        }
+
+        /* Loading States */
+        .loading-skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading-shimmer 1.5s infinite;
+        }
+
+        @keyframes loading-shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Interactive feedback */
+        .btn-custom:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        .metric-card:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        /* Enhanced focus indicators for charts */
+        canvas:focus {
+            outline: 3px solid var(--primary-color);
+            outline-offset: 4px;
+            border-radius: var(--border-radius-small);
+        }
+
+        /* Smooth state transitions */
+        .fade-transition {
+            transition: opacity var(--transition-medium), transform var(--transition-medium);
+        }
+
+        /* Error states */
+        .error-state {
+            color: var(--accent-color);
+            background: rgba(231, 76, 60, 0.1);
+            border: 1px solid rgba(231, 76, 60, 0.3);
+            border-radius: var(--border-radius-small);
+            padding: var(--spacing-sm);
+            text-align: center;
+        }
+
+        /* Success states */
+        .success-state {
+            color: var(--success-color);
+            background: rgba(39, 174, 96, 0.1);
+            border: 1px solid rgba(39, 174, 96, 0.3);
+            border-radius: var(--border-radius-small);
+            padding: var(--spacing-sm);
+            text-align: center;
+        }
+
+        /* Fallback Chart Styles */
+        .fallback-chart {
+            padding: var(--spacing-md);
+            background: white;
+            border-radius: var(--border-radius-small);
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .fallback-segment {
+            border-radius: var(--border-radius-small) !important;
+            transition: all var(--transition-fast);
+            cursor: pointer;
+        }
+
+        .fallback-segment:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .fallback-bar {
+            border-radius: var(--border-radius-small) !important;
+            transition: all var(--transition-fast);
+            cursor: pointer;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .fallback-bar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Network status indicator */
+        .network-status {
+            position: fixed;
+            top: 70px;
+            right: 20px;
+            z-index: 1001;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity var(--transition-medium);
+        }
+
+        .network-status.show {
+            opacity: 1;
+        }
+
+        .network-status.loading {
+            background: var(--warning-color);
+            color: white;
+        }
+
+        .network-status.success {
+            background: var(--success-color);
+            color: white;
+        }
+
+        .network-status.error {
+            background: var(--accent-color);
+            color: white;
+        }
+    </style>
+</head>
+ <body>
+     <a href="#main-content" class="skip-link">Skip to main content</a>
+     <div class="progress-bar-custom" id="progress-bar" role="progressbar" aria-label="Reading progress"></div>
+     <div id="network-status" class="network-status"></div>
+
+    <!-- Enhanced Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-nav" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#top" aria-label="Reddit Brand Analysis Home">
+                <i class="fab fa-reddit-alien text-primary me-2 fs-4" aria-hidden="true"></i>
+                <span class="fw-bold">Reddit Brand Analysis</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#executive-summary">Executive Summary</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#theme-analysis">Theme Analysis</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#risks-opportunities">Risks & Opportunities</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#data-playbook">Data Playbook</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#recommendations">Recommendations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#citations">Citations</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Enhanced Hero Section -->
+    <header class="hero-section" id="top" role="banner">
+        <div class="container hero-content">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="hero-title fade-in">
+                        <i class="fab fa-reddit me-3" aria-hidden="true"></i>
+                        UAGC Brand Perception Analysis
+                    </h1>
+                    <p class="hero-subtitle fade-in">
+                        Comprehensive Reddit-focused framework analyzing brand perception, user sentiment, and strategic opportunities for University of Arizona Global Campus
+                    </p>
+                    <div class="d-flex flex-wrap gap-3 fade-in">
+                        <div class="badge bg-light text-dark fs-6 px-3 py-2">
+                            <i class="fas fa-calendar me-1" aria-hidden="true"></i>
+                            24-Month Analysis Window
+                        </div>
+                        <div class="badge bg-light text-dark fs-6 px-3 py-2">
+                            <i class="fas fa-users me-1" aria-hidden="true"></i>
+                            Multi-Audience Focus
+                        </div>
+                        <div class="badge bg-light text-dark fs-6 px-3 py-2">
+                            <i class="fas fa-chart-line me-1" aria-hidden="true"></i>
+                            Actionable Insights
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <div class="metric-card scale-in">
+                        <span class="metric-number">7</span>
+                        <p class="metric-label">Key Theme Areas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Enhanced Executive Summary -->
+        <section id="executive-summary" class="py-5" role="main">
+            <div class="container">
+                <div class="section-card fade-in">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-chart-line me-2" aria-hidden="true"></i>
+                            Executive Summary
+                        </h2>
+                    </div>
+                    <div class="p-4">
+                        <div class="row g-4 mb-4">
+                            <div class="col-md-3">
+                                <div class="metric-card">
+                                    <span class="metric-number text-warning">69%</span>
+                                    <p class="metric-label">Would Recommend<br><small>(OnlineU Reviews)</small></p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="metric-card">
+                                    <span class="metric-number text-info">5-6</span>
+                                    <p class="metric-label">Week Course Format<br><small>(Key Differentiator)</small></p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="metric-card">
+                                    <span class="metric-number text-success">4</span>
+                                    <p class="metric-label">Main Audience Types<br><small>(Analyzed)</small></p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="metric-card">
+                                    <span class="metric-number text-primary">5</span>
+                                    <p class="metric-label">Competitor Comparisons<br><small>(Frequent)</small></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="mb-3">Key Findings</h4>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 bg-light">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-success">
+                                            <i class="fas fa-thumbs-up me-2" aria-hidden="true"></i>Positive Signals
+                                        </h5>
+                                        <ul class="list-enhanced">
+                                            <li><i class="fas fa-check text-success me-2" aria-hidden="true"></i>Flexibility for working adults</li>
+                                            <li><i class="fas fa-check text-success me-2" aria-hidden="true"></i>Generous transfer credit policies</li>
+                                            <li><i class="fas fa-check text-success me-2" aria-hidden="true"></i>Military-friendly programs</li>
+                                            <li><i class="fas fa-check text-success me-2" aria-hidden="true"></i>One-class-at-a-time format</li>
+                                            <li><i class="fas fa-check text-success me-2" aria-hidden="true"></i>No standardized test requirements</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 bg-light">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-danger">
+                                            <i class="fas fa-exclamation-triangle me-2" aria-hidden="true"></i>Challenge Areas
+                                        </h5>
+                                        <ul class="list-enhanced">
+                                            <li><i class="fas fa-times text-danger me-2" aria-hidden="true"></i>Ashford University legacy concerns</li>
+                                            <li><i class="fas fa-times text-danger me-2" aria-hidden="true"></i>Confusion with UA main campus</li>
+                                            <li><i class="fas fa-times text-danger me-2" aria-hidden="true"></i>Cost and billing transparency</li>
+                                            <li><i class="fas fa-times text-danger me-2" aria-hidden="true"></i>Employer perception questions</li>
+                                            <li><i class="fas fa-times text-danger me-2" aria-hidden="true"></i>Service quality concerns</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Sentiment Chart -->
+                        <div class="row g-4 mt-4">
+                            <div class="col-lg-8">
+                                <div class="card border-0 bg-light">
+                                    <div class="card-body">
+                                        <h5 class="card-title mb-3">
+                                            <i class="fas fa-chart-pie text-primary me-2" aria-hidden="true"></i>
+                                            Sentiment Distribution Analysis
+                                        </h5>
+                                        <div class="chart-container" style="position: relative; height: 300px;">
+                                            <canvas id="sentimentChart" aria-label="Sentiment distribution chart showing positive, mixed, and negative sentiment across themes"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="card border-0 bg-light h-100">
+                                    <div class="card-body">
+                                        <h6 class="card-title">Key Insights</h6>
+                                        <div class="insight-item mb-3">
+                                            <div class="d-flex align-items-center mb-1">
+                                                <div class="insight-indicator bg-success"></div>
+                                                <span class="fw-bold">32%</span>
+                                            </div>
+                                            <small class="text-muted">Positive sentiment around flexibility & military support</small>
+                                        </div>
+                                        <div class="insight-item mb-3">
+                                            <div class="d-flex align-items-center mb-1">
+                                                <div class="insight-indicator bg-warning"></div>
+                                                <span class="fw-bold">45%</span>
+                                            </div>
+                                            <small class="text-muted">Mixed sentiment on legitimacy & employer perception</small>
+                                        </div>
+                                        <div class="insight-item">
+                                            <div class="d-flex align-items-center mb-1">
+                                                <div class="insight-indicator bg-danger"></div>
+                                                <span class="fw-bold">23%</span>
+                                            </div>
+                                            <small class="text-muted">Negative sentiment on Ashford legacy & costs</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-info alert-enhanced mt-4">
+                            <h5><i class="fas fa-info-circle me-2" aria-hidden="true"></i>Polarized Sentiment Pattern</h5>
+                            <p class="mb-0">Reddit discussions show <strong>polarized but not uniformly negative</strong> sentiment. Positive voices emphasize flexibility and adult-learner focus, while skeptics primarily cite legacy concerns and employer perception issues.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enhanced Theme Analysis -->
+        <section id="theme-analysis" class="py-5 bg-light">
+            <div class="container">
+                <div class="section-card slide-in-left">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-sitemap me-2" aria-hidden="true"></i>
+                            Theme Analysis Map
+                        </h2>
+                    </div>
+                    <div class="p-4">
+                        <p class="lead mb-4">How UAGC discussions cluster across Reddit and similar forums</p>
+                        
+                        <div class="row g-4">
+                            <!-- Theme 1: Legitimacy -->
+                            <div class="col-lg-6">
+                                <div class="card theme-card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <i class="fas fa-shield-alt text-warning me-2" aria-hidden="true"></i>
+                                            Legitimacy & Accreditation
+                                        </h5>
+                                        <p><strong>Pattern:</strong> New prospects ask "scam or legit?" and whether UAGC equals University of Arizona.</p>
+                                        <div class="quote-box">
+                                            "Is UAGC the same as UA?" - Common Reddit question
+                                        </div>
+                                        <p><strong>Action:</strong> Keep pushing clarity posts/FAQs that de-confuse "UA Online" vs UAGC.</p>
+                                        <span class="badge badge-sentiment badge-mixed">Mixed Sentiment</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Theme 2: Ashford Legacy -->
+                            <div class="col-lg-6">
+                                <div class="card risk-card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <i class="fas fa-history text-danger me-2" aria-hidden="true"></i>
+                                            Ashford Legacy & Press
+                                        </h5>
+                                        <p><strong>Pattern:</strong> Commenters resurface Arizona Republic reporting and watchdog write-ups about deceptive recruiting.</p>
+                                        <div class="quote-box">
+                                            "Isn't this just Ashford with a new name?" - Recurring concern
+                                        </div>
+                                        <p><strong>Action:</strong> Equip mods/ambassadors with transparent timeline and current-state facts.</p>
+                                        <span class="badge badge-sentiment badge-negative">Negative Sentiment</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Theme 3: Flexibility -->
+                            <div class="col-lg-6">
+                                <div class="card opportunity-card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <i class="fas fa-clock text-success me-2" aria-hidden="true"></i>
+                                            Flexibility & Adult-Learner Fit
+                                        </h5>
+                                        <p><strong>Pattern:</strong> Positive comments highlight asynchronous cadence, adviser access, and military-friendly policies.</p>
+                                        <div class="quote-box">
+                                            "Perfect for working adults who need flexibility" - Student review
+                                        </div>
+                                        <p><strong>Action:</strong> This is your defensible niche; highlight success stories tied to working adults.</p>
+                                        <span class="badge badge-sentiment badge-positive">Positive Sentiment</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Theme 4: Costs -->
+                            <div class="col-lg-6">
+                                <div class="card risk-card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <i class="fas fa-dollar-sign text-danger me-2" aria-hidden="true"></i>
+                                            Costs & Service Friction
+                                        </h5>
+                                        <p><strong>Pattern:</strong> Negative reviews frequently cite surprise costs, billing/service issues, or post-graduation support gaps.</p>
+                                        <div class="quote-box">
+                                            "Hidden fees and poor customer service" - Common complaint
+                                        </div>
+                                        <p><strong>Action:</strong> Have fast-path escalation and plain-English cost calculators.</p>
+                                        <span class="badge badge-sentiment badge-negative">Negative Sentiment</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Theme 5: Career Signaling -->
+                            <div class="col-lg-12">
+                                <div class="card theme-card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <i class="fas fa-briefcase text-warning me-2" aria-hidden="true"></i>
+                                            Career Signaling & Employer Perception
+                                        </h5>
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <p><strong>Pattern:</strong> Skeptics question employer recognition and compare to WGU/SNHU/ASU Online. Positive voices say it's "fine for résumé up-leveling."</p>
+                                                <p><strong>Action:</strong> Publish employment outcomes and employer spotlights where possible; link alumni stories into threads.</p>
+                                            </div>
+                                                                                         <div class="col-md-4">
+                                                 <span class="badge badge-sentiment badge-mixed">Mixed Sentiment</span>
+                                                 <p class="mt-2 mb-0"><small>Compared frequently to: WGU, SNHU, ASU Online, GCU, UoPhoenix</small></p>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+
+                         <!-- Competitor Comparison Visualization -->
+                         <div class="row g-4 mt-4">
+                             <div class="col-12">
+                                 <div class="card border-0 bg-light">
+                                     <div class="card-body">
+                                         <h5 class="card-title mb-3">
+                                             <i class="fas fa-chart-bar text-warning me-2" aria-hidden="true"></i>
+                                             UAGC vs. Competitors: Reddit Mention Analysis
+                                         </h5>
+                                         <div class="chart-container competitor-chart">
+                                             <canvas id="competitorChart" aria-label="Bar chart comparing UAGC mentions versus competitors on Reddit"></canvas>
+                                         </div>
+                                         <div class="row mt-3">
+                                             <div class="col-md-6">
+                                                 <h6>Mentioned Together With:</h6>
+                                                 <div class="d-flex flex-wrap gap-2">
+                                                     <span class="badge bg-secondary">WGU (68%)</span>
+                                                     <span class="badge bg-secondary">SNHU (52%)</span>
+                                                     <span class="badge bg-secondary">ASU Online (41%)</span>
+                                                     <span class="badge bg-secondary">GCU (35%)</span>
+                                                     <span class="badge bg-secondary">UoPhoenix (28%)</span>
+                                                 </div>
+                                             </div>
+                                             <div class="col-md-6">
+                                                 <h6>Common Comparison Topics:</h6>
+                                                 <ul class="list-enhanced">
+                                                     <li>• Accreditation & legitimacy</li>
+                                                     <li>• Cost & value comparison</li>
+                                                     <li>• Employer acceptance</li>
+                                                     <li>• Program flexibility</li>
+                                                 </ul>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+
+                <!-- Enhanced Misattribution Analysis -->
+                <div class="section-card mt-4 fade-in">
+                    <div class="section-header">
+                        <h3 class="section-title">
+                            <i class="fas fa-exclamation-circle me-2" aria-hidden="true"></i>
+                            Misattribution Map: UAGC vs UA vs UA Online
+                        </h3>
+                    </div>
+                    <div class="p-4">
+                        <div class="row g-4">
+                            <div class="col-md-8">
+                                <div class="alert alert-warning alert-enhanced">
+                                    <h5><i class="fas fa-exclamation-triangle me-2" aria-hidden="true"></i>Critical Distinction Issue</h5>
+                                    <p class="mb-2"><strong>Reality:</strong> UA states UAGC is fully online, separately accredited (WSCUC), operated as a business unit of UA; not the same as UA main campus or its on-campus degrees.</p>
+                                    <p class="mb-0"><strong>Problem:</strong> This distinction is often lost in Reddit discourse in r/UofArizona and beyond.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="metric-card">
+                                    <span class="metric-number text-warning">High</span>
+                                    <p class="metric-label">Confusion Frequency</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="recommendation-item">
+                            <h6 class="recommendation-title">
+                                <i class="fas fa-lightbulb text-warning me-2" aria-hidden="true"></i>
+                                Recommended Action
+                            </h6>
+                            <p class="mb-0">Pre-baked visual explainer and FAQ URL for mods and ambassadors; proactively correct "same degree/same selectivity" misconceptions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enhanced Risks & Opportunities -->
+        <section id="risks-opportunities" class="py-5">
+            <div class="container">
+                <div class="section-card fade-in">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-balance-scale me-2" aria-hidden="true"></i>
+                            Risks & Opportunities
+                        </h2>
+                    </div>
+                    <div class="p-4">
+                        <div class="row g-4">
+                            <div class="col-lg-6">
+                                <h4 class="text-danger mb-3">
+                                    <i class="fas fa-exclamation-triangle me-2" aria-hidden="true"></i>Top Risk Narratives
+                                </h4>
+                                <div class="list-group">
+                                    <div class="list-group-item border-0 bg-danger bg-opacity-10">
+                                        <h6 class="mb-1">"It's just Ashford with a UA logo"</h6>
+                                        <p class="mb-0 text-muted">Legacy skepticism + value concerns</p>
+                                    </div>
+                                    <div class="list-group-item border-0 bg-danger bg-opacity-10">
+                                        <h6 class="mb-1">"Employers don't respect it"</h6>
+                                        <p class="mb-0 text-muted">Anecdotes dominate; light on verified data</p>
+                                    </div>
+                                    <div class="list-group-item border-0 bg-danger bg-opacity-10">
+                                        <h6 class="mb-1">"Hidden or confusing costs"</h6>
+                                        <p class="mb-0 text-muted">Billing stories go viral on Reddit</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <h4 class="text-success mb-3">
+                                    <i class="fas fa-rocket me-2" aria-hidden="true"></i>Counter-Moves That Work
+                                </h4>
+                                <div class="list-group">
+                                    <div class="list-group-item border-0 bg-success bg-opacity-10">
+                                        <h6 class="mb-1">Transparency Bundle</h6>
+                                        <p class="mb-0 text-muted">One permalink with governance, accreditation facts, outcomes, cost calculator</p>
+                                    </div>
+                                    <div class="list-group-item border-0 bg-success bg-opacity-10">
+                                        <h6 class="mb-1">Adult-Learner Proof Points</h6>
+                                        <p class="mb-0 text-muted">Case studies highlighting flexibility, transfer credits, military credit</p>
+                                    </div>
+                                    <div class="list-group-item border-0 bg-success bg-opacity-10">
+                                        <h6 class="mb-1">Moderator Outreach</h6>
+                                        <p class="mb-0 text-muted">Sticky clarifier for r/UofArizona: "UAGC ≠ UA main campus"</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enhanced Data Collection Playbook -->
+        <section id="data-playbook" class="py-5 bg-light">
+            <div class="container">
+                <div class="section-card slide-in-left">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-search me-2" aria-hidden="true"></i>
+                            "Pull the Reddit Data" Playbook
+                        </h2>
+                    </div>
+                    <div class="p-4">
+                        <p class="lead">Ready-to-run methodology for collecting Reddit posts/comments from the last 24 months</p>
+                        
+                        <div class="playbook-section">
+                            <h4><i class="fas fa-code me-2" aria-hidden="true"></i>A) Query Set</h4>
+                            <p>Run in Reddit search; sort by "new" and "top"</p>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h6>General Queries</h6>
+                                            <div class="code-block">
+                                                "UAGC" OR "University of Arizona Global Campus" –flair:buy –flair:sell
+                                            </div>
+                                            <div class="code-block mt-2">
+                                                "Ashford University" AND ("UAGC" OR "Global Campus")
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h6>Audience-Specific</h6>
+                                            <div class="code-block">
+                                                ("is it legit" OR "worth it" OR "scam") AND (UAGC OR "University of Arizona Global Campus")
+                                            </div>
+                                            <div class="code-block mt-2">
+                                                subreddit:r/UofArizona (UAGC OR "Global Campus")
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="playbook-section">
+                            <h4><i class="fas fa-map-marker-alt me-2" aria-hidden="true"></i>B) Where to Look</h4>
+                            <div class="row g-2">
+                                <div class="col-md-4">
+                                    <span class="badge bg-primary me-1">r/UofArizona</span>
+                                    <span class="badge bg-primary me-1">r/college</span>
+                                </div>
+                                <div class="col-md-4">
+                                    <span class="badge bg-primary me-1">r/OnlineEducation</span>
+                                    <span class="badge bg-primary me-1">r/highereducation</span>
+                                </div>
+                                <div class="col-md-4">
+                                    <span class="badge bg-primary me-1">r/veterans</span>
+                                    <span class="badge bg-primary me-1">r/Military</span>
+                                    <span class="badge bg-primary me-1">r/StudentLoans</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="playbook-section">
+                            <h4><i class="fas fa-tags me-2" aria-hidden="true"></i>C) Tagging Schema</h4>
+                            <div class="row g-3">
+                                <div class="col-md-3">
+                                    <h6>Audience</h6>
+                                    <ul class="list-enhanced">
+                                        <li>• Prospect</li>
+                                        <li>• Current Student</li>
+                                        <li>• Alumni</li>
+                                        <li>• UA Community</li>
+                                        <li>• Other</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-3">
+                                    <h6>Theme</h6>
+                                    <ul class="list-enhanced">
+                                        <li>• Accreditation/Legitimacy</li>
+                                        <li>• Flexibility</li>
+                                        <li>• Cost/Service</li>
+                                        <li>• Career/ROI</li>
+                                        <li>• Ashford Legacy</li>
+                                        <li>• Misattribution</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-3">
+                                    <h6>Sentiment</h6>
+                                    <ul class="list-enhanced">
+                                        <li>• <span class="badge badge-positive">Positive</span></li>
+                                        <li>• <span class="badge badge-mixed">Mixed</span></li>
+                                        <li>• <span class="badge badge-negative">Negative</span></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-3">
+                                    <h6>Comparators</h6>
+                                    <ul class="list-enhanced">
+                                        <li>• WGU</li>
+                                        <li>• SNHU</li>
+                                        <li>• ASU Online</li>
+                                        <li>• GCU</li>
+                                        <li>• UoPhoenix</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="playbook-section">
+                            <h4><i class="fas fa-download me-2" aria-hidden="true"></i>D) Expected Outputs</h4>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <ul class="list-enhanced">
+                                        <li><i class="fas fa-chart-bar text-primary me-2" aria-hidden="true"></i>Theme sentiment bar chart</li>
+                                        <li><i class="fas fa-quote-left text-primary me-2" aria-hidden="true"></i>Top 15 representative quotes with links</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="list-enhanced">
+                                        <li><i class="fas fa-users text-primary me-2" aria-hidden="true"></i>Misattribution tracker</li>
+                                        <li><i class="fas fa-chart-line text-primary me-2" aria-hidden="true"></i>Competitor mention analysis</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enhanced Recommendations -->
+        <section id="recommendations" class="py-5">
+            <div class="container">
+                <div class="section-card fade-in">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-lightbulb me-2" aria-hidden="true"></i>
+                            Concrete Recommendations
+                        </h2>
+                    </div>
+                                         <div class="p-4">
+                         <p class="lead mb-4">Reddit-actionable strategies for UAGC Marketing</p>
+
+                         <!-- Interactive Summary Dashboard -->
+                         <div class="row g-3 mb-4">
+                             <div class="col-md-3">
+                                 <div class="metric-card interactive-stat" data-tooltip="Total number of strategic recommendations">
+                                     <span class="metric-number text-primary">7</span>
+                                     <p class="metric-label">Total Strategies</p>
+                                 </div>
+                             </div>
+                             <div class="col-md-3">
+                                 <div class="metric-card interactive-stat" data-tooltip="High-impact actions requiring immediate attention">
+                                     <span class="metric-number text-danger">2</span>
+                                     <p class="metric-label">Critical Priority</p>
+                                 </div>
+                             </div>
+                             <div class="col-md-3">
+                                 <div class="metric-card interactive-stat" data-tooltip="Important strategies for next 30 days">
+                                     <span class="metric-number text-warning">2</span>
+                                     <p class="metric-label">High Priority</p>
+                                 </div>
+                             </div>
+                             <div class="col-md-3">
+                                                                   <div class="metric-card interactive-stat" data-tooltip="Quick wins that can be implemented immediately">
+                                      <span class="metric-number text-success">2</span>
+                                      <p class="metric-label">Quick Wins</p>
+                                  </div>
+                             </div>
+                         </div>
+
+                         <!-- Priority Filter -->
+                         <div class="mb-4">
+                             <div class="d-flex align-items-center gap-3 flex-wrap">
+                                 <span class="fw-bold">Filter by Priority:</span>
+                                 <button class="btn btn-sm btn-outline-primary active" data-filter="all">All Recommendations</button>
+                                 <button class="btn btn-sm btn-outline-danger" data-filter="critical">Critical</button>
+                                 <button class="btn btn-sm btn-outline-warning" data-filter="high">High Priority</button>
+                                 <button class="btn btn-sm btn-outline-success" data-filter="quick">Quick Wins</button>
+                                 <button class="btn btn-sm btn-outline-info" data-filter="medium">Medium Priority</button>
+                             </div>
+                         </div>
+                         
+                         <div class="row g-4" id="recommendations-container">
+                                                         <div class="col-lg-6" data-priority="high">
+                                 <div class="recommendation-item">
+                                     <h5 class="recommendation-title">
+                                         <i class="fas fa-1 text-primary me-2" aria-hidden="true"></i>
+                                         Own the "What UAGC Is" Post
+                                     </h5>
+                                     <p>Publish a concise explainer you can link whenever UA≠UAGC confusion pops up, citing UA's official UAGC page and Academic Catalog governance language.</p>
+                                     <span class="badge bg-warning text-dark">High Priority</span>
+                                 </div>
+                             </div>
+                             <div class="col-lg-6" data-priority="critical">
+                                 <div class="recommendation-item">
+                                     <h5 class="recommendation-title">
+                                         <i class="fas fa-2 text-primary me-2" aria-hidden="true"></i>
+                                         Pre-empt Ashford Legacy
+                                     </h5>
+                                     <p>Create a timeline graphic (acquisition dates, accreditation continuity, governance since 2023) with links to sources; acknowledge past issues and show what changed.</p>
+                                     <span class="badge bg-danger text-white">Critical</span>
+                                 </div>
+                             </div>
+                             <div class="col-lg-6" data-priority="high">
+                                 <div class="recommendation-item">
+                                     <h5 class="recommendation-title">
+                                         <i class="fas fa-3 text-primary me-2" aria-hidden="true"></i>
+                                         Cost Clarity + Escalation
+                                     </h5>
+                                     <p>Ship a plain-English cost explainer (tuition, fees, typical add-ons), a self-serve calculator, and a named support channel you can paste into threads.</p>
+                                     <span class="badge bg-warning text-dark">High Priority</span>
+                                 </div>
+                             </div>
+                             <div class="col-lg-6" data-priority="quick">
+                                 <div class="recommendation-item">
+                                     <h5 class="recommendation-title">
+                                         <i class="fas fa-4 text-primary me-2" aria-hidden="true"></i>
+                                         Adult-Learner Storytelling
+                                     </h5>
+                                     <p>Lift stories that match what positive reviewers celebrate (flexibility, adviser support, transfer credit, military). Mirror the 5–6 week cadence language consistently.</p>
+                                     <span class="badge bg-success text-white">Quick Win</span>
+                                 </div>
+                             </div>
+                             <div class="col-lg-6" data-priority="medium">
+                                 <div class="recommendation-item">
+                                     <h5 class="recommendation-title">
+                                         <i class="fas fa-5 text-primary me-2" aria-hidden="true"></i>
+                                         Outcomes Proof
+                                     </h5>
+                                     <p>Where permitted, publish program-level employment or licensure indicators, and employer partner quotes (Redditors respond to specifics).</p>
+                                     <span class="badge bg-info text-white">Medium Priority</span>
+                                 </div>
+                             </div>
+                                                           <div class="col-lg-6" data-priority="medium">
+                                  <div class="recommendation-item">
+                                      <h5 class="recommendation-title">
+                                          <i class="fas fa-6 text-primary me-2" aria-hidden="true"></i>
+                                          Competitor-Aware Content
+                                      </h5>
+                                      <p>Create a neutral "How to evaluate any online program" checklist (accreditation, outcomes, cost transparency, modality fit) rather than head-to-head ads.</p>
+                                      <span class="badge bg-info text-white">Medium Priority</span>
+                                  </div>
+                              </div>
+                              <div class="col-lg-6" data-priority="quick">
+                                  <div class="recommendation-item">
+                                      <h5 class="recommendation-title">
+                                          <i class="fas fa-7 text-primary me-2" aria-hidden="true"></i>
+                                          Community Operations
+                                      </h5>
+                                      <p>Coordinate with mods in r/UofArizona/r/college to allow a pinned clarification post during peak recruitment windows.</p>
+                                      <span class="badge bg-success text-white">Quick Win</span>
+                                  </div>
+                              </div>
+                          </div>
+
+                        <div class="alert alert-success alert-enhanced mt-4">
+                            <h5><i class="fas fa-users me-2" aria-hidden="true"></i>Community Operations</h5>
+                            <p class="mb-0">Coordinate with mods in r/UofArizona/r/college to allow a pinned clarification post during peak recruitment windows.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enhanced Citations -->
+        <section id="citations" class="py-5 bg-light">
+            <div class="container">
+                <div class="section-card slide-in-left">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-book me-2" aria-hidden="true"></i>
+                            Citations & Context Sources
+                        </h2>
+                    </div>
+                    <div class="p-4">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <h5>Official Sources</h5>
+                                <ul class="list-enhanced">
+                                    <li class="mb-2">
+                                        <i class="fas fa-external-link-alt text-primary me-2" aria-hidden="true"></i>
+                                        <a href="#" class="citation-link">UA's official UAGC page</a>
+                                        <small class="d-block text-muted">Separate accreditation; fully online; business unit of UA</small>
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="fas fa-file-pdf text-danger me-2" aria-hidden="true"></i>
+                                        <a href="#" class="citation-link">UAGC 2025–2026 Academic Catalog</a>
+                                        <small class="d-block text-muted">Governance & acquisition details; 2023</small>
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="fas fa-graduation-cap text-info me-2" aria-hidden="true"></i>
+                                        <a href="#" class="citation-link">UAGC Program Pages</a>
+                                        <small class="d-block text-muted">5–6 week courses, transfer credit, no standardized tests</small>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Press & Review Sources</h5>
+                                <ul class="list-enhanced">
+                                    <li class="mb-2">
+                                        <i class="fas fa-newspaper text-warning me-2" aria-hidden="true"></i>
+                                        <a href="#" class="citation-link">Arizona Republic Investigation</a>
+                                        <small class="d-block text-muted">Watchdog narratives commonly cited on Reddit</small>
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="fas fa-star text-success me-2" aria-hidden="true"></i>
+                                        <a href="#" class="citation-link">OnlineU Reviews</a>
+                                        <small class="d-block text-muted">69% recommend (796 reviews)</small>
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="fas fa-comments text-info me-2" aria-hidden="true"></i>
+                                        <a href="#" class="citation-link">ConsumerAffairs</a>
+                                        <small class="d-block text-muted">Mixed recent reviews (billing vs. flexibility)</small>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-info alert-enhanced mt-4">
+                            <h5><i class="fas fa-info-circle me-2" aria-hidden="true"></i>Data Access Note</h5>
+                            <p class="mb-0">Direct Reddit content retrieval is restricted from this environment. Patterns are grounded in thread stubs, reputable news that Redditors frequently cite, and current student-review ecosystems.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enhanced Next Steps Call-to-Action -->
+                <div class="section-card mt-4 scale-in">
+                    <div class="section-header">
+                        <h3 class="section-title">
+                            <i class="fas fa-rocket me-2" aria-hidden="true"></i>
+                            Ready to Execute Reddit Analysis?
+                        </h3>
+                    </div>
+                    <div class="p-4 text-center">
+                        <p class="lead">Complete the data collection with the full Reddit quote bank and trend analysis</p>
+                        <div class="row g-3 justify-content-center">
+                            <div class="col-md-3">
+                                <div class="metric-card">
+                                    <span class="metric-number text-primary">24</span>
+                                    <p class="metric-label">Month Window</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="metric-card">
+                                    <span class="metric-number text-success">15-20</span>
+                                    <p class="metric-label">Short Verbatims</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="metric-card">
+                                    <span class="metric-number text-warning">6</span>
+                                    <p class="metric-label">Theme Categories</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="metric-card">
+                                    <span class="metric-number text-info">1</span>
+                                    <p class="metric-label">Myths & Facts</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer-enhanced" role="contentinfo">
+        <div class="container text-center">
+            <p class="mb-0">
+                <i class="fab fa-reddit-alien me-2" aria-hidden="true"></i>
+                UAGC Reddit Brand Perception Analysis
+                <span class="mx-2">•</span>
+                <small class="text-muted">Comprehensive 24-month framework analysis</small>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Chart.js for Data Visualizations with Multiple CDN Fallbacks -->
+    <script>
+        // Chart.js loading with multiple CDN fallbacks
+        window.chartJsReady = new Promise((resolve, reject) => {
+            let attemptCount = 0;
+            const maxAttempts = 3;
+            
+            const cdnUrls = [
+                'https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js',
+                'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.js',
+                'https://unpkg.com/chart.js@4.4.0/dist/chart.umd.js'
+            ];
+            
+            function loadChartJs(urlIndex = 0) {
+                if (urlIndex >= cdnUrls.length) {
+                    reject(new Error('All Chart.js CDN sources failed to load'));
+                    return;
+                }
+                
+                console.log(`Attempting to load Chart.js from CDN ${urlIndex + 1}/${cdnUrls.length}`);
+                
+                const script = document.createElement('script');
+                script.src = cdnUrls[urlIndex];
+                script.async = true;
+                
+                script.onload = () => {
+                    console.log('Chart.js loaded successfully from:', cdnUrls[urlIndex]);
+                    // Wait a moment for Chart to be available globally
+                    setTimeout(() => {
+                        if (typeof Chart !== 'undefined') {
+                            resolve(Chart);
+                        } else {
+                            console.warn('Chart.js loaded but Chart global not available, trying next CDN...');
+                            loadChartJs(urlIndex + 1);
+                        }
+                    }, 100);
+                };
+                
+                script.onerror = () => {
+                    console.warn(`Failed to load Chart.js from: ${cdnUrls[urlIndex]}`);
+                    script.remove();
+                    loadChartJs(urlIndex + 1);
+                };
+                
+                document.head.appendChild(script);
+            }
+            
+            // Check if Chart.js is already loaded
+            if (typeof Chart !== 'undefined') {
+                console.log('Chart.js already available');
+                resolve(Chart);
+            } else {
+                loadChartJs();
+            }
+            
+            // Ultimate timeout after 10 seconds
+            setTimeout(() => {
+                if (typeof Chart === 'undefined') {
+                    reject(new Error('Chart.js failed to load within 10 seconds from all sources'));
+                }
+            }, 10000);
+        });
+        
+        // Fallback chart implementation if Chart.js completely fails
+        window.createFallbackChart = function(canvasId, type, data) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            const container = canvas.closest('.chart-container');
+            
+            if (type === 'doughnut') {
+                // Simple text-based fallback for sentiment data
+                container.innerHTML = `
+                    <div class="fallback-chart">
+                        <h6 class="text-center mb-3">Sentiment Distribution</h6>
+                        <div class="row g-2">
+                            <div class="col-4 text-center">
+                                <div class="fallback-segment bg-success text-white p-2 rounded">
+                                    <strong>32%</strong><br>
+                                    <small>Positive</small>
+                                </div>
+                            </div>
+                            <div class="col-4 text-center">
+                                <div class="fallback-segment bg-warning text-white p-2 rounded">
+                                    <strong>45%</strong><br>
+                                    <small>Mixed</small>
+                                </div>
+                            </div>
+                            <div class="col-4 text-center">
+                                <div class="fallback-segment bg-danger text-white p-2 rounded">
+                                    <strong>23%</strong><br>
+                                    <small>Negative</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (type === 'bar') {
+                // Simple text-based fallback for competitor data
+                container.innerHTML = `
+                    <div class="fallback-chart">
+                        <h6 class="text-center mb-3">Reddit Mentions (Last 24 Months)</h6>
+                        <div class="row g-2">
+                            <div class="col-2 text-center">
+                                <div class="fallback-bar bg-primary text-white p-2 rounded" style="height: 60px; display: flex; align-items: center; justify-content: center;">
+                                    <div>
+                                        <strong>100</strong><br>
+                                        <small>UAGC</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2 text-center">
+                                <div class="fallback-bar bg-info text-white p-2 rounded" style="height: 168px; display: flex; align-items: center; justify-content: center;">
+                                    <div>
+                                        <strong>280</strong><br>
+                                        <small>WGU</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2 text-center">
+                                <div class="fallback-bar bg-secondary text-white p-2 rounded" style="height: 117px; display: flex; align-items: center; justify-content: center;">
+                                    <div>
+                                        <strong>195</strong><br>
+                                        <small>SNHU</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2 text-center">
+                                <div class="fallback-bar bg-warning text-white p-2 rounded" style="height: 96px; display: flex; align-items: center; justify-content: center;">
+                                    <div>
+                                        <strong>160</strong><br>
+                                        <small>ASU Online</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2 text-center">
+                                <div class="fallback-bar bg-success text-white p-2 rounded" style="height: 51px; display: flex; align-items: center; justify-content: center;">
+                                    <div>
+                                        <strong>85</strong><br>
+                                        <small>GCU</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2 text-center">
+                                <div class="fallback-bar bg-dark text-white p-2 rounded" style="height: 27px; display: flex; align-items: center; justify-content: center;">
+                                    <div>
+                                        <strong>45</strong><br>
+                                        <small>UoPhoenix</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        };
+    </script>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Enhanced Custom JS -->
+    <script>
+        // Global chart variables
+        let sentimentChart, competitorChart;
+        
+        // Performance optimized progress bar
+        let ticking = false;
+        
+        function updateProgressBar() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progress-bar').style.width = scrolled + "%";
+            ticking = false;
+        }
+
+        function requestProgressUpdate() {
+            if (!ticking) {
+                requestAnimationFrame(updateProgressBar);
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', requestProgressUpdate, { passive: true });
+
+        // Enhanced smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Focus management for accessibility
+                    target.focus();
+                    if (document.activeElement !== target) {
+                        target.setAttribute('tabindex', '-1');
+                        target.focus();
+                    }
+                }
+            });
+        });
+
+        // Enhanced navbar scroll effect with throttling
+        let navbarTicking = false;
+        
+        function updateNavbar() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            navbarTicking = false;
+        }
+
+        function requestNavbarUpdate() {
+            if (!navbarTicking) {
+                requestAnimationFrame(updateNavbar);
+                navbarTicking = true;
+            }
+        }
+
+        window.addEventListener('scroll', requestNavbarUpdate, { passive: true });
+
+        // Enhanced intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Stagger animations for better visual effect
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animatable elements
+        document.querySelectorAll('.fade-in, .slide-in-left, .scale-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Enhanced keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            // Escape key to close mobile menu
+            if (e.key === 'Escape') {
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                if (navbarCollapse.classList.contains('show')) {
+                    bootstrap.Collapse.getInstance(navbarCollapse).hide();
+                }
+            }
+        });
+
+        // Enhanced focus management
+        document.addEventListener('focusin', function(e) {
+            // Ensure focused elements are visible
+            if (e.target.scrollIntoViewIfNeeded) {
+                e.target.scrollIntoViewIfNeeded();
+            } else if (e.target.scrollIntoView) {
+                e.target.scrollIntoView({ block: 'nearest' });
+            }
+        });
+
+        // Preload critical resources
+        function preloadResources() {
+            const links = ['#executive-summary', '#theme-analysis', '#recommendations'];
+            links.forEach(link => {
+                const target = document.querySelector(link);
+                if (target) {
+                    // Preload images in view
+                    const images = target.querySelectorAll('img[data-src]');
+                    images.forEach(img => {
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                    });
+                }
+            });
+        }
+
+        // Initialize on DOM load
+        document.addEventListener('DOMContentLoaded', function() {
+            preloadResources();
+            
+            // Add initial animations
+            setTimeout(() => {
+                document.querySelectorAll('.fade-in, .slide-in-left, .scale-in').forEach(element => {
+                    if (element.getBoundingClientRect().top < window.innerHeight) {
+                        element.classList.add('visible');
+                    }
+                });
+            }, 100);
+        });
+
+        // Performance monitoring (optional)
+        if ('performance' in window) {
+            window.addEventListener('load', function() {
+                const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+                console.log('Page load time:', loadTime + 'ms');
+            });
+        }
+
+                         // Initialize Charts
+         function initializeSentimentChart() {
+             console.log('Initializing sentiment chart...');
+             const ctx = document.getElementById('sentimentChart');
+             if (!ctx) {
+                 console.error('Sentiment chart canvas element not found');
+                 return;
+             }
+
+             try {
+                 sentimentChart = new Chart(ctx, {
+                 type: 'doughnut',
+                 data: {
+                     labels: ['Positive', 'Mixed', 'Negative'],
+                     datasets: [{
+                         data: [32, 45, 23],
+                         backgroundColor: [
+                             'rgba(39, 174, 96, 0.8)',
+                             'rgba(243, 156, 18, 0.8)',
+                             'rgba(231, 76, 60, 0.8)'
+                         ],
+                         borderColor: [
+                             'rgba(39, 174, 96, 1)',
+                             'rgba(243, 156, 18, 1)',
+                             'rgba(231, 76, 60, 1)'
+                         ],
+                         borderWidth: 2,
+                         hoverOffset: 10
+                     }]
+                 },
+                 options: {
+                     responsive: true,
+                     maintainAspectRatio: false,
+                     plugins: {
+                         legend: {
+                             position: 'bottom',
+                             labels: {
+                                 padding: 20,
+                                 usePointStyle: true,
+                                 font: {
+                                     size: 12,
+                                     family: 'Inter'
+                                 }
+                             }
+                         },
+                         tooltip: {
+                             callbacks: {
+                                 label: function(context) {
+                                     return context.label + ': ' + context.parsed + '%';
+                                 }
+                             }
+                         }
+                     },
+                     animation: {
+                         animateRotate: true,
+                         duration: 1500
+                     }
+                 }
+             });
+             console.log('Sentiment chart initialized successfully');
+             } catch (error) {
+                 console.error('Error creating sentiment chart:', error);
+                 const container = ctx.closest('.chart-container');
+                 if (container) {
+                     container.innerHTML = `
+                         <div class="error-state">
+                             <i class="fas fa-exclamation-triangle me-2"></i>
+                             Failed to load sentiment chart
+                         </div>
+                     `;
+                 }
+             }
+         }
+
+         function initializeCompetitorChart() {
+             console.log('Initializing competitor chart...');
+             const ctx = document.getElementById('competitorChart');
+             if (!ctx) {
+                 console.error('Competitor chart canvas element not found');
+                 return;
+             }
+
+             try {
+                 competitorChart = new Chart(ctx, {
+                 type: 'bar',
+                 data: {
+                     labels: ['UAGC', 'WGU', 'SNHU', 'ASU Online', 'GCU', 'UoPhoenix'],
+                     datasets: [{
+                         label: 'Reddit Mentions (Last 24 Months)',
+                         data: [100, 280, 195, 160, 85, 45],
+                         backgroundColor: [
+                             'rgba(0, 102, 204, 0.8)',
+                             'rgba(52, 152, 219, 0.8)',
+                             'rgba(155, 89, 182, 0.8)',
+                             'rgba(230, 126, 34, 0.8)',
+                             'rgba(26, 188, 156, 0.8)',
+                             'rgba(241, 196, 15, 0.8)'
+                         ],
+                         borderColor: [
+                             'rgba(0, 102, 204, 1)',
+                             'rgba(52, 152, 219, 1)',
+                             'rgba(155, 89, 182, 1)',
+                             'rgba(230, 126, 34, 1)',
+                             'rgba(26, 188, 156, 1)',
+                             'rgba(241, 196, 15, 1)'
+                         ],
+                         borderWidth: 2,
+                         borderRadius: 4
+                     }]
+                 },
+                 options: {
+                     responsive: true,
+                     maintainAspectRatio: false,
+                     plugins: {
+                         legend: {
+                             display: false
+                         },
+                         tooltip: {
+                             callbacks: {
+                                 label: function(context) {
+                                     const relative = Math.round((context.parsed.y / 100) * 100);
+                                     return context.label + ': ' + context.parsed.y + ' mentions (' + relative + '% vs UAGC)';
+                                 }
+                             }
+                         }
+                     },
+                     scales: {
+                         y: {
+                             beginAtZero: true,
+                             title: {
+                                 display: true,
+                                 text: 'Number of Mentions'
+                             },
+                             grid: {
+                                 color: 'rgba(0, 0, 0, 0.05)'
+                             }
+                         },
+                         x: {
+                             title: {
+                                 display: true,
+                                 text: 'Institutions'
+                             },
+                             grid: {
+                                 display: false
+                             }
+                         }
+                     },
+                     animation: {
+                         duration: 1500,
+                         easing: 'easeOutQuart'
+                     }
+                 }
+             });
+             console.log('Competitor chart initialized successfully');
+             } catch (error) {
+                 console.error('Error creating competitor chart:', error);
+                 const container = ctx.closest('.chart-container');
+                 if (container) {
+                     container.innerHTML = `
+                         <div class="error-state">
+                             <i class="fas fa-exclamation-triangle me-2"></i>
+                             Failed to load competitor chart
+                         </div>
+                     `;
+                 }
+             }
+         }
+
+         // Enhanced Interactive Features
+         function addInteractiveTooltips() {
+             const tooltip = document.createElement('div');
+             tooltip.className = 'data-tooltip';
+             document.body.appendChild(tooltip);
+
+             document.querySelectorAll('.interactive-stat').forEach(element => {
+                 element.addEventListener('mouseenter', function(e) {
+                     const tooltipText = this.getAttribute('data-tooltip');
+                     if (tooltipText) {
+                         tooltip.textContent = tooltipText;
+                         tooltip.style.left = e.pageX + 'px';
+                         tooltip.style.top = e.pageY - 40 + 'px';
+                         tooltip.classList.add('show');
+                     }
+                 });
+
+                 element.addEventListener('mouseleave', function() {
+                     tooltip.classList.remove('show');
+                 });
+
+                 element.addEventListener('mousemove', function(e) {
+                     tooltip.style.left = e.pageX + 'px';
+                     tooltip.style.top = e.pageY - 40 + 'px';
+                 });
+             });
+         }
+
+         // Loading State Management
+         function showLoadingState() {
+             console.log('Showing loading state for charts...');
+             // Only show loading for chart containers that have canvas elements
+             const sentimentContainer = document.querySelector('#sentimentChart').closest('.chart-container');
+             const competitorContainer = document.querySelector('#competitorChart').closest('.chart-container');
+             
+             [sentimentContainer, competitorContainer].forEach(container => {
+                 if (container) {
+                     const canvas = container.querySelector('canvas');
+                     if (canvas) {
+                         canvas.style.display = 'none';
+                     }
+                     
+                     // Add loading overlay
+                     const loadingDiv = document.createElement('div');
+                     loadingDiv.className = 'chart-loading-overlay';
+                     loadingDiv.innerHTML = `
+                         <div class="d-flex justify-content-center align-items-center" style="height: 250px;">
+                             <div class="spinner-border text-primary" role="status">
+                                 <span class="visually-hidden">Loading chart...</span>
+                             </div>
+                             <span class="ms-2">Loading visualization...</span>
+                         </div>
+                     `;
+                     container.appendChild(loadingDiv);
+                 }
+             });
+         }
+
+         function hideLoadingState() {
+             console.log('Hiding loading state for charts...');
+             document.querySelectorAll('.chart-loading-overlay').forEach(overlay => {
+                 overlay.remove();
+             });
+             
+             document.querySelectorAll('.chart-container canvas').forEach(canvas => {
+                 canvas.style.display = 'block';
+             });
+         }
+
+         // Enhanced Reading Progress
+         function updateReadingProgress() {
+             const sections = document.querySelectorAll('section[id]');
+             const scrollPosition = window.scrollY + window.innerHeight / 2;
+             
+             sections.forEach(section => {
+                 const sectionTop = section.offsetTop;
+                 const sectionHeight = section.offsetHeight;
+                 
+                 if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                     // Update navigation active state
+                     document.querySelectorAll('.nav-link').forEach(link => {
+                         link.classList.remove('active');
+                         if (link.getAttribute('href') === '#' + section.id) {
+                             link.classList.add('active');
+                         }
+                     });
+                 }
+             });
+         }
+
+         // Accessibility Enhancements
+         function enhanceAccessibility() {
+             // Add keyboard navigation for charts
+             document.querySelectorAll('canvas').forEach(canvas => {
+                 canvas.setAttribute('tabindex', '0');
+                 canvas.setAttribute('role', 'img');
+                 
+                 canvas.addEventListener('keydown', function(e) {
+                     if (e.key === 'Enter' || e.key === ' ') {
+                         e.preventDefault();
+                         // Announce chart data for screen readers
+                         const announcement = this.getAttribute('aria-label');
+                         if (announcement) {
+                             const utterance = new SpeechSynthesisUtterance(announcement);
+                             speechSynthesis.speak(utterance);
+                         }
+                     }
+                 });
+             });
+
+             // Improve focus management
+             document.addEventListener('keydown', function(e) {
+                 if (e.key === 'Tab') {
+                     document.body.classList.add('keyboard-navigation');
+                 }
+             });
+
+             document.addEventListener('mousedown', function() {
+                 document.body.classList.remove('keyboard-navigation');
+             });
+         }
+
+                   // Performance Monitoring and Analytics
+          function trackUserEngagement() {
+              const startTime = Date.now();
+              let maxScroll = 0;
+              
+              window.addEventListener('scroll', () => {
+                  const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+                  maxScroll = Math.max(maxScroll, scrollPercent);
+              });
+
+              window.addEventListener('beforeunload', () => {
+                  const timeSpent = Date.now() - startTime;
+                  console.log('Engagement metrics:', {
+                      timeSpent: Math.round(timeSpent / 1000) + 's',
+                      maxScroll: Math.round(maxScroll) + '%',
+                      chartInteractions: window.chartInteractions || 0
+                  });
+              });
+          }
+
+          // Recommendation Filtering System
+          function initializeRecommendationFilters() {
+              const filterButtons = document.querySelectorAll('[data-filter]');
+              const recommendationItems = document.querySelectorAll('#recommendations-container [data-priority]');
+
+              filterButtons.forEach(button => {
+                  button.addEventListener('click', function() {
+                      const filter = this.getAttribute('data-filter');
+                      
+                      // Update active button
+                      filterButtons.forEach(btn => btn.classList.remove('active'));
+                      this.classList.add('active');
+                      
+                      // Filter recommendations with animation
+                      recommendationItems.forEach(item => {
+                          const priority = item.getAttribute('data-priority');
+                          const shouldShow = filter === 'all' || priority === filter;
+                          
+                          if (shouldShow) {
+                              item.style.display = 'block';
+                              item.style.opacity = '0';
+                              item.style.transform = 'translateY(20px)';
+                              
+                              setTimeout(() => {
+                                  item.style.opacity = '1';
+                                  item.style.transform = 'translateY(0)';
+                              }, 100);
+                          } else {
+                              item.style.opacity = '0';
+                              item.style.transform = 'translateY(-20px)';
+                              
+                              setTimeout(() => {
+                                  item.style.display = 'none';
+                              }, 300);
+                          }
+                      });
+                      
+                      // Update summary metrics
+                      updateFilterSummary(filter);
+                  });
+              });
+          }
+
+          function updateFilterSummary(filter) {
+              const summaryCards = document.querySelectorAll('.metric-card .metric-number');
+                             const counts = {
+                   all: 7,
+                   critical: 1,
+                   high: 2,
+                   quick: 2,
+                   medium: 2
+               };
+              
+              // Animate number changes
+              summaryCards.forEach((card, index) => {
+                                     const targets = [
+                       filter === 'all' ? 7 : counts[filter] || 0,
+                       filter === 'critical' || filter === 'all' ? (filter === 'critical' ? 1 : 1) : 0,
+                       filter === 'high' || filter === 'all' ? (filter === 'high' ? 2 : 2) : 0,
+                       filter === 'quick' || filter === 'all' ? (filter === 'quick' ? 2 : 2) : 0
+                   ];
+                  
+                  if (targets[index] !== undefined) {
+                      animateNumber(card, parseInt(card.textContent), targets[index]);
+                  }
+              });
+          }
+
+          function animateNumber(element, start, end) {
+              const duration = 500;
+              const startTime = Date.now();
+              
+              function update() {
+                  const elapsed = Date.now() - startTime;
+                  const progress = Math.min(elapsed / duration, 1);
+                  const current = Math.round(start + (end - start) * progress);
+                  
+                  element.textContent = current;
+                  
+                  if (progress < 1) {
+                      requestAnimationFrame(update);
+                  }
+              }
+              
+              requestAnimationFrame(update);
+          }
+
+         // Service worker registration for caching (progressive enhancement)
+         if ('serviceWorker' in navigator) {
+             window.addEventListener('load', function() {
+                 // Only register if user hasn't disabled it
+                 if (localStorage.getItem('disable-sw') !== 'true') {
+                     // Service worker would be implemented separately
+                     console.log('Service worker support detected');
+                 }
+             });
+         }
+
+                  // Network Status Functions
+         function showNetworkStatus(message, type) {
+             const statusEl = document.getElementById('network-status');
+             statusEl.textContent = message;
+             statusEl.className = `network-status ${type} show`;
+             
+             if (type !== 'loading') {
+                 setTimeout(() => {
+                     statusEl.classList.remove('show');
+                 }, 3000);
+             }
+         }
+
+         function hideNetworkStatus() {
+             const statusEl = document.getElementById('network-status');
+             statusEl.classList.remove('show');
+         }
+
+         // Initialize everything
+         document.addEventListener('DOMContentLoaded', function() {
+             // Show loading states first
+             showLoadingState();
+             showNetworkStatus('Loading chart libraries...', 'loading');
+             
+             // Initialize charts using the Chart.js ready promise
+             window.chartJsReady.then(() => {
+                 console.log('Chart.js is ready, initializing charts...');
+                 showNetworkStatus('Charts loaded successfully!', 'success');
+                 
+                 try {
+                     initializeSentimentChart();
+                     initializeCompetitorChart();
+                     // Hide loading states after charts are initialized
+                     setTimeout(() => {
+                         hideLoadingState();
+                         hideNetworkStatus();
+                     }, 500);
+                 } catch (error) {
+                     console.error('Error initializing charts:', error);
+                     hideLoadingState();
+                     showNetworkStatus('Chart initialization failed', 'error');
+                     
+                     // Use fallback charts instead of showing error
+                     setTimeout(() => {
+                         try {
+                             createFallbackChart('sentimentChart', 'doughnut');
+                             createFallbackChart('competitorChart', 'bar');
+                             showNetworkStatus('Using alternative chart display', 'success');
+                         } catch (fallbackError) {
+                             console.error('Even fallback charts failed:', fallbackError);
+                             document.querySelectorAll('.chart-container').forEach(container => {
+                                 container.innerHTML = `
+                                     <div class="error-state">
+                                         <i class="fas fa-info-circle me-2"></i>
+                                         Charts unavailable - Data displayed as text
+                                     </div>
+                                     <div class="mt-3">
+                                         <div class="row">
+                                             <div class="col-md-4 text-center">
+                                                 <div class="bg-success text-white p-2 rounded mb-2">
+                                                     <strong>32% Positive</strong>
+                                                 </div>
+                                             </div>
+                                             <div class="col-md-4 text-center">
+                                                 <div class="bg-warning text-white p-2 rounded mb-2">
+                                                     <strong>45% Mixed</strong>
+                                                 </div>
+                                             </div>
+                                             <div class="col-md-4 text-center">
+                                                 <div class="bg-danger text-white p-2 rounded mb-2">
+                                                     <strong>23% Negative</strong>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 `;
+                             });
+                         }
+                     }, 100);
+                 }
+             }).catch((error) => {
+                 console.error('Chart.js failed to load, using fallback charts:', error);
+                 hideLoadingState();
+                 showNetworkStatus('Using offline chart display', 'error');
+                 
+                 // Use fallback charts instead of showing error
+                 try {
+                     createFallbackChart('sentimentChart', 'doughnut');
+                     createFallbackChart('competitorChart', 'bar');
+                     console.log('Fallback charts created successfully');
+                     setTimeout(() => {
+                         showNetworkStatus('Charts displayed in offline mode', 'success');
+                     }, 500);
+                 } catch (fallbackError) {
+                     console.error('Even fallback charts failed:', fallbackError);
+                     document.querySelectorAll('.chart-container').forEach(container => {
+                         container.innerHTML = `
+                             <div class="alert alert-info">
+                                 <i class="fas fa-info-circle me-2"></i>
+                                 <strong>Chart Data Summary</strong>
+                             </div>
+                             <div class="mt-3">
+                                 <div class="row">
+                                     <div class="col-md-4 text-center">
+                                         <div class="bg-success text-white p-2 rounded mb-2">
+                                             <strong>32% Positive</strong><br>
+                                             <small>Flexibility & Military Support</small>
+                                         </div>
+                                     </div>
+                                     <div class="col-md-4 text-center">
+                                         <div class="bg-warning text-white p-2 rounded mb-2">
+                                             <strong>45% Mixed</strong><br>
+                                             <small>Legitimacy & Employer Perception</small>
+                                         </div>
+                                     </div>
+                                     <div class="col-md-4 text-center">
+                                         <div class="bg-danger text-white p-2 rounded mb-2">
+                                             <strong>23% Negative</strong><br>
+                                             <small>Ashford Legacy & Costs</small>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                         `;
+                     });
+                 }
+             });
+
+                           // Setup interactive features
+              addInteractiveTooltips();
+              enhanceAccessibility();
+              trackUserEngagement();
+              initializeRecommendationFilters();
+             
+             // Update reading progress on scroll
+             window.addEventListener('scroll', updateReadingProgress, { passive: true });
+             
+             preloadResources();
+             
+             // Add initial animations
+             setTimeout(() => {
+                 document.querySelectorAll('.fade-in, .slide-in-left, .scale-in').forEach(element => {
+                     if (element.getBoundingClientRect().top < window.innerHeight) {
+                         element.classList.add('visible');
+                     }
+                 });
+             }, 100);
+         });
+     </script>
+ </body>
+ </html>

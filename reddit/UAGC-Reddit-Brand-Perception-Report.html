@@ -1304,33 +1304,146 @@
                         <p class="lead">Ready-to-run methodology for collecting Reddit posts/comments from the last 24 months</p>
                         
                         <div class="playbook-section">
-                            <h4><i class="fas fa-code me-2" aria-hidden="true"></i>A) Query Set</h4>
-                            <p>Run in Reddit search; sort by "new" and "top"</p>
+                            <h4><i class="fas fa-code me-2" aria-hidden="true"></i>A) Query Set & Reddit Search Instructions</h4>
+                            
+                            <!-- Step-by-Step Search Instructions -->
+                            <div class="alert alert-info alert-enhanced mb-4">
+                                <h5><i class="fas fa-info-circle me-2" aria-hidden="true"></i>How to Execute Reddit Searches</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <h6><i class="fas fa-1 text-primary me-1" aria-hidden="true"></i> Access Reddit Search</h6>
+                                        <p class="mb-1">Go to <strong>reddit.com/search</strong></p>
+                                        <p class="mb-0 text-muted">Or use the search bar at the top of any Reddit page</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h6><i class="fas fa-2 text-primary me-1" aria-hidden="true"></i> Enter Your Query</h6>
+                                        <p class="mb-1">Copy & paste queries from below</p>
+                                        <p class="mb-0 text-muted">Use exact formatting with quotes and operators</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h6><i class="fas fa-3 text-primary me-1" aria-hidden="true"></i> Choose Sort Method</h6>
+                                        <p class="mb-1">Click <strong>"New"</strong> or <strong>"Top"</strong> tabs</p>
+                                        <p class="mb-0 text-muted">See sorting guide below for when to use each</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Sorting Guide -->
+                            <div class="row g-3 mb-4">
+                                <div class="col-md-6">
+                                    <div class="card border-success">
+                                        <div class="card-header bg-success bg-opacity-10">
+                                            <h6 class="mb-0"><i class="fas fa-clock text-success me-2" aria-hidden="true"></i>Sort by "NEW" (Most Recent)</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="mb-2"><strong>When to Use:</strong></p>
+                                            <ul class="mb-2">
+                                                <li>Daily monitoring & emerging trends</li>
+                                                <li>Recent sentiment changes</li>
+                                                <li>New complaints or praise</li>
+                                                <li>Real-time crisis monitoring</li>
+                                            </ul>
+                                            <p class="mb-0"><strong>URL Format:</strong> <code>reddit.com/search/?q=UAGC&sort=new</code></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card border-primary">
+                                        <div class="card-header bg-primary bg-opacity-10">
+                                            <h6 class="mb-0"><i class="fas fa-star text-primary me-2" aria-hidden="true"></i>Sort by "TOP" (Most Popular)</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="mb-2"><strong>When to Use:</strong></p>
+                                            <ul class="mb-2">
+                                                <li>Influential posts that shaped opinions</li>
+                                                <li>Major discussions & viral content</li>
+                                                <li>Representative views & sentiment</li>
+                                                <li>Historical context analysis</li>
+                                            </ul>
+                                            <p class="mb-2"><strong>Time Filters:</strong> Past Week | Month | Year | All Time</p>
+                                            <p class="mb-0"><strong>URL Format:</strong> <code>reddit.com/search/?q=UAGC&sort=top&t=year</code></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Query Examples -->
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <div class="card">
+                                        <div class="card-header">
+                                            <h6 class="mb-0"><i class="fas fa-search text-primary me-2" aria-hidden="true"></i>General Brand Queries</h6>
+                                        </div>
                                         <div class="card-body">
-                                            <h6>General Queries</h6>
-                                            <div class="code-block">
-                                                "UAGC" OR "University of Arizona Global Campus" –flair:buy –flair:sell
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold">Primary Brand Mentions:</label>
+                                                <div class="code-block">
+                                                    "UAGC" OR "University of Arizona Global Campus" -flair:buy -flair:sell
+                                                </div>
+                                                <button class="btn btn-sm btn-outline-primary mt-1" onclick="copyToClipboard(this.previousElementSibling.textContent, this)">
+                                                    <i class="fas fa-copy me-1" aria-hidden="true"></i>Copy Query
+                                                </button>
                                             </div>
-                                            <div class="code-block mt-2">
-                                                "Ashford University" AND ("UAGC" OR "Global Campus")
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold">Legacy Institution Tracking:</label>
+                                                <div class="code-block">
+                                                    "Ashford University" AND ("UAGC" OR "Global Campus")
+                                                </div>
+                                                <button class="btn btn-sm btn-outline-primary mt-1" onclick="copyToClipboard(this.previousElementSibling.textContent, this)">
+                                                    <i class="fas fa-copy me-1" aria-hidden="true"></i>Copy Query
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="card">
+                                        <div class="card-header">
+                                            <h6 class="mb-0"><i class="fas fa-users text-warning me-2" aria-hidden="true"></i>Audience-Specific Queries</h6>
+                                        </div>
                                         <div class="card-body">
-                                            <h6>Audience-Specific</h6>
-                                            <div class="code-block">
-                                                ("is it legit" OR "worth it" OR "scam") AND (UAGC OR "University of Arizona Global Campus")
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold">Prospective Students:</label>
+                                                <div class="code-block">
+                                                    ("is UAGC legit" OR "UAGC worth it" OR "UAGC scam") -flair:buy -flair:sell
+                                                </div>
+                                                <button class="btn btn-sm btn-outline-warning mt-1" onclick="copyToClipboard(this.previousElementSibling.textContent, this)">
+                                                    <i class="fas fa-copy me-1" aria-hidden="true"></i>Copy Query
+                                                </button>
                                             </div>
-                                            <div class="code-block mt-2">
-                                                subreddit:r/UofArizona (UAGC OR "Global Campus")
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold">UA Confusion Detection:</label>
+                                                <div class="code-block">
+                                                    subreddit:UofArizona (UAGC OR "Global Campus")
+                                                </div>
+                                                <button class="btn btn-sm btn-outline-warning mt-1" onclick="copyToClipboard(this.previousElementSibling.textContent, this)">
+                                                    <i class="fas fa-copy me-1" aria-hidden="true"></i>Copy Query
+                                                </button>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Quick Start Guide -->
+                            <div class="alert alert-success alert-enhanced mt-4">
+                                <h6><i class="fas fa-rocket text-success me-2" aria-hidden="true"></i>Quick Start Workflow</h6>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="mb-2"><strong>Daily Monitoring (5 minutes):</strong></p>
+                                        <ol class="mb-0">
+                                            <li>Use primary brand query with "New" sort</li>
+                                            <li>Check for overnight discussions</li>
+                                            <li>Note any crisis indicators</li>
+                                        </ol>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="mb-2"><strong>Weekly Analysis (30 minutes):</strong></p>
+                                        <ol class="mb-0">
+                                            <li>Run all queries with "Top" + "Past Week"</li>
+                                            <li>Export high-engagement threads (>50 comments)</li>
+                                            <li>Analyze sentiment patterns & themes</li>
+                                        </ol>
                                     </div>
                                 </div>
                             </div>
@@ -2403,10 +2516,55 @@
              }
          }
 
-         function hideNetworkStatus() {
-             const statusEl = document.getElementById('network-status');
-             statusEl.classList.remove('show');
-         }
+                 function hideNetworkStatus() {
+            const statusEl = document.getElementById('network-status');
+            statusEl.classList.remove('show');
+        }
+
+        // Copy to clipboard functionality for query examples
+        function copyToClipboard(text, buttonElement) {
+            // Get the button element from the click event
+            const button = buttonElement || event.target;
+            
+            navigator.clipboard.writeText(text.trim()).then(function() {
+                // Temporary visual feedback
+                if (button && button.classList.contains('btn')) {
+                    const originalText = button.innerHTML;
+                    button.innerHTML = '<i class="fas fa-check me-1" aria-hidden="true"></i>Copied!';
+                    button.classList.add('btn-success');
+                    button.classList.remove('btn-outline-primary', 'btn-outline-warning');
+                    
+                    setTimeout(() => {
+                        button.innerHTML = originalText;
+                        button.classList.remove('btn-success');
+                        button.classList.add(button.closest('.card').querySelector('.text-warning') ? 'btn-outline-warning' : 'btn-outline-primary');
+                    }, 2000);
+                }
+            }).catch(function(err) {
+                console.error('Failed to copy text: ', err);
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = text.trim();
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                // Still show feedback even with fallback
+                if (button && button.classList.contains('btn')) {
+                    const originalText = button.innerHTML;
+                    button.innerHTML = '<i class="fas fa-check me-1" aria-hidden="true"></i>Copied!';
+                    button.classList.add('btn-success');
+                    button.classList.remove('btn-outline-primary', 'btn-outline-warning');
+                    
+                    setTimeout(() => {
+                        button.innerHTML = originalText;
+                        button.classList.remove('btn-success');
+                        button.classList.add(button.closest('.card').querySelector('.text-warning') ? 'btn-outline-warning' : 'btn-outline-primary');
+                    }, 2000);
+                }
+            });
+        }
 
          // Initialize everything
          document.addEventListener('DOMContentLoaded', function() {

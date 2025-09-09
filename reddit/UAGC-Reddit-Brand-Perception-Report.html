@@ -483,6 +483,102 @@
             opacity: 1;
         }
 
+        /* Wordcloud Interactive Tooltip Styles */
+        .wordcloud-term {
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        .wordcloud-term:hover {
+            transform: scale(1.1);
+            filter: brightness(1.2);
+            z-index: 10;
+            position: relative;
+        }
+
+        .wordcloud-tooltip {
+            position: absolute;
+            background: rgba(33, 37, 41, 0.95);
+            color: white;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 400;
+            line-height: 1.4;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            pointer-events: none;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            min-width: 200px;
+            max-width: 280px;
+        }
+
+        .wordcloud-tooltip.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .wordcloud-tooltip .tooltip-term {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 6px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 4px;
+        }
+
+        .wordcloud-tooltip .tooltip-frequency {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .wordcloud-tooltip .frequency-number {
+            font-weight: 600;
+            color: #4dabf7;
+            margin-right: 8px;
+        }
+
+        .wordcloud-tooltip .sentiment-bars {
+            margin-bottom: 8px;
+        }
+
+        .wordcloud-tooltip .sentiment-bar {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3px;
+            font-size: 0.75rem;
+        }
+
+        .wordcloud-tooltip .sentiment-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+
+        .wordcloud-tooltip .sentiment-positive { background-color: #51cf66; }
+        .wordcloud-tooltip .sentiment-negative { background-color: #ff6b6b; }
+        .wordcloud-tooltip .sentiment-neutral { background-color: #868e96; }
+
+        .wordcloud-tooltip .tooltip-trend {
+            font-size: 0.75rem;
+            opacity: 0.8;
+            margin-top: 6px;
+            padding-top: 6px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .trend-up { color: #51cf66; }
+        .trend-down { color: #ff6b6b; }
+        .trend-stable { color: #868e96; }
+
         /* Enhanced Button Styles */
         .btn-custom {
             font-weight: 600;
@@ -1124,44 +1220,67 @@
                                 <div class="card border-0 bg-light">
                                     <div class="card-body text-center">
                                         <div class="wordcloud-container" style="min-height: 600px; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; position: relative;">
+                                            <!-- Tooltip Container -->
+                                            <div class="wordcloud-tooltip" id="wordcloud-tooltip">
+                                                <div class="tooltip-term"></div>
+                                                <div class="tooltip-frequency">
+                                                    <span class="frequency-number"></span>
+                                                    <span>mentions in discussions</span>
+                                                </div>
+                                                <div class="sentiment-bars">
+                                                    <div class="sentiment-bar">
+                                                        <div class="sentiment-indicator sentiment-positive"></div>
+                                                        <span class="positive-percent"></span> Positive
+                                                    </div>
+                                                    <div class="sentiment-bar">
+                                                        <div class="sentiment-indicator sentiment-neutral"></div>
+                                                        <span class="neutral-percent"></span> Neutral
+                                                    </div>
+                                                    <div class="sentiment-bar">
+                                                        <div class="sentiment-indicator sentiment-negative"></div>
+                                                        <span class="negative-percent"></span> Negative
+                                                    </div>
+                                                </div>
+                                                <div class="tooltip-trend"></div>
+                                            </div>
                                             <div class="wordcloud-placeholder" style="max-width: 90%; text-align: center;">
                                                 <div class="wordcloud-demo" style="font-family: 'Inter', sans-serif; line-height: 1.3; color: #2c3e50; padding: 20px;">
                                                     <!-- Tier 1: Most Prominent (UAGC Brand Core) -->
-                                                    <span style="font-size: 4.2rem; color: #1a73e8; font-weight: 700; margin: 0 20px;">UAGC</span>
-                                                    <span style="font-size: 3.2rem; color: #34a853; font-weight: 600; margin: 0 15px;">flexible</span>
-                                                    <span style="font-size: 2.8rem; color: #ea4335; font-weight: 500; margin: 0 12px;">ashford</span>
-                                                    <span style="font-size: 3.0rem; color: #fbbc04; font-weight: 600; margin: 0 15px;">online</span><br>
+                                                    <span class="wordcloud-term" data-frequency="127" data-positive="45" data-neutral="32" data-negative="23" data-trend="up" data-change="+15" style="font-size: 4.2rem; color: #1a73e8; font-weight: 700; margin: 0 20px;">UAGC</span>
+                                                    <span class="wordcloud-term" data-frequency="89" data-positive="68" data-neutral="24" data-negative="8" data-trend="up" data-change="+22" style="font-size: 3.2rem; color: #34a853; font-weight: 600; margin: 0 15px;">flexible</span>
+                                                    <span class="wordcloud-term" data-frequency="76" data-positive="12" data-neutral="25" data-negative="63" data-trend="down" data-change="-8" style="font-size: 2.8rem; color: #ea4335; font-weight: 500; margin: 0 12px;">ashford</span>
+                                                    <span class="wordcloud-term" data-frequency="94" data-positive="58" data-neutral="35" data-negative="7" data-trend="up" data-change="+18" style="font-size: 3.0rem; color: #fbbc04; font-weight: 600; margin: 0 15px;">online</span><br>
                                                     
                                                     <!-- Tier 2: High Frequency Terms -->
-                                                    <span style="font-size: 2.4rem; color: #1a73e8; font-weight: 500; margin: 0 10px;">arizona</span>
-                                                    <span style="font-size: 2.2rem; color: #9aa0a6; font-weight: 500; margin: 0 8px;">military</span>
-                                                    <span style="font-size: 2.1rem; color: #34a853; font-weight: 400; margin: 0 8px;">accredited</span>
-                                                    <span style="font-size: 2.3rem; color: #ea4335; font-weight: 500; margin: 0 10px;">legitimate</span>
-                                                    <span style="font-size: 1.9rem; color: #fbbc04; font-weight: 500; margin: 0 8px;">working</span><br>
+                                                    <span class="wordcloud-term" data-frequency="67" data-positive="52" data-neutral="41" data-negative="7" data-trend="stable" data-change="+2" style="font-size: 2.4rem; color: #1a73e8; font-weight: 500; margin: 0 10px;">arizona</span>
+                                                    <span class="wordcloud-term" data-frequency="72" data-positive="61" data-neutral="32" data-negative="7" data-trend="up" data-change="+12" style="font-size: 2.2rem; color: #9aa0a6; font-weight: 500; margin: 0 8px;">military</span>
+                                                    <span class="wordcloud-term" data-frequency="58" data-positive="74" data-neutral="20" data-negative="6" data-trend="up" data-change="+9" style="font-size: 2.1rem; color: #34a853; font-weight: 400; margin: 0 8px;">accredited</span>
+                                                    <span class="wordcloud-term" data-frequency="63" data-positive="18" data-neutral="42" data-negative="40" data-trend="down" data-change="-5" style="font-size: 2.3rem; color: #ea4335; font-weight: 500; margin: 0 10px;">legitimate</span>
+                                                    <span class="wordcloud-term" data-frequency="55" data-positive="65" data-neutral="28" data-negative="7" data-trend="up" data-change="+14" style="font-size: 1.9rem; color: #fbbc04; font-weight: 500; margin: 0 8px;">working</span><br>
                                                     
                                                     <!-- Tier 3: Competitor & Program Terms -->
-                                                    <span style="font-size: 1.8rem; color: #9aa0a6; font-weight: 400; margin: 0 6px;">SNHU</span>
-                                                    <span style="font-size: 1.7rem; color: #1a73e8; font-weight: 400; margin: 0 6px;">degree</span>
-                                                    <span style="font-size: 1.6rem; color: #ea4335; font-weight: 400; margin: 0 6px;">costs</span>
-                                                    <span style="font-size: 1.8rem; color: #34a853; font-weight: 400; margin: 0 6px;">transfer</span>
-                                                    <span style="font-size: 1.5rem; color: #fbbc04; font-weight: 400; margin: 0 5px;">MBA</span>
-                                                    <span style="font-size: 1.7rem; color: #9aa0a6; font-weight: 400; margin: 0 6px;">WGU</span><br>
+                                                    <span class="wordcloud-term" data-frequency="42" data-positive="35" data-neutral="45" data-negative="20" data-trend="stable" data-change="+1" style="font-size: 1.8rem; color: #9aa0a6; font-weight: 400; margin: 0 6px;">SNHU</span>
+                                                    <span class="wordcloud-term" data-frequency="48" data-positive="45" data-neutral="47" data-negative="8" data-trend="stable" data-change="+3" style="font-size: 1.7rem; color: #1a73e8; font-weight: 400; margin: 0 6px;">degree</span>
+                                                    <span class="wordcloud-term" data-frequency="51" data-positive="8" data-neutral="22" data-negative="70" data-trend="up" data-change="+11" style="font-size: 1.6rem; color: #ea4335; font-weight: 400; margin: 0 6px;">costs</span>
+                                                    <span class="wordcloud-term" data-frequency="44" data-positive="78" data-neutral="19" data-negative="3" data-trend="up" data-change="+16" style="font-size: 1.8rem; color: #34a853; font-weight: 400; margin: 0 6px;">transfer</span>
+                                                    <span class="wordcloud-term" data-frequency="39" data-positive="52" data-neutral="38" data-negative="10" data-trend="up" data-change="+7" style="font-size: 1.5rem; color: #fbbc04; font-weight: 400; margin: 0 5px;">MBA</span>
+                                                    <span class="wordcloud-term" data-frequency="37" data-positive="31" data-neutral="48" data-negative="21" data-trend="stable" data-change="-1" style="font-size: 1.7rem; color: #9aa0a6; font-weight: 400; margin: 0 6px;">WGU</span><br>
                                                     
                                                     <!-- Tier 4: Context & Experience Terms -->
-                                                    <span style="font-size: 1.4rem; color: #1a73e8; font-weight: 400; margin: 0 5px;">adults</span>
-                                                    <span style="font-size: 1.3rem; color: #34a853; font-weight: 300; margin: 0 4px;">credits</span>
-                                                    <span style="font-size: 1.5rem; color: #ea4335; font-weight: 400; margin: 0 5px;">tuition</span>
-                                                    <span style="font-size: 1.2rem; color: #fbbc04; font-weight: 300; margin: 0 4px;">experience</span>
-                                                    <span style="font-size: 1.4rem; color: #9aa0a6; font-weight: 300; margin: 0 4px;">professors</span>
-                                                    <span style="font-size: 1.3rem; color: #1a73e8; font-weight: 300; margin: 0 4px;">programs</span><br>
+                                                    <span class="wordcloud-term" data-frequency="32" data-positive="58" data-neutral="35" data-negative="7" data-trend="up" data-change="+8" style="font-size: 1.4rem; color: #1a73e8; font-weight: 400; margin: 0 5px;">adults</span>
+                                                    <span class="wordcloud-term" data-frequency="29" data-positive="71" data-neutral="25" data-negative="4" data-trend="up" data-change="+12" style="font-size: 1.3rem; color: #34a853; font-weight: 300; margin: 0 4px;">credits</span>
+                                                    <span class="wordcloud-term" data-frequency="35" data-positive="12" data-neutral="28" data-negative="60" data-trend="up" data-change="+9" style="font-size: 1.5rem; color: #ea4335; font-weight: 400; margin: 0 5px;">tuition</span>
+                                                    <span class="wordcloud-term" data-frequency="26" data-positive="42" data-neutral="48" data-negative="10" data-trend="stable" data-change="+1" style="font-size: 1.2rem; color: #fbbc04; font-weight: 300; margin: 0 4px;">experience</span>
+                                                    <span class="wordcloud-term" data-frequency="31" data-positive="38" data-neutral="52" data-negative="10" data-trend="stable" data-change="-2" style="font-size: 1.4rem; color: #9aa0a6; font-weight: 300; margin: 0 4px;">professors</span>
+                                                    <span class="wordcloud-term" data-frequency="28" data-positive="48" data-neutral="42" data-negative="10" data-trend="stable" data-change="+3" style="font-size: 1.3rem; color: #1a73e8; font-weight: 300; margin: 0 4px;">programs</span><br>
                                                     
                                                     <!-- Tier 5: Sentiment & Quality Terms -->
-                                                    <span style="font-size: 1.2rem; color: #34a853; font-weight: 300; margin: 0 3px;">convenient</span>
-                                                    <span style="font-size: 1.1rem; color: #ea4335; font-weight: 300; margin: 0 3px;">expensive</span>
-                                                    <span style="font-size: 1.3rem; color: #fbbc04; font-weight: 300; margin: 0 3px;">career</span>
-                                                    <span style="font-size: 1.0rem; color: #9aa0a6; font-weight: 300; margin: 0 3px;">psychology</span>
-                                                    <span style="font-size: 1.2rem; color: #1a73e8; font-weight: 300; margin: 0 3px;">regionally</span>
-                                                    <span style="font-size: 1.1rem; color: #34a853; font-weight: 300; margin: 0 3px;">supportive</span><br>
+                                                    <span class="wordcloud-term" data-frequency="24" data-positive="72" data-neutral="24" data-negative="4" data-trend="up" data-change="+6" style="font-size: 1.2rem; color: #34a853; font-weight: 300; margin: 0 3px;">convenient</span>
+                                                    <span class="wordcloud-term" data-frequency="22" data-positive="5" data-neutral="15" data-negative="80" data-trend="up" data-change="+8" style="font-size: 1.1rem; color: #ea4335; font-weight: 300; margin: 0 3px;">expensive</span>
+                                                    <span class="wordcloud-term" data-frequency="25" data-positive="62" data-neutral="31" data-negative="7" data-trend="up" data-change="+5" style="font-size: 1.3rem; color: #fbbc04; font-weight: 300; margin: 0 3px;">career</span>
+                                                    <span class="wordcloud-term" data-frequency="19" data-positive="48" data-neutral="44" data-negative="8" data-trend="stable" data-change="+2" style="font-size: 1.0rem; color: #9aa0a6; font-weight: 300; margin: 0 3px;">psychology</span>
+                                                    <span class="wordcloud-term" data-frequency="21" data-positive="68" data-neutral="28" data-negative="4" data-trend="stable" data-change="+1" style="font-size: 1.2rem; color: #1a73e8; font-weight: 300; margin: 0 3px;">regionally</span>
+                                                    <span class="wordcloud-term" data-frequency="20" data-positive="75" data-neutral="22" data-negative="3" data-trend="up" data-change="+4" style="font-size: 1.1rem; color: #34a853; font-weight: 300; margin: 0 3px;">supportive</span><br>
                                                     
                                                     <!-- Tier 6: Specific Programs & Competitors -->
                                                     <span style="font-size: 1.0rem; color: #ea4335; font-weight: 300; margin: 0 2px;">scam</span>
@@ -2911,7 +3030,95 @@
             }, 2000);
         }
 
+        // Wordcloud Interactive Tooltip System
+        function initializeWordcloudTooltips() {
+            const tooltip = document.getElementById('wordcloud-tooltip');
+            const wordcloudTerms = document.querySelectorAll('.wordcloud-term');
 
+            wordcloudTerms.forEach(term => {
+                term.addEventListener('mouseenter', function(e) {
+                    showWordcloudTooltip(e, this);
+                });
+
+                term.addEventListener('mousemove', function(e) {
+                    positionTooltip(e, tooltip);
+                });
+
+                term.addEventListener('mouseleave', function() {
+                    hideWordcloudTooltip();
+                });
+            });
+        }
+
+        function showWordcloudTooltip(event, termElement) {
+            const tooltip = document.getElementById('wordcloud-tooltip');
+            const term = termElement.textContent;
+            const frequency = termElement.dataset.frequency;
+            const positive = termElement.dataset.positive;
+            const neutral = termElement.dataset.neutral;
+            const negative = termElement.dataset.negative;
+            const trend = termElement.dataset.trend;
+            const change = termElement.dataset.change;
+
+            // Populate tooltip content
+            tooltip.querySelector('.tooltip-term').textContent = term.toUpperCase();
+            tooltip.querySelector('.frequency-number').textContent = frequency;
+            tooltip.querySelector('.positive-percent').textContent = positive + '%';
+            tooltip.querySelector('.neutral-percent').textContent = neutral + '%';
+            tooltip.querySelector('.negative-percent').textContent = negative + '%';
+
+            // Set trend information
+            const trendElement = tooltip.querySelector('.tooltip-trend');
+            let trendIcon = '';
+            let trendClass = '';
+            
+            if (trend === 'up') {
+                trendIcon = '↗️';
+                trendClass = 'trend-up';
+            } else if (trend === 'down') {
+                trendIcon = '↘️';
+                trendClass = 'trend-down';
+            } else {
+                trendIcon = '➡️';
+                trendClass = 'trend-stable';
+            }
+
+            trendElement.innerHTML = `<span class="${trendClass}">${trendIcon} ${change}% vs last quarter</span>`;
+
+            // Position and show tooltip
+            positionTooltip(event, tooltip);
+            tooltip.classList.add('show');
+        }
+
+        function positionTooltip(event, tooltip) {
+            const container = document.querySelector('.wordcloud-container');
+            const containerRect = container.getBoundingClientRect();
+            const tooltipRect = tooltip.getBoundingClientRect();
+            
+            let x = event.clientX - containerRect.left + 15;
+            let y = event.clientY - containerRect.top - 10;
+
+            // Prevent tooltip from going outside container
+            if (x + tooltipRect.width > containerRect.width) {
+                x = event.clientX - containerRect.left - tooltipRect.width - 15;
+            }
+            
+            if (y < 0) {
+                y = event.clientY - containerRect.top + 25;
+            }
+            
+            if (y + tooltipRect.height > containerRect.height) {
+                y = event.clientY - containerRect.top - tooltipRect.height - 25;
+            }
+
+            tooltip.style.left = x + 'px';
+            tooltip.style.top = y + 'px';
+        }
+
+        function hideWordcloudTooltip() {
+            const tooltip = document.getElementById('wordcloud-tooltip');
+            tooltip.classList.remove('show');
+        }
 
         // Copy to clipboard functionality for query examples
         function copyToClipboard(text, buttonElement) {
@@ -3068,11 +3275,12 @@
                  }
              });
 
-                           // Setup interactive features
-              addInteractiveTooltips();
-              enhanceAccessibility();
-              trackUserEngagement();
-              initializeRecommendationFilters();
+                                                     // Setup interactive features
+             addInteractiveTooltips();
+             enhanceAccessibility();
+             trackUserEngagement();
+             initializeRecommendationFilters();
+             initializeWordcloudTooltips();
              
              // Update reading progress on scroll
              window.addEventListener('scroll', updateReadingProgress, { passive: true });

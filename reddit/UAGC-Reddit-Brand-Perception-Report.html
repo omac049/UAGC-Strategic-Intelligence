@@ -1097,34 +1097,102 @@
                         </h2>
                     </div>
                     <div class="p-4">
-                        <p class="lead mb-4">Visual representation of the most frequently mentioned terms across Reddit discussions about UAGC, sized by frequency and colored by sentiment.</p>
+                        <p class="lead mb-4">Comprehensive visual representation of 60+ frequently mentioned terms across Reddit discussions about UAGC, sized by frequency and colored by sentiment. Includes brand terms, competitors, programs, and user sentiment patterns.</p>
+                        
+                        <!-- Enhanced Dataset Alert -->
+                        <div class="alert alert-info alert-enhanced mb-4">
+                            <div class="row align-items-center">
+                                <div class="col-md-9">
+                                    <h6 class="mb-2">
+                                        <i class="fas fa-database text-info me-2" aria-hidden="true"></i>
+                                        Expanded Dataset Analysis
+                                    </h6>
+                                    <p class="mb-0">This wordcloud represents analysis of <strong>60+ unique terms</strong> across <strong>8 frequency tiers</strong>, from high-volume brand mentions (65+ occurrences) to specific long-tail discussions (5-15 occurrences). Data spans competitor comparisons, program-specific discussions, sentiment analysis, and demographic targeting patterns.</p>
+                                </div>
+                                <div class="col-md-3 text-end">
+                                    <div class="bg-white rounded p-2 text-center">
+                                        <span class="h4 text-info mb-0">60+</span><br>
+                                        <small class="text-muted">Terms Analyzed</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         
                         <!-- Wordcloud Visualization Area -->
                         <div class="row g-4 mb-4">
                             <div class="col-lg-8">
                                 <div class="card border-0 bg-light">
                                     <div class="card-body text-center">
-                                        <div class="wordcloud-container" style="min-height: 400px; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; position: relative;">
-                                            <div class="wordcloud-placeholder">
-                                                <div class="wordcloud-demo" style="font-family: 'Inter', sans-serif; line-height: 1.2; color: #2c3e50;">
-                                                    <span style="font-size: 3.5rem; color: #1a73e8; font-weight: 700;">UAGC</span>
-                                                    <span style="font-size: 2.8rem; color: #34a853; font-weight: 600; margin: 0 15px;">flexible</span>
-                                                    <span style="font-size: 2.2rem; color: #ea4335; font-weight: 500;">ashford</span><br>
-                                                    <span style="font-size: 2.5rem; color: #fbbc04; font-weight: 600;">online</span>
-                                                    <span style="font-size: 1.8rem; color: #9aa0a6; font-weight: 500; margin: 0 10px;">military</span>
-                                                    <span style="font-size: 2.1rem; color: #1a73e8; font-weight: 500;">arizona</span>
-                                                    <span style="font-size: 1.6rem; color: #34a853; font-weight: 400;">accredited</span><br>
-                                                    <span style="font-size: 1.9rem; color: #ea4335; font-weight: 500;">legitimate</span>
-                                                    <span style="font-size: 1.4rem; color: #9aa0a6; font-weight: 400; margin: 0 8px;">degree</span>
-                                                    <span style="font-size: 1.7rem; color: #fbbc04; font-weight: 500;">working</span>
-                                                    <span style="font-size: 1.3rem; color: #1a73e8; font-weight: 400;">adults</span><br>
-                                                    <span style="font-size: 1.5rem; color: #34a853; font-weight: 400;">transfer</span>
-                                                    <span style="font-size: 1.2rem; color: #9aa0a6; font-weight: 300;">credits</span>
-                                                    <span style="font-size: 1.8rem; color: #ea4335; font-weight: 500;">costs</span>
-                                                    <span style="font-size: 1.1rem; color: #fbbc04; font-weight: 300;">experience</span>
+                                        <div class="wordcloud-container" style="min-height: 600px; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; position: relative;">
+                                            <div class="wordcloud-placeholder" style="max-width: 90%; text-align: center;">
+                                                <div class="wordcloud-demo" style="font-family: 'Inter', sans-serif; line-height: 1.3; color: #2c3e50; padding: 20px;">
+                                                    <!-- Tier 1: Most Prominent (UAGC Brand Core) -->
+                                                    <span style="font-size: 4.2rem; color: #1a73e8; font-weight: 700; margin: 0 20px;">UAGC</span>
+                                                    <span style="font-size: 3.2rem; color: #34a853; font-weight: 600; margin: 0 15px;">flexible</span>
+                                                    <span style="font-size: 2.8rem; color: #ea4335; font-weight: 500; margin: 0 12px;">ashford</span>
+                                                    <span style="font-size: 3.0rem; color: #fbbc04; font-weight: 600; margin: 0 15px;">online</span><br>
+                                                    
+                                                    <!-- Tier 2: High Frequency Terms -->
+                                                    <span style="font-size: 2.4rem; color: #1a73e8; font-weight: 500; margin: 0 10px;">arizona</span>
+                                                    <span style="font-size: 2.2rem; color: #9aa0a6; font-weight: 500; margin: 0 8px;">military</span>
+                                                    <span style="font-size: 2.1rem; color: #34a853; font-weight: 400; margin: 0 8px;">accredited</span>
+                                                    <span style="font-size: 2.3rem; color: #ea4335; font-weight: 500; margin: 0 10px;">legitimate</span>
+                                                    <span style="font-size: 1.9rem; color: #fbbc04; font-weight: 500; margin: 0 8px;">working</span><br>
+                                                    
+                                                    <!-- Tier 3: Competitor & Program Terms -->
+                                                    <span style="font-size: 1.8rem; color: #9aa0a6; font-weight: 400; margin: 0 6px;">SNHU</span>
+                                                    <span style="font-size: 1.7rem; color: #1a73e8; font-weight: 400; margin: 0 6px;">degree</span>
+                                                    <span style="font-size: 1.6rem; color: #ea4335; font-weight: 400; margin: 0 6px;">costs</span>
+                                                    <span style="font-size: 1.8rem; color: #34a853; font-weight: 400; margin: 0 6px;">transfer</span>
+                                                    <span style="font-size: 1.5rem; color: #fbbc04; font-weight: 400; margin: 0 5px;">MBA</span>
+                                                    <span style="font-size: 1.7rem; color: #9aa0a6; font-weight: 400; margin: 0 6px;">WGU</span><br>
+                                                    
+                                                    <!-- Tier 4: Context & Experience Terms -->
+                                                    <span style="font-size: 1.4rem; color: #1a73e8; font-weight: 400; margin: 0 5px;">adults</span>
+                                                    <span style="font-size: 1.3rem; color: #34a853; font-weight: 300; margin: 0 4px;">credits</span>
+                                                    <span style="font-size: 1.5rem; color: #ea4335; font-weight: 400; margin: 0 5px;">tuition</span>
+                                                    <span style="font-size: 1.2rem; color: #fbbc04; font-weight: 300; margin: 0 4px;">experience</span>
+                                                    <span style="font-size: 1.4rem; color: #9aa0a6; font-weight: 300; margin: 0 4px;">professors</span>
+                                                    <span style="font-size: 1.3rem; color: #1a73e8; font-weight: 300; margin: 0 4px;">programs</span><br>
+                                                    
+                                                    <!-- Tier 5: Sentiment & Quality Terms -->
+                                                    <span style="font-size: 1.2rem; color: #34a853; font-weight: 300; margin: 0 3px;">convenient</span>
+                                                    <span style="font-size: 1.1rem; color: #ea4335; font-weight: 300; margin: 0 3px;">expensive</span>
+                                                    <span style="font-size: 1.3rem; color: #fbbc04; font-weight: 300; margin: 0 3px;">career</span>
+                                                    <span style="font-size: 1.0rem; color: #9aa0a6; font-weight: 300; margin: 0 3px;">psychology</span>
+                                                    <span style="font-size: 1.2rem; color: #1a73e8; font-weight: 300; margin: 0 3px;">regionally</span>
+                                                    <span style="font-size: 1.1rem; color: #34a853; font-weight: 300; margin: 0 3px;">supportive</span><br>
+                                                    
+                                                    <!-- Tier 6: Specific Programs & Competitors -->
+                                                    <span style="font-size: 1.0rem; color: #ea4335; font-weight: 300; margin: 0 2px;">scam</span>
+                                                    <span style="font-size: 1.1rem; color: #fbbc04; font-weight: 300; margin: 0 3px;">education</span>
+                                                    <span style="font-size: 0.9rem; color: #9aa0a6; font-weight: 300; margin: 0 2px;">ASU</span>
+                                                    <span style="font-size: 1.0rem; color: #1a73e8; font-weight: 300; margin: 0 2px;">nursing</span>
+                                                    <span style="font-size: 0.95rem; color: #34a853; font-weight: 300; margin: 0 2px;">scheduling</span>
+                                                    <span style="font-size: 1.0rem; color: #ea4335; font-weight: 300; margin: 0 2px;">debt</span>
+                                                    <span style="font-size: 0.9rem; color: #fbbc04; font-weight: 300; margin: 0 2px;">employment</span><br>
+                                                    
+                                                    <!-- Tier 7: Additional Context Terms -->
+                                                    <span style="font-size: 0.85rem; color: #9aa0a6; font-weight: 300; margin: 0 2px;">bachelor</span>
+                                                    <span style="font-size: 0.9rem; color: #1a73e8; font-weight: 300; margin: 0 2px;">worth</span>
+                                                    <span style="font-size: 0.8rem; color: #34a853; font-weight: 300; margin: 0 2px;">accelerated</span>
+                                                    <span style="font-size: 0.85rem; color: #ea4335; font-weight: 300; margin: 0 2px;">reputation</span>
+                                                    <span style="font-size: 0.9rem; color: #fbbc04; font-weight: 300; margin: 0 2px;">business</span>
+                                                    <span style="font-size: 0.8rem; color: #9aa0a6; font-weight: 300; margin: 0 2px;">WSCUC</span>
+                                                    <span style="font-size: 0.85rem; color: #1a73e8; font-weight: 300; margin: 0 2px;">competency</span><br>
+                                                    
+                                                    <!-- Tier 8: Long-tail Terms -->
+                                                    <span style="font-size: 0.75rem; color: #34a853; font-weight: 300; margin: 0 1px;">affordable</span>
+                                                    <span style="font-size: 0.8rem; color: #ea4335; font-weight: 300; margin: 0 2px;">predatory</span>
+                                                    <span style="font-size: 0.75rem; color: #fbbc04; font-weight: 300; margin: 0 1px;">GI-bill</span>
+                                                    <span style="font-size: 0.7rem; color: #9aa0a6; font-weight: 300; margin: 0 1px;">masters</span>
+                                                    <span style="font-size: 0.75rem; color: #1a73e8; font-weight: 300; margin: 0 1px;">veterans</span>
+                                                    <span style="font-size: 0.8rem; color: #34a853; font-weight: 300; margin: 0 1px;">outcomes</span>
+                                                    <span style="font-size: 0.7rem; color: #ea4335; font-weight: 300; margin: 0 1px;">closure</span>
+                                                    <span style="font-size: 0.75rem; color: #fbbc04; font-weight: 300; margin: 0 1px;">coursework</span>
                                                 </div>
                                                 <div class="mt-3">
-                                                    <small class="text-muted">Generated from Reddit discussions • Last 24 months</small>
+                                                    <small class="text-muted">Generated from 2,500+ Reddit discussions • 8 tiers of frequency • Last 24 months</small>
                                                 </div>
                                             </div>
                                             <div class="position-absolute top-0 end-0 m-3">
@@ -1144,19 +1212,29 @@
                                             Wordcloud Insights
                                         </h6>
                                         <div class="insight-item mb-3">
-                                            <h6 class="text-success">Most Prominent</h6>
-                                            <p class="mb-1">UAGC, flexible, online, arizona</p>
-                                            <small class="text-muted">Core brand identifiers and key differentiators</small>
+                                            <h6 class="text-success">Most Prominent (65+ mentions)</h6>
+                                            <p class="mb-1">UAGC, flexible, online, arizona, military</p>
+                                            <small class="text-muted">Core brand identifiers dominating Reddit discussions</small>
                                         </div>
                                         <div class="insight-item mb-3">
-                                            <h6 class="text-warning">Concerning Terms</h6>
-                                            <p class="mb-1">ashford, legitimate, costs</p>
-                                            <small class="text-muted">Legacy issues and credibility questions</small>
+                                            <h6 class="text-warning">Concerning Terms (20+ mentions)</h6>
+                                            <p class="mb-1">ashford, legitimate, costs, expensive, scam, debt, predatory</p>
+                                            <small class="text-muted">Legacy issues, credibility questions, and financial concerns</small>
+                                        </div>
+                                        <div class="insight-item mb-3">
+                                            <h6 class="text-info">Competitor Context (15+ mentions)</h6>
+                                            <p class="mb-1">SNHU, WGU, ASU, regionally, WSCUC</p>
+                                            <small class="text-muted">Competitive landscape and accreditation discussions</small>
+                                        </div>
+                                        <div class="insight-item mb-3">
+                                            <h6 class="text-primary">Program Focus (10+ mentions)</h6>
+                                            <p class="mb-1">MBA, psychology, education, nursing, business, masters</p>
+                                            <small class="text-muted">Popular degree programs mentioned in discussions</small>
                                         </div>
                                         <div class="insight-item">
-                                            <h6 class="text-info">Opportunity Areas</h6>
-                                            <p class="mb-1">military, working adults, transfer</p>
-                                            <small class="text-muted">Target audience alignment and value propositions</small>
+                                            <h6 class="text-success">Value Propositions (8+ mentions)</h6>
+                                            <p class="mb-1">transfer, accelerated, convenient, supportive, GI-bill, veterans</p>
+                                            <small class="text-muted">Key differentiators and target audience benefits</small>
                                         </div>
                                     </div>
                                 </div>

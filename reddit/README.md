@@ -80,6 +80,21 @@ Use these to collect posts/comments for the last 24 months:
 
 ## A) Query Set (Comprehensive Data Collection Framework)
 
+### **Quick Reference: Reddit Search Execution**
+
+**🔍 Basic Search Process:**
+1. Go to reddit.com/search
+2. Enter query (see examples below)
+3. Choose sort method: **New** (recent) or **Top** (popular)
+4. Set time filter if using "Top" sort
+5. Document results with search parameters
+
+**📊 When to Use Each Sort:**
+- **"New"** → Recent conversations, emerging trends, daily monitoring
+- **"Top"** → Influential discussions, viral content, comprehensive analysis  
+- **"Hot"** → Currently trending, crisis monitoring
+- **"Relevance"** → Initial exploration, balanced overview
+
 ### **Objectives & Scope**
 - **Primary Goal**: Analyze UAGC brand sentiment and perception patterns across Reddit discussions
 - **Time Frame**: Last 24 months with older posts if they drive current narratives
@@ -223,6 +238,119 @@ score:<0 (negative reception tracking)
 - Anecdotal reports: Flag as opinion-based
 - Suspicious activity: Check for bot patterns or coordinated posting
 
+### **How to Execute Queries in Reddit Search (Step-by-Step)**
+
+#### **1. Access Reddit Search**
+- Navigate to reddit.com
+- Use the search bar at the top of the page
+- Or go directly to: reddit.com/search
+
+#### **2. Enter Your Query**
+**For Reddit's Search Bar, Use This Format:**
+```
+UAGC OR "University of Arizona Global Campus" -flair:buy -flair:sell
+```
+
+**Important Notes:**
+- Use quotation marks for exact phrases: `"University of Arizona Global Campus"`
+- Use OR (uppercase) between alternatives: `UAGC OR "Global Campus"`
+- Use minus sign (-) to exclude terms: `-flair:buy`
+- Use parentheses for complex logic: `(UAGC OR "Global Campus") AND legitimate`
+
+#### **3. Apply Sorting Options**
+
+**🔄 Sort by "New" (Most Recent First)**
+- **When to Use**: Track current conversations and emerging trends
+- **Best For**: Recent sentiment changes, new complaints/praise, real-time monitoring
+- **Click**: "New" tab after searching
+- **URL Format**: `reddit.com/search/?q=UAGC&sort=new`
+
+**⭐ Sort by "Top" (Highest Engagement)**
+- **When to Use**: Find influential posts that shaped opinions
+- **Best For**: Major discussions, viral content, representative views
+- **Click**: "Top" tab, then select time frame:
+  - **All Time**: Historic influential posts
+  - **Past Year**: Major recent discussions
+  - **Past Month**: Recent high-impact content
+  - **Past Week**: Latest trending topics
+- **URL Format**: `reddit.com/search/?q=UAGC&sort=top&t=year`
+
+**📊 Sort by "Relevance" (Default)**
+- **When to Use**: Comprehensive overview balancing recency and engagement
+- **Best For**: Initial exploration, general sentiment scanning
+- **Auto-selected** when you first search
+
+**🔥 Sort by "Hot" (Currently Trending)**
+- **When to Use**: Monitor active, ongoing discussions
+- **Best For**: Crisis monitoring, current events impact
+- **Click**: "Hot" tab after searching
+
+#### **4. Refine by Time Period**
+After sorting by "Top", select time period:
+- **Past Hour**: Breaking news reactions
+- **Past 24 Hours**: Daily sentiment tracking  
+- **Past Week**: Weekly monitoring cycles
+- **Past Month**: Monthly trend analysis
+- **Past Year**: Annual perception tracking
+- **All Time**: Historical context and major events
+
+#### **5. Filter by Content Type**
+- **Posts**: Original submissions (main discussions)
+- **Comments**: Reply discussions (deeper sentiment)
+- **Communities**: Relevant subreddits
+- **People**: Users frequently discussing topic
+
+#### **6. Advanced Search Examples**
+
+**Example 1: Recent Legitimacy Questions**
+```
+Search: "is UAGC legit" OR "UAGC scam" OR "UAGC worth it"
+Sort: New
+Time: Past Month
+Expected Results: Recent prospective student concerns
+```
+
+**Example 2: High-Impact Ashford Legacy Discussions**
+```
+Search: "Ashford University" AND UAGC
+Sort: Top
+Time: Past Year  
+Expected Results: Major threads linking UAGC to Ashford history
+```
+
+**Example 3: Current Student Experiences**
+```
+Search: "enrolled at UAGC" OR "UAGC student experience"
+Sort: New
+Time: Past Week
+Expected Results: Recent student feedback and experiences
+```
+
+**Example 4: Subreddit-Specific Confusion**
+```
+Search: subreddit:UofArizona UAGC OR "Global Campus"
+Sort: Top
+Time: All Time
+Expected Results: UA community discussions about UAGC distinction
+```
+
+#### **7. Data Collection Workflow**
+
+**Daily Monitoring Routine:**
+1. Run "New" searches each morning to catch overnight discussions
+2. Check "Hot" searches for trending topics requiring immediate attention
+3. Weekly "Top" review to identify influential content
+
+**Weekly Deep Dive:**
+1. Run all query sets with "Top" + "Past Week" sorting
+2. Export high-engagement threads (>50 comments)
+3. Analyze sentiment patterns and emerging themes
+
+**Monthly Analysis:**
+1. "Top" + "Past Month" across all query categories
+2. Compare volume and sentiment trends month-over-month
+3. Update competitor mention tracking
+
 ### **Export & Documentation Standards**
 
 **Required Metadata per Post/Comment**
@@ -230,6 +358,7 @@ score:<0 (negative reception tracking)
 - Full text (cleaned), author type (student/prospect/other)
 - Sentiment tag, theme classification, credibility score
 - Competitor mentions, claim verification status
+- **Search parameters used**: Query, sort method, time filter, date collected
 
 ## B) Where to look
 	•	r/UofArizona, r/college, r/OnlineEducation, r/highereducation, r/veterans, r/Military, r/StudentLoans.

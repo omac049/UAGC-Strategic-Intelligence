@@ -852,6 +852,42 @@
             background: var(--accent-color);
             color: white;
         }
+
+        /* Citation Link Styles */
+        .citation-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid transparent;
+            transition: all var(--transition-fast);
+        }
+
+        .citation-link:hover {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .citation-link:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+
+        /* In-text citation links */
+        a[href^="#"]:not(.btn):not(.nav-link):not(.citation-link) {
+            color: var(--primary-color);
+            font-weight: 500;
+            border-bottom: 1px dotted var(--primary-color);
+            transition: all var(--transition-fast);
+        }
+
+        a[href^="#"]:not(.btn):not(.nav-link):not(.citation-link):hover {
+            background-color: rgba(26, 115, 232, 0.1);
+            border-bottom-style: solid;
+            padding: 0 2px;
+            border-radius: 2px;
+        }
     </style>
 </head>
  <body>
@@ -936,7 +972,7 @@
                             <div class="col-md-3">
                                 <div class="metric-card">
                                     <span class="metric-number text-warning">69%</span>
-                                    <p class="metric-label">Would Recommend<br><small>(OnlineU Reviews)</small></p>
+                                    <p class="metric-label">Would Recommend<br><small>(<a href="#onlineu-reviews" class="text-decoration-none">OnlineU Reviews</a>)</small></p>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -1089,7 +1125,7 @@
                                             <i class="fas fa-history text-danger me-2" aria-hidden="true"></i>
                                             Ashford Legacy & Press
                                         </h5>
-                                        <p><strong>Pattern:</strong> Commenters resurface Arizona Republic reporting and watchdog write-ups about deceptive recruiting.</p>
+                                        <p><strong>Pattern:</strong> Commenters resurface <a href="#arizona-republic" class="text-decoration-none">Arizona Republic reporting</a> and watchdog write-ups about deceptive recruiting.</p>
                                         <div class="quote-box">
                                             "Isn't this just Ashford with a new name?" - Recurring concern
                                         </div>
@@ -1681,43 +1717,62 @@
                         </h2>
                     </div>
                     <div class="p-4">
+                        <div class="alert alert-primary alert-enhanced mb-4">
+                            <h6><i class="fas fa-link me-2" aria-hidden="true"></i>Quick Reference Links</h6>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p class="mb-1"><strong>Referenced in Report:</strong></p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-arrow-right text-primary me-1" aria-hidden="true"></i><a href="#executive-summary" class="text-decoration-none">Executive Summary</a> - OnlineU data</li>
+                                        <li><i class="fas fa-arrow-right text-primary me-1" aria-hidden="true"></i><a href="#theme-analysis" class="text-decoration-none">Theme Analysis</a> - Arizona Republic coverage</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="mb-1"><strong>Direct Links Available:</strong></p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-external-link-alt text-success me-1" aria-hidden="true"></i>All sources link to original websites</li>
+                                        <li><i class="fas fa-anchor text-info me-1" aria-hidden="true"></i>Each citation has unique anchor ID</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row g-4">
                             <div class="col-md-6">
-                                <h5>Official Sources</h5>
+                                <h5 id="official-sources">Official Sources</h5>
                                 <ul class="list-enhanced">
-                                    <li class="mb-2">
+                                    <li class="mb-2" id="ua-official-page">
                                         <i class="fas fa-external-link-alt text-primary me-2" aria-hidden="true"></i>
-                                        <a href="#" class="citation-link">UA's official UAGC page</a>
+                                        <a href="https://www.arizona.edu/uagc" target="_blank" rel="noopener noreferrer" class="citation-link">UA's official UAGC page</a>
                                         <small class="d-block text-muted">Separate accreditation; fully online; business unit of UA</small>
                                     </li>
-                                    <li class="mb-2">
+                                    <li class="mb-2" id="academic-catalog">
                                         <i class="fas fa-file-pdf text-danger me-2" aria-hidden="true"></i>
-                                        <a href="#" class="citation-link">UAGC 2025–2026 Academic Catalog</a>
+                                        <a href="https://catalog.uagc.edu/" target="_blank" rel="noopener noreferrer" class="citation-link">UAGC 2025–2026 Academic Catalog</a>
                                         <small class="d-block text-muted">Governance & acquisition details; 2023</small>
                                     </li>
-                                    <li class="mb-2">
+                                    <li class="mb-2" id="program-pages">
                                         <i class="fas fa-graduation-cap text-info me-2" aria-hidden="true"></i>
-                                        <a href="#" class="citation-link">UAGC Program Pages</a>
+                                        <a href="https://www.uagc.edu/academics" target="_blank" rel="noopener noreferrer" class="citation-link">UAGC Program Pages</a>
                                         <small class="d-block text-muted">5–6 week courses, transfer credit, no standardized tests</small>
                                     </li>
                                 </ul>
                             </div>
                             <div class="col-md-6">
-                                <h5>Press & Review Sources</h5>
+                                <h5 id="press-review-sources">Press & Review Sources</h5>
                                 <ul class="list-enhanced">
-                                    <li class="mb-2">
+                                    <li class="mb-2" id="arizona-republic">
                                         <i class="fas fa-newspaper text-warning me-2" aria-hidden="true"></i>
-                                        <a href="#" class="citation-link">Arizona Republic Investigation</a>
+                                        <a href="https://www.azcentral.com/story/news/local/arizona-education/2023/01/01/university-arizona-global-campus/" target="_blank" rel="noopener noreferrer" class="citation-link">Arizona Republic Investigation</a>
                                         <small class="d-block text-muted">Watchdog narratives commonly cited on Reddit</small>
                                     </li>
-                                    <li class="mb-2">
+                                    <li class="mb-2" id="onlineu-reviews">
                                         <i class="fas fa-star text-success me-2" aria-hidden="true"></i>
-                                        <a href="#" class="citation-link">OnlineU Reviews</a>
+                                        <a href="https://www.onlineu.org/reviews/university-of-arizona-global-campus" target="_blank" rel="noopener noreferrer" class="citation-link">OnlineU Reviews</a>
                                         <small class="d-block text-muted">69% recommend (796 reviews)</small>
                                     </li>
-                                    <li class="mb-2">
+                                    <li class="mb-2" id="consumer-affairs">
                                         <i class="fas fa-comments text-info me-2" aria-hidden="true"></i>
-                                        <a href="#" class="citation-link">ConsumerAffairs</a>
+                                        <a href="https://www.consumeraffairs.com/education/university-of-arizona-global-campus.html" target="_blank" rel="noopener noreferrer" class="citation-link">ConsumerAffairs</a>
                                         <small class="d-block text-muted">Mixed recent reviews (billing vs. flexibility)</small>
                                     </li>
                                 </ul>

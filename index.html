@@ -823,98 +823,6 @@
 
 
 
-        /* Password Overlay */
-        .password-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(12, 35, 75, 0.95);
-            backdrop-filter: blur(15px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-        }
-
-        .password-overlay.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .password-form {
-            background: white;
-            padding: 3rem;
-            border-radius: var(--radius-xl);
-            max-width: 500px;
-            width: 90%;
-            text-align: center;
-            box-shadow: var(--shadow-xl);
-            transform: translateY(20px);
-            transition: var(--transition);
-        }
-
-        .password-overlay.show .password-form {
-            transform: translateY(0);
-        }
-
-        .password-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--arizona-blue);
-            margin-bottom: 1rem;
-        }
-
-        .password-description {
-            color: #666;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .password-input {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #e5e7eb;
-            border-radius: var(--radius-md);
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            transition: var(--transition);
-        }
-
-        .password-input:focus {
-            outline: none;
-            border-color: var(--arizona-red);
-            box-shadow: 0 0 0 3px rgba(171, 5, 32, 0.1);
-        }
-
-        .password-submit {
-            background: var(--gradient-primary);
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: var(--radius-md);
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-            transition: var(--transition);
-        }
-
-        .password-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .error-message {
-            color: #ef4444;
-            margin-top: 1rem;
-            font-weight: 500;
-        }
 
         /* Responsive Design */
         @media (max-width: 1200px) {
@@ -977,10 +885,6 @@
                 display: none;
             }
 
-            .password-form {
-                padding: 2rem;
-                margin: 1rem;
-            }
         }
 
         /* Enhanced Animations */
@@ -1064,24 +968,6 @@
     </style>
 </head>
 <body>
-    <!-- Password Protection Overlay -->
-    <div id="passwordOverlay" class="password-overlay">
-        <div class="password-form">
-            <i class="fas fa-shield-alt" style="font-size: 3rem; color: var(--arizona-red); margin-bottom: 1rem;"></i>
-            <h2 class="password-title">🔒 Secure Access Required</h2>
-            <p class="password-description">This strategic intelligence suite contains confidential UAGC business information. Please enter your access credentials to continue.</p>
-            <form id="passwordForm">
-                <input type="password" id="passwordInput" class="password-input" placeholder="Enter access code" required>
-                <button type="submit" class="password-submit">
-                    <i class="fas fa-unlock-alt"></i> Access Strategic Suite
-                </button>
-                <div id="errorMessage" class="error-message" style="display: none;"></div>
-            </form>
-            <div style="margin-top: 2rem; padding: 1rem; background: #f8f9fa; border-radius: var(--radius-md); font-size: 0.9rem; color: #666;">
-                <i class="fas fa-info-circle"></i> Authorized personnel only. All access is logged and monitored.
-            </div>
-        </div>
-    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -1515,120 +1401,15 @@
             }
         });
 
-        // Password Protection System
-        const CORRECT_PASSWORD = 'UAGC2025Recovery';
-        const SESSION_KEY = 'uagc_strategy_authenticated';
-        const COOKIE_KEY = 'uagc_auth_token';
-        
-        // Cookie utility functions
-        function setCookie(name, value, days) {
-            const expires = new Date();
-            expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
-            document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/;secure;samesite=strict`;
-        }
-        
-        function getCookie(name) {
-            const nameEQ = name + "=";
-            const cookies = document.cookie.split(';');
-            for(let i = 0; i < cookies.length; i++) {
-                let cookie = cookies[i];
-                while (cookie.charAt(0) === ' ') cookie = cookie.substring(1, cookie.length);
-                if (cookie.indexOf(nameEQ) === 0) return cookie.substring(nameEQ.length, cookie.length);
-            }
-            return null;
-        }
-        
-        function deleteCookie(name) {
-            document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;`;
-        }
-        
-        // Check authentication on page load
-        function checkAuthentication() {
-            const isSessionAuthenticated = sessionStorage.getItem(SESSION_KEY) === 'true';
-            const isCookieAuthenticated = getCookie(COOKIE_KEY) === 'authenticated';
-            
-            if (isSessionAuthenticated || isCookieAuthenticated) {
-                if (isCookieAuthenticated && !isSessionAuthenticated) {
-                    // Restore session from cookie
-                    sessionStorage.setItem(SESSION_KEY, 'true');
-                }
-                return true;
-            } else {
-                showPasswordOverlay();
-                return false;
-            }
-        }
-        
-        // Show password overlay
-        function showPasswordOverlay() {
-            const overlay = document.getElementById('passwordOverlay');
-            overlay.classList.add('show');
-            setTimeout(() => {
-                document.getElementById('passwordInput').focus();
-            }, 300);
-        }
-        
-        // Hide password overlay
-        function hidePasswordOverlay() {
-            const overlay = document.getElementById('passwordOverlay');
-            overlay.classList.remove('show');
-        }
-        
-        // Handle password form submission
-        document.getElementById('passwordForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const password = document.getElementById('passwordInput').value;
-            const errorDiv = document.getElementById('errorMessage');
-            
-            if (password === CORRECT_PASSWORD) {
-                // Set both session and persistent cookie (7 days)
-                sessionStorage.setItem(SESSION_KEY, 'true');
-                setCookie(COOKIE_KEY, 'authenticated', 7);
-                
-                hidePasswordOverlay();
-                errorDiv.style.display = 'none';
-                
-                // Show success message briefly
-                const successMsg = document.createElement('div');
-                successMsg.innerHTML = '<i class="fas fa-check-circle"></i> Access Granted! Welcome back to the Strategic Intelligence Suite';
-                successMsg.style.cssText = 'position: fixed; top: 20px; right: 20px; background: #10B981; color: white; padding: 1rem 2rem; border-radius: 10px; z-index: 10000; box-shadow: 0 10px 25px rgba(0,0,0,0.2);';
-                document.body.appendChild(successMsg);
-                
-                setTimeout(() => {
-                    successMsg.remove();
-                }, 3000);
-                
-            } else {
-                errorDiv.textContent = '❌ Invalid access code. Please contact your administrator.';
-                errorDiv.style.display = 'block';
-                
-                // Shake animation
-                const form = document.querySelector('.password-form');
-                form.style.animation = 'shake 0.5s ease-in-out';
-                setTimeout(() => {
-                    form.style.animation = '';
-                }, 500);
-            }
-        });
-        
         // Generic document opening function
         function openDocument(documentPath) {
-            const isAuthenticated = checkAuthentication();
-            if (isAuthenticated) {
-                window.open(documentPath, '_blank');
-                
-                // Track access
-                console.log(`📊 Strategic Document Accessed: ${documentPath}`);
-                
-                // Optional: Add analytics tracking here
-                // gtag('event', 'document_access', { document_name: documentPath });
-                
-            } else {
-                showPasswordOverlay();
-                const errorDiv = document.getElementById('errorMessage');
-                errorDiv.textContent = '🔒 Please authenticate first to access strategic documents.';
-                errorDiv.style.display = 'block';
-            }
+            window.open(documentPath, '_blank');
+            
+            // Track access
+            console.log(`📊 Strategic Document Accessed: ${documentPath}`);
+            
+            // Optional: Add analytics tracking here
+            // gtag('event', 'document_access', { document_name: documentPath });
         }
         
         // Smooth scrolling for internal links
@@ -1761,17 +1542,8 @@
 
         // Initialize on page load
         window.addEventListener('load', function() {
-            checkAuthentication();
             initHeroBadgeAnimation();
             initParticleAnimation();
-        });
-        
-        // Keyboard shortcuts
-        document.addEventListener('keydown', function(e) {
-            // Escape to show password form
-            if (e.key === 'Escape' && e.shiftKey) {
-                showPasswordOverlay();
-            }
         });
         
         // Performance optimization: Lazy load non-critical resources
